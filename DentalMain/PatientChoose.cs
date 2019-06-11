@@ -20,6 +20,7 @@ namespace DentalMain
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dBDS.patients". При необходимости она может быть перемещена или удалена.
             this.patientsTableAdapter.Fill(this.dBDS.patients);
+            helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

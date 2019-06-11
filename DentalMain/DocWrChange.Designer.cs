@@ -327,6 +327,7 @@
             this.Controls.Add(this.comboBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.helpProvider1.SetHelpKeyword(this, "26");
+            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.TopicId);
             this.helpProvider1.SetHelpString(this, "26");
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(379, 900);

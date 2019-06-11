@@ -20,6 +20,7 @@ namespace DentalMain
         private void MaterialsAdd_Load(object sender, EventArgs e)
         {
             ThreadingUpdate();
+            helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
         }
 
         public void ThreadingUpdate()

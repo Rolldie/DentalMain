@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.MatGrid = new System.Windows.Forms.DataGridView();
+            this.id_material = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.namematerialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datagridcomb = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.змінитиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.видалитиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,9 +48,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.AddBtn = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.id_material = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.namematerialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.MatGrid)).BeginInit();
             this.datagridcomb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.materialsBindingSource)).BeginInit();
@@ -75,10 +76,30 @@
             this.MatGrid.Name = "MatGrid";
             this.MatGrid.RowHeadersVisible = false;
             this.MatGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MatGrid.Size = new System.Drawing.Size(381, 377);
+            this.MatGrid.Size = new System.Drawing.Size(300, 296);
             this.MatGrid.TabIndex = 0;
             this.MatGrid.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.MatGrid_CellMouseDown);
             this.MatGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
+            // 
+            // id_material
+            // 
+            this.id_material.DataPropertyName = "id_material";
+            this.id_material.HeaderText = "id_material";
+            this.id_material.Name = "id_material";
+            this.id_material.Visible = false;
+            // 
+            // namematerialDataGridViewTextBoxColumn
+            // 
+            this.namematerialDataGridViewTextBoxColumn.DataPropertyName = "name_material";
+            this.namematerialDataGridViewTextBoxColumn.HeaderText = "Назва матеріалу";
+            this.namematerialDataGridViewTextBoxColumn.Name = "namematerialDataGridViewTextBoxColumn";
+            // 
+            // costDataGridViewTextBoxColumn
+            // 
+            this.costDataGridViewTextBoxColumn.DataPropertyName = "cost";
+            this.costDataGridViewTextBoxColumn.FillWeight = 30F;
+            this.costDataGridViewTextBoxColumn.HeaderText = "Ціна";
+            this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
             // 
             // datagridcomb
             // 
@@ -123,7 +144,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Name_matTextBox.Location = new System.Drawing.Point(103, 12);
             this.Name_matTextBox.Name = "Name_matTextBox";
-            this.Name_matTextBox.Size = new System.Drawing.Size(290, 20);
+            this.Name_matTextBox.Size = new System.Drawing.Size(209, 20);
             this.Name_matTextBox.TabIndex = 1;
             this.Name_matTextBox.TextChanged += new System.EventHandler(this.Name_matTextBox_TextChanged);
             // 
@@ -133,7 +154,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CostTextBox.Location = new System.Drawing.Point(103, 39);
             this.CostTextBox.Name = "CostTextBox";
-            this.CostTextBox.Size = new System.Drawing.Size(290, 20);
+            this.CostTextBox.Size = new System.Drawing.Size(209, 20);
             this.CostTextBox.TabIndex = 2;
             this.CostTextBox.TextChanged += new System.EventHandler(this.CostTextBox_TextChanged);
             // 
@@ -144,14 +165,14 @@
             this.DirectoryImageTextBox.Enabled = false;
             this.DirectoryImageTextBox.Location = new System.Drawing.Point(103, 65);
             this.DirectoryImageTextBox.Name = "DirectoryImageTextBox";
-            this.DirectoryImageTextBox.Size = new System.Drawing.Size(260, 20);
+            this.DirectoryImageTextBox.Size = new System.Drawing.Size(179, 20);
             this.DirectoryImageTextBox.TabIndex = 2;
             this.DirectoryImageTextBox.TextChanged += new System.EventHandler(this.DirectoryImageTextBox_TextChanged);
             // 
             // directorySetBtn
             // 
             this.directorySetBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.directorySetBtn.Location = new System.Drawing.Point(369, 65);
+            this.directorySetBtn.Location = new System.Drawing.Point(288, 65);
             this.directorySetBtn.Name = "directorySetBtn";
             this.directorySetBtn.Size = new System.Drawing.Size(24, 20);
             this.directorySetBtn.TabIndex = 3;
@@ -192,7 +213,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.AddBtn.Location = new System.Drawing.Point(12, 91);
             this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(381, 36);
+            this.AddBtn.Size = new System.Drawing.Size(300, 36);
             this.AddBtn.TabIndex = 3;
             this.AddBtn.Text = "Додати матеріал";
             this.AddBtn.UseVisualStyleBackColor = true;
@@ -203,32 +224,12 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "*.jpg|*.png";
             // 
-            // id_material
-            // 
-            this.id_material.DataPropertyName = "id_material";
-            this.id_material.HeaderText = "id_material";
-            this.id_material.Name = "id_material";
-            this.id_material.Visible = false;
-            // 
-            // namematerialDataGridViewTextBoxColumn
-            // 
-            this.namematerialDataGridViewTextBoxColumn.DataPropertyName = "name_material";
-            this.namematerialDataGridViewTextBoxColumn.HeaderText = "Назва матеріалу";
-            this.namematerialDataGridViewTextBoxColumn.Name = "namematerialDataGridViewTextBoxColumn";
-            // 
-            // costDataGridViewTextBoxColumn
-            // 
-            this.costDataGridViewTextBoxColumn.DataPropertyName = "cost";
-            this.costDataGridViewTextBoxColumn.FillWeight = 30F;
-            this.costDataGridViewTextBoxColumn.HeaderText = "Ціна";
-            this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
-            // 
             // Materials
             // 
             this.AcceptButton = this.AddBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(407, 520);
+            this.ClientSize = new System.Drawing.Size(326, 439);
             this.Controls.Add(this.CostTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -238,7 +239,11 @@
             this.Controls.Add(this.DirectoryImageTextBox);
             this.Controls.Add(this.Name_matTextBox);
             this.Controls.Add(this.MatGrid);
+            this.helpProvider1.SetHelpKeyword(this, "24");
+            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.TopicId);
+            this.MinimumSize = new System.Drawing.Size(342, 274);
             this.Name = "Materials";
+            this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Матеріали";
             this.Load += new System.EventHandler(this.MaterialsAdd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.MatGrid)).EndInit();
@@ -271,5 +276,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id_material;
         private System.Windows.Forms.DataGridViewTextBoxColumn namematerialDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }
