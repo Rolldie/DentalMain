@@ -38,6 +38,7 @@ namespace DentalMain
         private void Settings_Load(object sender, EventArgs e)
         {
             UpdateDoc();
+            helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
             DoctorGet.SelectedValue = ak;
         }
         

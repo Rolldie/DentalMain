@@ -62,6 +62,7 @@ namespace DentalMain
         private void ServicesAndPosts_Load(object sender, EventArgs e)
         {
             ThreadingUpdate();
+            helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
         }
 
         private void postdocspostservicesBindingSource_ListChanged(object sender, ListChangedEventArgs e)
@@ -200,11 +201,6 @@ namespace DentalMain
         public void ResetBindServ()
         {
             servicesBindingSource.ResetBindings(false);
-        }
-
-        private void TextBox1_KeyUp(object sender, KeyEventArgs e)
-        {
-            
         }
 
         private void TextBox1_KeyDown(object sender, KeyEventArgs e)

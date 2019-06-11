@@ -41,6 +41,7 @@
             this.WorkMode = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
             this.BtnChangeCon = new System.Windows.Forms.Button();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.doctorsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDS)).BeginInit();
             this.WorkMode.SuspendLayout();
@@ -168,7 +169,11 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.DoctorGet);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.helpProvider1.SetHelpKeyword(this, "20");
+            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.TopicId);
             this.Name = "SettingsApp";
+            this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Налаштування";
             this.Load += new System.EventHandler(this.Settings_Load);
             ((System.ComponentModel.ISupportInitialize)(this.doctorsBindingSource)).EndInit();
@@ -194,5 +199,6 @@
         private System.Windows.Forms.GroupBox WorkMode;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button BtnChangeCon;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }
