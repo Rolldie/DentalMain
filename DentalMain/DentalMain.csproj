@@ -260,6 +260,9 @@
     <Compile Include="WaitPlsForm.Designer.cs">
       <DependentUpon>WaitPlsForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Стоматологічна клuінікаГоловна база.accdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
     <EmbeddedResource Include="Help\help.chm">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
