@@ -250,6 +250,8 @@
             // 
             // menuStrip1
             // 
+            this.helpProvider1.SetHelpKeyword(this.menuStrip1, "6");
+            this.helpProvider1.SetHelpNavigator(this.menuStrip1, System.Windows.Forms.HelpNavigator.TopicId);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.пацієнтиToolStripMenuItem,
             this.журналЗаписуToolStripMenuItem,
@@ -260,6 +262,7 @@
             this.налаштуванняToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
+            this.helpProvider1.SetShowHelp(this.menuStrip1, true);
             this.menuStrip1.Size = new System.Drawing.Size(710, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
@@ -463,10 +466,13 @@
             this.MainTab.Controls.Add(this.appointment);
             this.MainTab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainTab.Enabled = false;
+            this.helpProvider1.SetHelpKeyword(this.MainTab, "5");
+            this.helpProvider1.SetHelpNavigator(this.MainTab, System.Windows.Forms.HelpNavigator.TopicId);
             this.MainTab.Location = new System.Drawing.Point(0, 49);
             this.MainTab.Name = "MainTab";
             this.MainTab.SelectedIndex = 0;
-            this.MainTab.Size = new System.Drawing.Size(710, 436);
+            this.helpProvider1.SetShowHelp(this.MainTab, true);
+            this.MainTab.Size = new System.Drawing.Size(710, 409);
             this.MainTab.TabIndex = 2;
             this.MainTab.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.MainTab_Selecting);
             this.MainTab.Selected += new System.Windows.Forms.TabControlEventHandler(this.MainTab_Selected);
@@ -489,10 +495,14 @@
             this.PatientInfo.Controls.Add(this.comboBox1);
             this.PatientInfo.Controls.Add(this.BtnGetPat);
             this.PatientInfo.Controls.Add(this.LblPatient);
+            this.helpProvider1.SetHelpKeyword(this.PatientInfo, "7");
+            this.helpProvider1.SetHelpNavigator(this.PatientInfo, System.Windows.Forms.HelpNavigator.TopicId);
+            this.helpProvider1.SetHelpString(this.PatientInfo, "7");
             this.PatientInfo.Location = new System.Drawing.Point(4, 22);
             this.PatientInfo.Name = "PatientInfo";
             this.PatientInfo.Padding = new System.Windows.Forms.Padding(3);
-            this.PatientInfo.Size = new System.Drawing.Size(702, 410);
+            this.helpProvider1.SetShowHelp(this.PatientInfo, true);
+            this.PatientInfo.Size = new System.Drawing.Size(702, 383);
             this.PatientInfo.TabIndex = 0;
             this.PatientInfo.Text = "Пацієнт";
             this.PatientInfo.UseVisualStyleBackColor = true;
@@ -683,10 +693,13 @@
             // Complaints
             // 
             this.Complaints.Controls.Add(this.tableLayoutPanel1);
+            this.helpProvider1.SetHelpKeyword(this.Complaints, "8");
+            this.helpProvider1.SetHelpNavigator(this.Complaints, System.Windows.Forms.HelpNavigator.TopicId);
             this.Complaints.Location = new System.Drawing.Point(4, 22);
             this.Complaints.Name = "Complaints";
             this.Complaints.Padding = new System.Windows.Forms.Padding(3);
-            this.Complaints.Size = new System.Drawing.Size(702, 410);
+            this.helpProvider1.SetShowHelp(this.Complaints, true);
+            this.Complaints.Size = new System.Drawing.Size(702, 383);
             this.Complaints.TabIndex = 1;
             this.Complaints.Text = "Скарги";
             this.Complaints.UseVisualStyleBackColor = true;
@@ -697,9 +710,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.01639F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.9836F));
             this.tableLayoutPanel1.Controls.Add(this.label9, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.treeViewcompl, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label15, 1, 2);
@@ -714,7 +727,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(686, 383);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(686, 356);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
             // label9
@@ -723,7 +736,7 @@
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label9.Location = new System.Drawing.Point(3, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(302, 26);
+            this.label9.Size = new System.Drawing.Size(357, 26);
             this.label9.TabIndex = 5;
             this.label9.Text = "Перелік скарг пацієнта";
             this.label9.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -734,9 +747,9 @@
             this.tableLayoutPanel1.SetColumnSpan(this.treeViewcompl, 2);
             this.treeViewcompl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewcompl.FullRowSelect = true;
-            this.treeViewcompl.Location = new System.Drawing.Point(311, 75);
+            this.treeViewcompl.Location = new System.Drawing.Point(366, 75);
             this.treeViewcompl.Name = "treeViewcompl";
-            this.treeViewcompl.Size = new System.Drawing.Size(372, 305);
+            this.treeViewcompl.Size = new System.Drawing.Size(317, 278);
             this.treeViewcompl.TabIndex = 6;
             this.treeViewcompl.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeViewcompl_AfterCheck);
             this.treeViewcompl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TreeViewcompl_MouseDown);
@@ -746,9 +759,9 @@
             this.label15.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label15, 2);
             this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label15.Location = new System.Drawing.Point(311, 52);
+            this.label15.Location = new System.Drawing.Point(366, 52);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(372, 20);
+            this.label15.Size = new System.Drawing.Size(317, 20);
             this.label15.TabIndex = 3;
             this.label15.Text = "Можливі скарги (відмічено за поточні день та лікаря)";
             this.label15.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -756,9 +769,9 @@
             // BtnAddComplaint
             // 
             this.BtnAddComplaint.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnAddComplaint.Location = new System.Drawing.Point(381, 3);
+            this.BtnAddComplaint.Location = new System.Drawing.Point(436, 3);
             this.BtnAddComplaint.Name = "BtnAddComplaint";
-            this.BtnAddComplaint.Size = new System.Drawing.Size(302, 20);
+            this.BtnAddComplaint.Size = new System.Drawing.Size(247, 20);
             this.BtnAddComplaint.TabIndex = 4;
             this.BtnAddComplaint.Text = "Додати";
             this.BtnAddComplaint.UseVisualStyleBackColor = true;
@@ -770,9 +783,9 @@
             this.ComplText.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.tableLayoutPanel1.SetColumnSpan(this.ComplText, 2);
             this.ComplText.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ComplText.Location = new System.Drawing.Point(311, 29);
+            this.ComplText.Location = new System.Drawing.Point(366, 29);
             this.ComplText.Name = "ComplText";
-            this.ComplText.Size = new System.Drawing.Size(372, 20);
+            this.ComplText.Size = new System.Drawing.Size(317, 20);
             this.ComplText.TabIndex = 7;
             this.ComplText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ComplText_KeyDown);
             // 
@@ -792,7 +805,7 @@
             this.dataGridComplaints.Name = "dataGridComplaints";
             this.dataGridComplaints.RowHeadersVisible = false;
             this.tableLayoutPanel1.SetRowSpan(this.dataGridComplaints, 3);
-            this.dataGridComplaints.Size = new System.Drawing.Size(302, 351);
+            this.dataGridComplaints.Size = new System.Drawing.Size(357, 324);
             this.dataGridComplaints.TabIndex = 0;
             this.dataGridComplaints.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataGridComplaints_DataError);
             // 
@@ -840,7 +853,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label8.Location = new System.Drawing.Point(311, 0);
+            this.label8.Location = new System.Drawing.Point(366, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(64, 26);
             this.label8.TabIndex = 3;
@@ -850,10 +863,13 @@
             // Anamnesis
             // 
             this.Anamnesis.Controls.Add(this.tableLayoutPanel2);
+            this.helpProvider1.SetHelpKeyword(this.Anamnesis, "9");
+            this.helpProvider1.SetHelpNavigator(this.Anamnesis, System.Windows.Forms.HelpNavigator.TopicId);
             this.Anamnesis.Location = new System.Drawing.Point(4, 22);
             this.Anamnesis.Name = "Anamnesis";
             this.Anamnesis.Padding = new System.Windows.Forms.Padding(3);
-            this.Anamnesis.Size = new System.Drawing.Size(702, 410);
+            this.helpProvider1.SetShowHelp(this.Anamnesis, true);
+            this.Anamnesis.Size = new System.Drawing.Size(702, 383);
             this.Anamnesis.TabIndex = 4;
             this.Anamnesis.Text = "Анамнез (інші)";
             this.Anamnesis.UseVisualStyleBackColor = true;
@@ -865,8 +881,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.68324F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.31676F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.78777F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 52.21223F));
             this.tableLayoutPanel2.Controls.Add(this.typeOfAnamn, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.treeViewAnamn, 2, 3);
             this.tableLayoutPanel2.Controls.Add(this.label4, 2, 2);
@@ -881,7 +897,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(686, 383);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(686, 356);
             this.tableLayoutPanel2.TabIndex = 10;
             // 
             // typeOfAnamn
@@ -893,7 +909,7 @@
             "Алергологічний"});
             this.typeOfAnamn.Location = new System.Drawing.Point(123, 3);
             this.typeOfAnamn.Name = "typeOfAnamn";
-            this.typeOfAnamn.Size = new System.Drawing.Size(280, 21);
+            this.typeOfAnamn.Size = new System.Drawing.Size(264, 21);
             this.typeOfAnamn.TabIndex = 1;
             this.typeOfAnamn.Text = "Життя";
             this.typeOfAnamn.SelectedIndexChanged += new System.EventHandler(this.typeOfAnamn_SelectedIndexChanged);
@@ -903,9 +919,9 @@
             this.treeViewAnamn.CheckBoxes = true;
             this.treeViewAnamn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewAnamn.FullRowSelect = true;
-            this.treeViewAnamn.Location = new System.Drawing.Point(409, 75);
+            this.treeViewAnamn.Location = new System.Drawing.Point(393, 75);
             this.treeViewAnamn.Name = "treeViewAnamn";
-            this.treeViewAnamn.Size = new System.Drawing.Size(274, 305);
+            this.treeViewAnamn.Size = new System.Drawing.Size(290, 278);
             this.treeViewAnamn.TabIndex = 3;
             this.treeViewAnamn.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeViewAnamn_AfterCheck);
             this.treeViewAnamn.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TreeViewcompl_MouseDown);
@@ -914,9 +930,9 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Location = new System.Drawing.Point(409, 52);
+            this.label4.Location = new System.Drawing.Point(393, 52);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(274, 20);
+            this.label4.Size = new System.Drawing.Size(290, 20);
             this.label4.TabIndex = 4;
             this.label4.Text = "Список захворювань";
             this.label4.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -926,9 +942,9 @@
             this.AnamnSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.AnamnSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.AnamnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AnamnSearch.Location = new System.Drawing.Point(409, 29);
+            this.AnamnSearch.Location = new System.Drawing.Point(393, 29);
             this.AnamnSearch.Name = "AnamnSearch";
-            this.AnamnSearch.Size = new System.Drawing.Size(274, 20);
+            this.AnamnSearch.Size = new System.Drawing.Size(290, 20);
             this.AnamnSearch.TabIndex = 9;
             this.AnamnSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AnamnSearch_KeyDown);
             // 
@@ -946,9 +962,9 @@
             // BtnAddAnm
             // 
             this.BtnAddAnm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnAddAnm.Location = new System.Drawing.Point(409, 3);
+            this.BtnAddAnm.Location = new System.Drawing.Point(393, 3);
             this.BtnAddAnm.Name = "BtnAddAnm";
-            this.BtnAddAnm.Size = new System.Drawing.Size(274, 20);
+            this.BtnAddAnm.Size = new System.Drawing.Size(290, 20);
             this.BtnAddAnm.TabIndex = 8;
             this.BtnAddAnm.Text = "Додати захворювання";
             this.BtnAddAnm.UseVisualStyleBackColor = true;
@@ -971,7 +987,7 @@
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.RowHeadersVisible = false;
             this.tableLayoutPanel2.SetRowSpan(this.dataGridView4, 3);
-            this.dataGridView4.Size = new System.Drawing.Size(400, 351);
+            this.dataGridView4.Size = new System.Drawing.Size(384, 324);
             this.dataGridView4.TabIndex = 0;
             // 
             // namediseaseDataGridViewTextBoxColumn
@@ -1007,10 +1023,13 @@
             // 
             this.planletstab.Controls.Add(this.tableLayoutPanel3);
             this.planletstab.Controls.Add(this.label24);
+            this.helpProvider1.SetHelpKeyword(this.planletstab, "10");
+            this.helpProvider1.SetHelpNavigator(this.planletstab, System.Windows.Forms.HelpNavigator.TopicId);
             this.planletstab.Location = new System.Drawing.Point(4, 22);
             this.planletstab.Name = "planletstab";
             this.planletstab.Padding = new System.Windows.Forms.Padding(3);
-            this.planletstab.Size = new System.Drawing.Size(702, 410);
+            this.helpProvider1.SetShowHelp(this.planletstab, true);
+            this.planletstab.Size = new System.Drawing.Size(702, 383);
             this.planletstab.TabIndex = 6;
             this.planletstab.Text = "План лікування";
             this.planletstab.UseVisualStyleBackColor = true;
@@ -1021,8 +1040,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51.54639F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.45361F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.32319F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.6768F));
             this.tableLayoutPanel3.Controls.Add(this.label20, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.PlnLtsTree, 1, 9);
             this.tableLayoutPanel3.Controls.Add(this.dataGridView1, 0, 1);
@@ -1047,7 +1066,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(688, 383);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(688, 356);
             this.tableLayoutPanel3.TabIndex = 8;
             // 
             // label20
@@ -1056,7 +1075,7 @@
             this.label20.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label20.Location = new System.Drawing.Point(3, 0);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(348, 20);
+            this.label20.Size = new System.Drawing.Size(374, 20);
             this.label20.TabIndex = 1;
             this.label20.Text = "Записи плану";
             this.label20.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -1065,12 +1084,12 @@
             // 
             this.PlnLtsTree.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PlnLtsTree.FullRowSelect = true;
-            this.PlnLtsTree.Location = new System.Drawing.Point(357, 207);
+            this.PlnLtsTree.Location = new System.Drawing.Point(383, 207);
             this.PlnLtsTree.Name = "PlnLtsTree";
             this.PlnLtsTree.ShowLines = false;
             this.PlnLtsTree.ShowPlusMinus = false;
             this.PlnLtsTree.ShowRootLines = false;
-            this.PlnLtsTree.Size = new System.Drawing.Size(328, 173);
+            this.PlnLtsTree.Size = new System.Drawing.Size(302, 146);
             this.PlnLtsTree.TabIndex = 7;
             this.PlnLtsTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.PlnLtsTree_AfterSelect);
             this.PlnLtsTree.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TreeViewcompl_MouseDown);
@@ -1095,7 +1114,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.tableLayoutPanel3.SetRowSpan(this.dataGridView1, 9);
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(348, 357);
+            this.dataGridView1.Size = new System.Drawing.Size(374, 330);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellEndEdit);
             this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DataGridView1_DataBindingComplete);
@@ -1139,9 +1158,9 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label25.Location = new System.Drawing.Point(357, 184);
+            this.label25.Location = new System.Drawing.Point(383, 184);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(328, 20);
+            this.label25.Size = new System.Drawing.Size(302, 20);
             this.label25.TabIndex = 5;
             this.label25.Text = "Можливі дії";
             this.label25.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -1149,17 +1168,17 @@
             // PlnLtsDateTime
             // 
             this.PlnLtsDateTime.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PlnLtsDateTime.Location = new System.Drawing.Point(357, 89);
+            this.PlnLtsDateTime.Location = new System.Drawing.Point(383, 89);
             this.PlnLtsDateTime.Name = "PlnLtsDateTime";
-            this.PlnLtsDateTime.Size = new System.Drawing.Size(328, 20);
+            this.PlnLtsDateTime.Size = new System.Drawing.Size(302, 20);
             this.PlnLtsDateTime.TabIndex = 6;
             // 
             // BtnAddPlnLts
             // 
             this.BtnAddPlnLts.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnAddPlnLts.Location = new System.Drawing.Point(357, 161);
+            this.BtnAddPlnLts.Location = new System.Drawing.Point(383, 161);
             this.BtnAddPlnLts.Name = "BtnAddPlnLts";
-            this.BtnAddPlnLts.Size = new System.Drawing.Size(328, 20);
+            this.BtnAddPlnLts.Size = new System.Drawing.Size(302, 20);
             this.BtnAddPlnLts.TabIndex = 3;
             this.BtnAddPlnLts.Text = "Додати у план лікування";
             this.BtnAddPlnLts.UseVisualStyleBackColor = true;
@@ -1169,9 +1188,9 @@
             // 
             this.label21.AutoSize = true;
             this.label21.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label21.Location = new System.Drawing.Point(357, 20);
+            this.label21.Location = new System.Drawing.Point(383, 20);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(328, 20);
+            this.label21.Size = new System.Drawing.Size(302, 20);
             this.label21.TabIndex = 1;
             this.label21.Text = "Зуб(и)";
             this.label21.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -1181,27 +1200,27 @@
             this.PlnLtsSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.PlnLtsSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.PlnLtsSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PlnLtsSearch.Location = new System.Drawing.Point(357, 135);
+            this.PlnLtsSearch.Location = new System.Drawing.Point(383, 135);
             this.PlnLtsSearch.Name = "PlnLtsSearch";
-            this.PlnLtsSearch.Size = new System.Drawing.Size(328, 20);
+            this.PlnLtsSearch.Size = new System.Drawing.Size(302, 20);
             this.PlnLtsSearch.TabIndex = 2;
             this.PlnLtsSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.PlnLtsSearch_KeyDown);
             // 
             // PlnLtsTooth
             // 
             this.PlnLtsTooth.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PlnLtsTooth.Location = new System.Drawing.Point(357, 43);
+            this.PlnLtsTooth.Location = new System.Drawing.Point(383, 43);
             this.PlnLtsTooth.Name = "PlnLtsTooth";
-            this.PlnLtsTooth.Size = new System.Drawing.Size(328, 20);
+            this.PlnLtsTooth.Size = new System.Drawing.Size(302, 20);
             this.PlnLtsTooth.TabIndex = 2;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
             this.label22.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label22.Location = new System.Drawing.Point(357, 66);
+            this.label22.Location = new System.Drawing.Point(383, 66);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(328, 20);
+            this.label22.Size = new System.Drawing.Size(302, 20);
             this.label22.TabIndex = 1;
             this.label22.Text = "Планована дата";
             this.label22.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -1210,9 +1229,9 @@
             // 
             this.label23.AutoSize = true;
             this.label23.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label23.Location = new System.Drawing.Point(357, 112);
+            this.label23.Location = new System.Drawing.Point(383, 112);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(328, 20);
+            this.label23.Size = new System.Drawing.Size(302, 20);
             this.label23.TabIndex = 1;
             this.label23.Text = "План";
             this.label23.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -1228,10 +1247,13 @@
             // AnamnDispg
             // 
             this.AnamnDispg.Controls.Add(this.tableLayoutPanel4);
+            this.helpProvider1.SetHelpKeyword(this.AnamnDispg, "11");
+            this.helpProvider1.SetHelpNavigator(this.AnamnDispg, System.Windows.Forms.HelpNavigator.TopicId);
             this.AnamnDispg.Location = new System.Drawing.Point(4, 22);
             this.AnamnDispg.Name = "AnamnDispg";
             this.AnamnDispg.Padding = new System.Windows.Forms.Padding(3);
-            this.AnamnDispg.Size = new System.Drawing.Size(702, 410);
+            this.helpProvider1.SetShowHelp(this.AnamnDispg, true);
+            this.AnamnDispg.Size = new System.Drawing.Size(702, 383);
             this.AnamnDispg.TabIndex = 7;
             this.AnamnDispg.Text = "Анамнез (хвороби)";
             this.AnamnDispg.UseVisualStyleBackColor = true;
@@ -1242,9 +1264,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel4.ColumnCount = 3;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50.50505F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.03262F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.49495F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.96738F));
             this.tableLayoutPanel4.Controls.Add(this.label29, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.dataGridView5, 0, 1);
             this.tableLayoutPanel4.Controls.Add(this.treeViewanamndis, 1, 4);
@@ -1260,8 +1282,7 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(686, 380);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(686, 353);
             this.tableLayoutPanel4.TabIndex = 5;
             // 
             // label29
@@ -1270,7 +1291,7 @@
             this.label29.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label29.Location = new System.Drawing.Point(3, 0);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(295, 20);
+            this.label29.Size = new System.Drawing.Size(333, 20);
             this.label29.TabIndex = 3;
             this.label29.Text = "Записи хвороб";
             this.label29.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -1292,7 +1313,7 @@
             this.dataGridView5.RowHeadersVisible = false;
             this.tableLayoutPanel4.SetRowSpan(this.dataGridView5, 4);
             this.dataGridView5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView5.Size = new System.Drawing.Size(295, 354);
+            this.dataGridView5.Size = new System.Drawing.Size(333, 327);
             this.dataGridView5.TabIndex = 0;
             this.dataGridView5.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DataGridView5_DataBindingComplete);
             this.dataGridView5.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataGridView5_DataError);
@@ -1330,12 +1351,12 @@
             this.treeViewanamndis.CheckBoxes = true;
             this.tableLayoutPanel4.SetColumnSpan(this.treeViewanamndis, 2);
             this.treeViewanamndis.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeViewanamndis.Location = new System.Drawing.Point(304, 95);
+            this.treeViewanamndis.Location = new System.Drawing.Point(342, 95);
             this.treeViewanamndis.Name = "treeViewanamndis";
             this.treeViewanamndis.ShowLines = false;
             this.treeViewanamndis.ShowPlusMinus = false;
             this.treeViewanamndis.ShowRootLines = false;
-            this.treeViewanamndis.Size = new System.Drawing.Size(379, 282);
+            this.treeViewanamndis.Size = new System.Drawing.Size(341, 255);
             this.treeViewanamndis.TabIndex = 2;
             this.treeViewanamndis.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.TreeViewanamndis_AfterCheck);
             this.treeViewanamndis.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TreeViewcompl_MouseDown);
@@ -1345,9 +1366,9 @@
             this.label28.AutoSize = true;
             this.tableLayoutPanel4.SetColumnSpan(this.label28, 2);
             this.label28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label28.Location = new System.Drawing.Point(304, 72);
+            this.label28.Location = new System.Drawing.Point(342, 72);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(379, 20);
+            this.label28.Size = new System.Drawing.Size(341, 20);
             this.label28.TabIndex = 3;
             this.label28.Text = "Можливі хвороби";
             this.label28.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -1355,9 +1376,9 @@
             // BtnAddAnmdis
             // 
             this.BtnAddAnmdis.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnAddAnmdis.Location = new System.Drawing.Point(394, 23);
+            this.BtnAddAnmdis.Location = new System.Drawing.Point(432, 23);
             this.BtnAddAnmdis.Name = "BtnAddAnmdis";
-            this.BtnAddAnmdis.Size = new System.Drawing.Size(289, 20);
+            this.BtnAddAnmdis.Size = new System.Drawing.Size(251, 20);
             this.BtnAddAnmdis.TabIndex = 4;
             this.BtnAddAnmdis.Text = "Додати до списку";
             this.BtnAddAnmdis.UseVisualStyleBackColor = true;
@@ -1367,7 +1388,7 @@
             // 
             this.label27.AutoSize = true;
             this.label27.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label27.Location = new System.Drawing.Point(304, 20);
+            this.label27.Location = new System.Drawing.Point(342, 20);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(84, 26);
             this.label27.TabIndex = 3;
@@ -1380,19 +1401,22 @@
             this.AnmndisSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.tableLayoutPanel4.SetColumnSpan(this.AnmndisSearch, 2);
             this.AnmndisSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AnmndisSearch.Location = new System.Drawing.Point(304, 49);
+            this.AnmndisSearch.Location = new System.Drawing.Point(342, 49);
             this.AnmndisSearch.Name = "AnmndisSearch";
-            this.AnmndisSearch.Size = new System.Drawing.Size(379, 20);
+            this.AnmndisSearch.Size = new System.Drawing.Size(341, 20);
             this.AnmndisSearch.TabIndex = 1;
             this.AnmndisSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AnmndisSearch_KeyDown);
             // 
             // Diagnosis
             // 
             this.Diagnosis.Controls.Add(this.tableLayoutPanel5);
+            this.helpProvider1.SetHelpKeyword(this.Diagnosis, "12");
+            this.helpProvider1.SetHelpNavigator(this.Diagnosis, System.Windows.Forms.HelpNavigator.TopicId);
             this.Diagnosis.Location = new System.Drawing.Point(4, 22);
             this.Diagnosis.Name = "Diagnosis";
             this.Diagnosis.Padding = new System.Windows.Forms.Padding(3);
-            this.Diagnosis.Size = new System.Drawing.Size(702, 410);
+            this.helpProvider1.SetShowHelp(this.Diagnosis, true);
+            this.Diagnosis.Size = new System.Drawing.Size(702, 383);
             this.Diagnosis.TabIndex = 2;
             this.Diagnosis.Text = "Діагноз";
             this.Diagnosis.UseVisualStyleBackColor = true;
@@ -1425,7 +1449,7 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(688, 383);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(688, 356);
             this.tableLayoutPanel5.TabIndex = 6;
             // 
             // dataGridView2
@@ -1448,7 +1472,7 @@
             this.dataGridView2.RowHeadersVisible = false;
             this.tableLayoutPanel5.SetRowSpan(this.dataGridView2, 7);
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(354, 357);
+            this.dataGridView2.Size = new System.Drawing.Size(354, 330);
             this.dataGridView2.TabIndex = 0;
             this.dataGridView2.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DataGridView2_DataBindingComplete);
             this.dataGridView2.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataGridView2_DataError);
@@ -1515,7 +1539,7 @@
             this.treeViewDiag.Name = "treeViewDiag";
             this.treeViewDiag.ShowPlusMinus = false;
             this.treeViewDiag.ShowRootLines = false;
-            this.treeViewDiag.Size = new System.Drawing.Size(322, 219);
+            this.treeViewDiag.Size = new System.Drawing.Size(322, 192);
             this.treeViewDiag.TabIndex = 2;
             this.treeViewDiag.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TreeViewDiag_AfterSelect);
             this.treeViewDiag.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TreeViewcompl_MouseDown);
@@ -1586,11 +1610,13 @@
             // appointment
             // 
             this.appointment.Controls.Add(this.tableLayoutPanel6);
-            this.appointment.Controls.Add(this.button3);
+            this.helpProvider1.SetHelpKeyword(this.appointment, "13");
+            this.helpProvider1.SetHelpNavigator(this.appointment, System.Windows.Forms.HelpNavigator.TopicId);
             this.appointment.Location = new System.Drawing.Point(4, 22);
             this.appointment.Name = "appointment";
             this.appointment.Padding = new System.Windows.Forms.Padding(3);
-            this.appointment.Size = new System.Drawing.Size(702, 410);
+            this.helpProvider1.SetShowHelp(this.appointment, true);
+            this.appointment.Size = new System.Drawing.Size(702, 383);
             this.appointment.TabIndex = 5;
             this.appointment.Text = "Лікування";
             this.appointment.UseVisualStyleBackColor = true;
@@ -1605,6 +1631,7 @@
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel6.Controls.Add(this.label5, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.button3, 2, 1);
             this.tableLayoutPanel6.Controls.Add(this.PaidGB, 0, 5);
             this.tableLayoutPanel6.Controls.Add(this.AppointBox, 0, 1);
             this.tableLayoutPanel6.Controls.Add(this.HealingTreeDiag, 0, 3);
@@ -1626,7 +1653,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(685, 346);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(685, 356);
             this.tableLayoutPanel6.TabIndex = 25;
             // 
             // PaidGB
@@ -1644,9 +1671,9 @@
             this.PaidGB.Controls.Add(this.button6);
             this.PaidGB.Controls.Add(this.textBox1);
             this.PaidGB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PaidGB.Location = new System.Drawing.Point(3, 196);
+            this.PaidGB.Location = new System.Drawing.Point(3, 200);
             this.PaidGB.Name = "PaidGB";
-            this.PaidGB.Size = new System.Drawing.Size(679, 147);
+            this.PaidGB.Size = new System.Drawing.Size(679, 153);
             this.PaidGB.TabIndex = 24;
             this.PaidGB.TabStop = false;
             this.PaidGB.Text = "Оплата послуг";
@@ -1663,10 +1690,12 @@
             // 
             // treeView1
             // 
+            this.treeView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.treeView1.Location = new System.Drawing.Point(3, 32);
             this.treeView1.Name = "treeView1";
             this.treeView1.ShowLines = false;
-            this.treeView1.Size = new System.Drawing.Size(428, 143);
+            this.treeView1.Size = new System.Drawing.Size(428, 115);
             this.treeView1.TabIndex = 13;
             // 
             // label31
@@ -1797,7 +1826,7 @@
             this.HealingTreeDiag.ShowLines = false;
             this.HealingTreeDiag.ShowPlusMinus = false;
             this.HealingTreeDiag.ShowRootLines = false;
-            this.HealingTreeDiag.Size = new System.Drawing.Size(222, 95);
+            this.HealingTreeDiag.Size = new System.Drawing.Size(222, 99);
             this.HealingTreeDiag.TabIndex = 22;
             this.HealingTreeDiag.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.HealingTreeDiag_AfterSelect);
             // 
@@ -1807,7 +1836,7 @@
             this.includesChkBx.Checked = true;
             this.includesChkBx.CheckState = System.Windows.Forms.CheckState.Checked;
             this.includesChkBx.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.includesChkBx.Location = new System.Drawing.Point(231, 170);
+            this.includesChkBx.Location = new System.Drawing.Point(231, 174);
             this.includesChkBx.Name = "includesChkBx";
             this.includesChkBx.Size = new System.Drawing.Size(222, 20);
             this.includesChkBx.TabIndex = 18;
@@ -1828,7 +1857,7 @@
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Location = new System.Drawing.Point(3, 170);
+            this.button1.Location = new System.Drawing.Point(3, 174);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(222, 20);
             this.button1.TabIndex = 7;
@@ -1843,7 +1872,7 @@
             this.MatTree.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MatTree.Location = new System.Drawing.Point(459, 69);
             this.MatTree.Name = "MatTree";
-            this.MatTree.Size = new System.Drawing.Size(223, 95);
+            this.MatTree.Size = new System.Drawing.Size(223, 99);
             this.MatTree.TabIndex = 8;
             // 
             // label6
@@ -1890,7 +1919,7 @@
             this.ServTree.ShowLines = false;
             this.ServTree.ShowPlusMinus = false;
             this.ServTree.ShowRootLines = false;
-            this.ServTree.Size = new System.Drawing.Size(222, 95);
+            this.ServTree.Size = new System.Drawing.Size(222, 99);
             this.ServTree.TabIndex = 6;
             this.ServTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.ServTree_AfterSelect);
             // 
@@ -1909,9 +1938,9 @@
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(8, 358);
+            this.button3.Location = new System.Drawing.Point(459, 23);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(686, 31);
+            this.button3.Size = new System.Drawing.Size(223, 20);
             this.button3.TabIndex = 11;
             this.button3.Text = "Змінити прийом";
             this.button3.UseVisualStyleBackColor = true;
@@ -1954,7 +1983,7 @@
             this.statusStrip1.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 463);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 436);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(710, 22);
             this.statusStrip1.TabIndex = 9;
@@ -2053,7 +2082,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(710, 485);
+            this.ClientSize = new System.Drawing.Size(710, 458);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.MainTab);
             this.Controls.Add(this.toolStrip1);
@@ -2064,7 +2093,7 @@
             this.helpProvider1.SetHelpString(this, "4");
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.MinimumSize = new System.Drawing.Size(726, 524);
+            this.MinimumSize = new System.Drawing.Size(726, 497);
             this.Name = "MainForm";
             this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Стоматологічний додаток";
@@ -2293,7 +2322,6 @@
         private System.Windows.Forms.Button PatAppointm;
         private System.Windows.Forms.ToolStripButton closeWind;
         private System.Windows.Forms.HelpProvider helpProvider1;
-        private System.Windows.Forms.TabPage Complaints;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TreeView treeViewcompl;
@@ -2310,6 +2338,7 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.TabPage Complaints;
     }
 }
 

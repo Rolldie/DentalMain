@@ -250,7 +250,11 @@ namespace DentalMain
                 if (f.time.TimeOfDay <= DateTime.Now.TimeOfDay)
                     AppointBox.SelectedValue = f.id_appointment;
             }
-            if (AppointBox.Text != "" && HealingTreeDiag.SelectedNode!=null) CheckAppointmChoose(true);
+            if (AppointBox.Text != "" && HealingTreeDiag.SelectedNode != null) CheckAppointmChoose(true);
+            else if (patientsappointmentBindingSource.Count != 0)
+            {
+                CheckAppointmChoose(false); button3.Enabled = true;
+            }
             else CheckAppointmChoose(false);
         }
 
@@ -679,11 +683,15 @@ namespace DentalMain
             treeViewcompl.BeginUpdate();
             treeViewcompl.Nodes.Clear();
             ComplText.AutoCompleteCustomSource.Clear();
+            List<TreeNode> Tree = new List<TreeNode>();
+            List<string> Search = new List<string>();
             foreach (dBDS.possibleComplRow a in dBDS.possibleCompl)
             {
-                treeViewcompl.Nodes.Add(a.id_compl.ToString(), a.description_compl);
-                ComplText.AutoCompleteCustomSource.Add(a.description_compl);
+                Tree.Add(new TreeNode(a.description_compl.ToLower()) { Name = a.id_compl.ToString() });
+                Search.Add(a.description_compl.ToLower());
             }
+            treeViewcompl.Nodes.AddRange(Tree.ToArray());
+            ComplText.AutoCompleteCustomSource.AddRange(Search.ToArray());
             treeViewcompl.EndUpdate();
         }
 
@@ -748,11 +756,15 @@ namespace DentalMain
             treeViewAnamn.BeginUpdate();
             treeViewAnamn.Nodes.Clear();
             AnamnSearch.AutoCompleteCustomSource.Clear();
+            List<TreeNode> Tree = new List<TreeNode>();
+            List<string> Search = new List<string>();
             foreach (dBDS.diseases_anamRow m in dBDS.diseases_anam.Select("type_anamn='" + typeOfAnamn.Text + "'"))
             {
-                treeViewAnamn.Nodes.Add(m.id_disease_anam.ToString(), m.disease_name.ToLower());
-                AnamnSearch.AutoCompleteCustomSource.Add(m.disease_name.ToLower());
+                Tree.Add(new TreeNode(m.disease_name.ToLower()){ Name = m.id_disease_anam.ToString() });
+                Search.Add(m.disease_name.ToLower());
             }
+            treeViewAnamn.Nodes.AddRange(Tree.ToArray());
+            AnamnSearch.AutoCompleteCustomSource.AddRange(Search.ToArray());
             CheckTreeAnamn();
             treeViewAnamn.EndUpdate();
         }
@@ -850,11 +862,15 @@ namespace DentalMain
             PlnLtsTree.BeginUpdate();
             PlnLtsTree.Nodes.Clear();
             PlnLtsSearch.AutoCompleteCustomSource.Clear();
+            List<TreeNode> Tree = new List<TreeNode>();
+            List<string> Search = new List<string>();
             foreach (dBDS.possiblePltsRow m in dBDS.possiblePlts)
             {
-                PlnLtsSearch.AutoCompleteCustomSource.Add(m.name_plts);
-                PlnLtsTree.Nodes.Add(m.id_possiblPlts.ToString(), m.name_plts.ToLower());
+                Tree.Add(new TreeNode(m.name_plts.ToLower()) { Name = m.id_possiblPlts.ToString() });
+                Search.Add(m.name_plts.ToLower());
             }
+            PlnLtsSearch.AutoCompleteCustomSource.AddRange(Search.ToArray());
+            PlnLtsTree.Nodes.AddRange(Tree.ToArray());
             PlnLtsTree.EndUpdate();
         }
 
@@ -923,11 +939,15 @@ namespace DentalMain
             treeViewanamndis.BeginUpdate();
             treeViewanamndis.Nodes.Clear();
             AnmndisSearch.AutoCompleteCustomSource.Clear();
+            List<TreeNode> Tree = new List<TreeNode>();
+            List<string> Search = new List<string>();
             foreach (dBDS.anamndis_diseasesRow m in dBDS.anamndis_diseases)
             {
-                treeViewanamndis.Nodes.Add(m.id_disease.ToString(), m.name_disease.ToLower());
-                AnmndisSearch.AutoCompleteCustomSource.Add(m.name_disease.ToLower());
+                Tree.Add(new TreeNode(m.name_disease.ToLower()) { Name = m.id_disease.ToString() });
+                Search.Add(m.name_disease.ToLower());
             }
+            treeViewanamndis.Nodes.AddRange(Tree.ToArray());
+            AnmndisSearch.AutoCompleteCustomSource.AddRange(Search.ToArray());
             treeViewanamndis.EndUpdate();
         }
 
@@ -1043,11 +1063,15 @@ namespace DentalMain
             treeViewDiag.BeginUpdate();
             treeViewDiag.Nodes.Clear();
             diagnosisTextBox.AutoCompleteCustomSource.Clear();
-            foreach(dBDS.diagnosisRow f in dBDS.diagnosis)
+            List<TreeNode> Tree = new List<TreeNode>();
+            List<string> Search = new List<string>();
+            foreach (dBDS.diagnosisRow f in dBDS.diagnosis)
             {
-                treeViewDiag.Nodes.Add(f.id_diag.ToString(), f.name_diag);
-                diagnosisTextBox.AutoCompleteCustomSource.Add(f.name_diag);
+                Tree.Add(new TreeNode(f.name_diag.ToLower()) { Name = f.id_diag.ToString() });
+                Search.Add(f.name_diag.ToLower());
             }
+            treeViewDiag.Nodes.AddRange(Tree.ToArray());
+            diagnosisTextBox.AutoCompleteCustomSource.AddRange(Search.ToArray());
             treeViewDiag.EndUpdate();
         }
 
@@ -1082,7 +1106,7 @@ namespace DentalMain
 
         public void CheckAppointmChoose(bool fa)
         {
-            if(AppointBox.Text!="")button3.Enabled = true;
+            button3.Enabled = fa;
             for (int i = 0; i < tableLayoutPanel6.Controls.Count; i++)
                 tableLayoutPanel6.Controls[i].Enabled = fa;
             tableLayoutPanel6.Controls["AppointBox"].Enabled = true;
@@ -1090,20 +1114,29 @@ namespace DentalMain
             tableLayoutPanel6.Controls["label26"].Enabled = true;
             tableLayoutPanel6.Controls["HealingTreeDiag"].Enabled = true;
             tableLayoutPanel6.Controls["PaidGB"].Enabled = true;
-            
+          
         }
 
         public void AppointFillTree()
         {
+            ServTree.BeginUpdate();
             ServTree.Nodes.Clear();
+            ServSearch.AutoCompleteCustomSource.Clear();
+            List<TreeNode> Tree = new List<TreeNode>();
+            List<string> Search = new List<string>();
             foreach (dBDS.post_doctorRow f in dBDS.post_doctor.Select("doctor='" + prop.DocID + "'"))
             {
                 foreach (dBDS.post_servicesRow m in dBDS.post_services.Select("post='" + f.post + "'"))
                 {
                     if (ServTree.Nodes.IndexOfKey(m.service.ToString()) == -1)
-                    { ServTree.Nodes.Add(m.service.ToString(), m.servicesRow.name_service.ToString()); ServSearch.AutoCompleteCustomSource.Add(m.servicesRow.name_service); }
+                    {
+                        Tree.Add(new TreeNode(m.servicesRow.name_service.ToLower()) { Name = m.service.ToString() });
+                        Search.Add(m.servicesRow.name_service.ToLower());
+                    }
                 }
-            }
+            }ServTree.Nodes.AddRange(Tree.ToArray());
+            ServSearch.AutoCompleteCustomSource.AddRange(Search.ToArray());
+            ServTree.EndUpdate();
         }
         private void ServTree_AfterSelect(object sender, TreeViewEventArgs e)
         {
