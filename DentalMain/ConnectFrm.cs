@@ -53,6 +53,7 @@ namespace DentalMain
         private void ConnectFrm_Load(object sender, EventArgs e)
         {
             helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
+            openFileDialog1.InitialDirectory = Application.StartupPath;
             XmlSerializer a = new XmlSerializer(typeof(PropCon));
             try
             {

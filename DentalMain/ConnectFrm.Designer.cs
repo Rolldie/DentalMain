@@ -81,7 +81,7 @@
             // 
             // openFileDialog1
             // 
-            this.openFileDialog1.Filter = "*.accdb|*.mdb";
+            this.openFileDialog1.Filter = "Access db|*.accdb";
             this.openFileDialog1.Title = "Оберіть базу даних";
             // 
             // label2
