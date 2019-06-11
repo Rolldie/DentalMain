@@ -1082,13 +1082,15 @@ namespace DentalMain
 
         public void CheckAppointmChoose(bool fa)
         {
-            for (int i = 0; i < MainTab.TabPages[6].Controls.Count; i++)
-                MainTab.TabPages[6].Controls[i].Enabled = fa;
-            AppointBox.Enabled = true;
-            label5.Enabled = true;
-            label26.Enabled = true;
-            HealingTreeDiag.Enabled = true;
-            PaidGB.Enabled = true;
+            if(AppointBox.Text!="")button3.Enabled = true;
+            for (int i = 0; i < tableLayoutPanel6.Controls.Count; i++)
+                tableLayoutPanel6.Controls[i].Enabled = fa;
+            tableLayoutPanel6.Controls["AppointBox"].Enabled = true;
+            tableLayoutPanel6.Controls["label5"].Enabled = true;
+            tableLayoutPanel6.Controls["label26"].Enabled = true;
+            tableLayoutPanel6.Controls["HealingTreeDiag"].Enabled = true;
+            tableLayoutPanel6.Controls["PaidGB"].Enabled = true;
+            
         }
 
         public void AppointFillTree()
@@ -1243,7 +1245,7 @@ namespace DentalMain
         {
             HealingTreeDiag.BeginUpdate();
             HealingTreeDiag.Nodes.Clear();
-            foreach(dBDS.diags_patientRow f in dBDS.diags_patient.Select("patient='"+comboBox1.SelectedValue+"' and doctor='"+prop.DocID+"'"))
+            foreach(dBDS.diags_patientRow f in dBDS.diags_patient.Select("patient='"+comboBox1.SelectedValue+"'"))
             {
                 HealingTreeDiag.Nodes.Add(f.id_diag_patient.ToString(), f.diagnosisRow.name_diag + " зуб(и): " + f.tooth);
             }
