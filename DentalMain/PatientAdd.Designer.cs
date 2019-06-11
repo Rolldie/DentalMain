@@ -38,20 +38,24 @@
             this.BtnClose = new System.Windows.Forms.Button();
             this.patientsTableAdapter = new DentalMain.dBDSTableAdapters.patientsTableAdapter();
             this.dBDS = new DentalMain.dBDS();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dBDS)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(112, 27);
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(112, 13);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(296, 20);
+            this.textBox1.Size = new System.Drawing.Size(653, 20);
             this.textBox1.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(33, 30);
+            this.label1.Location = new System.Drawing.Point(33, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(71, 13);
             this.label1.TabIndex = 1;
@@ -60,7 +64,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 86);
+            this.label2.Location = new System.Drawing.Point(12, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(92, 13);
             this.label2.TabIndex = 1;
@@ -69,7 +73,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 60);
+            this.label3.Location = new System.Drawing.Point(8, 46);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 13);
             this.label3.TabIndex = 1;
@@ -77,24 +81,29 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(112, 54);
+            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(112, 40);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(296, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(653, 20);
             this.dateTimePicker1.TabIndex = 2;
             // 
             // maskedTextBox1
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(112, 83);
+            this.maskedTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.maskedTextBox1.Location = new System.Drawing.Point(112, 69);
             this.maskedTextBox1.Mask = "+38(\\000)-000-0000";
             this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(296, 20);
+            this.maskedTextBox1.Size = new System.Drawing.Size(653, 20);
             this.maskedTextBox1.TabIndex = 4;
             // 
             // BtnAdd
             // 
-            this.BtnAdd.Location = new System.Drawing.Point(112, 109);
+            this.BtnAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnAdd.Location = new System.Drawing.Point(3, 3);
             this.BtnAdd.Name = "BtnAdd";
-            this.BtnAdd.Size = new System.Drawing.Size(146, 23);
+            this.BtnAdd.Size = new System.Drawing.Size(320, 22);
             this.BtnAdd.TabIndex = 5;
             this.BtnAdd.Text = "Додати пацієнта";
             this.BtnAdd.UseVisualStyleBackColor = true;
@@ -103,9 +112,10 @@
             // BtnClose
             // 
             this.BtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BtnClose.Location = new System.Drawing.Point(264, 109);
+            this.BtnClose.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnClose.Location = new System.Drawing.Point(329, 3);
             this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(144, 23);
+            this.BtnClose.Size = new System.Drawing.Size(321, 22);
             this.BtnClose.TabIndex = 5;
             this.BtnClose.Text = "Відмінити";
             this.BtnClose.UseVisualStyleBackColor = true;
@@ -120,24 +130,44 @@
             this.dBDS.DataSetName = "dBDS";
             this.dBDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.BtnClose, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.BtnAdd, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(112, 95);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(653, 28);
+            this.tableLayoutPanel1.TabIndex = 6;
+            // 
             // PatientAdd
             // 
             this.AcceptButton = this.BtnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.BtnClose;
-            this.ClientSize = new System.Drawing.Size(434, 146);
-            this.Controls.Add(this.BtnClose);
-            this.Controls.Add(this.BtnAdd);
+            this.ClientSize = new System.Drawing.Size(777, 135);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(793, 174);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(367, 174);
             this.Name = "PatientAdd";
             this.Text = "Додавання пацієнту";
             ((System.ComponentModel.ISupportInitialize)(this.dBDS)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -155,5 +185,6 @@
         private System.Windows.Forms.Button BtnClose;
         private dBDSTableAdapters.patientsTableAdapter patientsTableAdapter;
         private dBDS dBDS;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

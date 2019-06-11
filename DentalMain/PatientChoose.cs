@@ -20,7 +20,6 @@ namespace DentalMain
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "dBDS.patients". При необходимости она может быть перемещена или удалена.
             this.patientsTableAdapter.Fill(this.dBDS.patients);
-            textBox1.Focus();
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -58,6 +57,20 @@ namespace DentalMain
         {
             DialogResult = DialogResult.Abort;
             Close();
+        }
+
+        private void TextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode==Keys.Enter)
+            {
+                if (Application.OpenForms["RecordLog"] is RecordLog f)
+                {
+                    f.patientid = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
+
+                    DialogResult = DialogResult.OK;
+                }
+                Close();
+            }
         }
     }
 }

@@ -177,6 +177,9 @@
             this.Controls.Add(this.ImgDirTextBox);
             this.Controls.Add(this.CostTextBox);
             this.Controls.Add(this.MatTextBox);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "MaterialsChng";
             this.Text = "Зміна матеріалу";
             this.Load += new System.EventHandler(this.MaterialsChng_Load);

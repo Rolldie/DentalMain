@@ -21,6 +21,7 @@ namespace DentalMain
         {
             ThreadingUpdateFalse();
             FieldBx.SelectedIndex = 0;
+            helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
         }
 
         private void FltrBtn_Click(object sender, EventArgs e)

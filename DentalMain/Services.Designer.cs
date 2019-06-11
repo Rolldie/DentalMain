@@ -44,6 +44,7 @@
             this.servicesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dBDS = new DentalMain.dBDS();
             this.servicesTableAdapter = new DentalMain.dBDSTableAdapters.servicesTableAdapter();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.ServGrid)).BeginInit();
             this.GridMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.servicesBindingSource)).BeginInit();
@@ -53,7 +54,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 17);
+            this.label1.Location = new System.Drawing.Point(12, 17);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(82, 13);
             this.label1.TabIndex = 0;
@@ -61,22 +62,26 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(109, 14);
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(100, 14);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(242, 20);
+            this.textBox1.Size = new System.Drawing.Size(211, 20);
             this.textBox1.TabIndex = 1;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(109, 40);
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.Location = new System.Drawing.Point(100, 40);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(242, 20);
+            this.textBox2.Size = new System.Drawing.Size(211, 20);
             this.textBox2.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 43);
+            this.label2.Location = new System.Drawing.Point(12, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 13);
             this.label2.TabIndex = 0;
@@ -84,9 +89,11 @@
             // 
             // BtnAdd
             // 
-            this.BtnAdd.Location = new System.Drawing.Point(24, 66);
+            this.BtnAdd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnAdd.Location = new System.Drawing.Point(12, 66);
             this.BtnAdd.Name = "BtnAdd";
-            this.BtnAdd.Size = new System.Drawing.Size(327, 23);
+            this.BtnAdd.Size = new System.Drawing.Size(299, 23);
             this.BtnAdd.TabIndex = 2;
             this.BtnAdd.Text = "Додати послугу";
             this.BtnAdd.UseVisualStyleBackColor = true;
@@ -95,8 +102,12 @@
             // ServGrid
             // 
             this.ServGrid.AllowUserToAddRows = false;
+            this.ServGrid.AllowUserToResizeRows = false;
+            this.ServGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ServGrid.AutoGenerateColumns = false;
-            this.ServGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.ServGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ServGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ServGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idserviceDataGridViewTextBoxColumn,
@@ -104,33 +115,33 @@
             this.costDataGridViewTextBoxColumn});
             this.ServGrid.ContextMenuStrip = this.GridMenu;
             this.ServGrid.DataSource = this.servicesBindingSource;
-            this.ServGrid.Location = new System.Drawing.Point(24, 95);
+            this.ServGrid.Location = new System.Drawing.Point(12, 95);
             this.ServGrid.Name = "ServGrid";
+            this.ServGrid.RowHeadersVisible = false;
             this.ServGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ServGrid.Size = new System.Drawing.Size(327, 278);
+            this.ServGrid.Size = new System.Drawing.Size(299, 249);
             this.ServGrid.TabIndex = 3;
             this.ServGrid.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDown);
             // 
             // idserviceDataGridViewTextBoxColumn
             // 
             this.idserviceDataGridViewTextBoxColumn.DataPropertyName = "id_service";
+            this.idserviceDataGridViewTextBoxColumn.FillWeight = 40F;
             this.idserviceDataGridViewTextBoxColumn.HeaderText = "Номер у базі";
             this.idserviceDataGridViewTextBoxColumn.Name = "idserviceDataGridViewTextBoxColumn";
-            this.idserviceDataGridViewTextBoxColumn.Width = 97;
             // 
             // nameserviceDataGridViewTextBoxColumn
             // 
             this.nameserviceDataGridViewTextBoxColumn.DataPropertyName = "name_service";
             this.nameserviceDataGridViewTextBoxColumn.HeaderText = "Послуга";
             this.nameserviceDataGridViewTextBoxColumn.Name = "nameserviceDataGridViewTextBoxColumn";
-            this.nameserviceDataGridViewTextBoxColumn.Width = 74;
             // 
             // costDataGridViewTextBoxColumn
             // 
             this.costDataGridViewTextBoxColumn.DataPropertyName = "cost";
+            this.costDataGridViewTextBoxColumn.FillWeight = 60F;
             this.costDataGridViewTextBoxColumn.HeaderText = "Ціна";
             this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
-            this.costDataGridViewTextBoxColumn.Width = 54;
             // 
             // GridMenu
             // 
@@ -174,14 +185,18 @@
             this.AcceptButton = this.BtnAdd;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(373, 385);
+            this.ClientSize = new System.Drawing.Size(323, 356);
             this.Controls.Add(this.ServGrid);
             this.Controls.Add(this.BtnAdd);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.helpProvider1.SetHelpKeyword(this, "22");
+            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.TopicId);
+            this.MinimumSize = new System.Drawing.Size(289, 250);
             this.Name = "Services";
+            this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Послуги";
             this.Load += new System.EventHandler(this.Services_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ServGrid)).EndInit();
@@ -204,11 +219,12 @@
         private dBDS dBDS;
         private System.Windows.Forms.BindingSource servicesBindingSource;
         private dBDSTableAdapters.servicesTableAdapter servicesTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idserviceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameserviceDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
         private System.Windows.Forms.ContextMenuStrip GridMenu;
         private System.Windows.Forms.ToolStripMenuItem змінитиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem видалитиToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idserviceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nameserviceDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

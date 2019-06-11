@@ -34,14 +34,18 @@
             this.button2 = new System.Windows.Forms.Button();
             this.postTableAdapter = new DentalMain.dBDSTableAdapters.postTableAdapter();
             this.dBDS = new DentalMain.dBDS();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dBDS)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox2
             // 
+            this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox2.Location = new System.Drawing.Point(106, 12);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(247, 20);
+            this.textBox2.Size = new System.Drawing.Size(273, 20);
             this.textBox2.TabIndex = 0;
             // 
             // label1
@@ -55,9 +59,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(106, 38);
+            this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button1.Location = new System.Drawing.Point(3, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(115, 23);
+            this.button1.Size = new System.Drawing.Size(173, 24);
             this.button1.TabIndex = 2;
             this.button1.Text = "Зберегти";
             this.button1.UseVisualStyleBackColor = true;
@@ -66,9 +71,10 @@
             // button2
             // 
             this.button2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button2.Location = new System.Drawing.Point(227, 38);
+            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button2.Location = new System.Drawing.Point(182, 3);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(126, 23);
+            this.button2.Size = new System.Drawing.Size(173, 24);
             this.button2.TabIndex = 2;
             this.button2.Text = "Відмінити";
             this.button2.UseVisualStyleBackColor = true;
@@ -83,21 +89,41 @@
             this.dBDS.DataSetName = "dBDS";
             this.dBDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.button2, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.button1, 0, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(21, 38);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(358, 30);
+            this.tableLayoutPanel1.TabIndex = 3;
+            // 
             // PostChng
             // 
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button2;
-            this.ClientSize = new System.Drawing.Size(372, 72);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(398, 72);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox2);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(747, 111);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(275, 111);
             this.Name = "PostChng";
             this.Text = "Зміна посади";
             this.Load += new System.EventHandler(this.PostChng_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dBDS)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,5 +137,6 @@
         private System.Windows.Forms.Button button2;
         private dBDSTableAdapters.postTableAdapter postTableAdapter;
         private dBDS dBDS;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

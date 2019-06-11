@@ -56,6 +56,7 @@ namespace DentalMain
         private void Posts_Load(object sender, EventArgs e)
         {
             ThreadingUpdater();
+            helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
         }
 
         private void dataGridView2_DataError(object sender, DataGridViewDataErrorEventArgs e)

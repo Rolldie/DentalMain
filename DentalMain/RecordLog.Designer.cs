@@ -84,6 +84,7 @@
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewCheckBoxColumn1 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.label5 = new System.Windows.Forms.Label();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.doctorsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDS)).BeginInit();
@@ -99,7 +100,7 @@
             // 
             // DateCalendar
             // 
-            this.DateCalendar.CalendarDimensions = new System.Drawing.Size(5, 1);
+            this.DateCalendar.CalendarDimensions = new System.Drawing.Size(3, 1);
             this.DateCalendar.Dock = System.Windows.Forms.DockStyle.Top;
             this.DateCalendar.FirstDayOfWeek = System.Windows.Forms.Day.Monday;
             this.DateCalendar.Location = new System.Drawing.Point(0, 0);
@@ -154,6 +155,9 @@
             // 
             this.Day1Grid.AllowUserToAddRows = false;
             this.Day1Grid.AllowUserToDeleteRows = false;
+            this.Day1Grid.AllowUserToResizeRows = false;
+            this.Day1Grid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.Day1Grid.AutoGenerateColumns = false;
             this.Day1Grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Day1Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -167,8 +171,9 @@
             this.Day1Grid.MultiSelect = false;
             this.Day1Grid.Name = "Day1Grid";
             this.Day1Grid.RowHeadersVisible = false;
+            this.Day1Grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.Day1Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Day1Grid.Size = new System.Drawing.Size(197, 232);
+            this.Day1Grid.Size = new System.Drawing.Size(197, 221);
             this.Day1Grid.TabIndex = 1;
             this.Day1Grid.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Day1Grid_CellMouseDoubleClick);
             this.Day1Grid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.Day1Grid_CellValueChanged);
@@ -225,6 +230,9 @@
             // 
             this.Day3Grid.AllowUserToAddRows = false;
             this.Day3Grid.AllowUserToDeleteRows = false;
+            this.Day3Grid.AllowUserToResizeRows = false;
+            this.Day3Grid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.Day3Grid.AutoGenerateColumns = false;
             this.Day3Grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Day3Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -238,8 +246,9 @@
             this.Day3Grid.MultiSelect = false;
             this.Day3Grid.Name = "Day3Grid";
             this.Day3Grid.RowHeadersVisible = false;
+            this.Day3Grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.Day3Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Day3Grid.Size = new System.Drawing.Size(197, 232);
+            this.Day3Grid.Size = new System.Drawing.Size(197, 221);
             this.Day3Grid.TabIndex = 1;
             this.Day3Grid.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Day3Grid_CellMouseDoubleClick);
             this.Day3Grid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.Day3Grid_CellValueChanged);
@@ -291,6 +300,9 @@
             // 
             this.Day4Grid.AllowUserToAddRows = false;
             this.Day4Grid.AllowUserToDeleteRows = false;
+            this.Day4Grid.AllowUserToResizeRows = false;
+            this.Day4Grid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.Day4Grid.AutoGenerateColumns = false;
             this.Day4Grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Day4Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -304,8 +316,9 @@
             this.Day4Grid.MultiSelect = false;
             this.Day4Grid.Name = "Day4Grid";
             this.Day4Grid.RowHeadersVisible = false;
+            this.Day4Grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.Day4Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Day4Grid.Size = new System.Drawing.Size(197, 232);
+            this.Day4Grid.Size = new System.Drawing.Size(197, 221);
             this.Day4Grid.TabIndex = 1;
             this.Day4Grid.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Day4Grid_CellMouseDoubleClick);
             this.Day4Grid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.Day4Grid_CellValueChanged);
@@ -412,7 +425,8 @@
             // 
             // maskedTextBox1
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(19, 460);
+            this.maskedTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.maskedTextBox1.Location = new System.Drawing.Point(19, 449);
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(78, 20);
             this.maskedTextBox1.TabIndex = 6;
@@ -420,7 +434,8 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(103, 460);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button1.Location = new System.Drawing.Point(103, 449);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(113, 20);
             this.button1.TabIndex = 7;
@@ -430,7 +445,8 @@
             // 
             // maskedTextBox2
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(222, 460);
+            this.maskedTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.maskedTextBox2.Location = new System.Drawing.Point(222, 449);
             this.maskedTextBox2.Name = "maskedTextBox2";
             this.maskedTextBox2.Size = new System.Drawing.Size(78, 20);
             this.maskedTextBox2.TabIndex = 6;
@@ -438,7 +454,8 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(306, 459);
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button2.Location = new System.Drawing.Point(306, 448);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(113, 20);
             this.button2.TabIndex = 7;
@@ -448,7 +465,8 @@
             // 
             // maskedTextBox3
             // 
-            this.maskedTextBox3.Location = new System.Drawing.Point(425, 459);
+            this.maskedTextBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.maskedTextBox3.Location = new System.Drawing.Point(425, 448);
             this.maskedTextBox3.Name = "maskedTextBox3";
             this.maskedTextBox3.Size = new System.Drawing.Size(78, 20);
             this.maskedTextBox3.TabIndex = 6;
@@ -456,7 +474,8 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(509, 458);
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button3.Location = new System.Drawing.Point(509, 447);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(113, 20);
             this.button3.TabIndex = 7;
@@ -466,7 +485,8 @@
             // 
             // maskedTextBox4
             // 
-            this.maskedTextBox4.Location = new System.Drawing.Point(628, 458);
+            this.maskedTextBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.maskedTextBox4.Location = new System.Drawing.Point(628, 447);
             this.maskedTextBox4.Name = "maskedTextBox4";
             this.maskedTextBox4.Size = new System.Drawing.Size(78, 20);
             this.maskedTextBox4.TabIndex = 6;
@@ -474,7 +494,8 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(712, 458);
+            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button4.Location = new System.Drawing.Point(712, 447);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(113, 20);
             this.button4.TabIndex = 7;
@@ -512,6 +533,9 @@
             // 
             this.Day2Grid.AllowUserToAddRows = false;
             this.Day2Grid.AllowUserToDeleteRows = false;
+            this.Day2Grid.AllowUserToResizeRows = false;
+            this.Day2Grid.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.Day2Grid.AutoGenerateColumns = false;
             this.Day2Grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.Day2Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -525,8 +549,9 @@
             this.Day2Grid.MultiSelect = false;
             this.Day2Grid.Name = "Day2Grid";
             this.Day2Grid.RowHeadersVisible = false;
+            this.Day2Grid.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.Day2Grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.Day2Grid.Size = new System.Drawing.Size(197, 232);
+            this.Day2Grid.Size = new System.Drawing.Size(197, 221);
             this.Day2Grid.TabIndex = 9;
             this.Day2Grid.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Day2Grid_CellMouseDoubleClick);
             this.Day2Grid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.Day2Grid_CellValueChanged);
@@ -571,9 +596,10 @@
             // 
             // label5
             // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label5.Location = new System.Drawing.Point(16, 483);
+            this.label5.Location = new System.Drawing.Point(16, 472);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(438, 13);
             this.label5.TabIndex = 10;
@@ -584,7 +610,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(840, 500);
+            this.ClientSize = new System.Drawing.Size(502, 493);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Day2Grid);
             this.Controls.Add(this.button5);
@@ -606,7 +632,14 @@
             this.Controls.Add(this.Day3Grid);
             this.Controls.Add(this.Day1Grid);
             this.Controls.Add(this.DateCalendar);
+            this.helpProvider1.SetHelpKeyword(this, "15");
+            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.TopicId);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(855, 999);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(518, 395);
             this.Name = "RecordLog";
+            this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Журнал запису до лікарів";
             this.Load += new System.EventHandler(this.RecordLog_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
@@ -677,5 +710,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn timeDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewCheckBoxColumn started;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

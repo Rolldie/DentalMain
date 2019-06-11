@@ -29,8 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.idpatientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateofbirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phonenumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dBDS = new DentalMain.dBDS();
             this.patientsTableAdapter = new DentalMain.dBDSTableAdapters.patientsTableAdapter();
@@ -38,10 +42,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.idpatientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateofbirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phonenumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDS)).BeginInit();
@@ -50,6 +51,10 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -60,12 +65,39 @@
             this.phonenumberDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.patientsBindingSource;
             this.dataGridView1.Location = new System.Drawing.Point(12, 57);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(392, 373);
-            this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.Size = new System.Drawing.Size(422, 368);
+            this.dataGridView1.TabIndex = 1;
             this.dataGridView1.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataGridView1_CellMouseDoubleClick);
+            // 
+            // idpatientDataGridViewTextBoxColumn
+            // 
+            this.idpatientDataGridViewTextBoxColumn.DataPropertyName = "id_patient";
+            this.idpatientDataGridViewTextBoxColumn.HeaderText = "Номер у базі";
+            this.idpatientDataGridViewTextBoxColumn.Name = "idpatientDataGridViewTextBoxColumn";
+            // 
+            // fullnameDataGridViewTextBoxColumn
+            // 
+            this.fullnameDataGridViewTextBoxColumn.DataPropertyName = "full_name";
+            this.fullnameDataGridViewTextBoxColumn.HeaderText = "ПІБ";
+            this.fullnameDataGridViewTextBoxColumn.Name = "fullnameDataGridViewTextBoxColumn";
+            // 
+            // dateofbirthDataGridViewTextBoxColumn
+            // 
+            this.dateofbirthDataGridViewTextBoxColumn.DataPropertyName = "date_of_birth";
+            this.dateofbirthDataGridViewTextBoxColumn.HeaderText = "Дата народження";
+            this.dateofbirthDataGridViewTextBoxColumn.Name = "dateofbirthDataGridViewTextBoxColumn";
+            // 
+            // phonenumberDataGridViewTextBoxColumn
+            // 
+            this.phonenumberDataGridViewTextBoxColumn.DataPropertyName = "phone_number";
+            dataGridViewCellStyle3.NullValue = null;
+            this.phonenumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.phonenumberDataGridViewTextBoxColumn.HeaderText = "Телефон";
+            this.phonenumberDataGridViewTextBoxColumn.Name = "phonenumberDataGridViewTextBoxColumn";
             // 
             // patientsBindingSource
             // 
@@ -83,11 +115,14 @@
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(12, 31);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(392, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBox1.Size = new System.Drawing.Size(422, 20);
+            this.textBox1.TabIndex = 0;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TextBox1_KeyDown);
             // 
             // label1
             // 
@@ -112,49 +147,29 @@
             // 
             this.button2.Location = new System.Drawing.Point(197, 8);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(207, 23);
+            this.button2.Size = new System.Drawing.Size(120, 23);
             this.button2.TabIndex = 4;
             this.button2.Text = "Звільнити запис";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // idpatientDataGridViewTextBoxColumn
-            // 
-            this.idpatientDataGridViewTextBoxColumn.DataPropertyName = "id_patient";
-            this.idpatientDataGridViewTextBoxColumn.HeaderText = "Номер у базі";
-            this.idpatientDataGridViewTextBoxColumn.Name = "idpatientDataGridViewTextBoxColumn";
-            // 
-            // fullnameDataGridViewTextBoxColumn
-            // 
-            this.fullnameDataGridViewTextBoxColumn.DataPropertyName = "full_name";
-            this.fullnameDataGridViewTextBoxColumn.HeaderText = "ПІБ";
-            this.fullnameDataGridViewTextBoxColumn.Name = "fullnameDataGridViewTextBoxColumn";
-            // 
-            // dateofbirthDataGridViewTextBoxColumn
-            // 
-            this.dateofbirthDataGridViewTextBoxColumn.DataPropertyName = "date_of_birth";
-            this.dateofbirthDataGridViewTextBoxColumn.HeaderText = "Дата народження";
-            this.dateofbirthDataGridViewTextBoxColumn.Name = "dateofbirthDataGridViewTextBoxColumn";
-            // 
-            // phonenumberDataGridViewTextBoxColumn
-            // 
-            this.phonenumberDataGridViewTextBoxColumn.DataPropertyName = "phone_number";
-            dataGridViewCellStyle1.NullValue = null;
-            this.phonenumberDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
-            this.phonenumberDataGridViewTextBoxColumn.HeaderText = "Телефон";
-            this.phonenumberDataGridViewTextBoxColumn.Name = "phonenumberDataGridViewTextBoxColumn";
-            // 
             // PatientChoose
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(416, 442);
+            this.ClientSize = new System.Drawing.Size(447, 437);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.dataGridView1);
+            this.helpProvider1.SetHelpKeyword(this, "27");
+            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.TopicId);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(346, 183);
             this.Name = "PatientChoose";
+            this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Обирання пацієнта для запису";
             this.Load += new System.EventHandler(this.PatientChoose_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -179,5 +194,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fullnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateofbirthDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn phonenumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

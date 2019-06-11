@@ -20,6 +20,7 @@ namespace DentalMain
         private void Services_Load(object sender, EventArgs e)
         {
             this.servicesTableAdapter.Fill(this.dBDS.services);
+            helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
         }
         public void ThreadingUpdate()
         {

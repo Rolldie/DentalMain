@@ -47,6 +47,7 @@
             this.fullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateofbirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phonenumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.PatientGrid)).BeginInit();
             this.GridContm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.patientsBindingSource)).BeginInit();
@@ -58,7 +59,12 @@
             this.PatientGrid.AllowUserToAddRows = false;
             this.PatientGrid.AllowUserToDeleteRows = false;
             this.PatientGrid.AllowUserToOrderColumns = true;
+            this.PatientGrid.AllowUserToResizeRows = false;
+            this.PatientGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PatientGrid.AutoGenerateColumns = false;
+            this.PatientGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.PatientGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PatientGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idpatientDataGridViewTextBoxColumn,
@@ -70,8 +76,9 @@
             this.PatientGrid.Location = new System.Drawing.Point(12, 73);
             this.PatientGrid.MultiSelect = false;
             this.PatientGrid.Name = "PatientGrid";
+            this.PatientGrid.RowHeadersVisible = false;
             this.PatientGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.PatientGrid.Size = new System.Drawing.Size(448, 368);
+            this.PatientGrid.Size = new System.Drawing.Size(394, 244);
             this.PatientGrid.TabIndex = 0;
             this.PatientGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientGrid_CellDoubleClick);
             this.PatientGrid.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.PatientGrid_CellMouseDown);
@@ -104,13 +111,17 @@
             // 
             // FindTxtBx
             // 
+            this.FindTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.FindTxtBx.Location = new System.Drawing.Point(69, 39);
             this.FindTxtBx.Name = "FindTxtBx";
-            this.FindTxtBx.Size = new System.Drawing.Size(212, 20);
+            this.FindTxtBx.Size = new System.Drawing.Size(158, 20);
             this.FindTxtBx.TabIndex = 1;
             // 
             // FieldBx
             // 
+            this.FieldBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.FieldBx.FormattingEnabled = true;
             this.FieldBx.Items.AddRange(new object[] {
             "ПІБ",
@@ -118,7 +129,7 @@
             "Номер телефону"});
             this.FieldBx.Location = new System.Drawing.Point(69, 14);
             this.FieldBx.Name = "FieldBx";
-            this.FieldBx.Size = new System.Drawing.Size(212, 21);
+            this.FieldBx.Size = new System.Drawing.Size(158, 21);
             this.FieldBx.TabIndex = 2;
             this.FieldBx.SelectedIndexChanged += new System.EventHandler(this.FieldBx_SelectedIndexChanged);
             // 
@@ -142,7 +153,8 @@
             // 
             // FltrBtn
             // 
-            this.FltrBtn.Location = new System.Drawing.Point(287, 12);
+            this.FltrBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.FltrBtn.Location = new System.Drawing.Point(233, 12);
             this.FltrBtn.Name = "FltrBtn";
             this.FltrBtn.Size = new System.Drawing.Size(78, 23);
             this.FltrBtn.TabIndex = 4;
@@ -152,7 +164,8 @@
             // 
             // AddBtn
             // 
-            this.AddBtn.Location = new System.Drawing.Point(372, 12);
+            this.AddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddBtn.Location = new System.Drawing.Point(318, 12);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(88, 50);
             this.AddBtn.TabIndex = 5;
@@ -166,7 +179,8 @@
             // 
             // ClearBtn
             // 
-            this.ClearBtn.Location = new System.Drawing.Point(287, 39);
+            this.ClearBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ClearBtn.Location = new System.Drawing.Point(233, 39);
             this.ClearBtn.Name = "ClearBtn";
             this.ClearBtn.Size = new System.Drawing.Size(78, 23);
             this.ClearBtn.TabIndex = 4;
@@ -176,15 +190,18 @@
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker1.Location = new System.Drawing.Point(69, 39);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(212, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(158, 20);
             this.dateTimePicker1.TabIndex = 6;
             this.dateTimePicker1.Visible = false;
             // 
             // idpatientDataGridViewTextBoxColumn
             // 
             this.idpatientDataGridViewTextBoxColumn.DataPropertyName = "id_patient";
+            this.idpatientDataGridViewTextBoxColumn.FillWeight = 40F;
             this.idpatientDataGridViewTextBoxColumn.HeaderText = "Номер";
             this.idpatientDataGridViewTextBoxColumn.Name = "idpatientDataGridViewTextBoxColumn";
             // 
@@ -197,12 +214,14 @@
             // dateofbirthDataGridViewTextBoxColumn
             // 
             this.dateofbirthDataGridViewTextBoxColumn.DataPropertyName = "date_of_birth";
+            this.dateofbirthDataGridViewTextBoxColumn.FillWeight = 70F;
             this.dateofbirthDataGridViewTextBoxColumn.HeaderText = "Дата народження";
             this.dateofbirthDataGridViewTextBoxColumn.Name = "dateofbirthDataGridViewTextBoxColumn";
             // 
             // phonenumberDataGridViewTextBoxColumn
             // 
             this.phonenumberDataGridViewTextBoxColumn.DataPropertyName = "phone_number";
+            this.phonenumberDataGridViewTextBoxColumn.FillWeight = 70F;
             this.phonenumberDataGridViewTextBoxColumn.HeaderText = "Номер телефону";
             this.phonenumberDataGridViewTextBoxColumn.Name = "phonenumberDataGridViewTextBoxColumn";
             // 
@@ -210,7 +229,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(472, 474);
+            this.ClientSize = new System.Drawing.Size(416, 329);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.AddBtn);
             this.Controls.Add(this.ClearBtn);
@@ -220,7 +239,11 @@
             this.Controls.Add(this.FieldBx);
             this.Controls.Add(this.FindTxtBx);
             this.Controls.Add(this.PatientGrid);
+            this.helpProvider1.SetHelpKeyword(this, "14");
+            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.TopicId);
+            this.MinimumSize = new System.Drawing.Size(402, 212);
             this.Name = "Patient";
+            this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Пацієнти";
             this.Load += new System.EventHandler(this.Patient_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PatientGrid)).EndInit();
@@ -252,5 +275,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fullnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateofbirthDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn phonenumberDataGridViewTextBoxColumn;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

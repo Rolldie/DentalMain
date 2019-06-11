@@ -40,6 +40,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.postTableAdapter = new DentalMain.dBDSTableAdapters.postTableAdapter();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.PostGrid)).BeginInit();
             this.GridMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.postBindingSource)).BeginInit();
@@ -50,8 +51,12 @@
             // 
             this.PostGrid.AllowUserToAddRows = false;
             this.PostGrid.AllowUserToDeleteRows = false;
+            this.PostGrid.AllowUserToResizeRows = false;
+            this.PostGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PostGrid.AutoGenerateColumns = false;
-            this.PostGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.PostGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.PostGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PostGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idpostdocDataGridViewTextBoxColumn,
@@ -60,8 +65,9 @@
             this.PostGrid.DataSource = this.postBindingSource;
             this.PostGrid.Location = new System.Drawing.Point(12, 69);
             this.PostGrid.Name = "PostGrid";
+            this.PostGrid.RowHeadersVisible = false;
             this.PostGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.PostGrid.Size = new System.Drawing.Size(283, 310);
+            this.PostGrid.Size = new System.Drawing.Size(219, 244);
             this.PostGrid.TabIndex = 0;
             this.PostGrid.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.PostGrid_CellMouseDown);
             this.PostGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView2_DataError);
@@ -69,16 +75,15 @@
             // idpostdocDataGridViewTextBoxColumn
             // 
             this.idpostdocDataGridViewTextBoxColumn.DataPropertyName = "id_post_doc";
+            this.idpostdocDataGridViewTextBoxColumn.FillWeight = 40F;
             this.idpostdocDataGridViewTextBoxColumn.HeaderText = "Номер у базі";
             this.idpostdocDataGridViewTextBoxColumn.Name = "idpostdocDataGridViewTextBoxColumn";
-            this.idpostdocDataGridViewTextBoxColumn.Width = 71;
             // 
             // namepostDataGridViewTextBoxColumn
             // 
             this.namepostDataGridViewTextBoxColumn.DataPropertyName = "name_post";
             this.namepostDataGridViewTextBoxColumn.HeaderText = "Назва посади";
             this.namepostDataGridViewTextBoxColumn.Name = "namepostDataGridViewTextBoxColumn";
-            this.namepostDataGridViewTextBoxColumn.Width = 95;
             // 
             // GridMenu
             // 
@@ -115,9 +120,11 @@
             // 
             // button2
             // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.Location = new System.Drawing.Point(12, 12);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(283, 23);
+            this.button2.Size = new System.Drawing.Size(219, 23);
             this.button2.TabIndex = 1;
             this.button2.Text = "Додати посаду";
             this.button2.UseVisualStyleBackColor = true;
@@ -129,9 +136,11 @@
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(12, 41);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(283, 20);
+            this.textBox1.Size = new System.Drawing.Size(219, 20);
             this.textBox1.TabIndex = 2;
             // 
             // Posts
@@ -139,11 +148,17 @@
             this.AcceptButton = this.button2;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(303, 391);
+            this.ClientSize = new System.Drawing.Size(239, 325);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.PostGrid);
+            this.helpProvider1.SetHelpKeyword(this, "21");
+            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.TopicId);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(252, 258);
             this.Name = "Posts";
+            this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Посади лікарів";
             this.Load += new System.EventHandler(this.Posts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PostGrid)).EndInit();
@@ -162,10 +177,11 @@
         private dBDS dBDS;
         private dBDSTableAdapters.postTableAdapter postTableAdapter;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idpostdocDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn namepostDataGridViewTextBoxColumn;
         private System.Windows.Forms.ContextMenuStrip GridMenu;
         private System.Windows.Forms.ToolStripMenuItem змінитиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem видалитиToolStripMenuItem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idpostdocDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn namepostDataGridViewTextBoxColumn;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }
