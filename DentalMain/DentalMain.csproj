@@ -260,6 +260,9 @@
     <Compile Include="WaitPlsForm.Designer.cs">
       <DependentUpon>WaitPlsForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Help\help.chm">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="Resources\70501.png" />
     <EmbeddedResource Include="Appointments.resx">
       <DependentUpon>Appointments.cs</DependentUpon>

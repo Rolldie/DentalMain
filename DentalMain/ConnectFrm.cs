@@ -52,6 +52,7 @@ namespace DentalMain
         PropCon amn = new PropCon();
         private void ConnectFrm_Load(object sender, EventArgs e)
         {
+            helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
             XmlSerializer a = new XmlSerializer(typeof(PropCon));
             try
             {

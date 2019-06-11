@@ -31,6 +31,7 @@ namespace DentalMain
         bool amam=true;
         private void Appointments_Load(object sender, EventArgs e)
         {
+            helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
             this.materialsTableAdapter.Fill(this.dBDS.materials);
             this.servicesTableAdapter.Fill(this.dBDS.services);
             this.patientsTableAdapter.Fill(this.dBDS.patients);

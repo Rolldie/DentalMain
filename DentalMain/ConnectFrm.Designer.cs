@@ -55,6 +55,7 @@
             this.serv_materialTableAdapter1 = new DentalMain.dBDSTableAdapters.serv_materialTableAdapter();
             this.servicesTableAdapter1 = new DentalMain.dBDSTableAdapters.servicesTableAdapter();
             this.weekendsTableAdapter1 = new DentalMain.dBDSTableAdapters.weekendsTableAdapter();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.dBDS)).BeginInit();
             this.SuspendLayout();
             // 
@@ -214,7 +215,7 @@
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(478, 90);
+            this.ClientSize = new System.Drawing.Size(487, 93);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -260,5 +261,6 @@
         private dBDSTableAdapters.servicesTableAdapter servicesTableAdapter1;
         private dBDSTableAdapters.weekendsTableAdapter weekendsTableAdapter1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

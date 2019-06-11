@@ -78,6 +78,7 @@
             this.materialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.countDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.doctorsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDS)).BeginInit();
@@ -121,7 +122,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(774, 81);
+            this.dataGridView1.Size = new System.Drawing.Size(774, 146);
             this.dataGridView1.TabIndex = 0;
             // 
             // idappointmentDataGridViewTextBoxColumn
@@ -287,7 +288,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 87);
+            this.label4.Location = new System.Drawing.Point(3, 152);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(154, 13);
             this.label4.TabIndex = 2;
@@ -311,7 +312,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(393, 87);
+            this.label5.Location = new System.Drawing.Point(393, 152);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(161, 13);
             this.label5.TabIndex = 6;
@@ -408,7 +409,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(780, 161);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(780, 269);
             this.tableLayoutPanel1.TabIndex = 10;
             // 
             // dataGridView2
@@ -425,12 +426,12 @@
             this.serviceDataGridViewTextBoxColumn});
             this.dataGridView2.DataSource = this.appointmentappointmentservicesBindingSource;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 105);
+            this.dataGridView2.Location = new System.Drawing.Point(3, 170);
             this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(384, 53);
+            this.dataGridView2.Size = new System.Drawing.Size(384, 96);
             this.dataGridView2.TabIndex = 4;
             // 
             // idappservDataGridViewTextBoxColumn
@@ -476,12 +477,12 @@
             this.countDataGridViewTextBoxColumn});
             this.dataGridView3.DataSource = this.appointmentservicesappointmentmaterialsBindingSource;
             this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView3.Location = new System.Drawing.Point(393, 105);
+            this.dataGridView3.Location = new System.Drawing.Point(393, 170);
             this.dataGridView3.MultiSelect = false;
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersVisible = false;
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(384, 53);
+            this.dataGridView3.Size = new System.Drawing.Size(384, 96);
             this.dataGridView3.TabIndex = 5;
             // 
             // idappmatDataGridViewTextBoxColumn
@@ -531,7 +532,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(804, 269);
+            this.ClientSize = new System.Drawing.Size(804, 377);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.dateTimePicker1);
@@ -542,8 +543,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
+            this.helpProvider1.SetHelpKeyword(this, "19");
+            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.TopicId);
+            this.helpProvider1.SetHelpString(this, "19");
             this.MinimumSize = new System.Drawing.Size(820, 308);
             this.Name = "Appointments";
+            this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Прийоми";
             this.Activated += new System.EventHandler(this.Appointments_Activated);
             this.Load += new System.EventHandler(this.Appointments_Load);
@@ -617,5 +622,6 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn materialDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn countDataGridViewTextBoxColumn;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }
