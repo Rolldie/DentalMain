@@ -38,15 +38,18 @@
             this.postTableAdapter = new DentalMain.dBDSTableAdapters.postTableAdapter();
             this.post_doctorTableAdapter = new DentalMain.dBDSTableAdapters.post_doctorTableAdapter();
             this.doctorsTableAdapter = new DentalMain.dBDSTableAdapters.doctorsTableAdapter();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.dBDS)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // BtnCancel
             // 
             this.BtnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.BtnCancel.Location = new System.Drawing.Point(144, 51);
+            this.BtnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnCancel.Location = new System.Drawing.Point(80, 3);
             this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(85, 23);
+            this.BtnCancel.Size = new System.Drawing.Size(72, 21);
             this.BtnCancel.TabIndex = 8;
             this.BtnCancel.Text = "Відмінити";
             this.BtnCancel.UseVisualStyleBackColor = true;
@@ -54,9 +57,10 @@
             // 
             // BtnSave
             // 
-            this.BtnSave.Location = new System.Drawing.Point(63, 51);
+            this.BtnSave.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnSave.Location = new System.Drawing.Point(3, 3);
             this.BtnSave.Name = "BtnSave";
-            this.BtnSave.Size = new System.Drawing.Size(75, 23);
+            this.BtnSave.Size = new System.Drawing.Size(71, 21);
             this.BtnSave.TabIndex = 9;
             this.BtnSave.Text = "Зберегти";
             this.BtnSave.UseVisualStyleBackColor = true;
@@ -64,15 +68,17 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 29);
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Location = new System.Drawing.Point(12, 21);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(217, 20);
+            this.textBox1.Size = new System.Drawing.Size(206, 20);
             this.textBox1.TabIndex = 7;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 13);
+            this.label2.Location = new System.Drawing.Point(12, 5);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(60, 13);
             this.label2.TabIndex = 5;
@@ -89,10 +95,13 @@
             // 
             // PostTree
             // 
+            this.PostTree.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.PostTree.CheckBoxes = true;
             this.PostTree.Location = new System.Drawing.Point(12, 77);
             this.PostTree.Name = "PostTree";
-            this.PostTree.Size = new System.Drawing.Size(217, 166);
+            this.PostTree.Size = new System.Drawing.Size(206, 40);
             this.PostTree.TabIndex = 4;
             // 
             // dBDS
@@ -112,23 +121,42 @@
             // 
             this.doctorsTableAdapter.ClearBeforeFill = true;
             // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tableLayoutPanel1.ColumnCount = 2;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.BtnSave, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.BtnCancel, 1, 0);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(63, 47);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 1;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(155, 27);
+            this.tableLayoutPanel1.TabIndex = 10;
+            // 
             // DocChange
             // 
             this.AcceptButton = this.BtnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.BtnCancel;
-            this.ClientSize = new System.Drawing.Size(244, 261);
-            this.Controls.Add(this.BtnCancel);
-            this.Controls.Add(this.BtnSave);
+            this.ClientSize = new System.Drawing.Size(231, 127);
+            this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.PostTree);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(247, 166);
             this.Name = "DocChange";
             this.Text = "DocChange";
             this.Load += new System.EventHandler(this.DocChange_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dBDS)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -146,5 +174,6 @@
         private dBDSTableAdapters.postTableAdapter postTableAdapter;
         private dBDSTableAdapters.post_doctorTableAdapter post_doctorTableAdapter;
         private dBDSTableAdapters.doctorsTableAdapter doctorsTableAdapter;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }

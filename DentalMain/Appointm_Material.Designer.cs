@@ -56,9 +56,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(126, 78);
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.Location = new System.Drawing.Point(126, 76);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(134, 23);
+            this.button1.Size = new System.Drawing.Size(90, 23);
             this.button1.TabIndex = 2;
             this.button1.Text = "ОК";
             this.button1.UseVisualStyleBackColor = true;
@@ -105,7 +107,7 @@
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(273, 107);
+            this.ClientSize = new System.Drawing.Size(230, 109);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.Matlab);
@@ -114,6 +116,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(575, 148);
+            this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(246, 148);
             this.Name = "Appointm_Material";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Введіть кількість";

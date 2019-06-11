@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.idappointmentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.doctorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -121,7 +121,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(825, 198);
+            this.dataGridView1.Size = new System.Drawing.Size(774, 81);
             this.dataGridView1.TabIndex = 0;
             // 
             // idappointmentDataGridViewTextBoxColumn
@@ -171,8 +171,8 @@
             // timeDataGridViewTextBoxColumn
             // 
             this.timeDataGridViewTextBoxColumn.DataPropertyName = "time";
-            dataGridViewCellStyle4.Format = "t";
-            this.timeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Format = "t";
+            this.timeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.timeDataGridViewTextBoxColumn.FillWeight = 50F;
             this.timeDataGridViewTextBoxColumn.HeaderText = "Час";
             this.timeDataGridViewTextBoxColumn.Name = "timeDataGridViewTextBoxColumn";
@@ -233,7 +233,7 @@
             "Дата запису"});
             this.comboBox1.Location = new System.Drawing.Point(65, 13);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(325, 21);
+            this.comboBox1.Size = new System.Drawing.Size(274, 21);
             this.comboBox1.TabIndex = 1;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.ComboBox1_SelectedIndexChanged);
             // 
@@ -287,7 +287,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(3, 204);
+            this.label4.Location = new System.Drawing.Point(3, 87);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(154, 13);
             this.label4.TabIndex = 2;
@@ -311,7 +311,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(418, 204);
+            this.label5.Location = new System.Drawing.Point(393, 87);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(161, 13);
             this.label5.TabIndex = 6;
@@ -320,7 +320,7 @@
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Location = new System.Drawing.Point(474, 12);
+            this.btnSave.Location = new System.Drawing.Point(423, 12);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(328, 24);
             this.btnSave.TabIndex = 7;
@@ -331,7 +331,7 @@
             // BtnCancl
             // 
             this.BtnCancl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnCancl.Location = new System.Drawing.Point(474, 42);
+            this.BtnCancl.Location = new System.Drawing.Point(423, 42);
             this.BtnCancl.Name = "BtnCancl";
             this.BtnCancl.Size = new System.Drawing.Size(328, 22);
             this.BtnCancl.TabIndex = 7;
@@ -364,7 +364,7 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(65, 43);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(325, 21);
+            this.comboBox2.Size = new System.Drawing.Size(274, 21);
             this.comboBox2.TabIndex = 8;
             this.comboBox2.ValueMember = "id_patient";
             this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.ComboBox2_SelectedIndexChanged);
@@ -375,7 +375,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker1.Location = new System.Drawing.Point(65, 43);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(325, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(274, 20);
             this.dateTimePicker1.TabIndex = 9;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.DateTimePicker1_ValueChanged);
             // 
@@ -408,7 +408,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 15F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(831, 356);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(780, 161);
             this.tableLayoutPanel1.TabIndex = 10;
             // 
             // dataGridView2
@@ -425,12 +425,12 @@
             this.serviceDataGridViewTextBoxColumn});
             this.dataGridView2.DataSource = this.appointmentappointmentservicesBindingSource;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(3, 222);
+            this.dataGridView2.Location = new System.Drawing.Point(3, 105);
             this.dataGridView2.MultiSelect = false;
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(409, 131);
+            this.dataGridView2.Size = new System.Drawing.Size(384, 53);
             this.dataGridView2.TabIndex = 4;
             // 
             // idappservDataGridViewTextBoxColumn
@@ -476,12 +476,12 @@
             this.countDataGridViewTextBoxColumn});
             this.dataGridView3.DataSource = this.appointmentservicesappointmentmaterialsBindingSource;
             this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView3.Location = new System.Drawing.Point(418, 222);
+            this.dataGridView3.Location = new System.Drawing.Point(393, 105);
             this.dataGridView3.MultiSelect = false;
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersVisible = false;
             this.dataGridView3.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView3.Size = new System.Drawing.Size(410, 131);
+            this.dataGridView3.Size = new System.Drawing.Size(384, 53);
             this.dataGridView3.TabIndex = 5;
             // 
             // idappmatDataGridViewTextBoxColumn
@@ -519,7 +519,7 @@
             // button1
             // 
             this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button1.Location = new System.Drawing.Point(396, 11);
+            this.button1.Location = new System.Drawing.Point(345, 11);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 53);
             this.button1.TabIndex = 11;
@@ -531,7 +531,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(855, 464);
+            this.ClientSize = new System.Drawing.Size(804, 269);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.dateTimePicker1);
@@ -542,6 +542,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
+            this.MinimumSize = new System.Drawing.Size(820, 308);
             this.Name = "Appointments";
             this.Text = "Прийоми";
             this.Activated += new System.EventHandler(this.Appointments_Activated);
