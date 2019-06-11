@@ -47,9 +47,9 @@
             // 
             this.BtnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnCancel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnCancel.Location = new System.Drawing.Point(81, 3);
+            this.BtnCancel.Location = new System.Drawing.Point(126, 3);
             this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(72, 21);
+            this.BtnCancel.Size = new System.Drawing.Size(117, 21);
             this.BtnCancel.TabIndex = 8;
             this.BtnCancel.Text = "Відмінити";
             this.BtnCancel.UseVisualStyleBackColor = true;
@@ -60,7 +60,7 @@
             this.BtnSave.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnSave.Location = new System.Drawing.Point(3, 3);
             this.BtnSave.Name = "BtnSave";
-            this.BtnSave.Size = new System.Drawing.Size(72, 21);
+            this.BtnSave.Size = new System.Drawing.Size(117, 21);
             this.BtnSave.TabIndex = 9;
             this.BtnSave.Text = "Зберегти";
             this.BtnSave.UseVisualStyleBackColor = true;
@@ -72,7 +72,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(12, 21);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(207, 20);
+            this.textBox1.Size = new System.Drawing.Size(297, 20);
             this.textBox1.TabIndex = 7;
             // 
             // label2
@@ -101,7 +101,7 @@
             this.PostTree.CheckBoxes = true;
             this.PostTree.Location = new System.Drawing.Point(12, 77);
             this.PostTree.Name = "PostTree";
-            this.PostTree.Size = new System.Drawing.Size(207, 164);
+            this.PostTree.Size = new System.Drawing.Size(297, 113);
             this.PostTree.TabIndex = 4;
             // 
             // dBDS
@@ -134,7 +134,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(156, 27);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(246, 27);
             this.tableLayoutPanel1.TabIndex = 10;
             // 
             // DocChange
@@ -143,7 +143,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.BtnCancel;
-            this.ClientSize = new System.Drawing.Size(232, 251);
+            this.ClientSize = new System.Drawing.Size(322, 200);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);

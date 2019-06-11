@@ -220,9 +220,13 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.helpProvider1.SetHelpKeyword(this, "1");
+            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.TopicId);
+            this.helpProvider1.SetHelpString(this, "1");
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ConnectFrm";
+            this.helpProvider1.SetShowHelp(this, true);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Перевірка підключення до бази";
             this.Load += new System.EventHandler(this.ConnectFrm_Load);

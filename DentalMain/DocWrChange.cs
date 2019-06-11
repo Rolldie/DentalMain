@@ -19,6 +19,7 @@ namespace DentalMain
         private void DocWrChange_Load(object sender, EventArgs e)
         {
             Updating();
+            helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
         }
         public void Updating()
         {

@@ -37,6 +37,8 @@
             this.AddBtn = new System.Windows.Forms.Button();
             this.CancelBtn = new System.Windows.Forms.Button();
             this.doctorGrid = new System.Windows.Forms.DataGridView();
+            this.iddoctorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GridContm = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.изменитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.doctorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -47,8 +49,7 @@
             this.doctorsTableAdapter = new DentalMain.dBDSTableAdapters.doctorsTableAdapter();
             this.post_doctorTableAdapter = new DentalMain.dBDSTableAdapters.post_doctorTableAdapter();
             this.postTableAdapter = new DentalMain.dBDSTableAdapters.postTableAdapter();
-            this.iddoctorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.doctorGrid)).BeginInit();
             this.GridContm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.doctorsBindingSource)).BeginInit();
@@ -60,7 +61,7 @@
             // FilterBtn
             // 
             this.FilterBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.FilterBtn.Location = new System.Drawing.Point(272, 12);
+            this.FilterBtn.Location = new System.Drawing.Point(233, 12);
             this.FilterBtn.Name = "FilterBtn";
             this.FilterBtn.Size = new System.Drawing.Size(75, 21);
             this.FilterBtn.TabIndex = 1;
@@ -92,7 +93,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FindText.Location = new System.Drawing.Point(63, 35);
             this.FindText.Name = "FindText";
-            this.FindText.Size = new System.Drawing.Size(203, 20);
+            this.FindText.Size = new System.Drawing.Size(164, 20);
             this.FindText.TabIndex = 3;
             // 
             // Field
@@ -102,14 +103,14 @@
             this.Field.FormattingEnabled = true;
             this.Field.Location = new System.Drawing.Point(63, 12);
             this.Field.Name = "Field";
-            this.Field.Size = new System.Drawing.Size(203, 21);
+            this.Field.Size = new System.Drawing.Size(164, 21);
             this.Field.TabIndex = 4;
             this.Field.SelectedIndexChanged += new System.EventHandler(this.Field_SelectedIndexChanged);
             // 
             // AddBtn
             // 
             this.AddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddBtn.Location = new System.Drawing.Point(353, 12);
+            this.AddBtn.Location = new System.Drawing.Point(314, 12);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(78, 43);
             this.AddBtn.TabIndex = 5;
@@ -120,7 +121,7 @@
             // CancelBtn
             // 
             this.CancelBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.CancelBtn.Location = new System.Drawing.Point(272, 35);
+            this.CancelBtn.Location = new System.Drawing.Point(233, 35);
             this.CancelBtn.Name = "CancelBtn";
             this.CancelBtn.Size = new System.Drawing.Size(75, 20);
             this.CancelBtn.TabIndex = 6;
@@ -147,11 +148,24 @@
             this.doctorGrid.Name = "doctorGrid";
             this.doctorGrid.RowHeadersVisible = false;
             this.doctorGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.doctorGrid.Size = new System.Drawing.Size(419, 377);
+            this.doctorGrid.Size = new System.Drawing.Size(380, 86);
             this.doctorGrid.TabIndex = 7;
             this.doctorGrid.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DoctorGrid_CellMouseDoubleClick);
             this.doctorGrid.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DoctorGrid_CellMouseDown);
             this.doctorGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DoctorGrid_DataError);
+            // 
+            // iddoctorDataGridViewTextBoxColumn
+            // 
+            this.iddoctorDataGridViewTextBoxColumn.DataPropertyName = "id_doctor";
+            this.iddoctorDataGridViewTextBoxColumn.FillWeight = 40F;
+            this.iddoctorDataGridViewTextBoxColumn.HeaderText = "Номер у базі";
+            this.iddoctorDataGridViewTextBoxColumn.Name = "iddoctorDataGridViewTextBoxColumn";
+            // 
+            // fullnameDataGridViewTextBoxColumn
+            // 
+            this.fullnameDataGridViewTextBoxColumn.DataPropertyName = "full_name";
+            this.fullnameDataGridViewTextBoxColumn.HeaderText = "ПІБ доктора";
+            this.fullnameDataGridViewTextBoxColumn.Name = "fullnameDataGridViewTextBoxColumn";
             // 
             // GridContm
             // 
@@ -187,7 +201,7 @@
             this.secretCmbBx.FormattingEnabled = true;
             this.secretCmbBx.Location = new System.Drawing.Point(63, 34);
             this.secretCmbBx.Name = "secretCmbBx";
-            this.secretCmbBx.Size = new System.Drawing.Size(203, 21);
+            this.secretCmbBx.Size = new System.Drawing.Size(164, 21);
             this.secretCmbBx.TabIndex = 8;
             this.secretCmbBx.ValueMember = "id_post_doc";
             this.secretCmbBx.Visible = false;
@@ -209,24 +223,11 @@
             // 
             this.postTableAdapter.ClearBeforeFill = true;
             // 
-            // iddoctorDataGridViewTextBoxColumn
-            // 
-            this.iddoctorDataGridViewTextBoxColumn.DataPropertyName = "id_doctor";
-            this.iddoctorDataGridViewTextBoxColumn.FillWeight = 40F;
-            this.iddoctorDataGridViewTextBoxColumn.HeaderText = "Номер у базі";
-            this.iddoctorDataGridViewTextBoxColumn.Name = "iddoctorDataGridViewTextBoxColumn";
-            // 
-            // fullnameDataGridViewTextBoxColumn
-            // 
-            this.fullnameDataGridViewTextBoxColumn.DataPropertyName = "full_name";
-            this.fullnameDataGridViewTextBoxColumn.HeaderText = "ПІБ доктора";
-            this.fullnameDataGridViewTextBoxColumn.Name = "fullnameDataGridViewTextBoxColumn";
-            // 
             // Doctor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(440, 450);
+            this.ClientSize = new System.Drawing.Size(401, 159);
             this.Controls.Add(this.secretCmbBx);
             this.Controls.Add(this.doctorGrid);
             this.Controls.Add(this.CancelBtn);
@@ -237,7 +238,12 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.FilterBtn);
             this.DoubleBuffered = true;
+            this.helpProvider1.SetHelpKeyword(this, "18");
+            this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.TopicId);
+            this.helpProvider1.SetHelpString(this, "18");
+            this.MinimumSize = new System.Drawing.Size(417, 198);
             this.Name = "Doctor";
+            this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Лікарі";
             this.Activated += new System.EventHandler(this.Doctor_Activated);
             this.Load += new System.EventHandler(this.Doctor_Load);
@@ -273,5 +279,6 @@
         private System.Windows.Forms.ToolStripMenuItem изменитьToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn iddoctorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fullnameDataGridViewTextBoxColumn;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

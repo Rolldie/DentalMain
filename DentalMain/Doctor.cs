@@ -69,6 +69,7 @@ namespace DentalMain
         {
             ThreadCreator();
             CreatingFieldsSearch();
+            helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
 
         }
 

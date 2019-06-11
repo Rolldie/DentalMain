@@ -57,6 +57,7 @@
             this.timeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dayofweekDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.doctorsdocRecordLogBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.doctorsBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDS)).BeginInit();
             this.GbCrWr.SuspendLayout();
@@ -72,7 +73,7 @@
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(53, 15);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(259, 21);
+            this.comboBox1.Size = new System.Drawing.Size(214, 21);
             this.comboBox1.TabIndex = 0;
             this.comboBox1.ValueMember = "id_doctor";
             // 
@@ -278,6 +279,8 @@
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -288,7 +291,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(205, 279);
+            this.dataGridView1.Size = new System.Drawing.Size(205, 270);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.UserDeletedRow += new System.Windows.Forms.DataGridViewRowEventHandler(this.DataGridView1_UserDeletedRow);
             // 
@@ -316,16 +319,21 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(360, 351);
+            this.ClientSize = new System.Drawing.Size(363, 351);
             this.Controls.Add(this.GbCrWr);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.helpProvider1.SetHelpKeyword(this, "26");
+            this.helpProvider1.SetHelpString(this, "26");
             this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(379, 900);
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(379, 390);
             this.Name = "DocWrChange";
+            this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Зміна розкладу лікаря";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DocWrChange_FormClosed);
             this.Load += new System.EventHandler(this.DocWrChange_Load);
@@ -371,5 +379,6 @@
         private System.Windows.Forms.BindingSource doctorsdocRecordLogBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn timeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dayofweekDataGridViewTextBoxColumn;
+        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

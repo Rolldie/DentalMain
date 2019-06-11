@@ -41,6 +41,7 @@ namespace DentalMain
         private void MainForm_Load(object sender, EventArgs e)
         {
             FindWhatToUpdate();
+            helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
         }
         public void ChangeStBr(string text)  //Зміна статус бару
         {
