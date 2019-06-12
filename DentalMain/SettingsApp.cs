@@ -55,7 +55,7 @@ namespace DentalMain
         private void button1_Click(object sender, EventArgs e)
         {
             MainForm f = Application.OpenForms["MainForm"] as MainForm;
-            if (Rad1.Checked) { f.SaveProp(0, 1); }
+            if (Rad1.Checked) { DialogResult = DialogResult.OK; f.SaveProp(0, 1); }
             else if (Rad2.Checked)
             {
                 if (DoctorGet.Text=="") { MessageBox.Show("Не выбран врач! Если нет врача, которого можно выбрать, то добавьте его."); return; }

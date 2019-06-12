@@ -1396,6 +1396,20 @@ namespace DentalMain
             catch { comboBox1.SelectedItem = comboBox1.Items[0]; }
         }
 
+        private void ПроАвтораToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Розробив студент групи П15-2Д Руснак Єгор");
+        }
+
+        private void НалаштуванняToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (mf.SettingsAppFormDialog(prop) == DialogResult.OK)
+            {
+                if (Application.OpenForms["SettingsApp"] is SettingsApp f) f.Close();
+                this.CloserWindows();
+            }
+        }
+
         #endregion
         //looks Done
 

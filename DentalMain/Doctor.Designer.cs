@@ -132,6 +132,7 @@
             // doctorGrid
             // 
             this.doctorGrid.AllowUserToAddRows = false;
+            this.doctorGrid.AllowUserToResizeRows = false;
             this.doctorGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -172,13 +173,13 @@
             this.GridContm.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.изменитьToolStripMenuItem});
             this.GridContm.Name = "GridContm";
-            this.GridContm.Size = new System.Drawing.Size(181, 48);
+            this.GridContm.Size = new System.Drawing.Size(120, 26);
             this.GridContm.Opening += new System.ComponentModel.CancelEventHandler(this.GridContm_Opening);
             // 
             // изменитьToolStripMenuItem
             // 
             this.изменитьToolStripMenuItem.Name = "изменитьToolStripMenuItem";
-            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
             this.изменитьToolStripMenuItem.Text = "Змінити";
             this.изменитьToolStripMenuItem.Click += new System.EventHandler(this.ИзменитьToolStripMenuItem_Click);
             // 
