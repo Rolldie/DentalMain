@@ -135,6 +135,7 @@
             this.AnmndisSearch = new System.Windows.Forms.TextBox();
             this.Diagnosis = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.label10 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.diagnosisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.diagnosisBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -142,7 +143,6 @@
             this.finddateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.id_diag_patient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientsdiagspatientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label10 = new System.Windows.Forms.Label();
             this.treeViewDiag = new System.Windows.Forms.TreeView();
             this.BtnAddDiag = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
@@ -152,6 +152,8 @@
             this.label12 = new System.Windows.Forms.Label();
             this.appointment = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.PaidGB = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();
@@ -164,7 +166,6 @@
             this.BtnPayByAvnc = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.AppointBox = new System.Windows.Forms.ComboBox();
             this.patientsappointmentBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.HealingTreeDiag = new System.Windows.Forms.TreeView();
@@ -177,7 +178,6 @@
             this.ServSearch = new System.Windows.Forms.TextBox();
             this.ServTree = new System.Windows.Forms.TreeView();
             this.label14 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.змінитиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -422,7 +422,7 @@
             this.ChekDataView.Image = ((System.Drawing.Image)(resources.GetObject("ChekDataView.Image")));
             this.ChekDataView.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.ChekDataView.Name = "ChekDataView";
-            this.ChekDataView.Size = new System.Drawing.Size(132, 22);
+            this.ChekDataView.Size = new System.Drawing.Size(133, 22);
             this.ChekDataView.Text = "Тільки ващі записи";
             this.ChekDataView.ToolTipText = "Только ваши записи";
             this.ChekDataView.CheckedChanged += new System.EventHandler(this.ChekDataView_CheckedChanged);
@@ -1452,6 +1452,17 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(688, 356);
             this.tableLayoutPanel5.TabIndex = 6;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label10.Location = new System.Drawing.Point(3, 0);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(354, 20);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Перелік діагнозів пацієнта";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
@@ -1520,17 +1531,6 @@
             // 
             this.patientsdiagspatientBindingSource.DataMember = "patientsdiags_patient";
             this.patientsdiagspatientBindingSource.DataSource = this.patientsBindingSource;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label10.Location = new System.Drawing.Point(3, 0);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(354, 20);
-            this.label10.TabIndex = 1;
-            this.label10.Text = "Перелік діагнозів пацієнта";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // treeViewDiag
             // 
@@ -1655,6 +1655,29 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(685, 356);
             this.tableLayoutPanel6.TabIndex = 25;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Location = new System.Drawing.Point(3, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(222, 20);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Прийом";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.Location = new System.Drawing.Point(459, 23);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(223, 20);
+            this.button3.TabIndex = 11;
+            this.button3.Text = "Змінити прийом";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // PaidGB
             // 
@@ -1784,17 +1807,6 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(105, 20);
             this.textBox1.TabIndex = 16;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Location = new System.Drawing.Point(3, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(222, 20);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Прийом";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // AppointBox
             // 
@@ -1934,38 +1946,26 @@
             this.label14.Text = "Оберіть послугу";
             this.label14.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(459, 23);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(223, 20);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "Змінити прийом";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.змінитиToolStripMenuItem,
             this.удалитьToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(127, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(128, 48);
             // 
             // змінитиToolStripMenuItem
             // 
             this.змінитиToolStripMenuItem.Name = "змінитиToolStripMenuItem";
-            this.змінитиToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.змінитиToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.змінитиToolStripMenuItem.Text = "Змінити";
             this.змінитиToolStripMenuItem.Click += new System.EventHandler(this.ЗмінитиToolStripMenuItem_Click);
             // 
             // удалитьToolStripMenuItem
             // 
             this.удалитьToolStripMenuItem.Name = "удалитьToolStripMenuItem";
-            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
-            this.удалитьToolStripMenuItem.Text = "Видалити";
+            this.удалитьToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.удалитьToolStripMenuItem.Text = "Вилучити";
             this.удалитьToolStripMenuItem.Click += new System.EventHandler(this.УдалитьToolStripMenuItem_Click);
             // 
             // servicesBindingSource
