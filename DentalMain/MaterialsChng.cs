@@ -47,8 +47,7 @@ namespace DentalMain
                 decimal f;
                 decimal.TryParse(CostTextBox.Text.Replace(".", ","), out f);
                 MemoryStream memstr = new MemoryStream();
-                Image img;
-                try { img = Image.FromFile(ImgDirTextBox.Text); } catch { img = null; }
+                Image img = pictureBox1.Image ;
                 byte[] b;
                 if (img != null)
                 {
