@@ -49,7 +49,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(112, 13);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(653, 20);
+            this.textBox1.Size = new System.Drawing.Size(345, 20);
             this.textBox1.TabIndex = 0;
             // 
             // label1
@@ -85,7 +85,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker1.Location = new System.Drawing.Point(112, 40);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(653, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(345, 20);
             this.dateTimePicker1.TabIndex = 2;
             // 
             // maskedTextBox1
@@ -95,7 +95,7 @@
             this.maskedTextBox1.Location = new System.Drawing.Point(112, 69);
             this.maskedTextBox1.Mask = "+38(\\000)-000-0000";
             this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(653, 20);
+            this.maskedTextBox1.Size = new System.Drawing.Size(345, 20);
             this.maskedTextBox1.TabIndex = 4;
             // 
             // BtnAdd
@@ -103,7 +103,7 @@
             this.BtnAdd.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnAdd.Location = new System.Drawing.Point(3, 3);
             this.BtnAdd.Name = "BtnAdd";
-            this.BtnAdd.Size = new System.Drawing.Size(320, 22);
+            this.BtnAdd.Size = new System.Drawing.Size(166, 22);
             this.BtnAdd.TabIndex = 5;
             this.BtnAdd.Text = "Додати пацієнта";
             this.BtnAdd.UseVisualStyleBackColor = true;
@@ -113,9 +113,9 @@
             // 
             this.BtnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnClose.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnClose.Location = new System.Drawing.Point(329, 3);
+            this.BtnClose.Location = new System.Drawing.Point(175, 3);
             this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(321, 22);
+            this.BtnClose.Size = new System.Drawing.Size(167, 22);
             this.BtnClose.TabIndex = 5;
             this.BtnClose.Text = "Відмінити";
             this.BtnClose.UseVisualStyleBackColor = true;
@@ -143,7 +143,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(653, 28);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(345, 28);
             this.tableLayoutPanel1.TabIndex = 6;
             // 
             // PatientAdd
@@ -152,7 +152,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.BtnClose;
-            this.ClientSize = new System.Drawing.Size(777, 135);
+            this.ClientSize = new System.Drawing.Size(469, 135);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.maskedTextBox1);
             this.Controls.Add(this.dateTimePicker1);

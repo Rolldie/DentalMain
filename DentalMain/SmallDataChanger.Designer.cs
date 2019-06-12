@@ -77,7 +77,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(12, 29);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(181, 20);
+            this.textBox1.Size = new System.Drawing.Size(338, 20);
             this.textBox1.TabIndex = 0;
             // 
             // label1
@@ -95,7 +95,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnSave.Location = new System.Drawing.Point(12, 55);
             this.BtnSave.Name = "BtnSave";
-            this.BtnSave.Size = new System.Drawing.Size(181, 30);
+            this.BtnSave.Size = new System.Drawing.Size(338, 30);
             this.BtnSave.TabIndex = 2;
             this.BtnSave.Text = "Зберегти";
             this.BtnSave.UseVisualStyleBackColor = true;
@@ -108,7 +108,7 @@
             this.BtnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.BtnCancel.Location = new System.Drawing.Point(12, 89);
             this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(181, 30);
+            this.BtnCancel.Size = new System.Drawing.Size(338, 30);
             this.BtnCancel.TabIndex = 2;
             this.BtnCancel.Text = "Відмінити";
             this.BtnCancel.UseVisualStyleBackColor = true;
@@ -120,7 +120,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.BtnCancel;
-            this.ClientSize = new System.Drawing.Size(203, 131);
+            this.ClientSize = new System.Drawing.Size(360, 131);
             this.Controls.Add(this.BtnCancel);
             this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.label1);

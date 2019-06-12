@@ -76,7 +76,7 @@
             this.MatGrid.Name = "MatGrid";
             this.MatGrid.RowHeadersVisible = false;
             this.MatGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MatGrid.Size = new System.Drawing.Size(300, 296);
+            this.MatGrid.Size = new System.Drawing.Size(300, 295);
             this.MatGrid.TabIndex = 0;
             this.MatGrid.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.MatGrid_CellMouseDown);
             this.MatGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
@@ -107,21 +107,21 @@
             this.змінитиToolStripMenuItem,
             this.видалитиToolStripMenuItem});
             this.datagridcomb.Name = "datagridcomb";
-            this.datagridcomb.Size = new System.Drawing.Size(127, 48);
+            this.datagridcomb.Size = new System.Drawing.Size(128, 48);
             this.datagridcomb.Opening += new System.ComponentModel.CancelEventHandler(this.datagridcomb_Opening);
             // 
             // змінитиToolStripMenuItem
             // 
             this.змінитиToolStripMenuItem.Name = "змінитиToolStripMenuItem";
-            this.змінитиToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.змінитиToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.змінитиToolStripMenuItem.Text = "Змінити";
             this.змінитиToolStripMenuItem.Click += new System.EventHandler(this.змінитиToolStripMenuItem_Click);
             // 
             // видалитиToolStripMenuItem
             // 
             this.видалитиToolStripMenuItem.Name = "видалитиToolStripMenuItem";
-            this.видалитиToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
-            this.видалитиToolStripMenuItem.Text = "Видалити";
+            this.видалитиToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.видалитиToolStripMenuItem.Text = "Вилучити";
             this.видалитиToolStripMenuItem.Click += new System.EventHandler(this.видалитиToolStripMenuItem_Click);
             // 
             // materialsBindingSource
@@ -229,7 +229,7 @@
             this.AcceptButton = this.AddBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(326, 439);
+            this.ClientSize = new System.Drawing.Size(326, 438);
             this.Controls.Add(this.CostTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);

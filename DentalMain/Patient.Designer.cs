@@ -30,6 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             this.PatientGrid = new System.Windows.Forms.DataGridView();
+            this.idpatientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateofbirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phonenumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GridContm = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.изменитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.patientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -43,10 +47,6 @@
             this.patientsTableAdapter = new DentalMain.dBDSTableAdapters.patientsTableAdapter();
             this.ClearBtn = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.idpatientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateofbirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phonenumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.PatientGrid)).BeginInit();
             this.GridContm.SuspendLayout();
@@ -78,125 +78,11 @@
             this.PatientGrid.Name = "PatientGrid";
             this.PatientGrid.RowHeadersVisible = false;
             this.PatientGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.PatientGrid.Size = new System.Drawing.Size(394, 244);
+            this.PatientGrid.Size = new System.Drawing.Size(364, 194);
             this.PatientGrid.TabIndex = 0;
             this.PatientGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientGrid_CellDoubleClick);
             this.PatientGrid.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.PatientGrid_CellMouseDown);
             this.PatientGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.PatientGrid_DataError);
-            // 
-            // GridContm
-            // 
-            this.GridContm.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.изменитьToolStripMenuItem});
-            this.GridContm.Name = "GridContm";
-            this.GridContm.Size = new System.Drawing.Size(129, 26);
-            this.GridContm.Opening += new System.ComponentModel.CancelEventHandler(this.GridContm_Opening);
-            // 
-            // изменитьToolStripMenuItem
-            // 
-            this.изменитьToolStripMenuItem.Name = "изменитьToolStripMenuItem";
-            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
-            this.изменитьToolStripMenuItem.Text = "Изменить";
-            this.изменитьToolStripMenuItem.Click += new System.EventHandler(this.изменитьToolStripMenuItem_Click);
-            // 
-            // patientsBindingSource
-            // 
-            this.patientsBindingSource.DataMember = "patients";
-            this.patientsBindingSource.DataSource = this.dBDS;
-            // 
-            // dBDS
-            // 
-            this.dBDS.DataSetName = "dBDS";
-            this.dBDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // FindTxtBx
-            // 
-            this.FindTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.FindTxtBx.Location = new System.Drawing.Point(69, 39);
-            this.FindTxtBx.Name = "FindTxtBx";
-            this.FindTxtBx.Size = new System.Drawing.Size(158, 20);
-            this.FindTxtBx.TabIndex = 1;
-            // 
-            // FieldBx
-            // 
-            this.FieldBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.FieldBx.FormattingEnabled = true;
-            this.FieldBx.Items.AddRange(new object[] {
-            "ПІБ",
-            "Дата народження",
-            "Номер телефону"});
-            this.FieldBx.Location = new System.Drawing.Point(69, 14);
-            this.FieldBx.Name = "FieldBx";
-            this.FieldBx.Size = new System.Drawing.Size(158, 21);
-            this.FieldBx.TabIndex = 2;
-            this.FieldBx.SelectedIndexChanged += new System.EventHandler(this.FieldBx_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(22, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(33, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Поле";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(22, 42);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Знайти:";
-            // 
-            // FltrBtn
-            // 
-            this.FltrBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.FltrBtn.Location = new System.Drawing.Point(233, 12);
-            this.FltrBtn.Name = "FltrBtn";
-            this.FltrBtn.Size = new System.Drawing.Size(78, 23);
-            this.FltrBtn.TabIndex = 4;
-            this.FltrBtn.Text = "Фільтр";
-            this.FltrBtn.UseVisualStyleBackColor = true;
-            this.FltrBtn.Click += new System.EventHandler(this.FltrBtn_Click);
-            // 
-            // AddBtn
-            // 
-            this.AddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddBtn.Location = new System.Drawing.Point(318, 12);
-            this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(88, 50);
-            this.AddBtn.TabIndex = 5;
-            this.AddBtn.Text = "Додати пацієнта";
-            this.AddBtn.UseVisualStyleBackColor = true;
-            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
-            // 
-            // patientsTableAdapter
-            // 
-            this.patientsTableAdapter.ClearBeforeFill = true;
-            // 
-            // ClearBtn
-            // 
-            this.ClearBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ClearBtn.Location = new System.Drawing.Point(233, 39);
-            this.ClearBtn.Name = "ClearBtn";
-            this.ClearBtn.Size = new System.Drawing.Size(78, 23);
-            this.ClearBtn.TabIndex = 4;
-            this.ClearBtn.Text = "Відмінити";
-            this.ClearBtn.UseVisualStyleBackColor = true;
-            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePicker1.Location = new System.Drawing.Point(69, 39);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(158, 20);
-            this.dateTimePicker1.TabIndex = 6;
-            this.dateTimePicker1.Visible = false;
             // 
             // idpatientDataGridViewTextBoxColumn
             // 
@@ -225,11 +111,125 @@
             this.phonenumberDataGridViewTextBoxColumn.HeaderText = "Номер телефону";
             this.phonenumberDataGridViewTextBoxColumn.Name = "phonenumberDataGridViewTextBoxColumn";
             // 
+            // GridContm
+            // 
+            this.GridContm.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.изменитьToolStripMenuItem});
+            this.GridContm.Name = "GridContm";
+            this.GridContm.Size = new System.Drawing.Size(120, 26);
+            this.GridContm.Opening += new System.ComponentModel.CancelEventHandler(this.GridContm_Opening);
+            // 
+            // изменитьToolStripMenuItem
+            // 
+            this.изменитьToolStripMenuItem.Name = "изменитьToolStripMenuItem";
+            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.изменитьToolStripMenuItem.Text = "Змінити";
+            this.изменитьToolStripMenuItem.Click += new System.EventHandler(this.изменитьToolStripMenuItem_Click);
+            // 
+            // patientsBindingSource
+            // 
+            this.patientsBindingSource.DataMember = "patients";
+            this.patientsBindingSource.DataSource = this.dBDS;
+            // 
+            // dBDS
+            // 
+            this.dBDS.DataSetName = "dBDS";
+            this.dBDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // FindTxtBx
+            // 
+            this.FindTxtBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FindTxtBx.Location = new System.Drawing.Point(69, 39);
+            this.FindTxtBx.Name = "FindTxtBx";
+            this.FindTxtBx.Size = new System.Drawing.Size(128, 20);
+            this.FindTxtBx.TabIndex = 1;
+            // 
+            // FieldBx
+            // 
+            this.FieldBx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.FieldBx.FormattingEnabled = true;
+            this.FieldBx.Items.AddRange(new object[] {
+            "ПІБ",
+            "Дата народження",
+            "Номер телефону"});
+            this.FieldBx.Location = new System.Drawing.Point(69, 14);
+            this.FieldBx.Name = "FieldBx";
+            this.FieldBx.Size = new System.Drawing.Size(128, 21);
+            this.FieldBx.TabIndex = 2;
+            this.FieldBx.SelectedIndexChanged += new System.EventHandler(this.FieldBx_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(22, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(33, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Поле";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(22, 42);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 13);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Знайти:";
+            // 
+            // FltrBtn
+            // 
+            this.FltrBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.FltrBtn.Location = new System.Drawing.Point(203, 12);
+            this.FltrBtn.Name = "FltrBtn";
+            this.FltrBtn.Size = new System.Drawing.Size(78, 23);
+            this.FltrBtn.TabIndex = 4;
+            this.FltrBtn.Text = "Фільтр";
+            this.FltrBtn.UseVisualStyleBackColor = true;
+            this.FltrBtn.Click += new System.EventHandler(this.FltrBtn_Click);
+            // 
+            // AddBtn
+            // 
+            this.AddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddBtn.Location = new System.Drawing.Point(288, 12);
+            this.AddBtn.Name = "AddBtn";
+            this.AddBtn.Size = new System.Drawing.Size(88, 50);
+            this.AddBtn.TabIndex = 5;
+            this.AddBtn.Text = "Додати пацієнта";
+            this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
+            // 
+            // patientsTableAdapter
+            // 
+            this.patientsTableAdapter.ClearBeforeFill = true;
+            // 
+            // ClearBtn
+            // 
+            this.ClearBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.ClearBtn.Location = new System.Drawing.Point(203, 39);
+            this.ClearBtn.Name = "ClearBtn";
+            this.ClearBtn.Size = new System.Drawing.Size(78, 23);
+            this.ClearBtn.TabIndex = 4;
+            this.ClearBtn.Text = "Відмінити";
+            this.ClearBtn.UseVisualStyleBackColor = true;
+            this.ClearBtn.Click += new System.EventHandler(this.ClearBtn_Click);
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTimePicker1.Location = new System.Drawing.Point(69, 39);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(128, 20);
+            this.dateTimePicker1.TabIndex = 6;
+            this.dateTimePicker1.Visible = false;
+            // 
             // Patient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(416, 329);
+            this.ClientSize = new System.Drawing.Size(386, 279);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.AddBtn);
             this.Controls.Add(this.ClearBtn);

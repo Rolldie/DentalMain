@@ -67,7 +67,7 @@
             this.PostGrid.Name = "PostGrid";
             this.PostGrid.RowHeadersVisible = false;
             this.PostGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.PostGrid.Size = new System.Drawing.Size(219, 244);
+            this.PostGrid.Size = new System.Drawing.Size(275, 236);
             this.PostGrid.TabIndex = 0;
             this.PostGrid.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.PostGrid_CellMouseDown);
             this.PostGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView2_DataError);
@@ -91,21 +91,21 @@
             this.змінитиToolStripMenuItem,
             this.видалитиToolStripMenuItem});
             this.GridMenu.Name = "GridMenu";
-            this.GridMenu.Size = new System.Drawing.Size(127, 48);
+            this.GridMenu.Size = new System.Drawing.Size(128, 48);
             this.GridMenu.Opening += new System.ComponentModel.CancelEventHandler(this.GridMenu_Opening);
             // 
             // змінитиToolStripMenuItem
             // 
             this.змінитиToolStripMenuItem.Name = "змінитиToolStripMenuItem";
-            this.змінитиToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.змінитиToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.змінитиToolStripMenuItem.Text = "Змінити";
             this.змінитиToolStripMenuItem.Click += new System.EventHandler(this.змінитиToolStripMenuItem_Click);
             // 
             // видалитиToolStripMenuItem
             // 
             this.видалитиToolStripMenuItem.Name = "видалитиToolStripMenuItem";
-            this.видалитиToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
-            this.видалитиToolStripMenuItem.Text = "Видалити";
+            this.видалитиToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.видалитиToolStripMenuItem.Text = "Вилучити";
             this.видалитиToolStripMenuItem.Click += new System.EventHandler(this.видалитиToolStripMenuItem_Click);
             // 
             // postBindingSource
@@ -124,7 +124,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.Location = new System.Drawing.Point(12, 12);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(219, 23);
+            this.button2.Size = new System.Drawing.Size(275, 23);
             this.button2.TabIndex = 1;
             this.button2.Text = "Додати посаду";
             this.button2.UseVisualStyleBackColor = true;
@@ -140,7 +140,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox1.Location = new System.Drawing.Point(12, 41);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(219, 20);
+            this.textBox1.Size = new System.Drawing.Size(275, 20);
             this.textBox1.TabIndex = 2;
             // 
             // Posts
@@ -148,7 +148,7 @@
             this.AcceptButton = this.button2;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(239, 325);
+            this.ClientSize = new System.Drawing.Size(295, 317);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.PostGrid);
