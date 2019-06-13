@@ -66,7 +66,6 @@ namespace DentalMain
                 {
                     for (int i = 0; i < groupBox1.Controls.Count; i++)
                     {
-                        App.Text += groupBox1.Controls[i].Name;
                         if ((groupBox1.Controls[i] as CheckBox).Checked && dBDS.docRecordLog.Select("doctor='" + comboBox1.SelectedValue + "' and time='" + Convert.ToDateTime(String.Format("{0: 30.12.1899 HH:mm}", TimeFrom)) +
                             "' and day_of_week='" + Switcher(i) + "'").Count() == 0 && dBDS.docRecordLog.Select("doctor='" +
                             comboBox1.SelectedValue + "' and time='" + Convert.ToDateTime(String.Format("{0: 30.12.1899 HH:mm}", TimeTo)) +
@@ -79,7 +78,6 @@ namespace DentalMain
                 }
                 this.docRecordLogTableAdapter.Fill(dBDS.docRecordLog);
             }
-
         }
         public string Switcher(int jk)
         {

@@ -115,8 +115,8 @@ namespace DentalMain
         }
         private void AddBtn_Click(object sender, EventArgs e)  //Додавання пацієнту (виклик, через форму)
         {
-            Point = mf.PatientAddFormDialog();
-            UpdatePatient();
+            mf.PatientAddFormDialog();
+            //UpdatePatient();
         }
         private void ПослугиЗаПосадоюToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -166,6 +166,20 @@ namespace DentalMain
             
         }
 
+        private void ПроАвтораToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Розробив студент групи П15-2Д Руснак Єгор");
+        }
+
+        private void НалаштуванняToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (mf.SettingsAppFormDialog(prop) == DialogResult.OK)
+            {
+                if (Application.OpenForms["SettingsApp"] is SettingsApp f) f.Close();
+                this.CloserWindows();
+            }
+        }
+
         #endregion 
         //Done
 
@@ -209,15 +223,37 @@ namespace DentalMain
             else if (MainTab.SelectedIndex == 2) AnamnUpdate();
             else if (MainTab.SelectedIndex == 3) PlnLtsUpdate();
             else if (MainTab.SelectedIndex == 4) AnamnDisUpdate();
-            else if (MainTab.SelectedIndex == 5) DiagUpdate();
-            else if (MainTab.SelectedIndex == 6) AppointmentUpdate();
+            else if (MainTab.SelectedIndex == 5) ObjectiveUpdate();
+            else if (MainTab.SelectedIndex == 6) DiagUpdate();
+            else if (MainTab.SelectedIndex == 7) AppointmentUpdate();
             CloserWindows();
         }   //Найти, что обновить
 
+        public void ObjectiveUpdate()
+        {
+            try
+            {
+                this.possibleObjectiveTableAdapter.Fill(dBDS.possibleObjective);
+                this.objectively_dataTableAdapter.Fill(dBDS.objectively_data);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message); return;
+            }
+            FillObjectiveTree();
+        }
         public void ComplUpdate()
         {
-            this.complaintsTableAdapter.Fill(this.dBDS.complaints);
-            this.possibleComplTableAdapter.Fill(this.dBDS.possibleCompl);
+            try
+            {
+                this.complaintsTableAdapter.Fill(this.dBDS.complaints);
+                this.possibleComplTableAdapter.Fill(this.dBDS.possibleCompl);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message); return;
+            }
+            
             UpdateComplaints();
             CheckComplTree();
             patientscomplaintsBindingSource.Sort = "date_compl DESC";
@@ -225,8 +261,15 @@ namespace DentalMain
 
         public void AnamnUpdate()
         {
-            this.diseases_anamTableAdapter.Fill(dBDS.diseases_anam);
-            this.anamnesisTableAdapter.Fill(this.dBDS.anamnesis);
+            try
+            {
+                this.diseases_anamTableAdapter.Fill(dBDS.diseases_anam);
+                this.anamnesisTableAdapter.Fill(this.dBDS.anamnesis);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);return;
+            }
             FillTheAnamn();
         }
 
@@ -248,20 +291,35 @@ namespace DentalMain
                 CheckAppointmChoose(false); button3.Enabled = true;
             }
             else CheckAppointmChoose(false);
+            UpdateCost();
         }
 
         public void AnamnDisUpdate()
         {
-            this.anamndis_diseasesTableAdapter.Fill(dBDS.anamndis_diseases);
-            this.anamnesisDiseasesTableAdapter.Fill(dBDS.anamnesisDiseases);
+            try
+            {
+                this.anamndis_diseasesTableAdapter.Fill(dBDS.anamndis_diseases);
+                this.anamnesisDiseasesTableAdapter.Fill(dBDS.anamnesisDiseases);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message); return;
+            }
             AnamnDisTreeFill();
             AnamnDisTreeCheck();
         }
 
         public void DiagUpdate()
         {
-            this.diagnosisTableAdapter.Fill(dBDS.diagnosis);
-            this.diags_patientTableAdapter.Fill(dBDS.diags_patient);
+            try
+            {
+                this.diagnosisTableAdapter.Fill(dBDS.diagnosis);
+                this.diags_patientTableAdapter.Fill(dBDS.diags_patient);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message); return;
+            }
             DiagFill();
         }
 
@@ -307,7 +365,14 @@ namespace DentalMain
         #region Касаемо Доктор
         public void DocUpdate()
         {
-            doctorsTableAdapter.Fill(dBDS.doctors);
+            try
+            {
+                doctorsTableAdapter.Fill(dBDS.doctors);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message); return;
+            }
             prop = work.FileInitialization(prop);
             Namingform();
         }
@@ -341,14 +406,33 @@ namespace DentalMain
             try { Point = (int)comboBox1.SelectedValue; } catch { Point = 0; }
             if (TodayRad.Checked == true)
             {
-                this.patientsTableAdapter.FillbyApp(this.dBDS.patients, DateTime.Now.Date, prop.DocID);
-                AddBtn.Enabled = false; BtnGetPat.Enabled = false;
+                try
+                {
+                    this.patientsTableAdapter.FillbyApp(this.dBDS.patients, 
+                        DateTime.Now.Date, prop.DocID);
+                    AddBtn.Enabled = false;
+                    BtnGetPat.Enabled = false; //appointmentTableAdapter.Fill(dBDS.appointment);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message); ChangeBtnEnabled();
+                    ChangeLbls(); return;
+                }
             }
             else
             {
-                this.patientsTableAdapter.Fill(this.dBDS.patients); AddBtn.Enabled = true; BtnGetPat.Enabled = true;
+                try
+                {
+                    this.patientsTableAdapter.Fill(this.dBDS.patients);
+                    AddBtn.Enabled = true;
+                    BtnGetPat.Enabled = true;//appointmentTableAdapter.Fill(dBDS.appointment);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message); ChangeBtnEnabled();
+                    ChangeLbls(); return;
+                }
             }
-            appointmentTableAdapter.Fill(dBDS.appointment);
             if (Point > 0) ChangePat();
             else if (Point == -1) IntForPatAdd();
             ChangeBtnEnabled();
@@ -359,15 +443,35 @@ namespace DentalMain
         {
             if (TodayRad.Checked == true)
             {
-                this.patientsTableAdapter.FillbyApp(this.dBDS.patients, DateTime.Now.Date, prop.DocID);
-                AddBtn.Enabled = false; BtnGetPat.Enabled = false;
+                try
+                {
+                    this.patientsTableAdapter.FillbyApp(this.dBDS.patients, 
+                        DateTime.Now.Date, prop.DocID);
+                    AddBtn.Enabled = false;
+                    BtnGetPat.Enabled = false; //appointmentTableAdapter.Fill(dBDS.appointment);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message); ChangeBtnEnabled();
+                    ChangeLbls(); return;
+                }
             }
             else
             {
-                this.patientsTableAdapter.Fill(this.dBDS.patients); AddBtn.Enabled = true; BtnGetPat.Enabled = true;
+                try
+                {
+                    this.patientsTableAdapter.Fill(this.dBDS.patients);
+                    AddBtn.Enabled = true;
+                    BtnGetPat.Enabled = true; //appointmentTableAdapter.Fill(dBDS.appointment);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message); ChangeBtnEnabled();
+                    ChangeLbls(); return;
+                }
             }
             comboBox1.SelectedValue = index;
-            ChangeBtnEnabled();
+            ChangeBtnEnabled(); ChangeLbls();
         }
         public void ChangeBtnEnabled()
         {
@@ -1012,6 +1116,50 @@ namespace DentalMain
         #endregion
         //Done
 
+        #region Об'єктивно
+
+        public void FillObjectiveTree()
+        {
+            treeViewObjective.BeginUpdate();
+            treeViewObjective.Nodes.Clear();
+            ObjSearch.AutoCompleteCustomSource.Clear();
+            List<TreeNode> Tree = new List<TreeNode>();
+            List<string> Search = new List<string>();
+            foreach (dBDS.possibleObjectiveRow f in dBDS.possibleObjective)
+            {
+                Tree.Add(new TreeNode(f.description_objective.ToLower()) { Name = f.id_objective.ToString() });
+                Search.Add(f.description_objective.ToLower());
+            }
+            treeViewObjective.Nodes.AddRange(Tree.ToArray());
+            ObjSearch.AutoCompleteCustomSource.AddRange(Search.ToArray());
+            treeViewObjective.EndUpdate();
+        }
+
+        private void BtnAddObjective_Click(object sender, EventArgs e)
+        {
+            if (ObjSearch.Text != "")
+            {
+                if (dBDS.possibleObjective.Select("description_objective='" + ObjSearch.Text.ToLower() + "'").Count() == 0)
+                {
+                    this.possibleObjectiveTableAdapter.Insert(ObjSearch.Text.ToLower());
+                    this.possibleObjectiveTableAdapter.Fill(dBDS.possibleObjective);
+                    AnmndisSearch.AutoCompleteCustomSource.Add(AnmndisSearch.Text.ToLower());
+                    treeViewanamndis.Nodes.Add(dBDS.anamndis_diseases.Last().id_disease.ToString(), AnmndisSearch.Text.ToLower()).Checked = true;
+                }
+                else
+                {
+                    int amn = AnmndisSearch.AutoCompleteCustomSource.IndexOf(AnmndisSearch.Text.ToLower());
+                    if (treeViewanamndis.Nodes[amn].Checked == false)
+                        treeViewanamndis.Nodes[amn].Checked = true;
+                }
+            }
+            else App.Text = "Не було введено запис анамнезу!";
+        }
+
+
+        #endregion
+
+
         #region Диагноз
 
         private void DataGridView2_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
@@ -1083,17 +1231,30 @@ namespace DentalMain
 
         public void FillAppoint()
         {
-            this.servicesTableAdapter.Fill(dBDS.services);
-            this.diagnosisTableAdapter.Fill(dBDS.diagnosis);
-            this.diags_patientTableAdapter.Fill(dBDS.diags_patient);
-            this.postTableAdapter.Fill(dBDS.post);
-            this.post_servicesTableAdapter.Fill(dBDS.post_services);
-            this.post_doctorTableAdapter.Fill(dBDS.post_doctor);
-            this.appointmentTableAdapter.Fill(dBDS.appointment);
-            this.appointment_servicesTableAdapter.Fill(dBDS.appointment_services);
-            this.appointment_materialsTableAdapter.Fill(dBDS.appointment_materials);
-            this.materialsTableAdapter.Fill(dBDS.materials);
-            this.serv_materialTableAdapter.Fill(dBDS.serv_material);
+            try
+            {
+                this.servicesTableAdapter.Fill(dBDS.services);
+                this.diagnosisTableAdapter.Fill(dBDS.diagnosis);
+                this.diags_patientTableAdapter.Fill(dBDS.diags_patient);
+                this.postTableAdapter.Fill(dBDS.post);
+                this.post_servicesTableAdapter.Fill(dBDS.post_services);
+                this.post_doctorTableAdapter.Fill(dBDS.post_doctor);
+                this.appointmentTableAdapter.Fill(dBDS.appointment);
+                this.appointment_servicesTableAdapter.Fill(dBDS.appointment_services);
+                this.appointment_materialsTableAdapter.Fill(dBDS.appointment_materials);
+                this.materialsTableAdapter.Fill(dBDS.materials);
+                this.serv_materialTableAdapter.Fill(dBDS.serv_material);
+            }
+            catch (Exception ex)
+            {
+                if (MessageBox.Show(ex.Message + "\n Перезавантаження програми повинно виправити цю помилку! \n Бажаєте перезавантажити програму?",
+                    "Стоматологічний кабінет", MessageBoxButtons.YesNo) == DialogResult.Yes) { Application.Restart(); }
+                else
+                {
+                    return;
+                }
+            }
+
         }
 
         public void CheckAppointmChoose(bool fa)
@@ -1177,6 +1338,7 @@ namespace DentalMain
 
         public void UpdateCost()
         {
+            if (AppointBox.SelectedValue == null) return;
             decimal sum = 0;
             treeView1.Nodes.Clear();
             foreach (dBDS.appointment_servicesRow m in dBDS.appointment_services.Select("appoinment='" + AppointBox.SelectedValue + "'"))
@@ -1329,6 +1491,7 @@ namespace DentalMain
             if (AppointBox.Text == "") return;
             dBDS.appointment.FindByid_appointment((int)AppointBox.SelectedValue).paided = 0;
             appointmentTableAdapter.Update(dBDS.appointment);
+            UpdateCost();
         }
 
         private void TreeViewcompl_MouseDown(object sender, MouseEventArgs e)
@@ -1388,19 +1551,8 @@ namespace DentalMain
             catch { comboBox1.SelectedItem = comboBox1.Items[0]; }
         }
 
-        private void ПроАвтораToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("Розробив студент групи П15-2Д Руснак Єгор");
-        }
 
-        private void НалаштуванняToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            if (mf.SettingsAppFormDialog(prop) == DialogResult.OK)
-            {
-                if (Application.OpenForms["SettingsApp"] is SettingsApp f) f.Close();
-                this.CloserWindows();
-            }
-        }
+
 
         #endregion
         //looks Done
@@ -1640,11 +1792,10 @@ namespace DentalMain
             SettingsApp f = new SettingsApp(prop.DocID, prop.Mode);
             return f.ShowDialog();
         }
-        public int PatientAddFormDialog()
+        public void PatientAddFormDialog()
         {
             PatientAdd f = new PatientAdd();
-            if (f.ShowDialog() == DialogResult.OK) return -1;
-            else return 0;
+            f.ShowDialog();
         }
     }
         #endregion

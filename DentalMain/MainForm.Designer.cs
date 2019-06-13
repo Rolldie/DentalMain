@@ -135,6 +135,18 @@
             this.BtnAddAnmdis = new System.Windows.Forms.Button();
             this.label27 = new System.Windows.Forms.Label();
             this.AnmndisSearch = new System.Windows.Forms.TextBox();
+            this.Objective = new System.Windows.Forms.TabPage();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.objectiveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.objdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.doctorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.patientsobjectivelydataBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.BtnAddObjective = new System.Windows.Forms.Button();
+            this.ObjSearch = new System.Windows.Forms.TextBox();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.treeViewObjective = new System.Windows.Forms.TreeView();
             this.Diagnosis = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label10 = new System.Windows.Forms.Label();
@@ -180,6 +192,7 @@
             this.ServSearch = new System.Windows.Forms.TextBox();
             this.ServTree = new System.Windows.Forms.TreeView();
             this.label14 = new System.Windows.Forms.Label();
+            this.button4 = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.змінитиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -209,7 +222,8 @@
             this.anamndis_diseasesTableAdapter = new DentalMain.dBDSTableAdapters.anamndis_diseasesTableAdapter();
             this.diagnosisTableAdapter = new DentalMain.dBDSTableAdapters.diagnosisTableAdapter();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
-            this.button4 = new System.Windows.Forms.Button();
+            this.objectively_dataTableAdapter = new DentalMain.dBDSTableAdapters.objectively_dataTableAdapter();
+            this.possibleObjectiveTableAdapter = new DentalMain.dBDSTableAdapters.possibleObjectiveTableAdapter();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.MainTab.SuspendLayout();
@@ -236,6 +250,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.anamndisdiseasesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientsanamnesisDiseasesBindingSource)).BeginInit();
+            this.Objective.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientsobjectivelydataBindingSource)).BeginInit();
             this.Diagnosis.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -481,6 +498,7 @@
             this.MainTab.Controls.Add(this.Anamnesis);
             this.MainTab.Controls.Add(this.planletstab);
             this.MainTab.Controls.Add(this.AnamnDispg);
+            this.MainTab.Controls.Add(this.Objective);
             this.MainTab.Controls.Add(this.Diagnosis);
             this.MainTab.Controls.Add(this.appointment);
             this.MainTab.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1426,6 +1444,117 @@
             this.AnmndisSearch.TabIndex = 1;
             this.AnmndisSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AnmndisSearch_KeyDown);
             // 
+            // Objective
+            // 
+            this.Objective.Controls.Add(this.dataGridView3);
+            this.Objective.Controls.Add(this.BtnAddObjective);
+            this.Objective.Controls.Add(this.ObjSearch);
+            this.Objective.Controls.Add(this.label34);
+            this.Objective.Controls.Add(this.label33);
+            this.Objective.Controls.Add(this.label32);
+            this.Objective.Controls.Add(this.treeViewObjective);
+            this.Objective.Location = new System.Drawing.Point(4, 22);
+            this.Objective.Name = "Objective";
+            this.Objective.Padding = new System.Windows.Forms.Padding(3);
+            this.Objective.Size = new System.Drawing.Size(702, 383);
+            this.Objective.TabIndex = 8;
+            this.Objective.Text = "Об\'єктивно";
+            this.Objective.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView3
+            // 
+            this.dataGridView3.AllowUserToAddRows = false;
+            this.dataGridView3.AllowUserToResizeRows = false;
+            this.dataGridView3.AutoGenerateColumns = false;
+            this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.objectiveDataGridViewTextBoxColumn,
+            this.objdateDataGridViewTextBoxColumn,
+            this.doctorDataGridViewTextBoxColumn});
+            this.dataGridView3.DataSource = this.patientsobjectivelydataBindingSource;
+            this.dataGridView3.Location = new System.Drawing.Point(8, 33);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.RowHeadersVisible = false;
+            this.dataGridView3.Size = new System.Drawing.Size(402, 329);
+            this.dataGridView3.TabIndex = 4;
+            // 
+            // objectiveDataGridViewTextBoxColumn
+            // 
+            this.objectiveDataGridViewTextBoxColumn.DataPropertyName = "objective";
+            this.objectiveDataGridViewTextBoxColumn.HeaderText = "objective";
+            this.objectiveDataGridViewTextBoxColumn.Name = "objectiveDataGridViewTextBoxColumn";
+            // 
+            // objdateDataGridViewTextBoxColumn
+            // 
+            this.objdateDataGridViewTextBoxColumn.DataPropertyName = "obj_date";
+            this.objdateDataGridViewTextBoxColumn.FillWeight = 40F;
+            this.objdateDataGridViewTextBoxColumn.HeaderText = "obj_date";
+            this.objdateDataGridViewTextBoxColumn.Name = "objdateDataGridViewTextBoxColumn";
+            // 
+            // doctorDataGridViewTextBoxColumn
+            // 
+            this.doctorDataGridViewTextBoxColumn.DataPropertyName = "doctor";
+            this.doctorDataGridViewTextBoxColumn.FillWeight = 50F;
+            this.doctorDataGridViewTextBoxColumn.HeaderText = "doctor";
+            this.doctorDataGridViewTextBoxColumn.Name = "doctorDataGridViewTextBoxColumn";
+            // 
+            // patientsobjectivelydataBindingSource
+            // 
+            this.patientsobjectivelydataBindingSource.DataMember = "patientsobjectively_data";
+            this.patientsobjectivelydataBindingSource.DataSource = this.patientsBindingSource;
+            // 
+            // BtnAddObjective
+            // 
+            this.BtnAddObjective.Location = new System.Drawing.Point(460, 27);
+            this.BtnAddObjective.Name = "BtnAddObjective";
+            this.BtnAddObjective.Size = new System.Drawing.Size(239, 24);
+            this.BtnAddObjective.TabIndex = 3;
+            this.BtnAddObjective.Text = "button7";
+            this.BtnAddObjective.UseVisualStyleBackColor = true;
+            this.BtnAddObjective.Click += new System.EventHandler(this.BtnAddObjective_Click);
+            // 
+            // ObjSearch
+            // 
+            this.ObjSearch.Location = new System.Drawing.Point(416, 57);
+            this.ObjSearch.Name = "ObjSearch";
+            this.ObjSearch.Size = new System.Drawing.Size(283, 20);
+            this.ObjSearch.TabIndex = 2;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(8, 17);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(41, 13);
+            this.label34.TabIndex = 1;
+            this.label34.Text = "label32";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(413, 33);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(41, 13);
+            this.label33.TabIndex = 1;
+            this.label33.Text = "label32";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(413, 80);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(41, 13);
+            this.label32.TabIndex = 1;
+            this.label32.Text = "label32";
+            // 
+            // treeViewObjective
+            // 
+            this.treeViewObjective.Location = new System.Drawing.Point(416, 96);
+            this.treeViewObjective.Name = "treeViewObjective";
+            this.treeViewObjective.Size = new System.Drawing.Size(283, 257);
+            this.treeViewObjective.TabIndex = 0;
+            // 
             // Diagnosis
             // 
             this.Diagnosis.Controls.Add(this.tableLayoutPanel5);
@@ -1966,6 +2095,16 @@
             this.label14.Text = "Оберіть послугу";
             this.label14.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(459, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(223, 20);
+            this.button4.TabIndex = 25;
+            this.button4.Text = "Завершити прийом";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Visible = false;
+            // 
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -2098,14 +2237,13 @@
             // 
             this.diagnosisTableAdapter.ClearBeforeFill = true;
             // 
-            // button4
+            // objectively_dataTableAdapter
             // 
-            this.button4.Location = new System.Drawing.Point(459, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(223, 20);
-            this.button4.TabIndex = 25;
-            this.button4.Text = "Завершити прийом";
-            this.button4.UseVisualStyleBackColor = true;
+            this.objectively_dataTableAdapter.ClearBeforeFill = true;
+            // 
+            // possibleObjectiveTableAdapter
+            // 
+            this.possibleObjectiveTableAdapter.ClearBeforeFill = true;
             // 
             // MainForm
             // 
@@ -2162,6 +2300,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.anamndisdiseasesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientsanamnesisDiseasesBindingSource)).EndInit();
+            this.Objective.ResumeLayout(false);
+            this.Objective.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.patientsobjectivelydataBindingSource)).EndInit();
             this.Diagnosis.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel5.PerformLayout();
@@ -2371,6 +2513,20 @@
         private System.Windows.Forms.ToolStripMenuItem налаштуванняToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem проАвтораToolStripMenuItem;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.TabPage Objective;
+        private dBDSTableAdapters.objectively_dataTableAdapter objectively_dataTableAdapter;
+        private dBDSTableAdapters.possibleObjectiveTableAdapter possibleObjectiveTableAdapter;
+        private System.Windows.Forms.TextBox ObjSearch;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.TreeView treeViewObjective;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn objectiveDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn objdateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn doctorDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource patientsobjectivelydataBindingSource;
+        private System.Windows.Forms.Button BtnAddObjective;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label33;
     }
 }
 

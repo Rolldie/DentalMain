@@ -29,28 +29,37 @@ namespace DentalMain
                 if (dateTimePicker1.Value.Date == DateTime.Now.Date)
                 {
                     if (maskedTextBox1.MaskCompleted)
-                        dBDS.patients.Rows.Add(null, textBox1.Text, null, maskedTextBox1.Text, 0);
+                        this.patientsTableAdapter.Insert(textBox1.Text, null, maskedTextBox1.Text, 0);
                     else
-                        dBDS.patients.Rows.Add(null, textBox1.Text, null, null, 0);
-                    patientsTableAdapter.Update(dBDS.patients);
+                        this.patientsTableAdapter.Insert(textBox1.Text, null, null, 0);
                 }
                 else
                 {
                     if (maskedTextBox1.MaskCompleted)
-                        dBDS.patients.Rows.Add(null, textBox1.Text, dateTimePicker1.Value.Date, maskedTextBox1.Text, 0);
+                        this.patientsTableAdapter.Insert(textBox1.Text, dateTimePicker1.Value.Date, maskedTextBox1.Text, 0);
                     else
-                        dBDS.patients.Rows.Add(null, textBox1.Text, dateTimePicker1.Value.Date, null, 0);
-                    patientsTableAdapter.Update(dBDS.patients);
+                        this.patientsTableAdapter.Insert(textBox1.Text, dateTimePicker1.Value.Date, null, 0);
                 }
+                this.patientsTableAdapter.Fill(dBDS.patients);
             }
             else
             { 
                 MessageBox.Show("Не було заповнено поле ПІБ, яке є обов'язковим!");
                 return;
             }
-            if (Application.OpenForms["MainForm"] is MainForm a) a.UpdatePatient(dBDS.patients.Last().id_patient);
-            if (Application.OpenForms["Patient"] is Patient f) {  f.ThreadingUpdateTrue(); }
             DialogResult = DialogResult.OK;
+            if (Application.OpenForms["MainForm"] is MainForm a)
+            {
+                int maxind = 0;
+                {
+                    foreach (dBDS.patientsRow am in dBDS.patients)
+                    {
+                        if (am.id_patient > maxind) maxind = am.id_patient;
+                    }
+                }
+                a.UpdatePatient(maxind);
+            }
+            if (Application.OpenForms["Patient"] is Patient f) {  f.ThreadingUpdateTrue(); }
             Close();
         }
 
