@@ -31,14 +31,8 @@ namespace DentalMain
         public delegate void frst();
         public void Updater()
         {
-            this.materialsTableAdapter.Fill(this.dBDS.materials);
-            frst a = new frst(ResetBind);
-            BeginInvoke(a);
-        }
-
-        public void ResetBind()
-        {
-            materialsBindingSource.ResetBindings(false);
+            try { this.materialsTableAdapter.Fill(this.dBDS.materials); }
+            catch(Exception ex) { MessageBox.Show(ex.Message+"\n Возможно следует перезапустить приложение."); }
         }
         private void CancelBtn_Click(object sender, EventArgs e)
         {

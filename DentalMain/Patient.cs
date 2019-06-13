@@ -119,6 +119,14 @@ namespace DentalMain
                     Chek =false;
                     RowSelector(e.RowIndex);
                     a = e;
+                    if((bool)PatientGrid[4,e.RowIndex].Value)
+                    {
+                        відмітитиДляВилученняToolStripMenuItem.Text = "Відмінити вилучення";
+                    }
+                    else
+                    {
+                        відмітитиДляВилученняToolStripMenuItem.Text = "Відмітити для вилучення";
+                    }
                 }
                 else
                     Chek =true;
@@ -147,6 +155,21 @@ namespace DentalMain
         private void PatientGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             e.Cancel = true;
+        }
+
+        private void ВідмітитиДляВилученняToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool jk = (bool)PatientGrid.SelectedCells[4].Value;
+            int a= (int)PatientGrid.SelectedCells[0].Value;
+            if (jk)
+            {
+                this.dBDS.patients.FindByid_patient(a).delete = false;
+            }
+            else
+            {
+                this.dBDS.patients.FindByid_patient(a).delete = true;
+            }
+            this.patientsTableAdapter.Update(dBDS.patients);
         }
     }
 }

@@ -31,3 +31,15 @@ namespace DentalMain.dBDSTableAdapters
     public partial class appointmentTableAdapter {
     }
 }
+namespace DentalMain {
+    
+    
+    public partial class dBDS {
+    }
+}
+namespace DentalMain {
+    
+    
+    public partial class dBDS {
+    }
+}

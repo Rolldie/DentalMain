@@ -113,14 +113,6 @@ namespace DentalMain
         {
             mf.ChangePatientFormDialog((int)comboBox1.SelectedValue);
         }
-        private void налаштуванняToolStripMenuItem_Click(object sender, EventArgs e) //Форма налаштування (виклик)
-        {
-            if(mf.SettingsAppFormDialog(prop) ==DialogResult.OK)
-            {
-                if (Application.OpenForms["SettingsApp"] is SettingsApp f) f.Close();
-                this.CloserWindows();
-            }
-        }
         private void AddBtn_Click(object sender, EventArgs e)  //Додавання пацієнту (виклик, через форму)
         {
             Point = mf.PatientAddFormDialog();

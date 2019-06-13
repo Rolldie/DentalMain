@@ -209,6 +209,7 @@
             this.anamndis_diseasesTableAdapter = new DentalMain.dBDSTableAdapters.anamndis_diseasesTableAdapter();
             this.diagnosisTableAdapter = new DentalMain.dBDSTableAdapters.diagnosisTableAdapter();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.button4 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.MainTab.SuspendLayout();
@@ -359,19 +360,18 @@
             this.налаштуванняToolStripMenuItem.Name = "налаштуванняToolStripMenuItem";
             this.налаштуванняToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
             this.налаштуванняToolStripMenuItem.Text = "Налаштування";
-            this.налаштуванняToolStripMenuItem.Click += new System.EventHandler(this.налаштуванняToolStripMenuItem_Click);
             // 
             // налаштуванняToolStripMenuItem1
             // 
             this.налаштуванняToolStripMenuItem1.Name = "налаштуванняToolStripMenuItem1";
-            this.налаштуванняToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.налаштуванняToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
             this.налаштуванняToolStripMenuItem1.Text = "Налаштування";
             this.налаштуванняToolStripMenuItem1.Click += new System.EventHandler(this.НалаштуванняToolStripMenuItem1_Click);
             // 
             // проАвтораToolStripMenuItem
             // 
             this.проАвтораToolStripMenuItem.Name = "проАвтораToolStripMenuItem";
-            this.проАвтораToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.проАвтораToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
             this.проАвтораToolStripMenuItem.Text = "Про автора";
             this.проАвтораToolStripMenuItem.Click += new System.EventHandler(this.ПроАвтораToolStripMenuItem_Click);
             // 
@@ -540,7 +540,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(299, 282);
+            this.textBox2.Location = new System.Drawing.Point(166, 220);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(105, 20);
             this.textBox2.TabIndex = 13;
@@ -548,7 +548,7 @@
             // 
             // AddPaided
             // 
-            this.AddPaided.Location = new System.Drawing.Point(143, 280);
+            this.AddPaided.Location = new System.Drawing.Point(10, 218);
             this.AddPaided.Name = "AddPaided";
             this.AddPaided.Size = new System.Drawing.Size(150, 23);
             this.AddPaided.TabIndex = 12;
@@ -560,7 +560,7 @@
             // labelDolg
             // 
             this.labelDolg.AutoSize = true;
-            this.labelDolg.Location = new System.Drawing.Point(63, 285);
+            this.labelDolg.Location = new System.Drawing.Point(43, 200);
             this.labelDolg.Name = "labelDolg";
             this.labelDolg.Size = new System.Drawing.Size(13, 13);
             this.labelDolg.TabIndex = 11;
@@ -570,7 +570,7 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(28, 285);
+            this.label30.Location = new System.Drawing.Point(8, 200);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(39, 13);
             this.label30.TabIndex = 11;
@@ -1663,10 +1663,11 @@
             this.tableLayoutPanel6.Controls.Add(this.ServSearch, 1, 1);
             this.tableLayoutPanel6.Controls.Add(this.ServTree, 1, 3);
             this.tableLayoutPanel6.Controls.Add(this.label14, 1, 2);
+            this.tableLayoutPanel6.Controls.Add(this.button4, 2, 0);
             this.tableLayoutPanel6.Location = new System.Drawing.Point(8, 6);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 6;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
@@ -1681,7 +1682,7 @@
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Location = new System.Drawing.Point(3, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(222, 20);
+            this.label5.Size = new System.Drawing.Size(222, 26);
             this.label5.TabIndex = 1;
             this.label5.Text = "Прийом";
             this.label5.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -1690,7 +1691,7 @@
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(459, 23);
+            this.button3.Location = new System.Drawing.Point(459, 29);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(223, 20);
             this.button3.TabIndex = 11;
@@ -1713,9 +1714,9 @@
             this.PaidGB.Controls.Add(this.button6);
             this.PaidGB.Controls.Add(this.textBox1);
             this.PaidGB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PaidGB.Location = new System.Drawing.Point(3, 200);
+            this.PaidGB.Location = new System.Drawing.Point(3, 204);
             this.PaidGB.Name = "PaidGB";
-            this.PaidGB.Size = new System.Drawing.Size(679, 153);
+            this.PaidGB.Size = new System.Drawing.Size(679, 149);
             this.PaidGB.TabIndex = 24;
             this.PaidGB.TabStop = false;
             this.PaidGB.Text = "Оплата послуг";
@@ -1737,7 +1738,7 @@
             this.treeView1.Location = new System.Drawing.Point(3, 32);
             this.treeView1.Name = "treeView1";
             this.treeView1.ShowLines = false;
-            this.treeView1.Size = new System.Drawing.Size(428, 115);
+            this.treeView1.Size = new System.Drawing.Size(428, 111);
             this.treeView1.TabIndex = 13;
             // 
             // label31
@@ -1834,7 +1835,7 @@
             this.AppointBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AppointBox.FormatString = "t";
             this.AppointBox.FormattingEnabled = true;
-            this.AppointBox.Location = new System.Drawing.Point(3, 23);
+            this.AppointBox.Location = new System.Drawing.Point(3, 29);
             this.AppointBox.Name = "AppointBox";
             this.AppointBox.Size = new System.Drawing.Size(222, 21);
             this.AppointBox.TabIndex = 0;
@@ -1852,12 +1853,12 @@
             this.HealingTreeDiag.Dock = System.Windows.Forms.DockStyle.Fill;
             this.HealingTreeDiag.HideSelection = false;
             this.HealingTreeDiag.HotTracking = true;
-            this.HealingTreeDiag.Location = new System.Drawing.Point(3, 69);
+            this.HealingTreeDiag.Location = new System.Drawing.Point(3, 75);
             this.HealingTreeDiag.Name = "HealingTreeDiag";
             this.HealingTreeDiag.ShowLines = false;
             this.HealingTreeDiag.ShowPlusMinus = false;
             this.HealingTreeDiag.ShowRootLines = false;
-            this.HealingTreeDiag.Size = new System.Drawing.Size(222, 99);
+            this.HealingTreeDiag.Size = new System.Drawing.Size(222, 97);
             this.HealingTreeDiag.TabIndex = 22;
             this.HealingTreeDiag.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.HealingTreeDiag_AfterSelect);
             // 
@@ -1867,7 +1868,7 @@
             this.includesChkBx.Checked = true;
             this.includesChkBx.CheckState = System.Windows.Forms.CheckState.Checked;
             this.includesChkBx.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.includesChkBx.Location = new System.Drawing.Point(231, 174);
+            this.includesChkBx.Location = new System.Drawing.Point(231, 178);
             this.includesChkBx.Name = "includesChkBx";
             this.includesChkBx.Size = new System.Drawing.Size(222, 20);
             this.includesChkBx.TabIndex = 18;
@@ -1878,7 +1879,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label26.Location = new System.Drawing.Point(3, 46);
+            this.label26.Location = new System.Drawing.Point(3, 52);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(222, 20);
             this.label26.TabIndex = 20;
@@ -1888,7 +1889,7 @@
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Location = new System.Drawing.Point(3, 174);
+            this.button1.Location = new System.Drawing.Point(3, 178);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(222, 20);
             this.button1.TabIndex = 7;
@@ -1901,16 +1902,16 @@
             this.MatTree.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.MatTree.CheckBoxes = true;
             this.MatTree.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MatTree.Location = new System.Drawing.Point(459, 69);
+            this.MatTree.Location = new System.Drawing.Point(459, 75);
             this.MatTree.Name = "MatTree";
-            this.MatTree.Size = new System.Drawing.Size(223, 99);
+            this.MatTree.Size = new System.Drawing.Size(223, 97);
             this.MatTree.TabIndex = 8;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Location = new System.Drawing.Point(459, 46);
+            this.label6.Location = new System.Drawing.Point(459, 52);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(223, 20);
             this.label6.TabIndex = 9;
@@ -1923,7 +1924,7 @@
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Location = new System.Drawing.Point(231, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(222, 20);
+            this.label7.Size = new System.Drawing.Size(222, 26);
             this.label7.TabIndex = 1;
             this.label7.Text = "Пошук послуги";
             this.label7.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -1933,7 +1934,7 @@
             this.ServSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.ServSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.ServSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ServSearch.Location = new System.Drawing.Point(231, 23);
+            this.ServSearch.Location = new System.Drawing.Point(231, 29);
             this.ServSearch.Name = "ServSearch";
             this.ServSearch.Size = new System.Drawing.Size(222, 20);
             this.ServSearch.TabIndex = 5;
@@ -1945,12 +1946,12 @@
             this.ServTree.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ServTree.HideSelection = false;
             this.ServTree.HotTracking = true;
-            this.ServTree.Location = new System.Drawing.Point(231, 69);
+            this.ServTree.Location = new System.Drawing.Point(231, 75);
             this.ServTree.Name = "ServTree";
             this.ServTree.ShowLines = false;
             this.ServTree.ShowPlusMinus = false;
             this.ServTree.ShowRootLines = false;
-            this.ServTree.Size = new System.Drawing.Size(222, 99);
+            this.ServTree.Size = new System.Drawing.Size(222, 97);
             this.ServTree.TabIndex = 6;
             this.ServTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.ServTree_AfterSelect);
             // 
@@ -1958,7 +1959,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label14.Location = new System.Drawing.Point(231, 46);
+            this.label14.Location = new System.Drawing.Point(231, 52);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(222, 20);
             this.label14.TabIndex = 4;
@@ -2096,6 +2097,15 @@
             // diagnosisTableAdapter
             // 
             this.diagnosisTableAdapter.ClearBeforeFill = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(459, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(223, 20);
+            this.button4.TabIndex = 25;
+            this.button4.Text = "Завершити прийом";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -2360,6 +2370,7 @@
         private System.Windows.Forms.TabPage Complaints;
         private System.Windows.Forms.ToolStripMenuItem налаштуванняToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem проАвтораToolStripMenuItem;
+        private System.Windows.Forms.Button button4;
     }
 }
 
