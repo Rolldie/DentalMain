@@ -84,6 +84,21 @@ namespace DentalMain
             if (Application.OpenForms.Count>1) closeWind.Enabled = true;
             else closeWind.Enabled = false;
         }
+
+        public void TreeContextMenu(object sender, MouseEventArgs e)
+        {
+            if (sender is TreeView tree)
+            {
+                if (e.Button != MouseButtons.Right) return;
+                TreeNode node = tree.GetNodeAt(e.X, e.Y);
+                TreeNode Backnode = tree.SelectedNode;
+                tree.SelectedNode = node;
+                if (node == null) { tree.SelectedNode = Backnode; return; }
+                am = node;
+                contextMenuStrip1.Show(tree, e.X, e.Y);
+            }
+        }
+
         #endregion
         //Done
 
@@ -426,7 +441,11 @@ namespace DentalMain
 
         #region Касаемо Пациент
 
-
+        private void ComboBox1_TextChanged(object sender, EventArgs e)
+        {
+            try { comboBox1.SelectedValue = dBDS.patients.Select("full_name='" + comboBox1.Text + "'").First()[0]; }
+            catch { comboBox1.SelectedItem = comboBox1.Items[0]; }
+        }
         public void UpdatePatient()
         {
             try { Point = (int)comboBox1.SelectedValue; } catch { Point = 0; }
@@ -763,6 +782,11 @@ namespace DentalMain
         #region Вкладка Жалобы
 
 
+
+        private void TreeViewcompl_MouseDown(object sender, MouseEventArgs e)
+        {
+            TreeContextMenu(sender, e);
+        }
         private void BtnAddComplaint_Click(object sender, EventArgs e)   //Додавання скарги
         {
             if (ComplText.Text != "")
@@ -1048,6 +1072,12 @@ namespace DentalMain
 
         #region Вкладка Анамнез Болезни
 
+
+        private void DataGridView5_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+        }
+
         public void AnamnDisTreeFill()
         {
             treeViewanamndis.BeginUpdate();
@@ -1136,6 +1166,14 @@ namespace DentalMain
 
         #region Об'єктивно
 
+
+        private void ObjSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                BtnAddObjective_Click(sender, new EventArgs());
+            }
+        }
         public void FillObjectiveTree()
         {
             treeViewObjective.BeginUpdate();
@@ -1212,6 +1250,12 @@ namespace DentalMain
         // looks done
 
         #region Диагноз
+
+
+        private void DataGridView2_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+        }
 
         private void DataGridView2_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
@@ -1318,7 +1362,6 @@ namespace DentalMain
             tableLayoutPanel6.Controls["label26"].Enabled = true;
             tableLayoutPanel6.Controls["HealingTreeDiag"].Enabled = true;
             tableLayoutPanel6.Controls["PaidGB"].Enabled = true;
-          
         }
 
         public void AppointFillTree()
@@ -1496,16 +1539,7 @@ namespace DentalMain
             else CheckAppointmChoose(false);
         }
 
-        private void DataGridView5_DataError(object sender, DataGridViewDataErrorEventArgs e)
-        {
-            e.Cancel = true;
-        }
-
-        private void DataGridView2_DataError(object sender, DataGridViewDataErrorEventArgs e)
-        {
-            e.Cancel = true;
-        }
-
+     
         private void BtnPayByAvnc_Click(object sender, EventArgs e)
         {
             if (AppointBox.Text == "") return;
@@ -1545,25 +1579,6 @@ namespace DentalMain
             UpdateCost();
         }
 
-        private void TreeViewcompl_MouseDown(object sender, MouseEventArgs e)
-        {
-            TreeContextMenu(sender, e);
-        }
-
-        public void TreeContextMenu(object sender, MouseEventArgs e)
-        {
-            if (sender is TreeView tree)
-            {
-                if (e.Button != MouseButtons.Right) return;
-                TreeNode node = tree.GetNodeAt(e.X, e.Y);
-                TreeNode Backnode = tree.SelectedNode;
-                tree.SelectedNode = node;
-                if (node == null) { tree.SelectedNode = Backnode; return; }
-                am = node;
-                contextMenuStrip1.Show(tree, e.X, e.Y);
-            }
-        }
-
         private void CloseWind_Click(object sender, EventArgs e)
         {
             Form[] a = new Form[this.MdiChildren.Count()];
@@ -1580,34 +1595,13 @@ namespace DentalMain
             }
             CloserWindows();
         }
-
-        private void ChangeView_CheckStateChanged(object sender, EventArgs e)
-        {
-          //  CloserWindows();
-        }
-
         private void MainForm_MdiChildActivate(object sender, EventArgs e)
         {
             CloserWindows();
         }
-
-        private void ComboBox1_TextUpdate(object sender, EventArgs e)
+        private void Button4_Click(object sender, EventArgs e)  //end appointment
         {
-            
-        }
 
-        private void ComboBox1_TextChanged(object sender, EventArgs e)
-        {
-            try { comboBox1.SelectedValue = dBDS.patients.Select("full_name='" + comboBox1.Text + "'").First()[0]; }
-            catch { comboBox1.SelectedItem = comboBox1.Items[0]; }
-        }
-
-        private void ObjSearch_KeyDown(object sender, KeyEventArgs e)
-        {
-            if(e.KeyData==Keys.Enter)
-            {
-                BtnAddObjective_Click(sender, new EventArgs());
-            }
         }
 
         #endregion

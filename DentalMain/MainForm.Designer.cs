@@ -84,6 +84,9 @@
             this.BtnAddComplaint = new System.Windows.Forms.Button();
             this.ComplText = new System.Windows.Forms.TextBox();
             this.dataGridComplaints = new System.Windows.Forms.DataGridView();
+            this.complaintDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.datecomplDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.doctor = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.doctorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.patientscomplaintsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label8 = new System.Windows.Forms.Label();
@@ -96,14 +99,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.BtnAddAnm = new System.Windows.Forms.Button();
             this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.namediseaseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.diseasesanamBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.typeanamnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientsanamnesisBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.planletstab = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label20 = new System.Windows.Forms.Label();
             this.PlnLtsTree = new System.Windows.Forms.TreeView();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.toothDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.possiblePltsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dateplnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientsplanletsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label25 = new System.Windows.Forms.Label();
             this.PlnLtsDateTime = new System.Windows.Forms.DateTimePicker();
@@ -118,7 +126,9 @@
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.label29 = new System.Windows.Forms.Label();
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
+            this.diseaseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.anamndisdiseasesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dateanamndisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientsanamnesisDiseasesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.treeViewanamndis = new System.Windows.Forms.TreeView();
             this.label28 = new System.Windows.Forms.Label();
@@ -127,19 +137,27 @@
             this.AnmndisSearch = new System.Windows.Forms.TextBox();
             this.Objective = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.patientsobjectivelydataBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ObjSearch = new System.Windows.Forms.TextBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.treeViewObjective = new System.Windows.Forms.TreeView();
             this.label34 = new System.Windows.Forms.Label();
+            this.treeViewObjective = new System.Windows.Forms.TreeView();
+            this.label32 = new System.Windows.Forms.Label();
+            this.ObjSearch = new System.Windows.Forms.TextBox();
             this.BtnAddObjective = new System.Windows.Forms.Button();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.objectiveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.possibleObjectiveBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.objdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.doctorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.patientsobjectivelydataBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label33 = new System.Windows.Forms.Label();
             this.Diagnosis = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.label10 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.diagnosisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.diagnosisBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.toothDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.finddateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id_diag_patient = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.patientsdiagspatientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.treeViewDiag = new System.Windows.Forms.TreeView();
             this.BtnAddDiag = new System.Windows.Forms.Button();
@@ -176,7 +194,7 @@
             this.ServSearch = new System.Windows.Forms.TextBox();
             this.ServTree = new System.Windows.Forms.TreeView();
             this.label14 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.EndAppointm = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.змінитиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.удалитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -208,24 +226,6 @@
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.objectively_dataTableAdapter = new DentalMain.dBDSTableAdapters.objectively_dataTableAdapter();
             this.possibleObjectiveTableAdapter = new DentalMain.dBDSTableAdapters.possibleObjectiveTableAdapter();
-            this.possibleObjectiveBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.complaintDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.datecomplDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.doctor = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.namediseaseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.typeanamnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.toothDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descriptionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dateplnDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.diseaseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dateanamndisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.diagnosisDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.toothDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.finddateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_diag_patient = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.objectiveDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.objdateDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.doctorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.MainTab.SuspendLayout();
@@ -255,6 +255,7 @@
             this.Objective.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.possibleObjectiveBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientsobjectivelydataBindingSource)).BeginInit();
             this.Diagnosis.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
@@ -269,7 +270,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.servicesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentappointmentservicesBindingSource)).BeginInit();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.possibleObjectiveBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -427,7 +427,6 @@
             this.ChangeView.Size = new System.Drawing.Size(23, 22);
             this.ChangeView.Text = "Відобразити/скрити вкладки";
             this.ChangeView.CheckedChanged += new System.EventHandler(this.ChangeView_CheckedChanged);
-            this.ChangeView.CheckStateChanged += new System.EventHandler(this.ChangeView_CheckStateChanged);
             // 
             // UpdButton
             // 
@@ -701,7 +700,6 @@
             this.comboBox1.TabIndex = 3;
             this.comboBox1.TabStop = false;
             this.comboBox1.ValueMember = "id_patient";
-            this.comboBox1.TextUpdate += new System.EventHandler(this.ComboBox1_TextUpdate);
             this.comboBox1.SelectedValueChanged += new System.EventHandler(this.comboBox1_SelectedValueChanged);
             this.comboBox1.TextChanged += new System.EventHandler(this.ComboBox1_TextChanged);
             // 
@@ -855,6 +853,38 @@
             this.dataGridComplaints.TabIndex = 0;
             this.dataGridComplaints.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataGridComplaints_DataError);
             // 
+            // complaintDataGridViewTextBoxColumn
+            // 
+            this.complaintDataGridViewTextBoxColumn.DataPropertyName = "complaint";
+            this.complaintDataGridViewTextBoxColumn.DataSource = this.dBDS;
+            this.complaintDataGridViewTextBoxColumn.DisplayMember = "possibleCompl.description_compl";
+            this.complaintDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.complaintDataGridViewTextBoxColumn.HeaderText = "Опис скарги";
+            this.complaintDataGridViewTextBoxColumn.Name = "complaintDataGridViewTextBoxColumn";
+            this.complaintDataGridViewTextBoxColumn.ReadOnly = true;
+            this.complaintDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.complaintDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.complaintDataGridViewTextBoxColumn.ValueMember = "possibleCompl.id_compl";
+            // 
+            // datecomplDataGridViewTextBoxColumn
+            // 
+            this.datecomplDataGridViewTextBoxColumn.DataPropertyName = "date_compl";
+            this.datecomplDataGridViewTextBoxColumn.FillWeight = 30F;
+            this.datecomplDataGridViewTextBoxColumn.HeaderText = "Дата скарги";
+            this.datecomplDataGridViewTextBoxColumn.Name = "datecomplDataGridViewTextBoxColumn";
+            // 
+            // doctor
+            // 
+            this.doctor.DataPropertyName = "doctor";
+            this.doctor.DataSource = this.doctorsBindingSource;
+            this.doctor.DisplayMember = "full_name";
+            this.doctor.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.doctor.FillWeight = 20F;
+            this.doctor.HeaderText = "Лікар";
+            this.doctor.Name = "doctor";
+            this.doctor.ReadOnly = true;
+            this.doctor.ValueMember = "id_doctor";
+            // 
             // doctorsBindingSource
             // 
             this.doctorsBindingSource.DataMember = "doctors";
@@ -1007,10 +1037,30 @@
             this.dataGridView4.Size = new System.Drawing.Size(384, 324);
             this.dataGridView4.TabIndex = 0;
             // 
+            // namediseaseDataGridViewTextBoxColumn
+            // 
+            this.namediseaseDataGridViewTextBoxColumn.DataPropertyName = "name_disease";
+            this.namediseaseDataGridViewTextBoxColumn.DataSource = this.diseasesanamBindingSource;
+            this.namediseaseDataGridViewTextBoxColumn.DisplayMember = "disease_name";
+            this.namediseaseDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.namediseaseDataGridViewTextBoxColumn.HeaderText = "Захворювання";
+            this.namediseaseDataGridViewTextBoxColumn.Name = "namediseaseDataGridViewTextBoxColumn";
+            this.namediseaseDataGridViewTextBoxColumn.ReadOnly = true;
+            this.namediseaseDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.namediseaseDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.namediseaseDataGridViewTextBoxColumn.ValueMember = "id_disease_anam";
+            // 
             // diseasesanamBindingSource
             // 
             this.diseasesanamBindingSource.DataMember = "diseases_anam";
             this.diseasesanamBindingSource.DataSource = this.dBDS;
+            // 
+            // typeanamnDataGridViewTextBoxColumn
+            // 
+            this.typeanamnDataGridViewTextBoxColumn.DataPropertyName = "type_anamn";
+            this.typeanamnDataGridViewTextBoxColumn.HeaderText = "type_anamn";
+            this.typeanamnDataGridViewTextBoxColumn.Name = "typeanamnDataGridViewTextBoxColumn";
+            this.typeanamnDataGridViewTextBoxColumn.Visible = false;
             // 
             // patientsanamnesisBindingSource
             // 
@@ -1117,10 +1167,37 @@
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellEndEdit);
             this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DataGridView1_DataBindingComplete);
             // 
+            // toothDataGridViewTextBoxColumn1
+            // 
+            this.toothDataGridViewTextBoxColumn1.DataPropertyName = "tooth";
+            this.toothDataGridViewTextBoxColumn1.FillWeight = 25F;
+            this.toothDataGridViewTextBoxColumn1.HeaderText = "Зуб(и)";
+            this.toothDataGridViewTextBoxColumn1.Name = "toothDataGridViewTextBoxColumn1";
+            // 
+            // descriptionDataGridViewTextBoxColumn
+            // 
+            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
+            this.descriptionDataGridViewTextBoxColumn.DataSource = this.possiblePltsBindingSource;
+            this.descriptionDataGridViewTextBoxColumn.DisplayMember = "name_plts";
+            this.descriptionDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.descriptionDataGridViewTextBoxColumn.HeaderText = "План";
+            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
+            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.descriptionDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.descriptionDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.descriptionDataGridViewTextBoxColumn.ValueMember = "id_possiblPlts";
+            // 
             // possiblePltsBindingSource
             // 
             this.possiblePltsBindingSource.DataMember = "possiblePlts";
             this.possiblePltsBindingSource.DataSource = this.dBDS;
+            // 
+            // dateplnDataGridViewTextBoxColumn
+            // 
+            this.dateplnDataGridViewTextBoxColumn.DataPropertyName = "date_pln";
+            this.dateplnDataGridViewTextBoxColumn.FillWeight = 30F;
+            this.dateplnDataGridViewTextBoxColumn.HeaderText = "Планована дата";
+            this.dateplnDataGridViewTextBoxColumn.Name = "dateplnDataGridViewTextBoxColumn";
             // 
             // patientsplanletsBindingSource
             // 
@@ -1291,10 +1368,30 @@
             this.dataGridView5.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DataGridView5_DataBindingComplete);
             this.dataGridView5.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataGridView5_DataError);
             // 
+            // diseaseDataGridViewTextBoxColumn
+            // 
+            this.diseaseDataGridViewTextBoxColumn.DataPropertyName = "disease";
+            this.diseaseDataGridViewTextBoxColumn.DataSource = this.anamndisdiseasesBindingSource;
+            this.diseaseDataGridViewTextBoxColumn.DisplayMember = "name_disease";
+            this.diseaseDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.diseaseDataGridViewTextBoxColumn.HeaderText = "Хвороба";
+            this.diseaseDataGridViewTextBoxColumn.Name = "diseaseDataGridViewTextBoxColumn";
+            this.diseaseDataGridViewTextBoxColumn.ReadOnly = true;
+            this.diseaseDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.diseaseDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.diseaseDataGridViewTextBoxColumn.ValueMember = "id_disease";
+            // 
             // anamndisdiseasesBindingSource
             // 
             this.anamndisdiseasesBindingSource.DataMember = "anamndis_diseases";
             this.anamndisdiseasesBindingSource.DataSource = this.dBDS;
+            // 
+            // dateanamndisDataGridViewTextBoxColumn
+            // 
+            this.dateanamndisDataGridViewTextBoxColumn.DataPropertyName = "date_anamndis";
+            this.dateanamndisDataGridViewTextBoxColumn.FillWeight = 20F;
+            this.dateanamndisDataGridViewTextBoxColumn.HeaderText = "Дата";
+            this.dateanamndisDataGridViewTextBoxColumn.Name = "dateanamndisDataGridViewTextBoxColumn";
             // 
             // patientsanamnesisDiseasesBindingSource
             // 
@@ -1400,6 +1497,64 @@
             this.tableLayoutPanel7.Size = new System.Drawing.Size(686, 356);
             this.tableLayoutPanel7.TabIndex = 5;
             // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label34.Location = new System.Drawing.Point(3, 0);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(344, 20);
+            this.label34.TabIndex = 1;
+            this.label34.Text = "Записи стосовно пацієнта";
+            this.label34.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // treeViewObjective
+            // 
+            this.treeViewObjective.CheckBoxes = true;
+            this.tableLayoutPanel7.SetColumnSpan(this.treeViewObjective, 2);
+            this.treeViewObjective.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeViewObjective.Location = new System.Drawing.Point(353, 95);
+            this.treeViewObjective.Name = "treeViewObjective";
+            this.treeViewObjective.Size = new System.Drawing.Size(330, 258);
+            this.treeViewObjective.TabIndex = 0;
+            this.treeViewObjective.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.TreeViewObjective_AfterCheck);
+            this.treeViewObjective.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TreeViewObjective_MouseDown);
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.tableLayoutPanel7.SetColumnSpan(this.label32, 2);
+            this.label32.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label32.Location = new System.Drawing.Point(353, 72);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(330, 20);
+            this.label32.TabIndex = 1;
+            this.label32.Text = "Можливі записи";
+            this.label32.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // ObjSearch
+            // 
+            this.ObjSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.ObjSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.tableLayoutPanel7.SetColumnSpan(this.ObjSearch, 2);
+            this.ObjSearch.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ObjSearch.Location = new System.Drawing.Point(353, 49);
+            this.ObjSearch.Name = "ObjSearch";
+            this.ObjSearch.Size = new System.Drawing.Size(330, 20);
+            this.ObjSearch.TabIndex = 2;
+            this.ObjSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ObjSearch_KeyDown);
+            // 
+            // BtnAddObjective
+            // 
+            this.BtnAddObjective.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnAddObjective.Location = new System.Drawing.Point(433, 23);
+            this.BtnAddObjective.Name = "BtnAddObjective";
+            this.BtnAddObjective.Size = new System.Drawing.Size(250, 20);
+            this.BtnAddObjective.TabIndex = 3;
+            this.BtnAddObjective.Text = "Додати";
+            this.BtnAddObjective.UseVisualStyleBackColor = true;
+            this.BtnAddObjective.Click += new System.EventHandler(this.BtnAddObjective_Click);
+            // 
             // dataGridView3
             // 
             this.dataGridView3.AllowUserToAddRows = false;
@@ -1420,68 +1575,49 @@
             this.dataGridView3.Size = new System.Drawing.Size(344, 330);
             this.dataGridView3.TabIndex = 4;
             // 
+            // objectiveDataGridViewTextBoxColumn
+            // 
+            this.objectiveDataGridViewTextBoxColumn.DataPropertyName = "objective";
+            this.objectiveDataGridViewTextBoxColumn.DataSource = this.possibleObjectiveBindingSource;
+            this.objectiveDataGridViewTextBoxColumn.DisplayMember = "description_objective";
+            this.objectiveDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.objectiveDataGridViewTextBoxColumn.HeaderText = "Об\'эктивно";
+            this.objectiveDataGridViewTextBoxColumn.Name = "objectiveDataGridViewTextBoxColumn";
+            this.objectiveDataGridViewTextBoxColumn.ReadOnly = true;
+            this.objectiveDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.objectiveDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.objectiveDataGridViewTextBoxColumn.ValueMember = "id_objective";
+            // 
+            // possibleObjectiveBindingSource
+            // 
+            this.possibleObjectiveBindingSource.DataMember = "possibleObjective";
+            this.possibleObjectiveBindingSource.DataSource = this.dBDS;
+            // 
+            // objdateDataGridViewTextBoxColumn
+            // 
+            this.objdateDataGridViewTextBoxColumn.DataPropertyName = "obj_date";
+            this.objdateDataGridViewTextBoxColumn.FillWeight = 40F;
+            this.objdateDataGridViewTextBoxColumn.HeaderText = "Дата";
+            this.objdateDataGridViewTextBoxColumn.Name = "objdateDataGridViewTextBoxColumn";
+            // 
+            // doctorDataGridViewTextBoxColumn
+            // 
+            this.doctorDataGridViewTextBoxColumn.DataPropertyName = "doctor";
+            this.doctorDataGridViewTextBoxColumn.DataSource = this.doctorsBindingSource;
+            this.doctorDataGridViewTextBoxColumn.DisplayMember = "full_name";
+            this.doctorDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.doctorDataGridViewTextBoxColumn.FillWeight = 50F;
+            this.doctorDataGridViewTextBoxColumn.HeaderText = "Лікар";
+            this.doctorDataGridViewTextBoxColumn.Name = "doctorDataGridViewTextBoxColumn";
+            this.doctorDataGridViewTextBoxColumn.ReadOnly = true;
+            this.doctorDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.doctorDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.doctorDataGridViewTextBoxColumn.ValueMember = "id_doctor";
+            // 
             // patientsobjectivelydataBindingSource
             // 
             this.patientsobjectivelydataBindingSource.DataMember = "patientsobjectively_data";
             this.patientsobjectivelydataBindingSource.DataSource = this.patientsBindingSource;
-            // 
-            // ObjSearch
-            // 
-            this.ObjSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.ObjSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.tableLayoutPanel7.SetColumnSpan(this.ObjSearch, 2);
-            this.ObjSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ObjSearch.Location = new System.Drawing.Point(353, 49);
-            this.ObjSearch.Name = "ObjSearch";
-            this.ObjSearch.Size = new System.Drawing.Size(330, 20);
-            this.ObjSearch.TabIndex = 2;
-            this.ObjSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ObjSearch_KeyDown);
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.tableLayoutPanel7.SetColumnSpan(this.label32, 2);
-            this.label32.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label32.Location = new System.Drawing.Point(353, 72);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(330, 20);
-            this.label32.TabIndex = 1;
-            this.label32.Text = "Можливі записи";
-            this.label32.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // treeViewObjective
-            // 
-            this.treeViewObjective.CheckBoxes = true;
-            this.tableLayoutPanel7.SetColumnSpan(this.treeViewObjective, 2);
-            this.treeViewObjective.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeViewObjective.Location = new System.Drawing.Point(353, 95);
-            this.treeViewObjective.Name = "treeViewObjective";
-            this.treeViewObjective.Size = new System.Drawing.Size(330, 258);
-            this.treeViewObjective.TabIndex = 0;
-            this.treeViewObjective.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.TreeViewObjective_AfterCheck);
-            this.treeViewObjective.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TreeViewObjective_MouseDown);
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label34.Location = new System.Drawing.Point(3, 0);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(344, 20);
-            this.label34.TabIndex = 1;
-            this.label34.Text = "Записи стосовно пацієнта";
-            this.label34.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
-            // 
-            // BtnAddObjective
-            // 
-            this.BtnAddObjective.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnAddObjective.Location = new System.Drawing.Point(433, 23);
-            this.BtnAddObjective.Name = "BtnAddObjective";
-            this.BtnAddObjective.Size = new System.Drawing.Size(250, 20);
-            this.BtnAddObjective.TabIndex = 3;
-            this.BtnAddObjective.Text = "Додати";
-            this.BtnAddObjective.UseVisualStyleBackColor = true;
-            this.BtnAddObjective.Click += new System.EventHandler(this.BtnAddObjective_Click);
             // 
             // label33
             // 
@@ -1576,10 +1712,45 @@
             this.dataGridView2.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataGridView2_DataError);
             this.dataGridView2.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.DataGridView2_UserDeletingRow);
             // 
+            // diagnosisDataGridViewTextBoxColumn
+            // 
+            this.diagnosisDataGridViewTextBoxColumn.DataPropertyName = "diagnosis";
+            this.diagnosisDataGridViewTextBoxColumn.DataSource = this.diagnosisBindingSource;
+            this.diagnosisDataGridViewTextBoxColumn.DisplayMember = "name_diag";
+            this.diagnosisDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.diagnosisDataGridViewTextBoxColumn.FillWeight = 70F;
+            this.diagnosisDataGridViewTextBoxColumn.HeaderText = "Діагноз";
+            this.diagnosisDataGridViewTextBoxColumn.Name = "diagnosisDataGridViewTextBoxColumn";
+            this.diagnosisDataGridViewTextBoxColumn.ReadOnly = true;
+            this.diagnosisDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.diagnosisDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.diagnosisDataGridViewTextBoxColumn.ValueMember = "id_diag";
+            // 
             // diagnosisBindingSource
             // 
             this.diagnosisBindingSource.DataMember = "diagnosis";
             this.diagnosisBindingSource.DataSource = this.dBDS;
+            // 
+            // toothDataGridViewTextBoxColumn
+            // 
+            this.toothDataGridViewTextBoxColumn.DataPropertyName = "tooth";
+            this.toothDataGridViewTextBoxColumn.FillWeight = 25F;
+            this.toothDataGridViewTextBoxColumn.HeaderText = "Зуб(и)";
+            this.toothDataGridViewTextBoxColumn.Name = "toothDataGridViewTextBoxColumn";
+            // 
+            // finddateDataGridViewTextBoxColumn
+            // 
+            this.finddateDataGridViewTextBoxColumn.DataPropertyName = "find_date";
+            this.finddateDataGridViewTextBoxColumn.FillWeight = 30F;
+            this.finddateDataGridViewTextBoxColumn.HeaderText = "Дата становлення";
+            this.finddateDataGridViewTextBoxColumn.Name = "finddateDataGridViewTextBoxColumn";
+            // 
+            // id_diag_patient
+            // 
+            this.id_diag_patient.DataPropertyName = "id_diag_patient";
+            this.id_diag_patient.HeaderText = "id_diag_patient";
+            this.id_diag_patient.Name = "id_diag_patient";
+            this.id_diag_patient.Visible = false;
             // 
             // patientsdiagspatientBindingSource
             // 
@@ -1698,7 +1869,7 @@
             this.tableLayoutPanel6.Controls.Add(this.ServSearch, 1, 1);
             this.tableLayoutPanel6.Controls.Add(this.ServTree, 1, 3);
             this.tableLayoutPanel6.Controls.Add(this.label14, 1, 2);
-            this.tableLayoutPanel6.Controls.Add(this.button4, 2, 0);
+            this.tableLayoutPanel6.Controls.Add(this.EndAppointm, 2, 0);
             this.tableLayoutPanel6.Location = new System.Drawing.Point(8, 6);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 6;
@@ -2001,15 +2172,15 @@
             this.label14.Text = "Оберіть послугу";
             this.label14.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // button4
+            // EndAppointm
             // 
-            this.button4.Location = new System.Drawing.Point(459, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(223, 20);
-            this.button4.TabIndex = 25;
-            this.button4.Text = "Завершити прийом";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Visible = false;
+            this.EndAppointm.Location = new System.Drawing.Point(459, 3);
+            this.EndAppointm.Name = "EndAppointm";
+            this.EndAppointm.Size = new System.Drawing.Size(223, 20);
+            this.EndAppointm.TabIndex = 25;
+            this.EndAppointm.Text = "Завершити прийом";
+            this.EndAppointm.UseVisualStyleBackColor = true;
+            this.EndAppointm.Click += new System.EventHandler(this.Button4_Click);
             // 
             // contextMenuStrip1
             // 
@@ -2151,173 +2322,6 @@
             // 
             this.possibleObjectiveTableAdapter.ClearBeforeFill = true;
             // 
-            // possibleObjectiveBindingSource
-            // 
-            this.possibleObjectiveBindingSource.DataMember = "possibleObjective";
-            this.possibleObjectiveBindingSource.DataSource = this.dBDS;
-            // 
-            // complaintDataGridViewTextBoxColumn
-            // 
-            this.complaintDataGridViewTextBoxColumn.DataPropertyName = "complaint";
-            this.complaintDataGridViewTextBoxColumn.DataSource = this.dBDS;
-            this.complaintDataGridViewTextBoxColumn.DisplayMember = "possibleCompl.description_compl";
-            this.complaintDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.complaintDataGridViewTextBoxColumn.HeaderText = "Опис скарги";
-            this.complaintDataGridViewTextBoxColumn.Name = "complaintDataGridViewTextBoxColumn";
-            this.complaintDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.complaintDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.complaintDataGridViewTextBoxColumn.ValueMember = "possibleCompl.id_compl";
-            // 
-            // datecomplDataGridViewTextBoxColumn
-            // 
-            this.datecomplDataGridViewTextBoxColumn.DataPropertyName = "date_compl";
-            this.datecomplDataGridViewTextBoxColumn.FillWeight = 30F;
-            this.datecomplDataGridViewTextBoxColumn.HeaderText = "Дата скарги";
-            this.datecomplDataGridViewTextBoxColumn.Name = "datecomplDataGridViewTextBoxColumn";
-            // 
-            // doctor
-            // 
-            this.doctor.DataPropertyName = "doctor";
-            this.doctor.DataSource = this.doctorsBindingSource;
-            this.doctor.DisplayMember = "full_name";
-            this.doctor.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.doctor.FillWeight = 20F;
-            this.doctor.HeaderText = "Лікар";
-            this.doctor.Name = "doctor";
-            this.doctor.ReadOnly = true;
-            this.doctor.ValueMember = "id_doctor";
-            // 
-            // namediseaseDataGridViewTextBoxColumn
-            // 
-            this.namediseaseDataGridViewTextBoxColumn.DataPropertyName = "name_disease";
-            this.namediseaseDataGridViewTextBoxColumn.DataSource = this.diseasesanamBindingSource;
-            this.namediseaseDataGridViewTextBoxColumn.DisplayMember = "disease_name";
-            this.namediseaseDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.namediseaseDataGridViewTextBoxColumn.HeaderText = "Захворювання";
-            this.namediseaseDataGridViewTextBoxColumn.Name = "namediseaseDataGridViewTextBoxColumn";
-            this.namediseaseDataGridViewTextBoxColumn.ReadOnly = true;
-            this.namediseaseDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.namediseaseDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.namediseaseDataGridViewTextBoxColumn.ValueMember = "id_disease_anam";
-            // 
-            // typeanamnDataGridViewTextBoxColumn
-            // 
-            this.typeanamnDataGridViewTextBoxColumn.DataPropertyName = "type_anamn";
-            this.typeanamnDataGridViewTextBoxColumn.HeaderText = "type_anamn";
-            this.typeanamnDataGridViewTextBoxColumn.Name = "typeanamnDataGridViewTextBoxColumn";
-            this.typeanamnDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // toothDataGridViewTextBoxColumn1
-            // 
-            this.toothDataGridViewTextBoxColumn1.DataPropertyName = "tooth";
-            this.toothDataGridViewTextBoxColumn1.FillWeight = 25F;
-            this.toothDataGridViewTextBoxColumn1.HeaderText = "Зуб(и)";
-            this.toothDataGridViewTextBoxColumn1.Name = "toothDataGridViewTextBoxColumn1";
-            // 
-            // descriptionDataGridViewTextBoxColumn
-            // 
-            this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "description";
-            this.descriptionDataGridViewTextBoxColumn.DataSource = this.possiblePltsBindingSource;
-            this.descriptionDataGridViewTextBoxColumn.DisplayMember = "name_plts";
-            this.descriptionDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.descriptionDataGridViewTextBoxColumn.HeaderText = "План";
-            this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.descriptionDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.descriptionDataGridViewTextBoxColumn.ValueMember = "id_possiblPlts";
-            // 
-            // dateplnDataGridViewTextBoxColumn
-            // 
-            this.dateplnDataGridViewTextBoxColumn.DataPropertyName = "date_pln";
-            this.dateplnDataGridViewTextBoxColumn.FillWeight = 30F;
-            this.dateplnDataGridViewTextBoxColumn.HeaderText = "Планована дата";
-            this.dateplnDataGridViewTextBoxColumn.Name = "dateplnDataGridViewTextBoxColumn";
-            // 
-            // diseaseDataGridViewTextBoxColumn
-            // 
-            this.diseaseDataGridViewTextBoxColumn.DataPropertyName = "disease";
-            this.diseaseDataGridViewTextBoxColumn.DataSource = this.anamndisdiseasesBindingSource;
-            this.diseaseDataGridViewTextBoxColumn.DisplayMember = "name_disease";
-            this.diseaseDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.diseaseDataGridViewTextBoxColumn.HeaderText = "Хвороба";
-            this.diseaseDataGridViewTextBoxColumn.Name = "diseaseDataGridViewTextBoxColumn";
-            this.diseaseDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.diseaseDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.diseaseDataGridViewTextBoxColumn.ValueMember = "id_disease";
-            // 
-            // dateanamndisDataGridViewTextBoxColumn
-            // 
-            this.dateanamndisDataGridViewTextBoxColumn.DataPropertyName = "date_anamndis";
-            this.dateanamndisDataGridViewTextBoxColumn.FillWeight = 20F;
-            this.dateanamndisDataGridViewTextBoxColumn.HeaderText = "Дата";
-            this.dateanamndisDataGridViewTextBoxColumn.Name = "dateanamndisDataGridViewTextBoxColumn";
-            // 
-            // diagnosisDataGridViewTextBoxColumn
-            // 
-            this.diagnosisDataGridViewTextBoxColumn.DataPropertyName = "diagnosis";
-            this.diagnosisDataGridViewTextBoxColumn.DataSource = this.diagnosisBindingSource;
-            this.diagnosisDataGridViewTextBoxColumn.DisplayMember = "name_diag";
-            this.diagnosisDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.diagnosisDataGridViewTextBoxColumn.FillWeight = 70F;
-            this.diagnosisDataGridViewTextBoxColumn.HeaderText = "Діагноз";
-            this.diagnosisDataGridViewTextBoxColumn.Name = "diagnosisDataGridViewTextBoxColumn";
-            this.diagnosisDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.diagnosisDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.diagnosisDataGridViewTextBoxColumn.ValueMember = "id_diag";
-            // 
-            // toothDataGridViewTextBoxColumn
-            // 
-            this.toothDataGridViewTextBoxColumn.DataPropertyName = "tooth";
-            this.toothDataGridViewTextBoxColumn.FillWeight = 25F;
-            this.toothDataGridViewTextBoxColumn.HeaderText = "Зуб(и)";
-            this.toothDataGridViewTextBoxColumn.Name = "toothDataGridViewTextBoxColumn";
-            // 
-            // finddateDataGridViewTextBoxColumn
-            // 
-            this.finddateDataGridViewTextBoxColumn.DataPropertyName = "find_date";
-            this.finddateDataGridViewTextBoxColumn.FillWeight = 30F;
-            this.finddateDataGridViewTextBoxColumn.HeaderText = "Дата становлення";
-            this.finddateDataGridViewTextBoxColumn.Name = "finddateDataGridViewTextBoxColumn";
-            // 
-            // id_diag_patient
-            // 
-            this.id_diag_patient.DataPropertyName = "id_diag_patient";
-            this.id_diag_patient.HeaderText = "id_diag_patient";
-            this.id_diag_patient.Name = "id_diag_patient";
-            this.id_diag_patient.Visible = false;
-            // 
-            // objectiveDataGridViewTextBoxColumn
-            // 
-            this.objectiveDataGridViewTextBoxColumn.DataPropertyName = "objective";
-            this.objectiveDataGridViewTextBoxColumn.DataSource = this.possibleObjectiveBindingSource;
-            this.objectiveDataGridViewTextBoxColumn.DisplayMember = "description_objective";
-            this.objectiveDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.objectiveDataGridViewTextBoxColumn.HeaderText = "Об\'эктивно";
-            this.objectiveDataGridViewTextBoxColumn.Name = "objectiveDataGridViewTextBoxColumn";
-            this.objectiveDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.objectiveDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.objectiveDataGridViewTextBoxColumn.ValueMember = "id_objective";
-            // 
-            // objdateDataGridViewTextBoxColumn
-            // 
-            this.objdateDataGridViewTextBoxColumn.DataPropertyName = "obj_date";
-            this.objdateDataGridViewTextBoxColumn.FillWeight = 40F;
-            this.objdateDataGridViewTextBoxColumn.HeaderText = "Дата";
-            this.objdateDataGridViewTextBoxColumn.Name = "objdateDataGridViewTextBoxColumn";
-            // 
-            // doctorDataGridViewTextBoxColumn
-            // 
-            this.doctorDataGridViewTextBoxColumn.DataPropertyName = "doctor";
-            this.doctorDataGridViewTextBoxColumn.DataSource = this.doctorsBindingSource;
-            this.doctorDataGridViewTextBoxColumn.DisplayMember = "full_name";
-            this.doctorDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.doctorDataGridViewTextBoxColumn.FillWeight = 50F;
-            this.doctorDataGridViewTextBoxColumn.HeaderText = "Лікар";
-            this.doctorDataGridViewTextBoxColumn.Name = "doctorDataGridViewTextBoxColumn";
-            this.doctorDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.doctorDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.doctorDataGridViewTextBoxColumn.ValueMember = "id_doctor";
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2377,6 +2381,7 @@
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.possibleObjectiveBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.patientsobjectivelydataBindingSource)).EndInit();
             this.Diagnosis.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
@@ -2395,7 +2400,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.appointmentappointmentservicesBindingSource)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.possibleObjectiveBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2573,7 +2577,7 @@
         private System.Windows.Forms.TabPage Complaints;
         private System.Windows.Forms.ToolStripMenuItem налаштуванняToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem проАвтораToolStripMenuItem;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button EndAppointm;
         private System.Windows.Forms.TabPage Objective;
         private dBDSTableAdapters.objectively_dataTableAdapter objectively_dataTableAdapter;
         private dBDSTableAdapters.possibleObjectiveTableAdapter possibleObjectiveTableAdapter;
@@ -2587,23 +2591,23 @@
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.BindingSource possibleObjectiveBindingSource;
+        private System.Windows.Forms.DataGridViewComboBoxColumn namediseaseDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typeanamnDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn complaintDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn datecomplDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn doctor;
-        private System.Windows.Forms.DataGridViewComboBoxColumn namediseaseDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn typeanamnDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn toothDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewComboBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateplnDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn diseaseDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateanamndisDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn objectiveDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn objdateDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewComboBoxColumn doctorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn diagnosisDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn toothDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn finddateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_diag_patient;
-        private System.Windows.Forms.DataGridViewComboBoxColumn objectiveDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn objdateDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewComboBoxColumn doctorDataGridViewTextBoxColumn;
     }
 }
 

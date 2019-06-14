@@ -89,7 +89,7 @@ namespace DentalMain
         {
             if(doctorsBindingSource.Count==0)
             {
-                if (MessageBox.Show("Не було додано жодного лікаря, хочите додати лікаря?", "Додаток Стоматологія", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                if (MessageBox.Show("Не було додано жодного лікаря, бажаєте додати лікаря?", "Додаток Стоматологія", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     DoctorAdd f = new DoctorAdd();
                     f.ShowDialog();
