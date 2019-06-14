@@ -39,6 +39,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.BtnSave = new System.Windows.Forms.Button();
             this.BtnCancel = new System.Windows.Forms.Button();
+            this.possibleObjectiveTableAdapter = new DentalMain.dBDSTableAdapters.possibleObjectiveTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dBDS)).BeginInit();
             this.SuspendLayout();
             // 
@@ -114,6 +115,10 @@
             this.BtnCancel.UseVisualStyleBackColor = true;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
+            // possibleObjectiveTableAdapter
+            // 
+            this.possibleObjectiveTableAdapter.ClearBeforeFill = true;
+            // 
             // SmallDataChanger
             // 
             this.AcceptButton = this.BtnSave;
@@ -151,5 +156,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnSave;
         private System.Windows.Forms.Button BtnCancel;
+        private dBDSTableAdapters.possibleObjectiveTableAdapter possibleObjectiveTableAdapter;
     }
 }

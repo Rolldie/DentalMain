@@ -33,25 +33,29 @@ namespace DentalMain
         
         public void UsePointFinder()
         {
-            if(usepoint=="Compl")
+            if (usepoint == "Compl")
             {
                 possibleComplTableAdapter.Fill(dBDS.possibleCompl);
             }
-            else if(usepoint=="AnmAll")
+            else if (usepoint == "AnmAll")
             {
                 diseases_anamTableAdapter.Fill(dBDS.diseases_anam);
             }
-            else if(usepoint=="Pln")
+            else if (usepoint == "Pln")
             {
                 possiblePltsTableAdapter.Fill(dBDS.possiblePlts);
             }
-            else if(usepoint=="AnmDis")
+            else if (usepoint == "AnmDis")
             {
                 anamndis_diseasesTableAdapter.Fill(dBDS.anamndis_diseases);
             }
-            else if(usepoint=="Diag")
+            else if (usepoint == "Diag")
             {
                 diagnosisTableAdapter.Fill(dBDS.diagnosis);
+            }
+            else if(usepoint=="Obj")
+            {
+                possibleObjectiveTableAdapter.Fill(dBDS.possibleObjective);
             }
             FillTxtBx();
         }
@@ -76,6 +80,10 @@ namespace DentalMain
             else if (usepoint == "Diag")
             {
                 textBox1.Text = dBDS.diagnosis.FindByid_diag(indofdata).name_diag;
+            }
+            else if( usepoint=="Obj")
+            {
+                textBox1.Text = dBDS.possibleObjective.FindByid_objective(indofdata).description_objective;
             }
         }
         private void SmallDataChanger_Load(object sender, EventArgs e)
@@ -111,6 +119,10 @@ namespace DentalMain
             else if (usepoint == "Diag")
             {
                 diagnosisTableAdapter.Update(jk, indofdata, prevdata);
+            }
+            else if(usepoint=="Obj")
+            {
+                possibleObjectiveTableAdapter.Update(jk, indofdata, prevdata);
             }
             DialogResult = DialogResult.OK;
             Close();

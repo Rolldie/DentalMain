@@ -241,6 +241,7 @@ namespace DentalMain
                 MessageBox.Show(ex.Message); return;
             }
             FillObjectiveTree();
+            ObjChecking();
         }
         public void ComplUpdate()
         {
@@ -337,6 +338,7 @@ namespace DentalMain
                     this.diagnosisTableAdapter.Delete(Convert.ToInt32(am.Name), am.Text.ToLower());
                     DeleteDiagFromAppointm(Convert.ToInt32(am.Name));
                 }
+                else if(jeimi == "treeViewObjective") { this.possibleObjectiveTableAdapter.Delete(Convert.ToInt32(am.Name), am.Text.ToLower()); }
                 FindWhatToUpdate();
             }
         }
@@ -356,6 +358,7 @@ namespace DentalMain
                 else if (jeimi == "PlnLtsTree") { if (mf.PlanLetsFormDialog(am)) FindWhatToUpdate(); }
                 else if (jeimi == "treeViewanamndis") { if (mf.AnamnezDiseaseFormDialog(am)) FindWhatToUpdate(); }
                 else if (jeimi == "treeViewDiag") { if (mf.DiagnosisFormDialog(am)) FindWhatToUpdate(); }
+                else if (jeimi=="treeViewObjective") { if (mf.ObjectiveFormDialog(am)) FindWhatToUpdate(); }
             }
         } 
 
@@ -393,6 +396,29 @@ namespace DentalMain
         {
             prop = work.FileInitialization(prop);
             Namingform();
+        }
+        private void ChekDataView_CheckedChanged(object sender, EventArgs e)   //Зміна відображення записів стосовно одного або декількох лікарів
+        {
+            if (ChekDataView.Checked)
+            {
+                patientscomplaintsBindingSource.Filter = "[doctor]='" + prop.DocID + "'";
+                patientsdiagspatientBindingSource.Filter = "[doctor]='" + prop.DocID + "'";
+                patientsplanletsBindingSource.Filter = "[doctor]='" + prop.DocID + "'";
+                patientsanamnesisDiseasesBindingSource.Filter = "[doctor]='" + prop.DocID + "'";
+                patientsappointmentBindingSource.Filter = "[doctor]='" + prop.DocID + "'";
+                patientsobjectivelydataBindingSource.Filter = "[doctor]='" + prop.DocID + "'";
+                FindWhatToUpdate();
+            }
+            else
+            {
+                patientscomplaintsBindingSource.Filter = "";
+                patientsdiagspatientBindingSource.Filter = "";
+                patientsplanletsBindingSource.Filter = "";
+                patientsanamnesisDiseasesBindingSource.Filter = "";
+                patientsappointmentBindingSource.Filter = "";
+                patientsobjectivelydataBindingSource.Filter = "";
+                FindWhatToUpdate();
+            }
         }
 
         #endregion
@@ -540,27 +566,6 @@ namespace DentalMain
             toolStripPat.Text = a.full_name;
             FindPaidedCost();
         }
-        private void ChekDataView_CheckedChanged(object sender, EventArgs e)   //Зміна відображення записів стосовно одного або декількох лікарів
-        {
-            if (ChekDataView.Checked)
-            {
-                patientscomplaintsBindingSource.Filter = "[doctor]='" + prop.DocID + "'";
-                patientsdiagspatientBindingSource.Filter = "[doctor]='" + prop.DocID + "'";
-                patientsplanletsBindingSource.Filter = "[doctor]='" + prop.DocID + "'";
-                patientsanamnesisDiseasesBindingSource.Filter = "[doctor]='" + prop.DocID + "'";
-                patientsappointmentBindingSource.Filter = "[doctor]='" + prop.DocID + "'";
-                FindWhatToUpdate();
-            }
-            else
-            {
-                patientscomplaintsBindingSource.Filter = "";
-                patientsdiagspatientBindingSource.Filter = "";
-                patientsplanletsBindingSource.Filter = "";
-                patientsanamnesisDiseasesBindingSource.Filter = "";
-                patientsappointmentBindingSource.Filter = "";
-                FindWhatToUpdate();
-            }
-        }
         public void UpdateWithSavePos()
         {
             try
@@ -658,6 +663,19 @@ namespace DentalMain
                 }
 
                 frm = "";
+                foreach(dBDS.objectively_dataRow m in dBDS.objectively_data.Select("patient='"+comboBox1.SelectedValue+"' and obj_date=#"+date+"#"))
+                {
+                    frm += m.possibleObjectiveRow.description_objective + ", ";
+                }
+                if (frm != "")
+                {
+                    objpar2.Range.Text += "ОБ`ЄКТИВНО ЗА ЦЕЙ ДЕНЬ: ";
+                    objpar2.Range.Bold = 3;
+                    objpar2.Range.Font.Size = 11;
+                    objpar2.Range.Text += frm.Substring(0, frm.Length - 2) + ".";
+                    objpar2.Range.Bold = 0;
+                }
+                frm = "";
                 foreach (dBDS.diags_patientRow m in dBDS.diags_patient.Select("patient='" + comboBox1.SelectedValue + "' and find_date=#" + date + "#"))
                 {
                     frm += m.diagnosisRow.name_diag + (m.tooth == "" ? ", " : ", зуб(и): " + m.tooth + ", ");
@@ -740,7 +758,7 @@ namespace DentalMain
             FindPaidedCost();
         }
         #endregion
-        //almst
+        //feel done
 
         #region Вкладка Жалобы
 
@@ -1143,22 +1161,55 @@ namespace DentalMain
                 {
                     this.possibleObjectiveTableAdapter.Insert(ObjSearch.Text.ToLower());
                     this.possibleObjectiveTableAdapter.Fill(dBDS.possibleObjective);
-                    AnmndisSearch.AutoCompleteCustomSource.Add(AnmndisSearch.Text.ToLower());
-                    treeViewanamndis.Nodes.Add(dBDS.anamndis_diseases.Last().id_disease.ToString(), AnmndisSearch.Text.ToLower()).Checked = true;
+                    ObjSearch.AutoCompleteCustomSource.Add(ObjSearch.Text.ToLower());
+                    treeViewObjective.Nodes.Add(dBDS.possibleObjective.Last().id_objective.ToString(), ObjSearch.Text.ToLower()).Checked = true;
                 }
                 else
                 {
-                    int amn = AnmndisSearch.AutoCompleteCustomSource.IndexOf(AnmndisSearch.Text.ToLower());
-                    if (treeViewanamndis.Nodes[amn].Checked == false)
-                        treeViewanamndis.Nodes[amn].Checked = true;
+                    int obj = ObjSearch.AutoCompleteCustomSource.IndexOf(ObjSearch.Text.ToLower());
+                    if (treeViewObjective.Nodes[obj].Checked == false)
+                        treeViewObjective.Nodes[obj].Checked = true;
                 }
             }
-            else App.Text = "Не було введено запис анамнезу!";
+            else App.Text = "Не було введено запису!";
         }
 
+        public void ObjChecking()
+        {
+            checker = false;
+            foreach(dBDS.objectively_dataRow f in dBDS.objectively_data.Select("patient='"+comboBox1.SelectedValue+"' and doctor='"+
+                prop.DocID+"' and obj_date='"+DateTime.Today+"'"))
+            {
+                treeViewObjective.Nodes[f.objective.ToString()].Checked = true;
+            }
+            checker = true;
+        }
+        private void TreeViewObjective_AfterCheck(object sender, TreeViewEventArgs e)
+        {
+            if(e.Node.Checked && checker)
+            {
+                this.objectively_dataTableAdapter.Insert(prop.DocID, (int)comboBox1.SelectedValue,
+                    Convert.ToInt32(e.Node.Name), DateTime.Today);
+                this.objectively_dataTableAdapter.Fill(dBDS.objectively_data);
+            }
+            else if (checker)
+            {
+                foreach(dBDS.objectively_dataRow f in dBDS.objectively_data.Select("patient='"+comboBox1.SelectedValue+"' and doctor='"+
+                    prop.DocID+"' and obj_date='"+DateTime.Today+"' and objective='"+e.Node.Name+"'"))
+                {
+                    this.objectively_dataTableAdapter.Delete(f.id_objectively, f.doctor, f.patient, f.objective, f.obj_date);
+                }
+                this.objectively_dataTableAdapter.Fill(dBDS.objectively_data);
+            }
+        }
+
+        private void TreeViewObjective_MouseDown(object sender, MouseEventArgs e)
+        {
+            TreeContextMenu(sender, e);
+        }
 
         #endregion
-
+        // looks done
 
         #region Диагноз
 
@@ -1551,8 +1602,13 @@ namespace DentalMain
             catch { comboBox1.SelectedItem = comboBox1.Items[0]; }
         }
 
-
-
+        private void ObjSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyData==Keys.Enter)
+            {
+                BtnAddObjective_Click(sender, new EventArgs());
+            }
+        }
 
         #endregion
         //looks Done
@@ -1660,8 +1716,11 @@ namespace DentalMain
             SmallDataChanger f = new SmallDataChanger("Diag",am);
             return f.ShowDialog()==DialogResult.OK;
         }
-
-
+        public bool ObjectiveFormDialog(TreeNode am)
+        {
+            SmallDataChanger f = new SmallDataChanger("Obj", am);
+                return f.ShowDialog() == DialogResult.OK;
+        }
         public void AppointmentsForm(int jade,bool jkk)
         {
             if (jkk)
