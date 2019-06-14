@@ -287,7 +287,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.helpProvider1.SetShowHelp(this.menuStrip1, true);
-            this.menuStrip1.Size = new System.Drawing.Size(710, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(759, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -411,7 +411,7 @@
             this.toolNumtel});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(710, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(759, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -515,7 +515,7 @@
             this.MainTab.Name = "MainTab";
             this.MainTab.SelectedIndex = 0;
             this.helpProvider1.SetShowHelp(this.MainTab, true);
-            this.MainTab.Size = new System.Drawing.Size(710, 409);
+            this.MainTab.Size = new System.Drawing.Size(759, 470);
             this.MainTab.TabIndex = 2;
             this.MainTab.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.MainTab_Selecting);
             this.MainTab.Selected += new System.Windows.Forms.TabControlEventHandler(this.MainTab_Selected);
@@ -545,7 +545,7 @@
             this.PatientInfo.Name = "PatientInfo";
             this.PatientInfo.Padding = new System.Windows.Forms.Padding(3);
             this.helpProvider1.SetShowHelp(this.PatientInfo, true);
-            this.PatientInfo.Size = new System.Drawing.Size(702, 383);
+            this.PatientInfo.Size = new System.Drawing.Size(751, 444);
             this.PatientInfo.TabIndex = 0;
             this.PatientInfo.Text = "Пацієнт";
             this.PatientInfo.UseVisualStyleBackColor = true;
@@ -615,13 +615,14 @@
             // 
             // RengBtn
             // 
+            this.RengBtn.AllowDrop = true;
             this.RengBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.RengBtn.Location = new System.Drawing.Point(6, 115);
             this.RengBtn.Name = "RengBtn";
             this.RengBtn.Size = new System.Drawing.Size(688, 23);
             this.RengBtn.TabIndex = 9;
-            this.RengBtn.Text = "Відкрити папку з рентгеном";
+            this.RengBtn.Text = "Рентген пацієнта";
             this.RengBtn.UseVisualStyleBackColor = true;
             this.RengBtn.Click += new System.EventHandler(this.RengBtn_Click);
             // 
@@ -741,7 +742,7 @@
             this.Complaints.Name = "Complaints";
             this.Complaints.Padding = new System.Windows.Forms.Padding(3);
             this.helpProvider1.SetShowHelp(this.Complaints, true);
-            this.Complaints.Size = new System.Drawing.Size(702, 383);
+            this.Complaints.Size = new System.Drawing.Size(751, 444);
             this.Complaints.TabIndex = 1;
             this.Complaints.Text = "Скарги";
             this.Complaints.UseVisualStyleBackColor = true;
@@ -916,7 +917,7 @@
             this.Anamnesis.Name = "Anamnesis";
             this.Anamnesis.Padding = new System.Windows.Forms.Padding(3);
             this.helpProvider1.SetShowHelp(this.Anamnesis, true);
-            this.Anamnesis.Size = new System.Drawing.Size(702, 383);
+            this.Anamnesis.Size = new System.Drawing.Size(751, 444);
             this.Anamnesis.TabIndex = 4;
             this.Anamnesis.Text = "Анамнез (інші)";
             this.Anamnesis.UseVisualStyleBackColor = true;
@@ -1077,7 +1078,7 @@
             this.planletstab.Name = "planletstab";
             this.planletstab.Padding = new System.Windows.Forms.Padding(3);
             this.helpProvider1.SetShowHelp(this.planletstab, true);
-            this.planletstab.Size = new System.Drawing.Size(702, 383);
+            this.planletstab.Size = new System.Drawing.Size(751, 444);
             this.planletstab.TabIndex = 6;
             this.planletstab.Text = "План лікування";
             this.planletstab.UseVisualStyleBackColor = true;
@@ -1303,7 +1304,7 @@
             this.AnamnDispg.Name = "AnamnDispg";
             this.AnamnDispg.Padding = new System.Windows.Forms.Padding(3);
             this.helpProvider1.SetShowHelp(this.AnamnDispg, true);
-            this.AnamnDispg.Size = new System.Drawing.Size(702, 383);
+            this.AnamnDispg.Size = new System.Drawing.Size(751, 444);
             this.AnamnDispg.TabIndex = 7;
             this.AnamnDispg.Text = "Анамнез (хвороби)";
             this.AnamnDispg.UseVisualStyleBackColor = true;
@@ -1465,7 +1466,7 @@
             this.Objective.Location = new System.Drawing.Point(4, 22);
             this.Objective.Name = "Objective";
             this.Objective.Padding = new System.Windows.Forms.Padding(3);
-            this.Objective.Size = new System.Drawing.Size(702, 383);
+            this.Objective.Size = new System.Drawing.Size(751, 444);
             this.Objective.TabIndex = 8;
             this.Objective.Text = "Об\'єктивно";
             this.Objective.UseVisualStyleBackColor = true;
@@ -1639,7 +1640,7 @@
             this.Diagnosis.Name = "Diagnosis";
             this.Diagnosis.Padding = new System.Windows.Forms.Padding(3);
             this.helpProvider1.SetShowHelp(this.Diagnosis, true);
-            this.Diagnosis.Size = new System.Drawing.Size(702, 383);
+            this.Diagnosis.Size = new System.Drawing.Size(751, 444);
             this.Diagnosis.TabIndex = 2;
             this.Diagnosis.Text = "Діагноз";
             this.Diagnosis.UseVisualStyleBackColor = true;
@@ -1841,7 +1842,7 @@
             this.appointment.Name = "appointment";
             this.appointment.Padding = new System.Windows.Forms.Padding(3);
             this.helpProvider1.SetShowHelp(this.appointment, true);
-            this.appointment.Size = new System.Drawing.Size(702, 383);
+            this.appointment.Size = new System.Drawing.Size(751, 444);
             this.appointment.TabIndex = 5;
             this.appointment.Text = "Лікування";
             this.appointment.UseVisualStyleBackColor = true;
@@ -1879,7 +1880,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(685, 356);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(734, 417);
             this.tableLayoutPanel6.TabIndex = 25;
             // 
             // label5
@@ -1888,7 +1889,7 @@
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Location = new System.Drawing.Point(3, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(222, 26);
+            this.label5.Size = new System.Drawing.Size(238, 26);
             this.label5.TabIndex = 1;
             this.label5.Text = "Прийом";
             this.label5.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -1897,9 +1898,9 @@
             // 
             this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(459, 29);
+            this.button3.Location = new System.Drawing.Point(491, 29);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(223, 20);
+            this.button3.Size = new System.Drawing.Size(240, 20);
             this.button3.TabIndex = 11;
             this.button3.Text = "Змінити прийом";
             this.button3.UseVisualStyleBackColor = true;
@@ -1920,9 +1921,9 @@
             this.PaidGB.Controls.Add(this.button6);
             this.PaidGB.Controls.Add(this.textBox1);
             this.PaidGB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PaidGB.Location = new System.Drawing.Point(3, 204);
+            this.PaidGB.Location = new System.Drawing.Point(3, 228);
             this.PaidGB.Name = "PaidGB";
-            this.PaidGB.Size = new System.Drawing.Size(679, 149);
+            this.PaidGB.Size = new System.Drawing.Size(728, 186);
             this.PaidGB.TabIndex = 24;
             this.PaidGB.TabStop = false;
             this.PaidGB.Text = "Оплата послуг";
@@ -1944,7 +1945,7 @@
             this.treeView1.Location = new System.Drawing.Point(3, 32);
             this.treeView1.Name = "treeView1";
             this.treeView1.ShowLines = false;
-            this.treeView1.Size = new System.Drawing.Size(428, 115);
+            this.treeView1.Size = new System.Drawing.Size(428, 152);
             this.treeView1.TabIndex = 13;
             // 
             // label31
@@ -2043,7 +2044,7 @@
             this.AppointBox.FormattingEnabled = true;
             this.AppointBox.Location = new System.Drawing.Point(3, 29);
             this.AppointBox.Name = "AppointBox";
-            this.AppointBox.Size = new System.Drawing.Size(222, 21);
+            this.AppointBox.Size = new System.Drawing.Size(238, 21);
             this.AppointBox.TabIndex = 0;
             this.AppointBox.ValueMember = "id_appointment";
             this.AppointBox.SelectedValueChanged += new System.EventHandler(this.AppointBox_SelectedValueChanged);
@@ -2064,7 +2065,7 @@
             this.HealingTreeDiag.ShowLines = false;
             this.HealingTreeDiag.ShowPlusMinus = false;
             this.HealingTreeDiag.ShowRootLines = false;
-            this.HealingTreeDiag.Size = new System.Drawing.Size(222, 97);
+            this.HealingTreeDiag.Size = new System.Drawing.Size(238, 121);
             this.HealingTreeDiag.TabIndex = 22;
             this.HealingTreeDiag.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.HealingTreeDiag_AfterSelect);
             // 
@@ -2074,9 +2075,9 @@
             this.includesChkBx.Checked = true;
             this.includesChkBx.CheckState = System.Windows.Forms.CheckState.Checked;
             this.includesChkBx.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.includesChkBx.Location = new System.Drawing.Point(231, 178);
+            this.includesChkBx.Location = new System.Drawing.Point(247, 202);
             this.includesChkBx.Name = "includesChkBx";
-            this.includesChkBx.Size = new System.Drawing.Size(222, 20);
+            this.includesChkBx.Size = new System.Drawing.Size(238, 20);
             this.includesChkBx.TabIndex = 18;
             this.includesChkBx.Text = "Враховувати ціну";
             this.includesChkBx.UseVisualStyleBackColor = true;
@@ -2087,7 +2088,7 @@
             this.label26.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label26.Location = new System.Drawing.Point(3, 52);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(222, 20);
+            this.label26.Size = new System.Drawing.Size(238, 20);
             this.label26.TabIndex = 20;
             this.label26.Text = "Оберіть діагноз";
             this.label26.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -2095,9 +2096,9 @@
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Location = new System.Drawing.Point(3, 178);
+            this.button1.Location = new System.Drawing.Point(3, 202);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(222, 20);
+            this.button1.Size = new System.Drawing.Size(238, 20);
             this.button1.TabIndex = 7;
             this.button1.Text = "Додати у сумму";
             this.button1.UseVisualStyleBackColor = true;
@@ -2108,18 +2109,18 @@
             this.MatTree.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.MatTree.CheckBoxes = true;
             this.MatTree.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MatTree.Location = new System.Drawing.Point(459, 75);
+            this.MatTree.Location = new System.Drawing.Point(491, 75);
             this.MatTree.Name = "MatTree";
-            this.MatTree.Size = new System.Drawing.Size(223, 97);
+            this.MatTree.Size = new System.Drawing.Size(240, 121);
             this.MatTree.TabIndex = 8;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Location = new System.Drawing.Point(459, 52);
+            this.label6.Location = new System.Drawing.Point(491, 52);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(223, 20);
+            this.label6.Size = new System.Drawing.Size(240, 20);
             this.label6.TabIndex = 9;
             this.label6.Text = "Перелік можливих матеріалів для послуги";
             this.label6.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -2128,9 +2129,9 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label7.Location = new System.Drawing.Point(231, 0);
+            this.label7.Location = new System.Drawing.Point(247, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(222, 26);
+            this.label7.Size = new System.Drawing.Size(238, 26);
             this.label7.TabIndex = 1;
             this.label7.Text = "Пошук послуги";
             this.label7.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -2140,9 +2141,9 @@
             this.ServSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.ServSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.ServSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ServSearch.Location = new System.Drawing.Point(231, 29);
+            this.ServSearch.Location = new System.Drawing.Point(247, 29);
             this.ServSearch.Name = "ServSearch";
-            this.ServSearch.Size = new System.Drawing.Size(222, 20);
+            this.ServSearch.Size = new System.Drawing.Size(238, 20);
             this.ServSearch.TabIndex = 5;
             this.ServSearch.TextChanged += new System.EventHandler(this.ServSearch_TextChanged);
             // 
@@ -2152,12 +2153,12 @@
             this.ServTree.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ServTree.HideSelection = false;
             this.ServTree.HotTracking = true;
-            this.ServTree.Location = new System.Drawing.Point(231, 75);
+            this.ServTree.Location = new System.Drawing.Point(247, 75);
             this.ServTree.Name = "ServTree";
             this.ServTree.ShowLines = false;
             this.ServTree.ShowPlusMinus = false;
             this.ServTree.ShowRootLines = false;
-            this.ServTree.Size = new System.Drawing.Size(222, 97);
+            this.ServTree.Size = new System.Drawing.Size(238, 121);
             this.ServTree.TabIndex = 6;
             this.ServTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.ServTree_AfterSelect);
             // 
@@ -2165,21 +2166,22 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label14.Location = new System.Drawing.Point(231, 52);
+            this.label14.Location = new System.Drawing.Point(247, 52);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(222, 20);
+            this.label14.Size = new System.Drawing.Size(238, 20);
             this.label14.TabIndex = 4;
             this.label14.Text = "Оберіть послугу";
             this.label14.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // EndAppointm
             // 
-            this.EndAppointm.Location = new System.Drawing.Point(459, 3);
+            this.EndAppointm.Location = new System.Drawing.Point(491, 3);
             this.EndAppointm.Name = "EndAppointm";
             this.EndAppointm.Size = new System.Drawing.Size(223, 20);
             this.EndAppointm.TabIndex = 25;
             this.EndAppointm.Text = "Завершити прийом";
             this.EndAppointm.UseVisualStyleBackColor = true;
+            this.EndAppointm.Visible = false;
             this.EndAppointm.Click += new System.EventHandler(this.Button4_Click);
             // 
             // contextMenuStrip1
@@ -2219,9 +2221,9 @@
             this.statusStrip1.AccessibleRole = System.Windows.Forms.AccessibleRole.StatusBar;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripStatusLabel1});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 436);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 497);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(710, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(759, 22);
             this.statusStrip1.TabIndex = 9;
             this.statusStrip1.Text = "statusStrip1";
             // 
@@ -2326,7 +2328,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(710, 458);
+            this.ClientSize = new System.Drawing.Size(759, 519);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.MainTab);
             this.Controls.Add(this.toolStrip1);

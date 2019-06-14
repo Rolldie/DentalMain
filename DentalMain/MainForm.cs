@@ -21,7 +21,6 @@ namespace DentalMain
 
     public partial class MainForm : Form
     {
-        
 
         #region Создание компонентов, работа с элементами формы, файлами хмл, доп переменные
 
@@ -596,7 +595,7 @@ namespace DentalMain
         }
         private void RengBtn_Click(object sender, EventArgs e)
         {
-            work.InitPatDir((int)comboBox1.SelectedValue,comboBox1.Text);
+            work.InitPatDir((int)comboBox1.SelectedValue,prop.DocID);
         }
         private void BtnAppointm_Click(object sender, EventArgs e)
         {
@@ -1349,7 +1348,6 @@ namespace DentalMain
                     return;
                 }
             }
-
         }
 
         public void CheckAppointmChoose(bool fa)
@@ -1539,7 +1537,6 @@ namespace DentalMain
             else CheckAppointmChoose(false);
         }
 
-     
         private void BtnPayByAvnc_Click(object sender, EventArgs e)
         {
             if (AppointBox.Text == "") return;
@@ -1601,7 +1598,9 @@ namespace DentalMain
         }
         private void Button4_Click(object sender, EventArgs e)  //end appointment
         {
-
+            dBDS.appointment.FindByid_appointment((int)AppointBox.SelectedValue).ended = true;
+            appointmentTableAdapter.Update(dBDS.appointment);
+            FindWhatToUpdate();
         }
 
         #endregion
@@ -1621,16 +1620,25 @@ namespace DentalMain
     }
     public class ApplicationWork
     {
-        public void InitPatDir(int pat_id,string full_nm)
+        public void InitPatDir(int pat_id,int docid)
         {
-            try
+          //  try
+           // {
+             //   System.Diagnostics.Process.Start(Path.GetDirectoryName(Application.ExecutablePath) + @"\Пацієнти\" + pat_id+ "_" + full_nm + @"\Рентген");
+            //}
+            //catch
+            //{
+              //  Directory.CreateDirectory(Path.GetDirectoryName(Application.ExecutablePath) + @"\Пацієнти\" + pat_id + "_" + full_nm + @"\Рентген");
+                //System.Diagnostics.Process.Start(Path.GetDirectoryName(Application.ExecutablePath) + @"\Пацієнти\" + pat_id + "_" + full_nm + @"\Рентген");
+            //}
+            if(Application.OpenForms["RengenForm"] is RengenForm f)
             {
-                System.Diagnostics.Process.Start(Path.GetDirectoryName(Application.ExecutablePath) + @"\Пацієнти\" + pat_id+ "_" + full_nm + @"\Рентген");
+                f.Activate();
             }
-            catch
+            else
             {
-                Directory.CreateDirectory(Path.GetDirectoryName(Application.ExecutablePath) + @"\Пацієнти\" + pat_id + "_" + full_nm + @"\Рентген");
-                System.Diagnostics.Process.Start(Path.GetDirectoryName(Application.ExecutablePath) + @"\Пацієнти\" + pat_id + "_" + full_nm + @"\Рентген");
+                f = new RengenForm(pat_id,docid);
+                f.Show();
             }
 
         }

@@ -8995,6 +8995,8 @@ namespace DentalMain {
             
             private global::System.Data.DataColumn columnphoto_rg;
             
+            private global::System.Data.DataColumn columndescription;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public rengenDataTable() {
@@ -9070,6 +9072,14 @@ namespace DentalMain {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn descriptionColumn {
+                get {
+                    return this.columndescription;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -9105,14 +9115,15 @@ namespace DentalMain {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public rengenRow AddrengenRow(System.DateTime date_rengen, patientsRow parentpatientsRowBypatientsrengen, int doctor, byte[] photo_rg) {
+            public rengenRow AddrengenRow(System.DateTime date_rengen, patientsRow parentpatientsRowBypatientsrengen, int doctor, byte[] photo_rg, string description) {
                 rengenRow rowrengenRow = ((rengenRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         date_rengen,
                         null,
                         doctor,
-                        photo_rg};
+                        photo_rg,
+                        description};
                 if ((parentpatientsRowBypatientsrengen != null)) {
                     columnValuesArray[2] = parentpatientsRowBypatientsrengen[0];
                 }
@@ -9150,6 +9161,7 @@ namespace DentalMain {
                 this.columnpatient = base.Columns["patient"];
                 this.columndoctor = base.Columns["doctor"];
                 this.columnphoto_rg = base.Columns["photo_rg"];
+                this.columndescription = base.Columns["description"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9165,6 +9177,8 @@ namespace DentalMain {
                 base.Columns.Add(this.columndoctor);
                 this.columnphoto_rg = new global::System.Data.DataColumn("photo_rg", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnphoto_rg);
+                this.columndescription = new global::System.Data.DataColumn("description", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndescription);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnid_rengen}, true));
                 this.columnid_rengen.AutoIncrement = true;
@@ -9172,6 +9186,8 @@ namespace DentalMain {
                 this.columnid_rengen.AutoIncrementStep = -1;
                 this.columnid_rengen.AllowDBNull = false;
                 this.columnid_rengen.Unique = true;
+                this.columndescription.DefaultValue = ((string)(""));
+                this.columndescription.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12687,6 +12703,22 @@ namespace DentalMain {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string description {
+                get {
+                    if (this.IsdescriptionNull()) {
+                        return string.Empty;
+                    }
+                    else {
+                        return ((string)(this[this.tablerengen.descriptionColumn]));
+                    }
+                }
+                set {
+                    this[this.tablerengen.descriptionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public patientsRow patientsRow {
                 get {
                     return ((patientsRow)(this.GetParentRow(this.Table.ParentRelations["patientsrengen"])));
@@ -12742,6 +12774,18 @@ namespace DentalMain {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void Setphoto_rgNull() {
                 this[this.tablerengen.photo_rgColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsdescriptionNull() {
+                return this.IsNull(this.tablerengen.descriptionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetdescriptionNull() {
+                this[this.tablerengen.descriptionColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -23447,12 +23491,11 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
             tableMapping.ColumnMappings.Add("patient", "patient");
             tableMapping.ColumnMappings.Add("doctor", "doctor");
             tableMapping.ColumnMappings.Add("photo_rg", "photo_rg");
+            tableMapping.ColumnMappings.Add("description", "description");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM `rengen` WHERE ((`id_rengen` = ?) AND ((? = 1 AND `date_rengen` IS NU" +
-                "LL) OR (`date_rengen` = ?)) AND ((? = 1 AND `patient` IS NULL) OR (`patient` = ?" +
-                ")) AND ((? = 1 AND `doctor` IS NULL) OR (`doctor` = ?)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM `rengen` WHERE ((`id_rengen` = ?) AND ((? = 1 AND `date_rengen` IS NULL) OR (`date_rengen` = ?)) AND ((? = 1 AND `patient` IS NULL) OR (`patient` = ?)) AND ((? = 1 AND `doctor` IS NULL) OR (`doctor` = ?)) AND ((? = 1 AND `description` IS NULL) OR (`description` = ?)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_id_rengen", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id_rengen", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_date_rengen", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "date_rengen", global::System.Data.DataRowVersion.Original, true, null));
@@ -23461,23 +23504,27 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_patient", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "patient", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_doctor", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "doctor", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_doctor", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "doctor", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_description", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "description", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_description", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "description", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.InsertCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO `rengen` (`date_rengen`, `patient`, `doctor`, `photo_rg`) VALUES (?, " +
-                "?, ?, ?)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO `rengen` (`date_rengen`, `patient`, `doctor`, `photo_rg`, `descriptio" +
+                "n`) VALUES (?, ?, ?, ?, ?)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("date_rengen", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "date_rengen", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("patient", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "patient", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("doctor", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "doctor", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("photo_rg", global::System.Data.OleDb.OleDbType.LongVarBinary, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "photo_rg", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("description", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "description", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand = new global::System.Data.OleDb.OleDbCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE `rengen` SET `date_rengen` = ?, `patient` = ?, `doctor` = ?, `photo_rg` = ? WHERE ((`id_rengen` = ?) AND ((? = 1 AND `date_rengen` IS NULL) OR (`date_rengen` = ?)) AND ((? = 1 AND `patient` IS NULL) OR (`patient` = ?)) AND ((? = 1 AND `doctor` IS NULL) OR (`doctor` = ?)))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE `rengen` SET `date_rengen` = ?, `patient` = ?, `doctor` = ?, `photo_rg` = ?, `description` = ? WHERE ((`id_rengen` = ?) AND ((? = 1 AND `date_rengen` IS NULL) OR (`date_rengen` = ?)) AND ((? = 1 AND `patient` IS NULL) OR (`patient` = ?)) AND ((? = 1 AND `doctor` IS NULL) OR (`doctor` = ?)) AND ((? = 1 AND `description` IS NULL) OR (`description` = ?)))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("date_rengen", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "date_rengen", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("patient", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "patient", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("doctor", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "doctor", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("photo_rg", global::System.Data.OleDb.OleDbType.LongVarBinary, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "photo_rg", global::System.Data.DataRowVersion.Current, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("description", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "description", global::System.Data.DataRowVersion.Current, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_id_rengen", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "id_rengen", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_date_rengen", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "date_rengen", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_date_rengen", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "date_rengen", global::System.Data.DataRowVersion.Original, false, null));
@@ -23485,6 +23532,8 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_patient", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "patient", global::System.Data.DataRowVersion.Original, false, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_doctor", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "doctor", global::System.Data.DataRowVersion.Original, true, null));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_doctor", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "doctor", global::System.Data.DataRowVersion.Original, false, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("IsNull_description", global::System.Data.OleDb.OleDbType.Integer, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "description", global::System.Data.DataRowVersion.Original, true, null));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.OleDb.OleDbParameter("Original_description", global::System.Data.OleDb.OleDbType.VarWChar, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "description", global::System.Data.DataRowVersion.Original, false, null));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -23500,8 +23549,8 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
             this._commandCollection = new global::System.Data.OleDb.OleDbCommand[1];
             this._commandCollection[0] = new global::System.Data.OleDb.OleDbCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        id_rengen, date_rengen, patient, doctor, photo_rg\r\nFROM            " +
-                "rengen";
+            this._commandCollection[0].CommandText = "SELECT        id_rengen, date_rengen, patient, doctor, photo_rg, description\r\nFRO" +
+                "M            rengen";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -23562,7 +23611,7 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_id_rengen, global::System.Nullable<global::System.DateTime> Original_date_rengen, global::System.Nullable<int> Original_patient, global::System.Nullable<int> Original_doctor) {
+        public virtual int Delete(int Original_id_rengen, global::System.Nullable<global::System.DateTime> Original_date_rengen, global::System.Nullable<int> Original_patient, global::System.Nullable<int> Original_doctor, string Original_description) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_id_rengen));
             if ((Original_date_rengen.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
@@ -23588,6 +23637,14 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
+            if ((Original_description == null)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((string)(Original_description));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -23608,7 +23665,7 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<global::System.DateTime> date_rengen, global::System.Nullable<int> patient, global::System.Nullable<int> doctor, byte[] photo_rg) {
+        public virtual int Insert(global::System.Nullable<global::System.DateTime> date_rengen, global::System.Nullable<int> patient, global::System.Nullable<int> doctor, byte[] photo_rg, string description) {
             if ((date_rengen.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((System.DateTime)(date_rengen.Value));
             }
@@ -23633,6 +23690,12 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = ((byte[])(photo_rg));
             }
+            if ((description == null)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(description));
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -23653,7 +23716,7 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<global::System.DateTime> date_rengen, global::System.Nullable<int> patient, global::System.Nullable<int> doctor, byte[] photo_rg, int Original_id_rengen, global::System.Nullable<global::System.DateTime> Original_date_rengen, global::System.Nullable<int> Original_patient, global::System.Nullable<int> Original_doctor) {
+        public virtual int Update(global::System.Nullable<global::System.DateTime> date_rengen, global::System.Nullable<int> patient, global::System.Nullable<int> doctor, byte[] photo_rg, string description, int Original_id_rengen, global::System.Nullable<global::System.DateTime> Original_date_rengen, global::System.Nullable<int> Original_patient, global::System.Nullable<int> Original_doctor, string Original_description) {
             if ((date_rengen.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((System.DateTime)(date_rengen.Value));
             }
@@ -23678,30 +23741,44 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = ((byte[])(photo_rg));
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(Original_id_rengen));
-            if ((Original_date_rengen.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(Original_date_rengen.Value));
+            if ((description == null)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(description));
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Original_id_rengen));
+            if ((Original_date_rengen.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((System.DateTime)(Original_date_rengen.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
             if ((Original_patient.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((int)(Original_patient.Value));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_patient.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             if ((Original_doctor.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((int)(Original_doctor.Value));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((int)(Original_doctor.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((Original_description == null)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((string)(Original_description));
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 

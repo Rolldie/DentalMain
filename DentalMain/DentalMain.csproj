@@ -125,6 +125,12 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
     </Compile>
+    <Compile Include="DescForRengen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DescForRengen.Designer.cs">
+      <DependentUpon>DescForRengen.cs</DependentUpon>
+    </Compile>
     <Compile Include="DocChange.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +223,12 @@
     <Compile Include="Posts.Designer.cs">
       <DependentUpon>Posts.cs</DependentUpon>
     </Compile>
+    <Compile Include="RengenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RengenForm.Designer.cs">
+      <DependentUpon>RengenForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ServExp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -260,6 +272,12 @@
     <Compile Include="WaitPlsForm.Designer.cs">
       <DependentUpon>WaitPlsForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="DescForRengen.resx">
+      <DependentUpon>DescForRengen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RengenForm.resx">
+      <DependentUpon>RengenForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Стоматологічна клuінікаГоловна база.accdb">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
