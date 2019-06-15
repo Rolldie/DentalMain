@@ -95,10 +95,14 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Location = new System.Drawing.Point(265, 29);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(662, 350);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseMove);
@@ -127,7 +131,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(269, 0);
+            this.button1.Location = new System.Drawing.Point(265, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(225, 23);
             this.button1.TabIndex = 5;
@@ -137,12 +141,13 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(500, 0);
+            this.button2.Location = new System.Drawing.Point(496, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(225, 23);
             this.button2.TabIndex = 5;
             this.button2.Text = "Відмінити зміни";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // RengenForm
             // 

@@ -34,6 +34,15 @@ namespace DentalMain
             doctorsTableAdapter.Fill(dBDS.doctors);
             rengenTableAdapter.Fill(dBDS.rengen);
             FillTree();
+            CheckButtons();
+        }
+        public void CheckButtons()
+        {
+            if (treeView1.Nodes.Count == 0)
+            {
+                BlockButtons(false);
+            }
+            else BlockButtons(true);
         }
 
         private void TreeView1_AfterSelect(object sender, TreeViewEventArgs e)
@@ -80,7 +89,7 @@ namespace DentalMain
             }
             rengenTableAdapter.Fill(dBDS.rengen);
             FillTree();
-            
+            treeView1.SelectedNode = treeView1.Nodes[treeView1.Nodes.Count-1];
         }
         TreeNode fm;
         private void TreeView1_MouseDown(object sender, MouseEventArgs e)
@@ -114,7 +123,14 @@ namespace DentalMain
             this.rengenTableAdapter.Fill(dBDS.rengen);
             pictureBox1.Image = null;
             FillTree();
+            CheckButtons();
         }
+        public void BlockButtons(bool fk)
+        {
+            button1.Enabled = fk;
+            button2.Enabled = fk;
+        }
+
 
         private void Button1_Click(object sender, EventArgs e)
         {
@@ -141,13 +157,34 @@ namespace DentalMain
         {
             if (e.Button == MouseButtons.Left)
             {
-                using (Graphics g = Graphics.FromImage(pictureBox1.Image))
+                try
                 {
-                    //g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-                    g.DrawLine(new Pen(new SolidBrush(Color.Red)), e.Location, new Point(e.X + 2, e.Y + 2));
-                    pictureBox1.Invalidate();
+                    using (Graphics g = Graphics.FromImage(pictureBox1.Image))
+                    {
+                        g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+                        Pen f = new Pen(new SolidBrush(Color.Red));
+                        f.Width = 4;
+                        int sheshpoX = pictureBox1.Width / 2 - pictureBox1.Image.Width / 2;
+                        int sheshpoY = pictureBox1.Height / 2 - pictureBox1.Image.Height / 2;
+                        g.DrawLine(f, new Point(e.X - sheshpoX, e.Y - sheshpoY), new Point(e.X + 1 - sheshpoX, e.Y + 1 - sheshpoY));
+                        pictureBox1.Invalidate();
+                    }
                 }
+                catch { MessageBox.Show("Для цього формату зображення не можливо малювати"); }
             }
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+
+            MemoryStream mem = new MemoryStream();
+            byte[] jk = dBDS.rengen.FindByid_rengen(Convert.ToInt32(treeView1.SelectedNode.Name)).photo_rg;
+            foreach (byte j in jk)
+            {
+                mem.WriteByte(j);
+            }
+            Image img = Image.FromStream(mem);
+            pictureBox1.Image = img;
         }
     }
 }
