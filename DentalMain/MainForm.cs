@@ -1602,7 +1602,6 @@ namespace DentalMain
             appointmentTableAdapter.Update(dBDS.appointment);
             FindWhatToUpdate();
         }
-
         #endregion
         //looks Done
 

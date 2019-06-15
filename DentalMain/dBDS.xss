@@ -7,41 +7,41 @@
 <DiagramLayout xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ex:showrelationlabel="False" ViewPortX="-10" ViewPortY="-47" xmlns:ex="urn:schemas-microsoft-com:xml-msdatasource-layout-extended" xmlns="urn:schemas-microsoft-com:xml-msdatasource-layout">
   <Shapes>
     <Shape ID="DesignTable:anamnesis" ZOrder="21" X="314" Y="85" Height="172" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
-    <Shape ID="DesignTable:appointment" ZOrder="4" X="269" Y="284" Height="324" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="235" />
+    <Shape ID="DesignTable:appointment" ZOrder="6" X="269" Y="284" Height="324" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="235" />
     <Shape ID="DesignTable:appointment_materials" ZOrder="50" X="961" Y="768" Height="153" Width="279" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
     <Shape ID="DesignTable:appointment_services" ZOrder="49" X="621" Y="745" Height="191" Width="270" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
     <Shape ID="DesignTable:complaints" ZOrder="28" X="328" Y="1011" Height="172" Width="208" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
     <Shape ID="DesignTable:diagnosis" ZOrder="48" X="623" Y="1223" Height="134" Width="199" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
     <Shape ID="DesignTable:diags_patient" ZOrder="47" X="331" Y="1233" Height="172" Width="222" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
-    <Shape ID="DesignTable:diseases_anam" ZOrder="20" X="825" Y="12" Height="134" Width="229" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
+    <Shape ID="DesignTable:diseases_anam" ZOrder="3" X="1074" Y="45" Height="134" Width="229" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
     <Shape ID="DesignTable:doctors" ZOrder="46" X="621" Y="312" Height="191" Width="188" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
     <Shape ID="DesignTable:materials" ZOrder="22" X="1664" Y="556" Height="172" Width="198" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
-    <Shape ID="DesignTable:patients" ZOrder="19" X="13" Y="16" Height="210" Width="268" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
+    <Shape ID="DesignTable:patients" ZOrder="20" X="13" Y="16" Height="210" Width="268" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
     <Shape ID="DesignTable:planlets" ZOrder="45" X="298" Y="1440" Height="191" Width="190" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
     <Shape ID="DesignTable:post" ZOrder="44" X="1162" Y="535" Height="115" Width="170" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
     <Shape ID="DesignTable:post_doctor" ZOrder="43" X="879" Y="535" Height="134" Width="213" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
     <Shape ID="DesignTable:post_services" ZOrder="42" X="1402" Y="535" Height="134" Width="220" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
     <Shape ID="DesignTable:services" ZOrder="41" X="1343" Y="770" Height="134" Width="190" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
     <Shape ID="DesignTable:weekends" ZOrder="40" X="1373" Y="101" Height="153" Width="202" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
-    <Shape ID="DesignTable:possibleCompl" ZOrder="6" X="609" Y="1002" Height="115" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
+    <Shape ID="DesignTable:possibleCompl" ZOrder="7" X="609" Y="1002" Height="115" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
     <Shape ID="DesignTable:possiblePlts" ZOrder="27" X="562" Y="1425" Height="115" Width="213" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
     <Shape ID="DesignTable:serv_material" ZOrder="25" X="1582" Y="771" Height="134" Width="221" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="83" />
-    <Shape ID="DesignTable:anamnesisDiseases" ZOrder="17" X="3" Y="258" Height="153" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
-    <Shape ID="DesignTable:anamndis_diseases" ZOrder="15" X="4" Y="459" Height="115" Width="154" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
-    <Shape ID="DesignTable:docRecordLog" ZOrder="13" X="943" Y="136" Height="225" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="135" />
-    <Shape ID="DesignTable:possibleObjective" ZOrder="11" X="214" Y="877" Height="115" Width="247" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
-    <Shape ID="DesignTable:objectively_data" ZOrder="10" X="203" Y="650" Height="172" Width="238" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
-    <Shape ID="DesignTable:rengen" ZOrder="1" X="631" Y="-2" Height="172" Width="185" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
+    <Shape ID="DesignTable:anamnesisDiseases" ZOrder="18" X="3" Y="258" Height="153" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="102" />
+    <Shape ID="DesignTable:anamndis_diseases" ZOrder="16" X="4" Y="459" Height="115" Width="154" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
+    <Shape ID="DesignTable:docRecordLog" ZOrder="14" X="943" Y="136" Height="225" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="135" />
+    <Shape ID="DesignTable:possibleObjective" ZOrder="12" X="214" Y="877" Height="115" Width="247" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
+    <Shape ID="DesignTable:objectively_data" ZOrder="11" X="203" Y="650" Height="172" Width="238" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="121" />
+    <Shape ID="DesignTable:rengen" ZOrder="2" X="685" Y="37" Height="248" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="140" />
   </Shapes>
   <Connectors>
-    <Connector ID="DesignRelation:diseases_anamanamnesis" ZOrder="2" LineWidth="11">
+    <Connector ID="DesignRelation:diseases_anamanamnesis" ZOrder="4" LineWidth="11">
       <RoutePoints>
         <Point>
-          <X>875</X>
-          <Y>146</Y>
+          <X>1124</X>
+          <Y>179</Y>
         </Point>
         <Point>
-          <X>875</X>
+          <X>1124</X>
           <Y>221</Y>
         </Point>
         <Point>
@@ -50,7 +50,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:patientsanamnesis" ZOrder="3" LineWidth="11">
+    <Connector ID="DesignRelation:patientsanamnesis" ZOrder="5" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>281</X>
@@ -62,7 +62,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:doctorsappointment" ZOrder="18" LineWidth="11">
+    <Connector ID="DesignRelation:doctorsappointment" ZOrder="19" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>621</X>
@@ -82,7 +82,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:patientsappointment" ZOrder="7" LineWidth="11">
+    <Connector ID="DesignRelation:patientsappointment" ZOrder="8" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>229</X>
@@ -294,7 +294,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:patientsanamnesisDiseases" ZOrder="16" LineWidth="11">
+    <Connector ID="DesignRelation:patientsanamnesisDiseases" ZOrder="17" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>84</X>
@@ -306,7 +306,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:anamndis_diseasesanamnesisDiseases" ZOrder="14" LineWidth="11">
+    <Connector ID="DesignRelation:anamndis_diseasesanamnesisDiseases" ZOrder="15" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>25</X>
@@ -318,7 +318,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:doctorsdocRecordLog" ZOrder="12" LineWidth="11">
+    <Connector ID="DesignRelation:doctorsdocRecordLog" ZOrder="13" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>809</X>
@@ -330,7 +330,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:patientsobjectively_data" ZOrder="9" LineWidth="11">
+    <Connector ID="DesignRelation:patientsobjectively_data" ZOrder="10" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>195</X>
@@ -346,7 +346,7 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:possibleObjectiveobjectively_data" ZOrder="8" LineWidth="11">
+    <Connector ID="DesignRelation:possibleObjectiveobjectively_data" ZOrder="9" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>454</X>
@@ -362,15 +362,15 @@
         </Point>
       </RoutePoints>
     </Connector>
-    <Connector ID="DesignRelation:patientsrengen" ZOrder="5" LineWidth="11">
+    <Connector ID="DesignRelation:patientsrengen" ZOrder="1" LineWidth="11">
       <RoutePoints>
         <Point>
           <X>281</X>
-          <Y>27</Y>
+          <Y>85</Y>
         </Point>
         <Point>
-          <X>631</X>
-          <Y>27</Y>
+          <X>685</X>
+          <Y>85</Y>
         </Point>
       </RoutePoints>
     </Connector>

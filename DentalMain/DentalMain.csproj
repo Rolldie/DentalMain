@@ -121,9 +121,9 @@
       <DependentUpon>dBDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="dBDS.Designer.cs">
-      <DependentUpon>dBDS.xsd</DependentUpon>
-      <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dBDS.xsd</DependentUpon>
     </Compile>
     <Compile Include="DescForRengen.cs">
       <SubType>Form</SubType>

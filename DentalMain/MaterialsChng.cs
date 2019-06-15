@@ -84,5 +84,10 @@ namespace DentalMain
             pictureBox1.Image = null;
             ImgDirTextBox.Text = "";
         }
+
+        private void PictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+           
+        }
     }
 }

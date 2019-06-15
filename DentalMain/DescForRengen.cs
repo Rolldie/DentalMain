@@ -31,7 +31,7 @@ namespace DentalMain
         private void DescForRengen_Load(object sender, EventArgs e)
         {
             this.Activate();
-            if (jade2 != null) textBox1.Text = jade2;
+            if (jade2 != null) { textBox1.Text = jade2; button1.Text = "Змінити опис"; }
         }
     }
 }
