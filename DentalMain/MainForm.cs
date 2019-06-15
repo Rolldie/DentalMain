@@ -97,7 +97,26 @@ namespace DentalMain
                 contextMenuStrip1.Show(tree, e.X, e.Y);
             }
         }
-
+        private void CloseWind_Click(object sender, EventArgs e)
+        {
+            Form[] a = new Form[this.MdiChildren.Count()];
+            int i = 0;
+            foreach (Form f in this.MdiChildren)
+            {
+                a[i] = f;
+                i++;
+            }
+            for (int j = 0; j < i; j++)
+            {
+                if (a[j] is MainForm) continue;
+                a[j].Close();
+            }
+            CloserWindows();
+        }
+        private void MainForm_MdiChildActivate(object sender, EventArgs e)
+        {
+            CloserWindows();
+        }
         #endregion
         //Done
 
@@ -293,9 +312,9 @@ namespace DentalMain
             FillAppoint();
             AppointFillTree();
             MatTree.Nodes.Clear();
-            patientsappointmentBindingSource.Filter = "date_appointm=#" + String.Format("{0: MM-dd-yyyy}", DateTime.Today) + "# and Cancel=false" + (ChekDataView.Checked? " and doctor='" + prop.DocID + "'":"");
+            patientsappointmentBindingSource.Filter = "date_appointm=#" + String.Format("{0: MM-dd-yyyy}", DateTime.Today) + "# and Cancel=false" + (ChekDataView.Checked? " and doctor='" + prop.DocID + "'":"") + " and ended=false";
             HealingTreeFill();
-            foreach (dBDS.appointmentRow f in dBDS.appointment.Select("date_appointm=#" + String.Format("{0: MM-dd-yyyy}", DateTime.Today) + "# and Cancel=false and patient='" + comboBox1.SelectedValue + "'"))
+            foreach (dBDS.appointmentRow f in dBDS.appointment.Select("date_appointm=#" + String.Format("{0: MM-dd-yyyy}", DateTime.Today) + "# and Cancel=false and patient='" + comboBox1.SelectedValue + "' and ended=false"))
             {
                 if (f.time.TimeOfDay <= DateTime.Now.TimeOfDay)
                     AppointBox.SelectedValue = f.id_appointment;
@@ -303,7 +322,7 @@ namespace DentalMain
             if (AppointBox.Text != "" && HealingTreeDiag.SelectedNode != null) CheckAppointmChoose(true);
             else if (patientsappointmentBindingSource.Count != 0)
             {
-                CheckAppointmChoose(false); button3.Enabled = true;
+                CheckAppointmChoose(false); button3.Enabled = true; EndAppointm.Enabled = true;
             }
             else CheckAppointmChoose(false);
             UpdateCost();
@@ -735,44 +754,30 @@ namespace DentalMain
             if (comboBox1.Text != "")
             {
                 dBDS.patientsRow f = dBDS.patients.FindByid_patient((int)comboBox1.SelectedValue);
-                decimal fulcostsum=0, paidedsum=0;
-                foreach(dBDS.appointmentRow m in dBDS.appointment.Select("patient='"+f.id_patient+"' and doctor='"+prop.DocID+"' and started=true"))
-                {
-                    fulcostsum += m.full_cost;
-                    if (f.debt < 0)
-                    {
-                        if (f.debt + (m.full_cost - m.paided) < (decimal)0)
-                        { f.debt += (m.full_cost - m.paided); m.paided = m.full_cost; }
-                        else
-                        {
-                           m.paided -= f.debt;
-                           f.debt -= f.debt;
-                        }
-                    }
-                    paidedsum += m.paided;
-                }
-                if (fulcostsum - paidedsum > 0)
-                { 
-                    labelDolg.Text = String.Format("{0: #.##}",fulcostsum-paidedsum);
-                }
-                else if(f.debt<0)
-                {
-                    labelDolg.Text = String.Format("{0: #.##}", f.debt);
-                }
+                labelDolg.Text = f.debt.ToString("#.##");
             }
-            try
-            {
-                this.patientsTableAdapter.Update(dBDS.patients);
-                this.appointmentTableAdapter.Update(dBDS.appointment);
-            }
-            catch { App.Text = "Помилка!";  FindWhatToUpdate(); }
         }
 
         private void AddPaided_Click(object sender, EventArgs e)
         {
             Decimal.TryParse(textBox2.Text, out decimal ValForAdd);
             dBDS.patientsRow m = dBDS.patients.FindByid_patient((int)comboBox1.SelectedValue);
-            m.debt += ValForAdd*(-1);
+            //if(ValForAdd<0) { MessageBox.Show("Тільки додатні числа!");return; }
+            m.debt -= ValForAdd;
+            appointmentTableAdapter.Fill(dBDS.appointment);
+            foreach(dBDS.appointmentRow j in dBDS.appointment.Select("patient='"+comboBox1.SelectedValue+"' and full_cost>paided and started=true and ended=true"))
+            {
+                if(j.full_cost-j.paided>ValForAdd)
+                {
+                    j.paided += ValForAdd;
+                    ValForAdd = 0;
+                }
+                if (ValForAdd == 0) break;
+                ValForAdd -= (j.full_cost - j.paided);
+                j.paided = j.full_cost;
+            }
+            appointmentTableAdapter.Update(dBDS.appointment);
+            patientsTableAdapter.Update(m);
             FindPaidedCost();
         }
         #endregion
@@ -1430,7 +1435,7 @@ namespace DentalMain
 
         public void UpdateCost()
         {
-            if (AppointBox.SelectedValue == null) return;
+            if (AppointBox.SelectedValue == null) { treeView1.Nodes.Clear(); CheckPaided(); return; }
             decimal sum = 0;
             treeView1.Nodes.Clear();
             foreach (dBDS.appointment_servicesRow m in dBDS.appointment_services.Select("appoinment='" + AppointBox.SelectedValue + "'"))
@@ -1487,15 +1492,24 @@ namespace DentalMain
             if (AppointBox.Text == "") return;
             dBDS.appointmentRow m = dBDS.appointment.FindByid_appointment((int)AppointBox.SelectedValue);
             decimal.TryParse(textBox1.Text.Replace(".", ","),out decimal mk);
-            if (m.paided + mk > 0)
+            if (m.paided + mk > 0 && m.paided+mk<=m.full_cost)
                 m.paided += mk;
+            else if(m.paided+mk>m.full_cost && MessageBox.Show("Додана сума перевищує ціну. Бажаєте додати до авансу/довгу?",
+                "Фінансування",MessageBoxButtons.OKCancel)==DialogResult.OK)
+            {
+                mk -= (m.full_cost - m.paided);
+                m.paided = m.full_cost;
+                dBDS.patients.FindByid_patient((int)comboBox1.SelectedValue).debt -= mk;
+            }
             else
                 m.paided = 0;
+            patientsTableAdapter.Update(dBDS.patients);
+            appointmentTableAdapter.Update(dBDS.appointment);
             CheckPaided();
         }
         public void CheckPaided()
         {
-            if (AppointBox.Text == "") return;
+            if (AppointBox.Text == "") {label19.Text= "Статус оплати: не розпочато"; label17.Text = "0 грн.";AvanceGet(); return; }
             dBDS.appointmentRow m = dBDS.appointment.FindByid_appointment((int)AppointBox.SelectedValue);
             if ((m.full_cost.ToString("#.##") == m.paided.ToString("#.##")  || m.full_cost<m.paided) && m.started == true)
             {
@@ -1509,7 +1523,12 @@ namespace DentalMain
                 label19.Text += " довг: " + (m.full_cost - m.paided).ToString("#.##") + " грн.";
             }
             else { label19.Text = "Статус оплати: не розпочато"; }
-            decimal jk=dBDS.patients.FindByid_patient((int)comboBox1.SelectedValue).debt;
+            AvanceGet();
+        }
+
+        public void AvanceGet()
+        {
+            decimal jk = dBDS.patients.FindByid_patient((int)comboBox1.SelectedValue).debt;
             if (jk < 0) label31.Text = "Аванс: " + String.Format("{0:#.##}", jk * (-1));
             else label31.Text = "Аванс: немає";
         }
@@ -1537,31 +1556,6 @@ namespace DentalMain
             else CheckAppointmChoose(false);
         }
 
-        private void BtnPayByAvnc_Click(object sender, EventArgs e)
-        {
-            if (AppointBox.Text == "") return;
-            dBDS.patientsRow f = dBDS.patients.FindByid_patient((int)comboBox1.SelectedValue);
-            dBDS.appointmentRow m = dBDS.appointment.FindByid_appointment((int)AppointBox.SelectedValue);
-            if (f.debt > 0) return;
-            if (m.paided < m.full_cost)
-            {
-                if(f.debt+(m.full_cost-m.paided)<0)
-                {
-                    f.debt += (m.full_cost-m.paided);
-                    m.paided = m.full_cost;
-                }
-                else
-                {
-                     f.debt -= f.debt;
-                     m.paided -=f.debt;
-                }
-            }
-            App.Text += f.debt;
-            this.patientsTableAdapter.Update(dBDS.patients);
-            this.appointmentTableAdapter.Update(dBDS.appointment);
-            CheckPaided();
-        }
-
         private void AppointBox_SelectedValueChanged(object sender, EventArgs e)
         { 
             if (AppointBox.Text != "" && MainTab.SelectedIndex == 6)
@@ -1576,30 +1570,37 @@ namespace DentalMain
             UpdateCost();
         }
 
-        private void CloseWind_Click(object sender, EventArgs e)
-        {
-            Form[] a = new Form[this.MdiChildren.Count()];
-            int i = 0;
-            foreach (Form f in this.MdiChildren)
-            {
-                a[i] = f;
-                i++;
-            }
-            for (int j=0;j<i;j++)
-            {
-                if (a[j] is MainForm) continue;
-                a[j].Close();
-            }
-            CloserWindows();
-        }
-        private void MainForm_MdiChildActivate(object sender, EventArgs e)
-        {
-            CloserWindows();
-        }
+
         private void Button4_Click(object sender, EventArgs e)  //end appointment
         {
-            dBDS.appointment.FindByid_appointment((int)AppointBox.SelectedValue).ended = true;
-            appointmentTableAdapter.Update(dBDS.appointment);
+            dBDS.appointmentRow f = dBDS.appointment.FindByid_appointment((int)AppointBox.SelectedValue);
+            f.ended = true;
+            dBDS.patientsRow m = dBDS.patients.FindByid_patient((int)comboBox1.SelectedValue);
+            if(m.debt<0 && f.full_cost>f.paided)
+            {
+                if(MessageBox.Show("Бажаєти додати оплату з авансу?","Гроші",MessageBoxButtons.OKCancel)==DialogResult.OK)
+                {
+                    if(m.debt*(-1)>f.full_cost-f.paided)
+                    {
+                        m.debt += (f.full_cost - f.paided);
+                        f.paided = f.full_cost;
+                    }
+                    else
+                    {
+                        f.paided -= m.debt;
+                        m.debt = 0;
+                    }
+                }
+                else
+                {
+                    m.debt += (f.full_cost - f.paided);
+                }
+
+            }
+            dBDS.patients.FindByid_patient((int)comboBox1.SelectedValue).debt += (f.full_cost - f.paided);
+            patientsTableAdapter.Update(dBDS.patients);
+            appointmentTableAdapter.Update(f);
+            
             FindWhatToUpdate();
         }
         #endregion

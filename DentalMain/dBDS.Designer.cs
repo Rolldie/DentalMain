@@ -18091,7 +18091,7 @@ namespace DentalMain.dBDSTableAdapters {
             this._commandCollection[1].CommandText = @"SELECT        patients.id_patient, patients.full_name, patients.date_of_birth, patients.phone_number
 FROM            (patients RIGHT OUTER JOIN
                          appointment ON patients.id_patient = appointment.patient)
-WHERE        (appointment.date_appointm = ?) AND (appointment.doctor = ?) AND (appointment.cancel = false)
+WHERE        (appointment.date_appointm = ?) AND (appointment.doctor = ?) AND (appointment.cancel = false) AND (appointment.ended = false)
 GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patients.phone_number";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.OleDb.OleDbParameter("date_appointm", global::System.Data.OleDb.OleDbType.Date, 0, global::System.Data.ParameterDirection.Input, ((byte)(0)), ((byte)(0)), "date_appointm", global::System.Data.DataRowVersion.Current, false, null));
