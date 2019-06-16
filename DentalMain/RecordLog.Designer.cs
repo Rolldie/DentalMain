@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DateCalendar = new System.Windows.Forms.MonthCalendar();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.doctorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -100,7 +100,7 @@
             // 
             // DateCalendar
             // 
-            this.DateCalendar.CalendarDimensions = new System.Drawing.Size(3, 1);
+            this.DateCalendar.CalendarDimensions = new System.Drawing.Size(5, 1);
             this.DateCalendar.Dock = System.Windows.Forms.DockStyle.Top;
             this.DateCalendar.FirstDayOfWeek = System.Windows.Forms.Day.Monday;
             this.DateCalendar.Location = new System.Drawing.Point(0, 0);
@@ -128,9 +128,9 @@
             // 
             this.patient.DataPropertyName = "patient";
             this.patient.DataSource = this.patientsBindingSource;
-            dataGridViewCellStyle1.NullValue = "--";
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.patient.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.NullValue = "--";
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.patient.DefaultCellStyle = dataGridViewCellStyle6;
             this.patient.DisplayMember = "full_name";
             this.patient.HeaderText = "Пацієнт";
             this.patient.Name = "patient";
@@ -199,8 +199,8 @@
             // 
             this.timeDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.timeDataGridViewTextBoxColumn2.DataPropertyName = "time";
-            dataGridViewCellStyle2.Format = "t";
-            this.timeDataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.Format = "t";
+            this.timeDataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle7;
             this.timeDataGridViewTextBoxColumn2.FillWeight = 39F;
             this.timeDataGridViewTextBoxColumn2.HeaderText = "Час";
             this.timeDataGridViewTextBoxColumn2.Name = "timeDataGridViewTextBoxColumn2";
@@ -270,8 +270,8 @@
             // timeDataGridViewTextBoxColumn
             // 
             this.timeDataGridViewTextBoxColumn.DataPropertyName = "time";
-            dataGridViewCellStyle3.Format = "t";
-            this.timeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Format = "t";
+            this.timeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
             this.timeDataGridViewTextBoxColumn.FillWeight = 39F;
             this.timeDataGridViewTextBoxColumn.HeaderText = "Час";
             this.timeDataGridViewTextBoxColumn.Name = "timeDataGridViewTextBoxColumn";
@@ -340,8 +340,8 @@
             // time
             // 
             this.time.DataPropertyName = "time";
-            dataGridViewCellStyle4.Format = "t";
-            this.time.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.Format = "t";
+            this.time.DefaultCellStyle = dataGridViewCellStyle9;
             this.time.FillWeight = 39F;
             this.time.HeaderText = "Час";
             this.time.Name = "time";
@@ -427,10 +427,13 @@
             // 
             this.maskedTextBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.maskedTextBox1.Location = new System.Drawing.Point(19, 449);
+            this.maskedTextBox1.Mask = "00:00";
             this.maskedTextBox1.Name = "maskedTextBox1";
             this.maskedTextBox1.Size = new System.Drawing.Size(78, 20);
             this.maskedTextBox1.TabIndex = 6;
-            this.maskedTextBox1.Text = "10:00";
+            this.maskedTextBox1.Text = "1000";
+            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            this.maskedTextBox1.TextChanged += new System.EventHandler(this.MaskedTextBox1_TextChanged);
             // 
             // button1
             // 
@@ -447,10 +450,13 @@
             // 
             this.maskedTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.maskedTextBox2.Location = new System.Drawing.Point(222, 449);
+            this.maskedTextBox2.Mask = "00:00";
             this.maskedTextBox2.Name = "maskedTextBox2";
             this.maskedTextBox2.Size = new System.Drawing.Size(78, 20);
             this.maskedTextBox2.TabIndex = 6;
-            this.maskedTextBox2.Text = "10:00";
+            this.maskedTextBox2.Text = "1000";
+            this.maskedTextBox2.ValidatingType = typeof(System.DateTime);
+            this.maskedTextBox2.TextChanged += new System.EventHandler(this.MaskedTextBox2_TextChanged);
             // 
             // button2
             // 
@@ -467,10 +473,13 @@
             // 
             this.maskedTextBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.maskedTextBox3.Location = new System.Drawing.Point(425, 448);
+            this.maskedTextBox3.Mask = "00:00";
             this.maskedTextBox3.Name = "maskedTextBox3";
             this.maskedTextBox3.Size = new System.Drawing.Size(78, 20);
             this.maskedTextBox3.TabIndex = 6;
-            this.maskedTextBox3.Text = "10:00";
+            this.maskedTextBox3.Text = "1000";
+            this.maskedTextBox3.ValidatingType = typeof(System.DateTime);
+            this.maskedTextBox3.TextChanged += new System.EventHandler(this.MaskedTextBox3_TextChanged);
             // 
             // button3
             // 
@@ -487,10 +496,13 @@
             // 
             this.maskedTextBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.maskedTextBox4.Location = new System.Drawing.Point(628, 447);
+            this.maskedTextBox4.Mask = "00:00";
             this.maskedTextBox4.Name = "maskedTextBox4";
             this.maskedTextBox4.Size = new System.Drawing.Size(78, 20);
             this.maskedTextBox4.TabIndex = 6;
-            this.maskedTextBox4.Text = "10:00";
+            this.maskedTextBox4.Text = "1000";
+            this.maskedTextBox4.ValidatingType = typeof(System.DateTime);
+            this.maskedTextBox4.TextChanged += new System.EventHandler(this.MaskedTextBox4_TextChanged);
             // 
             // button4
             // 
@@ -573,8 +585,8 @@
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "time";
-            dataGridViewCellStyle5.Format = "t";
-            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Format = "t";
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridViewTextBoxColumn8.FillWeight = 39F;
             this.dataGridViewTextBoxColumn8.HeaderText = "Час";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
@@ -610,7 +622,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(502, 493);
+            this.ClientSize = new System.Drawing.Size(839, 493);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Day2Grid);
             this.Controls.Add(this.button5);

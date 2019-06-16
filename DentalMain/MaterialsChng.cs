@@ -89,5 +89,10 @@ namespace DentalMain
         {
            
         }
+
+        private void CostTextBox_TextChanged(object sender, EventArgs e)
+        {
+            App.ChangeObjectText(sender);
+        }
     }
 }

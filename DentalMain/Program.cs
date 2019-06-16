@@ -3,6 +3,7 @@ using System.Threading;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace DentalMain
 {
@@ -42,6 +43,51 @@ namespace DentalMain
         {
             get { return mode;}
             set { mode = value; }
+        }
+        public static void ChangeObjectText(object sender)
+        {
+            if(sender is TextBox f)
+            {
+                Decimal.TryParse(f.Text, out decimal ValForAdd);
+                if (ValForAdd == 0)
+                {
+                    f.ForeColor = Color.Red;
+
+                }
+                else
+                {
+                    f.ForeColor = Color.Black;
+                }
+            }
+        }
+        public static void ChangeObjectTextTime(object sender)
+        {
+            if (sender is TextBox f)
+            {
+                DateTime.TryParse(f.Text, out DateTime ValForAdd);
+                if (ValForAdd == DateTime.MinValue)
+                {
+                    f.ForeColor = Color.Red;
+
+                }
+                else
+                {
+                    f.ForeColor = Color.Black;
+                }
+            }
+            else if(sender is MaskedTextBox mf)
+            {
+                DateTime.TryParse(mf.Text, out DateTime ValForAdd);
+                if (ValForAdd == DateTime.MinValue)
+                {
+                    mf.ForeColor = Color.Red;
+
+                }
+                else
+                {
+                    mf.ForeColor = Color.Black;
+                }
+            }
         }
     }
     public static class StDb

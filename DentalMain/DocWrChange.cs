@@ -105,5 +105,20 @@ namespace DentalMain
         {
             this.docRecordLogTableAdapter.Update(dBDS.docRecordLog);
         }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            App.ChangeObjectTextTime(sender);
+        }
+
+        private void TextBox2_TextChanged(object sender, EventArgs e)
+        {
+            App.ChangeObjectTextTime(sender);
+        }
+
+        private void TextBox3_TextChanged(object sender, EventArgs e)
+        {
+            App.ChangeObjectTextTime(sender);
+        }
     }
 }

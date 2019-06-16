@@ -34,5 +34,10 @@ namespace DentalMain
                 }
             }
         }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            App.ChangeObjectText(sender);
+        }
     }
 }

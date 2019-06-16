@@ -47,5 +47,10 @@ namespace DentalMain
         {
             Close();
         }
+
+        private void TextBox2_TextChanged(object sender, EventArgs e)
+        {
+            App.ChangeObjectText(sender);
+        }
     }
 }

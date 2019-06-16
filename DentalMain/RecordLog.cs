@@ -338,5 +338,25 @@ namespace DentalMain
         {
             DoubleClickWork(4, e);
         }
+
+        private void MaskedTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            App.ChangeObjectTextTime(sender);
+        }
+
+        private void MaskedTextBox2_TextChanged(object sender, EventArgs e)
+        {
+            App.ChangeObjectTextTime(sender);
+        }
+
+        private void MaskedTextBox3_TextChanged(object sender, EventArgs e)
+        {
+            App.ChangeObjectTextTime(sender);
+        }
+
+        private void MaskedTextBox4_TextChanged(object sender, EventArgs e)
+        {
+            App.ChangeObjectTextTime(sender);
+        }
     }
 }

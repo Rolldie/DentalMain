@@ -112,5 +112,10 @@ namespace DentalMain
                 if (Application.OpenForms["MainForm"] is MainForm u) u.UpdateWithSavePos();
             }
         }
+
+        private void TextBox2_TextChanged(object sender, EventArgs e)
+        {
+            App.ChangeObjectText(sender);
+        }
     }
 }

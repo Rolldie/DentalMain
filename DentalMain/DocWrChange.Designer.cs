@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.doctorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dBDS = new DentalMain.dBDS();
@@ -228,6 +228,7 @@
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(73, 20);
             this.textBox3.TabIndex = 4;
+            this.textBox3.TextChanged += new System.EventHandler(this.TextBox3_TextChanged);
             // 
             // textBox2
             // 
@@ -235,6 +236,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(73, 20);
             this.textBox2.TabIndex = 4;
+            this.textBox2.TextChanged += new System.EventHandler(this.TextBox2_TextChanged);
             // 
             // label5
             // 
@@ -271,6 +273,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(73, 20);
             this.textBox1.TabIndex = 1;
+            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // docRecordLogTableAdapter
             // 
@@ -299,8 +302,8 @@
             // timeDataGridViewTextBoxColumn
             // 
             this.timeDataGridViewTextBoxColumn.DataPropertyName = "time";
-            dataGridViewCellStyle1.Format = "t";
-            this.timeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Format = "t";
+            this.timeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.timeDataGridViewTextBoxColumn.HeaderText = "Час";
             this.timeDataGridViewTextBoxColumn.Name = "timeDataGridViewTextBoxColumn";
             // 

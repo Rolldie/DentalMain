@@ -77,6 +77,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(211, 20);
             this.textBox2.TabIndex = 1;
+            this.textBox2.TextChanged += new System.EventHandler(this.TextBox2_TextChanged);
             // 
             // label2
             // 
@@ -149,20 +150,20 @@
             this.змінитиToolStripMenuItem,
             this.видалитиToolStripMenuItem});
             this.GridMenu.Name = "GridMenu";
-            this.GridMenu.Size = new System.Drawing.Size(181, 70);
+            this.GridMenu.Size = new System.Drawing.Size(128, 48);
             this.GridMenu.Opening += new System.ComponentModel.CancelEventHandler(this.GridMenu_Opening);
             // 
             // змінитиToolStripMenuItem
             // 
             this.змінитиToolStripMenuItem.Name = "змінитиToolStripMenuItem";
-            this.змінитиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.змінитиToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.змінитиToolStripMenuItem.Text = "Змінити";
             this.змінитиToolStripMenuItem.Click += new System.EventHandler(this.змінитиToolStripMenuItem_Click);
             // 
             // видалитиToolStripMenuItem
             // 
             this.видалитиToolStripMenuItem.Name = "видалитиToolStripMenuItem";
-            this.видалитиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.видалитиToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.видалитиToolStripMenuItem.Text = "Вилучити";
             this.видалитиToolStripMenuItem.Click += new System.EventHandler(this.видалитиToolStripMenuItem_Click);
             // 

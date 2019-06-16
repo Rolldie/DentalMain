@@ -225,6 +225,8 @@
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.objectively_dataTableAdapter = new DentalMain.dBDSTableAdapters.objectively_dataTableAdapter();
             this.possibleObjectiveTableAdapter = new DentalMain.dBDSTableAdapters.possibleObjectiveTableAdapter();
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.MainTab.SuspendLayout();
@@ -269,6 +271,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.servicesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentappointmentservicesBindingSource)).BeginInit();
             this.statusStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -568,6 +571,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(105, 20);
             this.textBox2.TabIndex = 13;
+            this.textBox2.TextChanged += new System.EventHandler(this.TextBox2_TextChanged);
             // 
             // AddPaided
             // 
@@ -756,9 +760,9 @@
             this.tableLayoutPanel1.Controls.Add(this.treeViewcompl, 1, 3);
             this.tableLayoutPanel1.Controls.Add(this.label15, 1, 2);
             this.tableLayoutPanel1.Controls.Add(this.BtnAddComplaint, 2, 0);
-            this.tableLayoutPanel1.Controls.Add(this.ComplText, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.dataGridComplaints, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.label8, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.ComplText, 1, 1);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 6);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
@@ -766,6 +770,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(686, 347);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
@@ -818,10 +823,12 @@
             // 
             // ComplText
             // 
+            this.ComplText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ComplText.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.ComplText.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.tableLayoutPanel1.SetColumnSpan(this.ComplText, 2);
-            this.ComplText.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ComplText.Location = new System.Drawing.Point(366, 29);
             this.ComplText.Name = "ComplText";
             this.ComplText.Size = new System.Drawing.Size(317, 20);
@@ -2017,6 +2024,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(105, 20);
             this.textBox1.TabIndex = 16;
+            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
             // 
             // AppointBox
             // 
@@ -2306,6 +2314,17 @@
             // 
             this.possibleObjectiveTableAdapter.ClearBeforeFill = true;
             // 
+            // notifyIcon
+            // 
+            this.notifyIcon.BalloonTipIcon = System.Windows.Forms.ToolTipIcon.Warning;
+            this.notifyIcon.Text = "notifyIcon1";
+            this.notifyIcon.Visible = true;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            this.errorProvider1.RightToLeft = true;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2384,6 +2403,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.appointmentappointmentservicesBindingSource)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2591,6 +2611,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn toothDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn finddateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_diag_patient;
+        private System.Windows.Forms.NotifyIcon notifyIcon;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 

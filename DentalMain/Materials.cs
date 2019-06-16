@@ -139,7 +139,7 @@ namespace DentalMain
 
         private void CostTextBox_TextChanged(object sender, EventArgs e)
         {
-
+            App.ChangeObjectText(sender);
         }
 
         private void Name_matTextBox_TextChanged(object sender, EventArgs e)

@@ -118,6 +118,22 @@ namespace DentalMain
             CloserWindows();
             FindWhatToUpdate();
         }
+        public void CheckObjectText(object sender)
+        {
+            if(sender is TextBox f)
+            {
+                Decimal.TryParse(f.Text, out decimal ValForAdd);
+                if (ValForAdd == 0)
+                {
+                    textBox2.ForeColor = Color.Red;
+
+                }
+                else
+                {
+                    textBox2.ForeColor = Color.Black;
+                }
+            }
+        }
         #endregion
         //Done
 
@@ -546,6 +562,7 @@ namespace DentalMain
                 BtnAppointm.Enabled = false;
                 PatAppointm.Enabled = false;
                 AddPaided.Enabled = false;
+                labelDolg.Text = "";
             }
             else
             {
@@ -817,10 +834,10 @@ namespace DentalMain
                     }
                     treeViewcompl.EndUpdate();
                 }
-                else App.Text = "Такий запис на сьогодні вже існує";
+                else {errorProvider1.SetError(sender as Control,"Такий запис на сьогодні вже існує"); errorProvider1.Clear(); }
             }
             else
-                App.Text = "Не введена, або не правильно введена скарга";
+            { App.Text = "Не введена, або не правильно введена скарга";}
         }
 
         public void UpdateComplaints()
@@ -1611,6 +1628,17 @@ namespace DentalMain
             if(ChangeView.Checked)
             { FindWhatToUpdate(); }
         }
+
+        private void TextBox2_TextChanged(object sender, EventArgs e)
+        {
+            App.ChangeObjectText(sender);
+        }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            App.ChangeObjectText(sender);
+        }
+
         #endregion
         //looks Done
 
