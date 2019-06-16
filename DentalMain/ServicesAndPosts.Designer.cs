@@ -86,6 +86,7 @@
             this.dataGridViewTextBoxColumn1.FillWeight = 40F;
             this.dataGridViewTextBoxColumn1.HeaderText = "Номер в базі";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Visible = false;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -112,7 +113,6 @@
             // 
             this.postdocspostservicesBindingSource.DataMember = "post_docspost_services";
             this.postdocspostservicesBindingSource.DataSource = this.postBindingSource;
-            this.postdocspostservicesBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.postdocspostservicesBindingSource_ListChanged);
             // 
             // postBindingSource
             // 
@@ -141,11 +141,13 @@
             this.comboBox1.Size = new System.Drawing.Size(242, 21);
             this.comboBox1.TabIndex = 2;
             this.comboBox1.ValueMember = "id_post_doc";
+            this.comboBox1.SelectedValueChanged += new System.EventHandler(this.ComboBox1_SelectedValueChanged);
             // 
             // treeView1
             // 
             this.treeView1.CheckBoxes = true;
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView1.FullRowSelect = true;
             this.treeView1.Location = new System.Drawing.Point(306, 121);
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(265, 217);
@@ -275,6 +277,7 @@
             this.Name = "ServicesAndPosts";
             this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Посади та послуги";
+            this.Deactivate += new System.EventHandler(this.ServicesAndPosts_Deactivate);
             this.Load += new System.EventHandler(this.ServicesAndPosts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.servicesBindingSource)).EndInit();
@@ -306,9 +309,9 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.BindingSource servicesBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.HelpProvider helpProvider1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn3;
     }
 }

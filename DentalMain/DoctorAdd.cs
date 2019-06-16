@@ -14,12 +14,16 @@ namespace DentalMain
         public DoctorAdd()
         {
             InitializeComponent();
+          //  Updater();
+        }
+
+        public void Updater()
+        {
             postTableAdapter.Fill(dBDS.post);
             doctorsTableAdapter.Fill(dBDS.doctors);
             post_doctorTableAdapter.Fill(dBDS.post_doctor);
             InitTree();
         }
-
         private void BtnAdd_Click(object sender, EventArgs e)
         {
             if(textBox1.Text!="")
@@ -62,16 +66,11 @@ namespace DentalMain
             if (am)
             {
                 MessageBox.Show("Жодної посади було додано, щоб додати лікаря, додайте посаду");
-                Posts f = Application.OpenForms["Posts"] as Posts;
-                if (f is null)
+                Posts f = new Posts();
+               // f.MdiParent = Application.OpenForms["MainForm"] as MainForm;
+                if(f.ShowDialog()==DialogResult.OK)
                 {
-                    f = new Posts();
-                    f.MdiParent = Application.OpenForms["MainForm"] as MainForm;
-                    f.Show();
-                }
-                else
-                {
-                    f.Activate();
+                    Updater(); return;   
                 }
                 Close();
             }
@@ -80,6 +79,11 @@ namespace DentalMain
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void DoctorAdd_Load(object sender, EventArgs e)
+        {
+            Updater();
         }
     }
 }

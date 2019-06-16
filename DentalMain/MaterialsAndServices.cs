@@ -132,7 +132,6 @@ namespace DentalMain
 
                 }
                 serv_materialTableAdapter.Fill(dBDS.serv_material);
-                if (Application.OpenForms["MainForm"] is MainForm u) u.UpdateWithSavePos();
             }
         }
 

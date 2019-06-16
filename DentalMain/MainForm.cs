@@ -116,6 +116,7 @@ namespace DentalMain
         private void MainForm_MdiChildActivate(object sender, EventArgs e)
         {
             CloserWindows();
+            FindWhatToUpdate();
         }
         #endregion
         //Done
@@ -544,6 +545,7 @@ namespace DentalMain
                 RengBtn.Enabled = false;
                 BtnAppointm.Enabled = false;
                 PatAppointm.Enabled = false;
+                AddPaided.Enabled = false;
             }
             else
             {
@@ -551,6 +553,7 @@ namespace DentalMain
                 RengBtn.Enabled = true;
                 BtnAppointm.Enabled = true;
                 PatAppointm.Enabled = true;
+                AddPaided.Enabled = true;
             }
         }
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
@@ -1068,7 +1071,7 @@ namespace DentalMain
         {
             if (e.KeyCode == Keys.Enter)
             {
-                BtnAddAnmdis_Click(sender, new EventArgs());
+                BtnAddPlnLts_Click(sender, new EventArgs());
             }
         }
         #endregion
@@ -1599,9 +1602,14 @@ namespace DentalMain
             }
             dBDS.patients.FindByid_patient((int)comboBox1.SelectedValue).debt += (f.full_cost - f.paided);
             patientsTableAdapter.Update(dBDS.patients);
-            appointmentTableAdapter.Update(f);
-            
+            appointmentTableAdapter.Update(f);       
             FindWhatToUpdate();
+        }
+
+        private void ChangeView_Click(object sender, EventArgs e)
+        {
+            if(ChangeView.Checked)
+            { FindWhatToUpdate(); }
         }
         #endregion
         //looks Done

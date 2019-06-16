@@ -79,10 +79,8 @@ namespace DentalMain
             this.docRecordLogTableAdapter.Fill(dBDS.docRecordLog);
             this.patientsTableAdapter.Fill(dBDS.patients);
             this.appointmentTableAdapter.Fill(dBDS.appointment);
-            frst del = new frst(ResetBnd);
-            del += CheckDoctors;
-            del += Filter;
-            BeginInvoke(del);
+            CheckDoctors();
+            Filter();
         }
 
         public void CheckDoctors()
@@ -98,11 +96,6 @@ namespace DentalMain
                 else
                     Close();
             }
-        }
-        private void ResetBnd()
-        {
-            doctorsBindingSource.ResetBindings(false);
-            patientsBindingSource.ResetBindings(false);
         }
         BindingSource[] sources = new BindingSource[4];
         public void Filler(DateTime a)
@@ -132,6 +125,7 @@ namespace DentalMain
             {
                 for (int i = 0; i < 4; i++)
                 {
+                    if(DoctorBox.SelectedItem==null) DoctorBox.SelectedIndex = 0;
                     sources[i].Filter = "doctor='" + (int)DoctorBox.SelectedValue + "' and date_appointm=#" + String.Format("{0: MM-dd-yyyy}", u.Date) + "#";
                     Filler(u);
                     mas[i] = u;

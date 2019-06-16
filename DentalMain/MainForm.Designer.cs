@@ -426,6 +426,7 @@
             this.ChangeView.Size = new System.Drawing.Size(23, 22);
             this.ChangeView.Text = "Відобразити/скрити вкладки";
             this.ChangeView.CheckedChanged += new System.EventHandler(this.ChangeView_CheckedChanged);
+            this.ChangeView.Click += new System.EventHandler(this.ChangeView_Click);
             // 
             // UpdButton
             // 

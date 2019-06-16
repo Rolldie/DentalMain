@@ -38,7 +38,7 @@ namespace DentalMain
         }
         public void CheckButtons()
         {
-            if (treeView1.Nodes.Count == 0)
+            if (treeView1.Nodes.Count == 0 || treeView1.SelectedNode==null)
             {
                 BlockButtons(false);
             }
@@ -114,6 +114,7 @@ namespace DentalMain
             this.rengenTableAdapter.Fill(dBDS.rengen);
             FillTree();
             pictureBox1.Image = null;
+            CheckButtons();
         }
 
         private void ВилучитиToolStripMenuItem_Click(object sender, EventArgs e)
@@ -176,7 +177,6 @@ namespace DentalMain
 
         private void Button2_Click(object sender, EventArgs e)
         {
-
             MemoryStream mem = new MemoryStream();
             byte[] jk = dBDS.rengen.FindByid_rengen(Convert.ToInt32(treeView1.SelectedNode.Name)).photo_rg;
             foreach (byte j in jk)
@@ -185,6 +185,28 @@ namespace DentalMain
             }
             Image img = Image.FromStream(mem);
             pictureBox1.Image = img;
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            if(openFileDialog.ShowDialog()==DialogResult.OK)
+            {
+                Image img = Image.FromFile(openFileDialog.FileName);
+                if (img != null)
+                {
+                    DescForRengen mf = new DescForRengen();
+                    if (mf.ShowDialog() != DialogResult.OK) return;
+                    MemoryStream f = new MemoryStream();
+                    img.Save(f, System.Drawing.Imaging.ImageFormat.Png);
+                    byte[] jake = f.ToArray();
+                    rengenTableAdapter.Insert(DateTime.Today, patid, Docid, jake, description);
+                    f.Close();
+                   // pictureBox1.Image = img;
+                }
+                rengenTableAdapter.Fill(dBDS.rengen);
+                FillTree();
+                treeView1.SelectedNode = treeView1.Nodes[treeView1.Nodes.Count - 1];
+            }
         }
     }
 }

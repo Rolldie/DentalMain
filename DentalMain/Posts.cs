@@ -24,15 +24,7 @@ namespace DentalMain
         public void Updater()
         {
             postTableAdapter.Fill(dBDS.post);
-            frst a = new frst(ResetBind);
-            BeginInvoke(a);
         }
-
-        public void ResetBind()
-        {
-            postBindingSource.ResetBindings(false);
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             if (textBox1.Text != "")
@@ -62,6 +54,13 @@ namespace DentalMain
         private void dataGridView2_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             e.Cancel=true;
+        }
+        public void CheckDialRes()
+        {
+            if(postBindingSource.Count>0)
+            {
+                DialogResult = DialogResult.OK;
+            }
         }
         bool Check=true;
         DataGridViewCellMouseEventArgs a = null;
@@ -110,6 +109,11 @@ namespace DentalMain
                 if (Application.OpenForms["ServicesAndPosts"] is ServicesAndPosts u) u.ThreadPostUpdate();
                 try { RowSelector(jk); } catch { return; }
             }
+        }
+
+        private void Posts_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            CheckDialRes();
         }
     }
 }

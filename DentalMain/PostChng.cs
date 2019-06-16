@@ -25,7 +25,7 @@ namespace DentalMain
             {
                 postTableAdapter.Update(textBox2.Text, id, dBDS.post.FindByid_post_doc(id).name_post);
                 DialogResult = DialogResult.OK;
-                if (Application.OpenForms["ServicesAndPosts"] is ServicesAndPosts c) c.ThreadPostUpdate(); 
+                if (Application.OpenForms["ServicesAndPosts"] is ServicesAndPosts c) c.PostUpdate();
                 Close();
             }
         }

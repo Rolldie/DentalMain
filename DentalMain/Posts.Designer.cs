@@ -160,6 +160,7 @@
             this.Name = "Posts";
             this.helpProvider1.SetShowHelp(this, true);
             this.Text = "Посади лікарів";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Posts_FormClosing);
             this.Load += new System.EventHandler(this.Posts_Load);
             ((System.ComponentModel.ISupportInitialize)(this.PostGrid)).EndInit();
             this.GridMenu.ResumeLayout(false);

@@ -32,18 +32,20 @@
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.rengenTableAdapter = new DentalMain.dBDSTableAdapters.rengenTableAdapter();
-            this.dBDS = new DentalMain.dBDS();
-            this.doctorsTableAdapter = new DentalMain.dBDSTableAdapters.doctorsTableAdapter();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.змінитиОписToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.вилучитиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dBDS)).BeginInit();
+            this.rengenTableAdapter = new DentalMain.dBDSTableAdapters.rengenTableAdapter();
+            this.dBDS = new DentalMain.dBDS();
+            this.doctorsTableAdapter = new DentalMain.dBDSTableAdapters.doctorsTableAdapter();
+            this.button3 = new System.Windows.Forms.Button();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.contextMenuStrip.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dBDS)).BeginInit();
             this.SuspendLayout();
             // 
             // treeView1
@@ -79,19 +81,6 @@
             this.label2.Size = new System.Drawing.Size(86, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Перелік знімків";
-            // 
-            // rengenTableAdapter
-            // 
-            this.rengenTableAdapter.ClearBeforeFill = true;
-            // 
-            // dBDS
-            // 
-            this.dBDS.DataSetName = "dBDS";
-            this.dBDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // doctorsTableAdapter
-            // 
-            this.doctorsTableAdapter.ClearBeforeFill = true;
             // 
             // pictureBox1
             // 
@@ -149,12 +138,41 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
+            // rengenTableAdapter
+            // 
+            this.rengenTableAdapter.ClearBeforeFill = true;
+            // 
+            // dBDS
+            // 
+            this.dBDS.DataSetName = "dBDS";
+            this.dBDS.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // doctorsTableAdapter
+            // 
+            this.doctorsTableAdapter.ClearBeforeFill = true;
+            // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button3.Location = new System.Drawing.Point(8, 354);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(251, 23);
+            this.button3.TabIndex = 6;
+            this.button3.Text = "Додати знімок";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "openFileDialog";
+            // 
             // RengenForm
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(939, 408);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label2);
@@ -168,9 +186,9 @@
             this.Load += new System.EventHandler(this.RengenForm_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.RengenForm_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.RengenForm_DragEnter);
-            ((System.ComponentModel.ISupportInitialize)(this.dBDS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.contextMenuStrip.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dBDS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,5 +208,7 @@
         private System.Windows.Forms.ToolStripMenuItem вилучитиToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }
