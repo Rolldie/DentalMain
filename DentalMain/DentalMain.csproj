@@ -273,12 +273,6 @@
     <Compile Include="SmallDataChanger.Designer.cs">
       <DependentUpon>SmallDataChanger.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControl1.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
-    </Compile>
     <Compile Include="WaitPlsForm.cs">
       <SubType>Form</SubType>
     </Compile>

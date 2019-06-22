@@ -4,6 +4,13 @@
 
     public partial class dBDS
     {
+        partial class complaintsDataTable
+        {
+        }
+
+        partial class docRecordLogDataTable
+        {
+        }
     }
 }
 

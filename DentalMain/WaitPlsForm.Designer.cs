@@ -55,7 +55,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Зачекайте будь ласка";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.WaitPlsForm_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

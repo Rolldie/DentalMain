@@ -149,7 +149,6 @@
             this.Name_matTextBox.Name = "Name_matTextBox";
             this.Name_matTextBox.Size = new System.Drawing.Size(209, 20);
             this.Name_matTextBox.TabIndex = 1;
-            this.Name_matTextBox.TextChanged += new System.EventHandler(this.Name_matTextBox_TextChanged);
             // 
             // CostTextBox
             // 
@@ -170,7 +169,6 @@
             this.DirectoryImageTextBox.Name = "DirectoryImageTextBox";
             this.DirectoryImageTextBox.Size = new System.Drawing.Size(179, 20);
             this.DirectoryImageTextBox.TabIndex = 2;
-            this.DirectoryImageTextBox.TextChanged += new System.EventHandler(this.DirectoryImageTextBox_TextChanged);
             // 
             // directorySetBtn
             // 

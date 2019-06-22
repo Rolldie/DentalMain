@@ -14,7 +14,6 @@ namespace DentalMain
         public DoctorAdd()
         {
             InitializeComponent();
-          //  Updater();
         }
 
         public void Updater()
@@ -37,7 +36,7 @@ namespace DentalMain
                         if (PostTree.Nodes[i].Checked) post_doctorTableAdapter.Insert(Convert.ToInt32(PostTree.Nodes[i].Name), dBDS.doctors.Last().id_doctor);
                     }
                     DialogResult = DialogResult.OK;
-                    if (Application.OpenForms["RecordLog"] is RecordLog f) f.ThreadingUpdate();
+                    if (Application.OpenForms["RecordLog"] is RecordLog f) f.Updating();
                     Close();
                 }
                 else
@@ -53,7 +52,6 @@ namespace DentalMain
             { if (PostTree.Nodes[i].Checked) checker = false;  }
             if (checker) return false;
             else return true;
-           
         }
 
         public void InitTree()
@@ -67,7 +65,6 @@ namespace DentalMain
             {
                 MessageBox.Show("Жодної посади було додано, щоб додати лікаря, додайте посаду");
                 Posts f = new Posts();
-               // f.MdiParent = Application.OpenForms["MainForm"] as MainForm;
                 if(f.ShowDialog()==DialogResult.OK)
                 {
                     Updater(); return;   

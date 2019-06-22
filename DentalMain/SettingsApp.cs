@@ -58,7 +58,7 @@ namespace DentalMain
             if (Rad1.Checked) { DialogResult = DialogResult.OK; f.SaveProp(0, 1); }
             else if (Rad2.Checked)
             {
-                if (DoctorGet.Text=="") { MessageBox.Show("Не выбран врач! Если нет врача, которого можно выбрать, то добавьте его."); return; }
+                if (DoctorGet.Text=="") { MessageBox.Show("Не було обрано  лікаря! Якщо жодного лікаря немає, додайте лікаря!"); return; }
                 DialogResult = DialogResult.OK;
                 f.SaveProp((int)DoctorGet.SelectedValue, 2);
             }

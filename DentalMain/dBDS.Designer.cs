@@ -116,13 +116,33 @@ namespace DentalMain {
         
         private global::System.Data.DataRelation relationanamndis_diseasesanamnesisDiseases;
         
-        private global::System.Data.DataRelation relationdoctorsdocRecordLog;
-        
         private global::System.Data.DataRelation relationpatientsobjectively_data;
         
         private global::System.Data.DataRelation relationpossibleObjectiveobjectively_data;
         
         private global::System.Data.DataRelation relationpatientsrengen;
+        
+        private global::System.Data.DataRelation relationdoctorsdocRecordLog;
+        
+        private global::System.Data.DataRelation relationrengen_doctors;
+        
+        private global::System.Data.DataRelation relationobjectively_data_doctors;
+        
+        private global::System.Data.DataRelation relationappointment_services_doctors;
+        
+        private global::System.Data.DataRelation relationappointment_services_services;
+        
+        private global::System.Data.DataRelation relationappointment_materials_materials;
+        
+        private global::System.Data.DataRelation relationplanlets_doctors;
+        
+        private global::System.Data.DataRelation relationanamnesisDiseases_doctors;
+        
+        private global::System.Data.DataRelation relationcomplaints_doctors;
+        
+        private global::System.Data.DataRelation relationdiags_patient_doctors;
+        
+        private global::System.Data.DataRelation relationdiags_patient_appointment_services;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -862,10 +882,20 @@ namespace DentalMain {
             this.relationservicesserv_material = this.Relations["servicesserv_material"];
             this.relationpatientsanamnesisDiseases = this.Relations["patientsanamnesisDiseases"];
             this.relationanamndis_diseasesanamnesisDiseases = this.Relations["anamndis_diseasesanamnesisDiseases"];
-            this.relationdoctorsdocRecordLog = this.Relations["doctorsdocRecordLog"];
             this.relationpatientsobjectively_data = this.Relations["patientsobjectively_data"];
             this.relationpossibleObjectiveobjectively_data = this.Relations["possibleObjectiveobjectively_data"];
             this.relationpatientsrengen = this.Relations["patientsrengen"];
+            this.relationdoctorsdocRecordLog = this.Relations["doctorsdocRecordLog"];
+            this.relationrengen_doctors = this.Relations["rengen_doctors"];
+            this.relationobjectively_data_doctors = this.Relations["objectively_data_doctors"];
+            this.relationappointment_services_doctors = this.Relations["appointment_services_doctors"];
+            this.relationappointment_services_services = this.Relations["appointment_services_services"];
+            this.relationappointment_materials_materials = this.Relations["appointment_materials_materials"];
+            this.relationplanlets_doctors = this.Relations["planlets_doctors"];
+            this.relationanamnesisDiseases_doctors = this.Relations["anamnesisDiseases_doctors"];
+            this.relationcomplaints_doctors = this.Relations["complaints_doctors"];
+            this.relationdiags_patient_doctors = this.Relations["diags_patient_doctors"];
+            this.relationdiags_patient_appointment_services = this.Relations["diags_patient_appointment_services"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1008,10 +1038,6 @@ namespace DentalMain {
                         this.tableanamndis_diseases.id_diseaseColumn}, new global::System.Data.DataColumn[] {
                         this.tableanamnesisDiseases.diseaseColumn}, false);
             this.Relations.Add(this.relationanamndis_diseasesanamnesisDiseases);
-            this.relationdoctorsdocRecordLog = new global::System.Data.DataRelation("doctorsdocRecordLog", new global::System.Data.DataColumn[] {
-                        this.tabledoctors.id_doctorColumn}, new global::System.Data.DataColumn[] {
-                        this.tabledocRecordLog.doctorColumn}, false);
-            this.Relations.Add(this.relationdoctorsdocRecordLog);
             this.relationpatientsobjectively_data = new global::System.Data.DataRelation("patientsobjectively_data", new global::System.Data.DataColumn[] {
                         this.tablepatients.id_patientColumn}, new global::System.Data.DataColumn[] {
                         this.tableobjectively_data.patientColumn}, false);
@@ -1024,6 +1050,50 @@ namespace DentalMain {
                         this.tablepatients.id_patientColumn}, new global::System.Data.DataColumn[] {
                         this.tablerengen.patientColumn}, false);
             this.Relations.Add(this.relationpatientsrengen);
+            this.relationdoctorsdocRecordLog = new global::System.Data.DataRelation("doctorsdocRecordLog", new global::System.Data.DataColumn[] {
+                        this.tabledoctors.id_doctorColumn}, new global::System.Data.DataColumn[] {
+                        this.tabledocRecordLog.doctorColumn}, false);
+            this.Relations.Add(this.relationdoctorsdocRecordLog);
+            this.relationrengen_doctors = new global::System.Data.DataRelation("rengen_doctors", new global::System.Data.DataColumn[] {
+                        this.tablerengen.doctorColumn}, new global::System.Data.DataColumn[] {
+                        this.tabledoctors.id_doctorColumn}, false);
+            this.Relations.Add(this.relationrengen_doctors);
+            this.relationobjectively_data_doctors = new global::System.Data.DataRelation("objectively_data_doctors", new global::System.Data.DataColumn[] {
+                        this.tableobjectively_data.doctorColumn}, new global::System.Data.DataColumn[] {
+                        this.tabledoctors.id_doctorColumn}, false);
+            this.Relations.Add(this.relationobjectively_data_doctors);
+            this.relationappointment_services_doctors = new global::System.Data.DataRelation("appointment_services_doctors", new global::System.Data.DataColumn[] {
+                        this.tableappointment_services.doctorColumn}, new global::System.Data.DataColumn[] {
+                        this.tabledoctors.id_doctorColumn}, false);
+            this.Relations.Add(this.relationappointment_services_doctors);
+            this.relationappointment_services_services = new global::System.Data.DataRelation("appointment_services_services", new global::System.Data.DataColumn[] {
+                        this.tableappointment_services.serviceColumn}, new global::System.Data.DataColumn[] {
+                        this.tableservices.id_serviceColumn}, false);
+            this.Relations.Add(this.relationappointment_services_services);
+            this.relationappointment_materials_materials = new global::System.Data.DataRelation("appointment_materials_materials", new global::System.Data.DataColumn[] {
+                        this.tableappointment_materials.materialColumn}, new global::System.Data.DataColumn[] {
+                        this.tablematerials.id_materialColumn}, false);
+            this.Relations.Add(this.relationappointment_materials_materials);
+            this.relationplanlets_doctors = new global::System.Data.DataRelation("planlets_doctors", new global::System.Data.DataColumn[] {
+                        this.tableplanlets.doctorColumn}, new global::System.Data.DataColumn[] {
+                        this.tabledoctors.id_doctorColumn}, false);
+            this.Relations.Add(this.relationplanlets_doctors);
+            this.relationanamnesisDiseases_doctors = new global::System.Data.DataRelation("anamnesisDiseases_doctors", new global::System.Data.DataColumn[] {
+                        this.tableanamnesisDiseases.doctorColumn}, new global::System.Data.DataColumn[] {
+                        this.tabledoctors.id_doctorColumn}, false);
+            this.Relations.Add(this.relationanamnesisDiseases_doctors);
+            this.relationcomplaints_doctors = new global::System.Data.DataRelation("complaints_doctors", new global::System.Data.DataColumn[] {
+                        this.tablecomplaints.doctorColumn}, new global::System.Data.DataColumn[] {
+                        this.tabledoctors.id_doctorColumn}, false);
+            this.Relations.Add(this.relationcomplaints_doctors);
+            this.relationdiags_patient_doctors = new global::System.Data.DataRelation("diags_patient_doctors", new global::System.Data.DataColumn[] {
+                        this.tablediags_patient.doctorColumn}, new global::System.Data.DataColumn[] {
+                        this.tabledoctors.id_doctorColumn}, false);
+            this.Relations.Add(this.relationdiags_patient_doctors);
+            this.relationdiags_patient_appointment_services = new global::System.Data.DataRelation("diags_patient_appointment_services", new global::System.Data.DataColumn[] {
+                        this.tablediags_patient.id_diag_patientColumn}, new global::System.Data.DataColumn[] {
+                        this.tableappointment_services.appointm_diagnosisColumn}, false);
+            this.Relations.Add(this.relationdiags_patient_appointment_services);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2474,17 +2544,20 @@ namespace DentalMain {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public appointment_servicesRow Addappointment_servicesRow(int doctor, int service, appointmentRow parentappointmentRowByappointmentappointment_services, int appointm_diagnosis, bool includes) {
+            public appointment_servicesRow Addappointment_servicesRow(int doctor, int service, appointmentRow parentappointmentRowByappointmentappointment_services, diags_patientRow parentdiags_patientRowBydiags_patient_appointment_services, bool includes) {
                 appointment_servicesRow rowappointment_servicesRow = ((appointment_servicesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         doctor,
                         service,
                         null,
-                        appointm_diagnosis,
+                        null,
                         includes};
                 if ((parentappointmentRowByappointmentappointment_services != null)) {
                     columnValuesArray[3] = parentappointmentRowByappointmentappointment_services[0];
+                }
+                if ((parentdiags_patientRowBydiags_patient_appointment_services != null)) {
+                    columnValuesArray[4] = parentdiags_patientRowBydiags_patient_appointment_services[0];
                 }
                 rowappointment_servicesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowappointment_servicesRow);
@@ -9904,6 +9977,17 @@ namespace DentalMain {
             public void SetcountNull() {
                 this[this.tableappointment_materials.countColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public materialsRow[] GetmaterialsRows() {
+                if ((this.Table.ChildRelations["appointment_materials_materials"] == null)) {
+                    return new materialsRow[0];
+                }
+                else {
+                    return ((materialsRow[])(base.GetChildRows(this.Table.ChildRelations["appointment_materials_materials"])));
+                }
+            }
         }
         
         /// <summary>
@@ -10025,6 +10109,17 @@ namespace DentalMain {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public diags_patientRow diags_patientRow {
+                get {
+                    return ((diags_patientRow)(this.GetParentRow(this.Table.ParentRelations["diags_patient_appointment_services"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["diags_patient_appointment_services"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsdoctorNull() {
                 return this.IsNull(this.tableappointment_services.doctorColumn);
             }
@@ -10091,6 +10186,28 @@ namespace DentalMain {
                 }
                 else {
                     return ((appointment_materialsRow[])(base.GetChildRows(this.Table.ChildRelations["appointment_servicesappointment_materials"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public doctorsRow[] GetdoctorsRows() {
+                if ((this.Table.ChildRelations["appointment_services_doctors"] == null)) {
+                    return new doctorsRow[0];
+                }
+                else {
+                    return ((doctorsRow[])(base.GetChildRows(this.Table.ChildRelations["appointment_services_doctors"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public servicesRow[] GetservicesRows() {
+                if ((this.Table.ChildRelations["appointment_services_services"] == null)) {
+                    return new servicesRow[0];
+                }
+                else {
+                    return ((servicesRow[])(base.GetChildRows(this.Table.ChildRelations["appointment_services_services"])));
                 }
             }
         }
@@ -10252,6 +10369,17 @@ namespace DentalMain {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetdoctorNull() {
                 this[this.tablecomplaints.doctorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public doctorsRow[] GetdoctorsRows() {
+                if ((this.Table.ChildRelations["complaints_doctors"] == null)) {
+                    return new doctorsRow[0];
+                }
+                else {
+                    return ((doctorsRow[])(base.GetChildRows(this.Table.ChildRelations["complaints_doctors"])));
+                }
             }
         }
         
@@ -10506,6 +10634,28 @@ namespace DentalMain {
             public void SetdoctorNull() {
                 this[this.tablediags_patient.doctorColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public doctorsRow[] GetdoctorsRows() {
+                if ((this.Table.ChildRelations["diags_patient_doctors"] == null)) {
+                    return new doctorsRow[0];
+                }
+                else {
+                    return ((doctorsRow[])(base.GetChildRows(this.Table.ChildRelations["diags_patient_doctors"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public appointment_servicesRow[] Getappointment_servicesRows() {
+                if ((this.Table.ChildRelations["diags_patient_appointment_services"] == null)) {
+                    return new appointment_servicesRow[0];
+                }
+                else {
+                    return ((appointment_servicesRow[])(base.GetChildRows(this.Table.ChildRelations["diags_patient_appointment_services"])));
+                }
+            }
         }
         
         /// <summary>
@@ -10676,6 +10826,83 @@ namespace DentalMain {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public rengenRow rengenRow {
+                get {
+                    return ((rengenRow)(this.GetParentRow(this.Table.ParentRelations["rengen_doctors"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["rengen_doctors"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public objectively_dataRow objectively_dataRow {
+                get {
+                    return ((objectively_dataRow)(this.GetParentRow(this.Table.ParentRelations["objectively_data_doctors"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["objectively_data_doctors"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public appointment_servicesRow appointment_servicesRow {
+                get {
+                    return ((appointment_servicesRow)(this.GetParentRow(this.Table.ParentRelations["appointment_services_doctors"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["appointment_services_doctors"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public planletsRow planletsRow {
+                get {
+                    return ((planletsRow)(this.GetParentRow(this.Table.ParentRelations["planlets_doctors"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["planlets_doctors"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public anamnesisDiseasesRow anamnesisDiseasesRow {
+                get {
+                    return ((anamnesisDiseasesRow)(this.GetParentRow(this.Table.ParentRelations["anamnesisDiseases_doctors"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["anamnesisDiseases_doctors"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public complaintsRow complaintsRow {
+                get {
+                    return ((complaintsRow)(this.GetParentRow(this.Table.ParentRelations["complaints_doctors"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["complaints_doctors"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public diags_patientRow diags_patientRow {
+                get {
+                    return ((diags_patientRow)(this.GetParentRow(this.Table.ParentRelations["diags_patient_doctors"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["diags_patient_doctors"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool Isfull_nameNull() {
                 return this.IsNull(this.tabledoctors.full_nameColumn);
             }
@@ -10814,6 +11041,17 @@ namespace DentalMain {
                 }
                 set {
                     this[this.tablematerials.imageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public appointment_materialsRow appointment_materialsRow {
+                get {
+                    return ((appointment_materialsRow)(this.GetParentRow(this.Table.ParentRelations["appointment_materials_materials"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["appointment_materials_materials"]);
                 }
             }
             
@@ -11305,6 +11543,17 @@ namespace DentalMain {
             public void SetdoctorNull() {
                 this[this.tableplanlets.doctorColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public doctorsRow[] GetdoctorsRows() {
+                if ((this.Table.ChildRelations["planlets_doctors"] == null)) {
+                    return new doctorsRow[0];
+                }
+                else {
+                    return ((doctorsRow[])(base.GetChildRows(this.Table.ChildRelations["planlets_doctors"])));
+                }
+            }
         }
         
         /// <summary>
@@ -11645,6 +11894,17 @@ namespace DentalMain {
                 }
                 set {
                     this[this.tableservices.costColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public appointment_servicesRow appointment_servicesRow {
+                get {
+                    return ((appointment_servicesRow)(this.GetParentRow(this.Table.ParentRelations["appointment_services_services"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["appointment_services_services"]);
                 }
             }
             
@@ -12197,6 +12457,17 @@ namespace DentalMain {
             public void SetdoctorNull() {
                 this[this.tableanamnesisDiseases.doctorColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public doctorsRow[] GetdoctorsRows() {
+                if ((this.Table.ChildRelations["anamnesisDiseases_doctors"] == null)) {
+                    return new doctorsRow[0];
+                }
+                else {
+                    return ((doctorsRow[])(base.GetChildRows(this.Table.ChildRelations["anamnesisDiseases_doctors"])));
+                }
+            }
         }
         
         /// <summary>
@@ -12609,6 +12880,17 @@ namespace DentalMain {
             public void Setobj_dateNull() {
                 this[this.tableobjectively_data.obj_dateColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public doctorsRow[] GetdoctorsRows() {
+                if ((this.Table.ChildRelations["objectively_data_doctors"] == null)) {
+                    return new doctorsRow[0];
+                }
+                else {
+                    return ((doctorsRow[])(base.GetChildRows(this.Table.ChildRelations["objectively_data_doctors"])));
+                }
+            }
         }
         
         /// <summary>
@@ -12785,6 +13067,17 @@ namespace DentalMain {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetdescriptionNull() {
                 this[this.tablerengen.descriptionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public doctorsRow[] GetdoctorsRows() {
+                if ((this.Table.ChildRelations["rengen_doctors"] == null)) {
+                    return new doctorsRow[0];
+                }
+                else {
+                    return ((doctorsRow[])(base.GetChildRows(this.Table.ChildRelations["rengen_doctors"])));
+                }
             }
         }
         
@@ -24567,12 +24860,12 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateUpdatedRows(dBDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._doctorsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.doctors.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._diagnosisTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.diagnosis.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._doctorsTableAdapter.Update(updatedRows));
+                    result = (result + this._diagnosisTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -24594,12 +24887,12 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._postTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.post.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._diags_patientTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.diags_patient.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._postTableAdapter.Update(updatedRows));
+                    result = (result + this._diags_patientTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -24612,48 +24905,12 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._appointment_servicesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.appointment_services.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._appointment_servicesTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._diagnosisTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.diagnosis.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._diagnosisTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
             if ((this._anamndis_diseasesTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.anamndis_diseases.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._anamndis_diseasesTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._diseases_anamTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.diseases_anam.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._diseases_anamTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._materialsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.materials.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._materialsTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -24675,93 +24932,21 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._servicesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.services.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._rengenTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.rengen.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._servicesTableAdapter.Update(updatedRows));
+                    result = (result + this._rengenTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._docRecordLogTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.docRecordLog.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._appointment_servicesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.appointment_services.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._docRecordLogTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._anamnesisDiseasesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.anamnesisDiseases.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._anamnesisDiseasesTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._serv_materialTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.serv_material.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._serv_materialTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._anamnesisTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.anamnesis.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._anamnesisTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._post_servicesTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.post_services.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._post_servicesTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._post_doctorTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.post_doctor.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._post_doctorTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._objectively_dataTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.objectively_data.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._objectively_dataTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._planletsTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.planlets.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._planletsTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._diags_patientTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.diags_patient.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._diags_patientTableAdapter.Update(updatedRows));
+                    result = (result + this._appointment_servicesTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -24774,12 +24959,120 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._planletsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.planlets.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._planletsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._objectively_dataTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.objectively_data.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._objectively_dataTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._anamnesisDiseasesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.anamnesisDiseases.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._anamnesisDiseasesTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._doctorsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.doctors.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._doctorsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             if ((this._appointment_materialsTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet.appointment_materials.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._appointment_materialsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._postTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.post.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._postTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._servicesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.services.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._servicesTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._materialsTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.materials.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._materialsTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._diseases_anamTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.diseases_anam.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._diseases_anamTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._post_servicesTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.post_services.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._post_servicesTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._serv_materialTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.serv_material.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._serv_materialTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._post_doctorTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.post_doctor.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._post_doctorTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
+            if ((this._docRecordLogTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.docRecordLog.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._docRecordLogTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -24792,12 +25085,12 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
                     allChangedRows.AddRange(updatedRows);
                 }
             }
-            if ((this._rengenTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.rengen.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._anamnesisTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.anamnesis.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._rengenTableAdapter.Update(updatedRows));
+                    result = (result + this._anamnesisTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -24811,11 +25104,11 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateInsertedRows(dBDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._doctorsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.doctors.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._diagnosisTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.diagnosis.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._doctorsTableAdapter.Update(addedRows));
+                    result = (result + this._diagnosisTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -24835,11 +25128,11 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._postTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.post.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._diags_patientTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.diags_patient.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._postTableAdapter.Update(addedRows));
+                    result = (result + this._diags_patientTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -24851,43 +25144,11 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._appointment_servicesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.appointment_services.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._appointment_servicesTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._diagnosisTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.diagnosis.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._diagnosisTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
             if ((this._anamndis_diseasesTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.anamndis_diseases.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._anamndis_diseasesTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._diseases_anamTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.diseases_anam.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._diseases_anamTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._materialsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.materials.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._materialsTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -24907,83 +25168,19 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._servicesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.services.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._rengenTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.rengen.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._servicesTableAdapter.Update(addedRows));
+                    result = (result + this._rengenTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._docRecordLogTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.docRecordLog.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._appointment_servicesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.appointment_services.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._docRecordLogTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._anamnesisDiseasesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.anamnesisDiseases.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._anamnesisDiseasesTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._serv_materialTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.serv_material.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._serv_materialTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._anamnesisTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.anamnesis.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._anamnesisTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._post_servicesTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.post_services.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._post_servicesTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._post_doctorTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.post_doctor.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._post_doctorTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._objectively_dataTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.objectively_data.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._objectively_dataTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._planletsTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.planlets.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._planletsTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._diags_patientTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.diags_patient.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._diags_patientTableAdapter.Update(addedRows));
+                    result = (result + this._appointment_servicesTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -24995,11 +25192,107 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._planletsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.planlets.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._planletsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._objectively_dataTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.objectively_data.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._objectively_dataTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._anamnesisDiseasesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.anamnesisDiseases.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._anamnesisDiseasesTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._doctorsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.doctors.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._doctorsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             if ((this._appointment_materialsTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet.appointment_materials.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._appointment_materialsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._postTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.post.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._postTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._servicesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.services.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._servicesTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._materialsTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.materials.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._materialsTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._diseases_anamTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.diseases_anam.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._diseases_anamTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._post_servicesTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.post_services.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._post_servicesTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._serv_materialTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.serv_material.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._serv_materialTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._post_doctorTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.post_doctor.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._post_doctorTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
+            if ((this._docRecordLogTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.docRecordLog.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._docRecordLogTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -25011,11 +25304,11 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
                     allAddedRows.AddRange(addedRows);
                 }
             }
-            if ((this._rengenTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.rengen.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._anamnesisTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.anamnesis.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._rengenTableAdapter.Update(addedRows));
+                    result = (result + this._anamnesisTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -25029,11 +25322,11 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private int UpdateDeletedRows(dBDS dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._rengenTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.rengen.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._anamnesisTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.anamnesis.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._rengenTableAdapter.Update(deletedRows));
+                    result = (result + this._anamnesisTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -25045,43 +25338,11 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._appointment_materialsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.appointment_materials.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._docRecordLogTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.docRecordLog.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._appointment_materialsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._complaintsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.complaints.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._complaintsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._diags_patientTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.diags_patient.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._diags_patientTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._planletsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.planlets.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._planletsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._objectively_dataTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.objectively_data.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._objectively_dataTableAdapter.Update(deletedRows));
+                    result = (result + this._docRecordLogTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -25093,6 +25354,14 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
                     allChangedRows.AddRange(deletedRows);
                 }
             }
+            if ((this._serv_materialTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.serv_material.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._serv_materialTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._post_servicesTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.post_services.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -25101,19 +25370,51 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._anamnesisTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.anamnesis.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._diseases_anamTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.diseases_anam.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._anamnesisTableAdapter.Update(deletedRows));
+                    result = (result + this._diseases_anamTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._serv_materialTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.serv_material.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._materialsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.materials.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._serv_materialTableAdapter.Update(deletedRows));
+                    result = (result + this._materialsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._servicesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.services.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._servicesTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._postTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.post.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._postTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._appointment_materialsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.appointment_materials.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._appointment_materialsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._doctorsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.doctors.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._doctorsTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -25125,19 +25426,43 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._docRecordLogTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.docRecordLog.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._objectively_dataTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.objectively_data.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._docRecordLogTableAdapter.Update(deletedRows));
+                    result = (result + this._objectively_dataTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._servicesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.services.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._planletsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.planlets.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._servicesTableAdapter.Update(deletedRows));
+                    result = (result + this._planletsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._complaintsTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.complaints.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._complaintsTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._appointment_servicesTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.appointment_services.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._appointment_servicesTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
+            if ((this._rengenTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.rengen.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._rengenTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -25157,43 +25482,11 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._materialsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.materials.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._materialsTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._diseases_anamTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.diseases_anam.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._diseases_anamTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._anamndis_diseasesTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.anamndis_diseases.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
                     result = (result + this._anamndis_diseasesTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._diagnosisTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.diagnosis.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._diagnosisTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
-            if ((this._appointment_servicesTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.appointment_services.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._appointment_servicesTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -25205,11 +25498,11 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._postTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.post.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._diags_patientTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.diags_patient.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._postTableAdapter.Update(deletedRows));
+                    result = (result + this._diags_patientTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -25229,11 +25522,11 @@ GROUP BY patients.full_name, patients.id_patient, patients.date_of_birth, patien
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._doctorsTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.doctors.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._diagnosisTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.diagnosis.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._doctorsTableAdapter.Update(deletedRows));
+                    result = (result + this._diagnosisTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }

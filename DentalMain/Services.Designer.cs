@@ -109,6 +109,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ServGrid.AutoGenerateColumns = false;
             this.ServGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ServGrid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ServGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ServGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idserviceDataGridViewTextBoxColumn,

@@ -148,12 +148,6 @@ namespace DentalMain
             f.photo_rg = b;
             rengenTableAdapter.Update(f);
         }
-
-        private void PictureBox1_Paint(object sender, PaintEventArgs e)
-        {
-           // pictureBox1.Image.
-        }
-
         private void PictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)

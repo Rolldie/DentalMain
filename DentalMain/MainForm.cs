@@ -118,23 +118,7 @@ namespace DentalMain
         private void MainForm_MdiChildActivate(object sender, EventArgs e)
         {
             CloserWindows();
-            FindWhatToUpdate();
-        }
-        public void CheckObjectText(object sender)
-        {
-            if (sender is TextBox f)
-            {
-                Decimal.TryParse(f.Text, out decimal ValForAdd);
-                if (ValForAdd == 0)
-                {
-                    textBox2.ForeColor = Color.Red;
-
-                }
-                else
-                {
-                    textBox2.ForeColor = Color.Black;
-                }
-            }
+            //FindWhatToUpdate(); ///не знаю че оно было щздесь и не знаю че убрал но вроде как оно не нужно!!!
         }
         #endregion
         //Done
@@ -597,6 +581,7 @@ namespace DentalMain
         {
             if (comboBox1.Text != "")
             {
+
                 ChangeLbls();
                 ChangeBtnEnabled();
             }
@@ -783,7 +768,6 @@ namespace DentalMain
         {
             Decimal.TryParse(textBox2.Text, out decimal ValForAdd);
             dBDS.patientsRow m = dBDS.patients.FindByid_patient((int)comboBox1.SelectedValue);
-            //if(ValForAdd<0) { MessageBox.Show("Тільки додатні числа!");return; }
             m.debt -= ValForAdd;
             appointmentTableAdapter.Fill(dBDS.appointment);
             foreach (dBDS.appointmentRow j in dBDS.appointment.Select("patient='" + comboBox1.SelectedValue + "' and full_cost>paided and started=true and ended=true"))
@@ -797,8 +781,8 @@ namespace DentalMain
                 ValForAdd -= (j.full_cost - j.paided);
                 j.paided = j.full_cost;
             }
-            appointmentTableAdapter.Update(dBDS.appointment);
             patientsTableAdapter.Update(m);
+            appointmentTableAdapter.Update(dBDS.appointment);
             FindPaidedCost();
         }
         #endregion
@@ -1663,15 +1647,6 @@ namespace DentalMain
     {
         public void InitPatDir(int pat_id, int docid)
         {
-            //  try
-            // {
-            //   System.Diagnostics.Process.Start(Path.GetDirectoryName(Application.ExecutablePath) + @"\Пацієнти\" + pat_id+ "_" + full_nm + @"\Рентген");
-            //}
-            //catch
-            //{
-            //  Directory.CreateDirectory(Path.GetDirectoryName(Application.ExecutablePath) + @"\Пацієнти\" + pat_id + "_" + full_nm + @"\Рентген");
-            //System.Diagnostics.Process.Start(Path.GetDirectoryName(Application.ExecutablePath) + @"\Пацієнти\" + pat_id + "_" + full_nm + @"\Рентген");
-            //}
             if (Application.OpenForms["RengenForm"] is RengenForm f)
             {
                 f.Activate();

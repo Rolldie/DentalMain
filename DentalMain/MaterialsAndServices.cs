@@ -16,19 +16,12 @@ namespace DentalMain
             InitializeComponent();
         }
 
-        public delegate void frst();
-        public delegate void scnd(List<TreeNode> k,List<string> mk,List<string> sk);
-
         private void MaterialsAndServices_Load(object sender, EventArgs e)
         {
-            ThreadingUpdate();
+            Updating();
             helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
         }
 
-        public void ThreadingUpdate()
-        {
-            Updating();
-        }
 
         public void CheckFull()
         {
@@ -38,8 +31,8 @@ namespace DentalMain
                 {
                     if (Application.OpenForms["Services"] is Services m) m.Close();
                     Services f = new Services();
-                    f.ShowDialog(); 
-                    ThreadingUpdate();
+                    f.ShowDialog();
+                    Updating();
                 }
                 else { Close(); }
             }
@@ -63,12 +56,9 @@ namespace DentalMain
                 mk.Add(a.name_material);
             }
             foreach (dBDS.servicesRow a in dBDS.services) { sk.Add(a.name_service.ToLower()); }
-            scnd del = new scnd(FillTreeAndSearch);
-            BeginInvoke(del, trees,mk,sk);
-            frst ded=new frst(CheckMatTree);
-            ded += ResetBnd;
-            ded += CheckFull;
-            BeginInvoke(ded);
+            FillTreeAndSearch(trees, mk, sk);
+            CheckMatTree();
+            CheckFull();
         }
 
         public void ResetBnd()
@@ -154,7 +144,7 @@ namespace DentalMain
         }
         public void UpdateForFormsMat()
         {
-            ThreadingUpdate();
+            Updating();
         }
 
         private void ServTree_SelectedValueChanged(object sender, EventArgs e)

@@ -27,11 +27,6 @@ namespace DentalMain
             this.doctorsTableAdapter.Fill(this.dBDS.doctors);
         }
 
-        private void Label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void DocWrChange_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (Application.OpenForms["RecordLog"] is RecordLog f) f.Updating();

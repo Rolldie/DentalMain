@@ -16,10 +16,6 @@ namespace DentalMain
             InitializeComponent();
             
         }
-        public void ThreadingUpdate()
-        {
-            Updating();
-        }
         public void Updating()
         {
             this.postTableAdapter.Fill(this.dBDS.post);
@@ -55,7 +51,7 @@ namespace DentalMain
                 {
                     Posts f = Application.OpenForms["Posts"] as Posts;
                     if (f != null) { f.Activate(); }
-                    else { f = new Posts(); f.ShowDialog(); }ThreadingUpdate();
+                    else { f = new Posts(); f.ShowDialog(); }Updating();
                 }
                 else { Close(); }
             }
@@ -63,7 +59,7 @@ namespace DentalMain
 
         private void ServicesAndPosts_Load(object sender, EventArgs e)
         {
-            ThreadingUpdate();
+            Updating();
             helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
         }
 
@@ -72,7 +68,7 @@ namespace DentalMain
             if (Application.OpenForms["Posts"] is Posts f) f.Close();
             f = new Posts();
             f.ShowDialog();
-            ThreadingUpdate();
+            Updating();
         }
 
         private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -99,16 +95,10 @@ namespace DentalMain
             checker = true;
         }
 
-        public void ThreadPostServUpd()
+        public void PostServUpd()
         {
            post_servicesTableAdapter.Fill(dBDS.post_services);
         }
-
-        public void ThreadPostUpdate()
-        {
-            PostUpdate();
-        }
-
         public void PostUpdate()
         {
             postTableAdapter.Fill(dBDS.post);
@@ -160,7 +150,6 @@ namespace DentalMain
                     } 
                 }
                 else { App.Text = "Такий запис вже існує"; }
-               // if (Application.OpenForms["MainForm"] is MainForm u) u.UpdateWithSavePos();
             }
             else
             {
@@ -182,11 +171,6 @@ namespace DentalMain
                 Uncheck();
                 Check();
             }
-        }
-
-        private void ServicesAndPosts_Deactivate(object sender, EventArgs e)
-        {
-          //  if (Application.OpenForms["MainForm"] is MainForm f) f.FindWhatToUpdate();
         }
     }
 }

@@ -19,13 +19,8 @@ namespace DentalMain
 
         private void MaterialsAdd_Load(object sender, EventArgs e)
         {
-            ThreadingUpdate();
-            helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
-        }
-
-        public void ThreadingUpdate()
-        {
             Updater();
+            helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
         }
 
         public delegate void frst();
@@ -58,7 +53,7 @@ namespace DentalMain
                     }
                     else b = null;
                     this.materialsTableAdapter.Insert(Name_matTextBox.Text.ToLower(), f, b);
-                    ThreadingUpdate();
+                    Updater();
                     if (Application.OpenForms["MaterialsAndServices"] is MaterialsAndServices c) c.UpdateForFormsMat();
                     if (Application.OpenForms["MainForm"] is MainForm u) u.UpdateWithSavePos();
                     CostTextBox.Text = "";
@@ -109,7 +104,7 @@ namespace DentalMain
             {
                 int jk = a.RowIndex;
                 Updater();
-                if (Application.OpenForms["MaterialsAndServices"] is MaterialsAndServices c) c.ThreadingUpdate();
+                if (Application.OpenForms["MaterialsAndServices"] is MaterialsAndServices c) c.Updating();
                 try { RowSelector(jk); } catch { return; }
             }
         }
@@ -120,7 +115,7 @@ namespace DentalMain
             {
                 materialsTableAdapter.Delete((int)MatGrid.Rows[a.RowIndex].Cells[0].Value, MatGrid.Rows[a.RowIndex].Cells[1].Value.ToString(),(decimal)MatGrid.Rows[a.RowIndex].Cells[2].Value);
                 materialsTableAdapter.Fill(dBDS.materials);
-                if (Application.OpenForms["MaterialsAndServices"] is MaterialsAndServices c) c.ThreadingUpdate();
+                if (Application.OpenForms["MaterialsAndServices"] is MaterialsAndServices c) c.Updating();
             }
         }
         private void DirectorySetBtn_Click(object sender, EventArgs e)
@@ -131,20 +126,10 @@ namespace DentalMain
             }
             
         }
-
-        private void DirectoryImageTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void CostTextBox_TextChanged(object sender, EventArgs e)
         {
             App.ChangeObjectText(sender);
         }
 
-        private void Name_matTextBox_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

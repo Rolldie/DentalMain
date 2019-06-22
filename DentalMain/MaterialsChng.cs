@@ -85,11 +85,6 @@ namespace DentalMain
             ImgDirTextBox.Text = "";
         }
 
-        private void PictureBox1_MouseMove(object sender, MouseEventArgs e)
-        {
-           
-        }
-
         private void CostTextBox_TextChanged(object sender, EventArgs e)
         {
             App.ChangeObjectText(sender);

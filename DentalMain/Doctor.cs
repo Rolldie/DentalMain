@@ -18,24 +18,11 @@ namespace DentalMain
             a = null;
         }
         public delegate void frst();
-        public void ThreadCreator()
-        {
-            ThreadUp();
-        }
-        public void ThreadUp()
+        public void Updater()
         {
             this.doctorsTableAdapter.Fill(this.dBDS.doctors);
             this.postTableAdapter.Fill(this.dBDS.post);
             this.post_doctorTableAdapter.Fill(this.dBDS.post_doctor);
-            Doctor f = this as Doctor;
-            while (f == null) Thread.Sleep(10);
-            frst a = new frst(ResetBnd);
-            BeginInvoke(a);
-        }
-        public void ResetBnd()
-        {
-            doctorsBindingSource.ResetBindings(false);
-            postBindingSource.ResetBindings(false);
         }
         private void FilterBtn_Click(object sender, EventArgs e)
         {
@@ -67,7 +54,7 @@ namespace DentalMain
 
         private void Doctor_Load(object sender, EventArgs e)
         {
-            ThreadCreator();
+            Updater();
             CreatingFieldsSearch();
             helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
 
@@ -78,11 +65,10 @@ namespace DentalMain
             if (Field.SelectedIndex == 2)
             {
                 secretCmbBx.Visible = true;
-
             }
             else
             {
-                ThreadCreator();
+                Updater();
                 secretCmbBx.Visible = false;
             }
         }
@@ -90,19 +76,19 @@ namespace DentalMain
         private void CancelBtn_Click(object sender, EventArgs e)
         {
             doctorsBindingSource.Filter = "";
-            ThreadCreator();
+            Updater();
         }
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
             DoctorAdd a = new DoctorAdd();
-            try { a.ShowDialog(); ThreadCreator();} catch { return; }
+            try { a.ShowDialog(); Updater();} catch { return; }
             
         }
 
         private void Doctor_Activated(object sender, EventArgs e)
         {
-            ThreadCreator();
+            Updater();
         }
 
         private void ИзменитьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -112,8 +98,6 @@ namespace DentalMain
             f.ShowDialog();
             doctorsTableAdapter.Fill(dBDS.doctors);
             doctorGrid.CurrentCell = doctorGrid[0, a.RowIndex];
-
-
         }
         bool Chek = true;
         DataGridViewCellMouseEventArgs a = null;

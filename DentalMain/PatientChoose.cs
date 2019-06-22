@@ -51,7 +51,6 @@ namespace DentalMain
             if(Application.OpenForms["RecordLog"] is RecordLog f)
             {
                 f.patientid = (int)dataGridView1.SelectedRows[0].Cells[0].Value;
-                //f.Updating();
                 DialogResult = DialogResult.OK;
             }
             Close();

@@ -19,24 +19,12 @@ namespace DentalMain
         public delegate void frst();
         private void Services_Load(object sender, EventArgs e)
         {
-            this.servicesTableAdapter.Fill(this.dBDS.services);
+            Updater();
             helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
         }
-        public void ThreadingUpdate()
-        {
-            Updater();
-        }
-
-        public void ResetBnd()
-        {
-            servicesBindingSource.ResetBindings(false);
-        }
-
         public void Updater()
         {
             this.servicesTableAdapter.Fill(this.dBDS.services);
-            frst a = new frst(ResetBnd);
-            BeginInvoke(a);
         }
 
         private void BtnAdd_Click(object sender, EventArgs e)
@@ -50,7 +38,7 @@ namespace DentalMain
                     servicesTableAdapter.Insert(textBox1.Text.ToLower(), f);
                     servicesTableAdapter.Fill(dBDS.services);
                     if (Application.OpenForms["MaterialsAndServices"] is MaterialsAndServices n) n.UpdServ();
-                    if (Application.OpenForms["ServicesAndPosts"] is ServicesAndPosts m) m.ThreadingUpdate();
+                    if (Application.OpenForms["ServicesAndPosts"] is ServicesAndPosts m) m.Updating();
                     if (Application.OpenForms["MainForm"] is MainForm u) u.UpdateWithSavePos();
                     textBox1.Text = "";
                     textBox2.Text = "";
@@ -94,8 +82,8 @@ namespace DentalMain
             {
                 int jk = a.RowIndex;
                 Updater();
-                if (Application.OpenForms["ServicesAndPosts"] is ServicesAndPosts m) m.ThreadingUpdate();
-                if (Application.OpenForms["MaterialsAndServices"] is MaterialsAndServices n) n.ThreadingUpdate();
+                if (Application.OpenForms["ServicesAndPosts"] is ServicesAndPosts m) m.Updating();
+                if (Application.OpenForms["MaterialsAndServices"] is MaterialsAndServices n) n.Updating();
                 if (Application.OpenForms["MainForm"] is MainForm u) u.UpdateWithSavePos();
                 try { RowSelector(jk); } catch { return; }
             }
@@ -106,8 +94,8 @@ namespace DentalMain
             if (MessageBox.Show("Ви дійсно хочите вилучити цю послугу?", "Додаток Стоматологія", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 servicesTableAdapter.Delete((int)ServGrid.Rows[a.RowIndex].Cells[0].Value, ServGrid.Rows[a.RowIndex].Cells[1].Value.ToString(),(decimal)ServGrid.Rows[a.RowIndex].Cells[2].Value);
-                servicesTableAdapter.Fill(dBDS.services);
-                if (Application.OpenForms["ServicesAndPosts"] is ServicesAndPosts f) f.ThreadingUpdate();
+                Updater();
+                if (Application.OpenForms["ServicesAndPosts"] is ServicesAndPosts f) f.Updating();
                 if (Application.OpenForms["MaterialsAndServices"] is MaterialsAndServices n) n.UpdServ();
                 if (Application.OpenForms["MainForm"] is MainForm u) u.UpdateWithSavePos();
             }

@@ -36,8 +36,8 @@ namespace DentalMain
                 {
                     postTableAdapter.Insert(textBox1.Text);
                     postTableAdapter.Fill(dBDS.post);
-                    if(Application.OpenForms["ServicesAndPosts"] is ServicesAndPosts f)f.ThreadPostUpdate();
-                    if (Application.OpenForms["MaterialsAndServices"] is MaterialsAndServices n) n.ThreadingUpdate();
+                    if(Application.OpenForms["ServicesAndPosts"] is ServicesAndPosts f)f.PostUpdate();
+                    if (Application.OpenForms["MaterialsAndServices"] is MaterialsAndServices n) n.Updating();
                 }
                 else App.Text = "Ця посада вже існує";
 
@@ -95,7 +95,7 @@ namespace DentalMain
             {
                 postTableAdapter.Delete((int)PostGrid.Rows[a.RowIndex].Cells[0].Value, PostGrid.Rows[a.RowIndex].Cells[1].Value.ToString());
                 postTableAdapter.Fill(dBDS.post);
-                if (Application.OpenForms["ServicesAndPosts"] is ServicesAndPosts f) { f.ThreadingUpdate(); }
+                if (Application.OpenForms["ServicesAndPosts"] is ServicesAndPosts f) { f.Updating(); }
             }
         }
 
@@ -106,7 +106,7 @@ namespace DentalMain
             {
                 int jk = a.RowIndex;
                 Updater();
-                if (Application.OpenForms["ServicesAndPosts"] is ServicesAndPosts u) u.ThreadPostUpdate();
+                if (Application.OpenForms["ServicesAndPosts"] is ServicesAndPosts u) u.PostUpdate();
                 try { RowSelector(jk); } catch { return; }
             }
         }
