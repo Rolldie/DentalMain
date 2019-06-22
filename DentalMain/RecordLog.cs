@@ -302,7 +302,6 @@ namespace DentalMain
                 DataGridView mk = Controls["Day" + ind + "Grid"] as DataGridView;
                 mk.CurrentCell = mk[e.ColumnIndex, e.RowIndex];
                 PatientChoose f = new PatientChoose();
-
                 DialogResult m = f.ShowDialog();
                 if (m == DialogResult.OK)
                 {

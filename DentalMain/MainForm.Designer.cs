@@ -30,6 +30,18 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.пацієнтиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.журналЗаписуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -45,6 +57,7 @@
             this.налаштуванняToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.налаштуванняToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.проАвтораToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.адмініструванняToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.ChangeView = new System.Windows.Forms.ToolStripButton();
             this.UpdButton = new System.Windows.Forms.ToolStripButton();
@@ -82,7 +95,6 @@
             this.treeViewcompl = new System.Windows.Forms.TreeView();
             this.label15 = new System.Windows.Forms.Label();
             this.BtnAddComplaint = new System.Windows.Forms.Button();
-            this.ComplText = new System.Windows.Forms.TextBox();
             this.dataGridComplaints = new System.Windows.Forms.DataGridView();
             this.complaintDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.datecomplDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -90,6 +102,7 @@
             this.doctorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.patientscomplaintsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label8 = new System.Windows.Forms.Label();
+            this.ComplText = new System.Windows.Forms.TextBox();
             this.Anamnesis = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.typeOfAnamn = new System.Windows.Forms.ComboBox();
@@ -226,7 +239,6 @@
             this.objectively_dataTableAdapter = new DentalMain.dBDSTableAdapters.objectively_dataTableAdapter();
             this.possibleObjectiveTableAdapter = new DentalMain.dBDSTableAdapters.possibleObjectiveTableAdapter();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.menuStrip1.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.MainTab.SuspendLayout();
@@ -271,11 +283,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.servicesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appointmentappointmentservicesBindingSource)).BeginInit();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.helpProvider1.SetHelpKeyword(this.menuStrip1, "6");
             this.helpProvider1.SetHelpNavigator(this.menuStrip1, System.Windows.Forms.HelpNavigator.TopicId);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -296,14 +308,14 @@
             // пацієнтиToolStripMenuItem
             // 
             this.пацієнтиToolStripMenuItem.Name = "пацієнтиToolStripMenuItem";
-            this.пацієнтиToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
+            this.пацієнтиToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.пацієнтиToolStripMenuItem.Text = "Пацієнти";
             this.пацієнтиToolStripMenuItem.Click += new System.EventHandler(this.пацієнтиToolStripMenuItem_Click);
             // 
             // журналЗаписуToolStripMenuItem
             // 
             this.журналЗаписуToolStripMenuItem.Name = "журналЗаписуToolStripMenuItem";
-            this.журналЗаписуToolStripMenuItem.Size = new System.Drawing.Size(103, 20);
+            this.журналЗаписуToolStripMenuItem.Size = new System.Drawing.Size(99, 20);
             this.журналЗаписуToolStripMenuItem.Text = "Журнал запису";
             this.журналЗаписуToolStripMenuItem.Click += new System.EventHandler(this.журналЗаписуToolStripMenuItem_Click);
             // 
@@ -314,27 +326,27 @@
             this.редагуванняПослугToolStripMenuItem,
             this.послугиЗаПосадоюToolStripMenuItem});
             this.посадиToolStripMenuItem.Name = "посадиToolStripMenuItem";
-            this.посадиToolStripMenuItem.Size = new System.Drawing.Size(122, 20);
+            this.посадиToolStripMenuItem.Size = new System.Drawing.Size(117, 20);
             this.посадиToolStripMenuItem.Text = "Посади та послуги";
             // 
             // додатиПосадуToolStripMenuItem
             // 
             this.додатиПосадуToolStripMenuItem.Name = "додатиПосадуToolStripMenuItem";
-            this.додатиПосадуToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.додатиПосадуToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.додатиПосадуToolStripMenuItem.Text = "Редагування посад";
             this.додатиПосадуToolStripMenuItem.Click += new System.EventHandler(this.ДодатиПосадуToolStripMenuItem_Click);
             // 
             // редагуванняПослугToolStripMenuItem
             // 
             this.редагуванняПослугToolStripMenuItem.Name = "редагуванняПослугToolStripMenuItem";
-            this.редагуванняПослугToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.редагуванняПослугToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.редагуванняПослугToolStripMenuItem.Text = "Редагування послуг";
             this.редагуванняПослугToolStripMenuItem.Click += new System.EventHandler(this.редагуванняПослугToolStripMenuItem_Click);
             // 
             // послугиЗаПосадоюToolStripMenuItem
             // 
             this.послугиЗаПосадоюToolStripMenuItem.Name = "послугиЗаПосадоюToolStripMenuItem";
-            this.послугиЗаПосадоюToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.послугиЗаПосадоюToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.послугиЗаПосадоюToolStripMenuItem.Text = "Послуги за посадою";
             this.послугиЗаПосадоюToolStripMenuItem.Click += new System.EventHandler(this.ПослугиЗаПосадоюToolStripMenuItem_Click);
             // 
@@ -344,34 +356,34 @@
             this.додатиМатеріалиToolStripMenuItem,
             this.матеріалиЗаПослугоюToolStripMenuItem1});
             this.матеріалиToolStripMenuItem.Name = "матеріалиToolStripMenuItem";
-            this.матеріалиToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
+            this.матеріалиToolStripMenuItem.Size = new System.Drawing.Size(75, 20);
             this.матеріалиToolStripMenuItem.Text = "Матеріали";
             // 
             // додатиМатеріалиToolStripMenuItem
             // 
             this.додатиМатеріалиToolStripMenuItem.Name = "додатиМатеріалиToolStripMenuItem";
-            this.додатиМатеріалиToolStripMenuItem.Size = new System.Drawing.Size(204, 22);
+            this.додатиМатеріалиToolStripMenuItem.Size = new System.Drawing.Size(199, 22);
             this.додатиМатеріалиToolStripMenuItem.Text = "Редагування матеріалів";
             this.додатиМатеріалиToolStripMenuItem.Click += new System.EventHandler(this.ДодатиМатеріалиToolStripMenuItem_Click);
             // 
             // матеріалиЗаПослугоюToolStripMenuItem1
             // 
             this.матеріалиЗаПослугоюToolStripMenuItem1.Name = "матеріалиЗаПослугоюToolStripMenuItem1";
-            this.матеріалиЗаПослугоюToolStripMenuItem1.Size = new System.Drawing.Size(204, 22);
+            this.матеріалиЗаПослугоюToolStripMenuItem1.Size = new System.Drawing.Size(199, 22);
             this.матеріалиЗаПослугоюToolStripMenuItem1.Text = "Матеріали за послугою";
             this.матеріалиЗаПослугоюToolStripMenuItem1.Click += new System.EventHandler(this.МатеріалиЗаПослугоюToolStripMenuItem1_Click);
             // 
             // лікаріToolStripMenuItem
             // 
             this.лікаріToolStripMenuItem.Name = "лікаріToolStripMenuItem";
-            this.лікаріToolStripMenuItem.Size = new System.Drawing.Size(52, 20);
+            this.лікаріToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
             this.лікаріToolStripMenuItem.Text = "Лікарі";
             this.лікаріToolStripMenuItem.Click += new System.EventHandler(this.лікаріToolStripMenuItem_Click);
             // 
             // прийомиToolStripMenuItem
             // 
             this.прийомиToolStripMenuItem.Name = "прийомиToolStripMenuItem";
-            this.прийомиToolStripMenuItem.Size = new System.Drawing.Size(72, 20);
+            this.прийомиToolStripMenuItem.Size = new System.Drawing.Size(70, 20);
             this.прийомиToolStripMenuItem.Text = "Прийоми";
             this.прийомиToolStripMenuItem.Click += new System.EventHandler(this.прийомиToolStripMenuItem_Click);
             // 
@@ -379,24 +391,32 @@
             // 
             this.налаштуванняToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.налаштуванняToolStripMenuItem1,
-            this.проАвтораToolStripMenuItem});
+            this.проАвтораToolStripMenuItem,
+            this.адмініструванняToolStripMenuItem});
             this.налаштуванняToolStripMenuItem.Name = "налаштуванняToolStripMenuItem";
-            this.налаштуванняToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
+            this.налаштуванняToolStripMenuItem.Size = new System.Drawing.Size(96, 20);
             this.налаштуванняToolStripMenuItem.Text = "Налаштування";
             // 
             // налаштуванняToolStripMenuItem1
             // 
             this.налаштуванняToolStripMenuItem1.Name = "налаштуванняToolStripMenuItem1";
-            this.налаштуванняToolStripMenuItem1.Size = new System.Drawing.Size(156, 22);
+            this.налаштуванняToolStripMenuItem1.Size = new System.Drawing.Size(162, 22);
             this.налаштуванняToolStripMenuItem1.Text = "Налаштування";
             this.налаштуванняToolStripMenuItem1.Click += new System.EventHandler(this.НалаштуванняToolStripMenuItem1_Click);
             // 
             // проАвтораToolStripMenuItem
             // 
             this.проАвтораToolStripMenuItem.Name = "проАвтораToolStripMenuItem";
-            this.проАвтораToolStripMenuItem.Size = new System.Drawing.Size(156, 22);
+            this.проАвтораToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
             this.проАвтораToolStripMenuItem.Text = "Про автора";
             this.проАвтораToolStripMenuItem.Click += new System.EventHandler(this.ПроАвтораToolStripMenuItem_Click);
+            // 
+            // адмініструванняToolStripMenuItem
+            // 
+            this.адмініструванняToolStripMenuItem.Name = "адмініструванняToolStripMenuItem";
+            this.адмініструванняToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.адмініструванняToolStripMenuItem.Text = "Адміністрування";
+            this.адмініструванняToolStripMenuItem.Click += new System.EventHandler(this.АдмініструванняToolStripMenuItem_Click);
             // 
             // toolStrip1
             // 
@@ -434,6 +454,7 @@
             // UpdButton
             // 
             this.UpdButton.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.UpdButton.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.UpdButton.Image = ((System.Drawing.Image)(resources.GetObject("UpdButton.Image")));
             this.UpdButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.UpdButton.Name = "UpdButton";
@@ -512,6 +533,7 @@
             this.MainTab.Controls.Add(this.appointment);
             this.MainTab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainTab.Enabled = false;
+            this.MainTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.helpProvider1.SetHelpKeyword(this.MainTab, "5");
             this.helpProvider1.SetHelpNavigator(this.MainTab, System.Windows.Forms.HelpNavigator.TopicId);
             this.MainTab.Location = new System.Drawing.Point(0, 49);
@@ -541,6 +563,7 @@
             this.PatientInfo.Controls.Add(this.comboBox1);
             this.PatientInfo.Controls.Add(this.BtnGetPat);
             this.PatientInfo.Controls.Add(this.LblPatient);
+            this.PatientInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.helpProvider1.SetHelpKeyword(this.PatientInfo, "7");
             this.helpProvider1.SetHelpNavigator(this.PatientInfo, System.Windows.Forms.HelpNavigator.TopicId);
             this.helpProvider1.SetHelpString(this.PatientInfo, "7");
@@ -557,6 +580,7 @@
             // 
             this.PatAppointm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.PatAppointm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.PatAppointm.Location = new System.Drawing.Point(8, 174);
             this.PatAppointm.Name = "PatAppointm";
             this.PatAppointm.Size = new System.Drawing.Size(686, 23);
@@ -567,7 +591,8 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(166, 220);
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textBox2.Location = new System.Drawing.Point(166, 218);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(105, 20);
             this.textBox2.TabIndex = 13;
@@ -575,17 +600,19 @@
             // 
             // AddPaided
             // 
+            this.AddPaided.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AddPaided.Location = new System.Drawing.Point(10, 218);
             this.AddPaided.Name = "AddPaided";
             this.AddPaided.Size = new System.Drawing.Size(150, 23);
             this.AddPaided.TabIndex = 12;
-            this.AddPaided.Text = "Додати до довгу/авансу";
+            this.AddPaided.Text = "Додати до боргу/авансу";
             this.AddPaided.UseVisualStyleBackColor = true;
             this.AddPaided.Click += new System.EventHandler(this.AddPaided_Click);
             // 
             // labelDolg
             // 
             this.labelDolg.AutoSize = true;
+            this.labelDolg.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.labelDolg.Location = new System.Drawing.Point(43, 200);
             this.labelDolg.Name = "labelDolg";
             this.labelDolg.Size = new System.Drawing.Size(13, 13);
@@ -595,16 +622,18 @@
             // label30
             // 
             this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label30.Location = new System.Drawing.Point(8, 200);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(39, 13);
+            this.label30.Size = new System.Drawing.Size(37, 13);
             this.label30.TabIndex = 11;
-            this.label30.Text = "Довг: ";
+            this.label30.Text = "Борг: ";
             // 
             // BtnAppointm
             // 
             this.BtnAppointm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnAppointm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BtnAppointm.Location = new System.Drawing.Point(7, 145);
             this.BtnAppointm.Name = "BtnAppointm";
             this.BtnAppointm.Size = new System.Drawing.Size(687, 23);
@@ -618,6 +647,7 @@
             this.RengBtn.AllowDrop = true;
             this.RengBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.RengBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.RengBtn.Location = new System.Drawing.Point(6, 115);
             this.RengBtn.Name = "RengBtn";
             this.RengBtn.Size = new System.Drawing.Size(688, 23);
@@ -630,6 +660,7 @@
             // 
             this.ChangeBtn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.ChangeBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ChangeBtn.Location = new System.Drawing.Point(6, 85);
             this.ChangeBtn.Name = "ChangeBtn";
             this.ChangeBtn.Size = new System.Drawing.Size(688, 24);
@@ -640,9 +671,10 @@
             // 
             // AddBtn
             // 
+            this.AddBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AddBtn.Location = new System.Drawing.Point(472, 30);
             this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(79, 23);
+            this.AddBtn.Size = new System.Drawing.Size(96, 23);
             this.AddBtn.TabIndex = 7;
             this.AddBtn.Text = "Додати";
             this.AddBtn.UseVisualStyleBackColor = true;
@@ -651,6 +683,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.Location = new System.Drawing.Point(225, 69);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 13);
@@ -660,6 +693,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label2.Location = new System.Drawing.Point(8, 69);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 13);
@@ -669,7 +703,8 @@
             // TodayRad
             // 
             this.TodayRad.AutoSize = true;
-            this.TodayRad.Location = new System.Drawing.Point(66, 8);
+            this.TodayRad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.TodayRad.Location = new System.Drawing.Point(80, 8);
             this.TodayRad.Name = "TodayRad";
             this.TodayRad.Size = new System.Drawing.Size(85, 17);
             this.TodayRad.TabIndex = 4;
@@ -681,7 +716,8 @@
             // 
             this.AllRad.AutoSize = true;
             this.AllRad.Checked = true;
-            this.AllRad.Location = new System.Drawing.Point(157, 8);
+            this.AllRad.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AllRad.Location = new System.Drawing.Point(188, 8);
             this.AllRad.Name = "AllRad";
             this.AllRad.Size = new System.Drawing.Size(40, 17);
             this.AllRad.TabIndex = 4;
@@ -694,10 +730,11 @@
             this.comboBox1.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.AllSystemSources;
             this.comboBox1.DataSource = this.patientsBindingSource;
             this.comboBox1.DisplayMember = "full_name";
+            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(66, 31);
+            this.comboBox1.Location = new System.Drawing.Point(80, 31);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(369, 21);
+            this.comboBox1.Size = new System.Drawing.Size(355, 21);
             this.comboBox1.TabIndex = 3;
             this.comboBox1.TabStop = false;
             this.comboBox1.ValueMember = "id_patient";
@@ -716,6 +753,7 @@
             // 
             // BtnGetPat
             // 
+            this.BtnGetPat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.BtnGetPat.Location = new System.Drawing.Point(441, 31);
             this.BtnGetPat.Name = "BtnGetPat";
             this.BtnGetPat.Size = new System.Drawing.Size(25, 21);
@@ -727,6 +765,7 @@
             // LblPatient
             // 
             this.LblPatient.AutoSize = true;
+            this.LblPatient.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.LblPatient.Location = new System.Drawing.Point(8, 34);
             this.LblPatient.Name = "LblPatient";
             this.LblPatient.Size = new System.Drawing.Size(52, 13);
@@ -753,7 +792,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.01639F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 59.0164F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 40.9836F));
             this.tableLayoutPanel1.Controls.Add(this.label9, 0, 0);
@@ -766,12 +805,11 @@
             this.tableLayoutPanel1.Location = new System.Drawing.Point(8, 6);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 4;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(686, 347);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(686, 348);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
             // label9
@@ -780,7 +818,7 @@
             this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label9.Location = new System.Drawing.Point(3, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(357, 26);
+            this.label9.Size = new System.Drawing.Size(357, 30);
             this.label9.TabIndex = 5;
             this.label9.Text = "Перелік скарг пацієнта";
             this.label9.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -791,9 +829,9 @@
             this.tableLayoutPanel1.SetColumnSpan(this.treeViewcompl, 2);
             this.treeViewcompl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewcompl.FullRowSelect = true;
-            this.treeViewcompl.Location = new System.Drawing.Point(366, 75);
+            this.treeViewcompl.Location = new System.Drawing.Point(366, 79);
             this.treeViewcompl.Name = "treeViewcompl";
-            this.treeViewcompl.Size = new System.Drawing.Size(317, 269);
+            this.treeViewcompl.Size = new System.Drawing.Size(317, 266);
             this.treeViewcompl.TabIndex = 6;
             this.treeViewcompl.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeViewcompl_AfterCheck);
             this.treeViewcompl.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TreeViewcompl_MouseDown);
@@ -803,7 +841,7 @@
             this.label15.AutoSize = true;
             this.tableLayoutPanel1.SetColumnSpan(this.label15, 2);
             this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label15.Location = new System.Drawing.Point(366, 52);
+            this.label15.Location = new System.Drawing.Point(366, 56);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(317, 20);
             this.label15.TabIndex = 3;
@@ -815,45 +853,48 @@
             this.BtnAddComplaint.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnAddComplaint.Location = new System.Drawing.Point(436, 3);
             this.BtnAddComplaint.Name = "BtnAddComplaint";
-            this.BtnAddComplaint.Size = new System.Drawing.Size(247, 20);
+            this.BtnAddComplaint.Size = new System.Drawing.Size(247, 24);
             this.BtnAddComplaint.TabIndex = 4;
             this.BtnAddComplaint.Text = "Додати";
             this.BtnAddComplaint.UseVisualStyleBackColor = true;
             this.BtnAddComplaint.Click += new System.EventHandler(this.BtnAddComplaint_Click);
-            // 
-            // ComplText
-            // 
-            this.ComplText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ComplText.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.ComplText.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.tableLayoutPanel1.SetColumnSpan(this.ComplText, 2);
-            this.ComplText.Location = new System.Drawing.Point(366, 29);
-            this.ComplText.Name = "ComplText";
-            this.ComplText.Size = new System.Drawing.Size(317, 20);
-            this.ComplText.TabIndex = 7;
-            this.ComplText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ComplText_KeyDown);
             // 
             // dataGridComplaints
             // 
             this.dataGridComplaints.AllowUserToAddRows = false;
             this.dataGridComplaints.AutoGenerateColumns = false;
             this.dataGridComplaints.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridComplaints.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle37.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle37.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridComplaints.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
             this.dataGridComplaints.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridComplaints.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.complaintDataGridViewTextBoxColumn,
             this.datecomplDataGridViewTextBoxColumn,
             this.doctor});
             this.dataGridComplaints.DataSource = this.patientscomplaintsBindingSource;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle38.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridComplaints.DefaultCellStyle = dataGridViewCellStyle38;
             this.dataGridComplaints.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridComplaints.Location = new System.Drawing.Point(3, 29);
+            this.dataGridComplaints.Location = new System.Drawing.Point(3, 33);
             this.dataGridComplaints.MultiSelect = false;
             this.dataGridComplaints.Name = "dataGridComplaints";
             this.dataGridComplaints.RowHeadersVisible = false;
             this.tableLayoutPanel1.SetRowSpan(this.dataGridComplaints, 3);
             this.dataGridComplaints.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridComplaints.Size = new System.Drawing.Size(357, 315);
+            this.dataGridComplaints.Size = new System.Drawing.Size(357, 312);
             this.dataGridComplaints.TabIndex = 0;
             this.dataGridComplaints.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataGridComplaints_DataError);
             // 
@@ -906,10 +947,24 @@
             this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Location = new System.Drawing.Point(366, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(64, 26);
+            this.label8.Size = new System.Drawing.Size(64, 30);
             this.label8.TabIndex = 3;
             this.label8.Text = "Скарга";
             this.label8.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // ComplText
+            // 
+            this.ComplText.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ComplText.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.ComplText.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.tableLayoutPanel1.SetColumnSpan(this.ComplText, 2);
+            this.ComplText.Location = new System.Drawing.Point(366, 33);
+            this.ComplText.Name = "ComplText";
+            this.ComplText.Size = new System.Drawing.Size(317, 20);
+            this.ComplText.TabIndex = 7;
+            this.ComplText.KeyDown += new System.Windows.Forms.KeyEventHandler(this.ComplText_KeyDown);
             // 
             // Anamnesis
             // 
@@ -944,11 +999,11 @@
             this.tableLayoutPanel2.Location = new System.Drawing.Point(8, 6);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 4;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(686, 356);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(686, 357);
             this.tableLayoutPanel2.TabIndex = 10;
             // 
             // typeOfAnamn
@@ -970,9 +1025,9 @@
             this.treeViewAnamn.CheckBoxes = true;
             this.treeViewAnamn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewAnamn.FullRowSelect = true;
-            this.treeViewAnamn.Location = new System.Drawing.Point(393, 75);
+            this.treeViewAnamn.Location = new System.Drawing.Point(393, 79);
             this.treeViewAnamn.Name = "treeViewAnamn";
-            this.treeViewAnamn.Size = new System.Drawing.Size(290, 278);
+            this.treeViewAnamn.Size = new System.Drawing.Size(290, 275);
             this.treeViewAnamn.TabIndex = 3;
             this.treeViewAnamn.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.treeViewAnamn_AfterCheck);
             this.treeViewAnamn.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TreeViewcompl_MouseDown);
@@ -981,7 +1036,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Location = new System.Drawing.Point(393, 52);
+            this.label4.Location = new System.Drawing.Point(393, 56);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(290, 20);
             this.label4.TabIndex = 4;
@@ -993,7 +1048,7 @@
             this.AnamnSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.AnamnSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.AnamnSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AnamnSearch.Location = new System.Drawing.Point(393, 29);
+            this.AnamnSearch.Location = new System.Drawing.Point(393, 33);
             this.AnamnSearch.Name = "AnamnSearch";
             this.AnamnSearch.Size = new System.Drawing.Size(290, 20);
             this.AnamnSearch.TabIndex = 9;
@@ -1005,7 +1060,7 @@
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(114, 26);
+            this.label1.Size = new System.Drawing.Size(114, 30);
             this.label1.TabIndex = 2;
             this.label1.Text = "Тип анамнезу";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1015,7 +1070,7 @@
             this.BtnAddAnm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnAddAnm.Location = new System.Drawing.Point(393, 3);
             this.BtnAddAnm.Name = "BtnAddAnm";
-            this.BtnAddAnm.Size = new System.Drawing.Size(290, 20);
+            this.BtnAddAnm.Size = new System.Drawing.Size(290, 24);
             this.BtnAddAnm.TabIndex = 8;
             this.BtnAddAnm.Text = "Додати захворювання";
             this.BtnAddAnm.UseVisualStyleBackColor = true;
@@ -1027,18 +1082,35 @@
             this.dataGridView4.AllowUserToDeleteRows = false;
             this.dataGridView4.AutoGenerateColumns = false;
             this.dataGridView4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView4.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle39.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView4.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle39;
             this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView4.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.namediseaseDataGridViewTextBoxColumn,
             this.typeanamnDataGridViewTextBoxColumn});
             this.tableLayoutPanel2.SetColumnSpan(this.dataGridView4, 2);
             this.dataGridView4.DataSource = this.patientsanamnesisBindingSource;
+            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle40.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle40.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView4.DefaultCellStyle = dataGridViewCellStyle40;
             this.dataGridView4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView4.Location = new System.Drawing.Point(3, 29);
+            this.dataGridView4.Location = new System.Drawing.Point(3, 33);
             this.dataGridView4.Name = "dataGridView4";
             this.dataGridView4.RowHeadersVisible = false;
             this.tableLayoutPanel2.SetRowSpan(this.dataGridView4, 3);
-            this.dataGridView4.Size = new System.Drawing.Size(384, 324);
+            this.dataGridView4.Size = new System.Drawing.Size(384, 321);
             this.dataGridView4.TabIndex = 0;
             // 
             // namediseaseDataGridViewTextBoxColumn
@@ -1092,8 +1164,8 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel3.ColumnCount = 2;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.32319F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.6768F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.3232F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44.67681F));
             this.tableLayoutPanel3.Controls.Add(this.label20, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.PlnLtsTree, 1, 9);
             this.tableLayoutPanel3.Controls.Add(this.dataGridView1, 0, 1);
@@ -1115,10 +1187,10 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(686, 356);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(686, 357);
             this.tableLayoutPanel3.TabIndex = 8;
             // 
             // label20
@@ -1136,12 +1208,12 @@
             // 
             this.PlnLtsTree.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PlnLtsTree.FullRowSelect = true;
-            this.PlnLtsTree.Location = new System.Drawing.Point(382, 207);
+            this.PlnLtsTree.Location = new System.Drawing.Point(382, 211);
             this.PlnLtsTree.Name = "PlnLtsTree";
             this.PlnLtsTree.ShowLines = false;
             this.PlnLtsTree.ShowPlusMinus = false;
             this.PlnLtsTree.ShowRootLines = false;
-            this.PlnLtsTree.Size = new System.Drawing.Size(301, 146);
+            this.PlnLtsTree.Size = new System.Drawing.Size(301, 143);
             this.PlnLtsTree.TabIndex = 7;
             this.PlnLtsTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.PlnLtsTree_AfterSelect);
             this.PlnLtsTree.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TreeViewcompl_MouseDown);
@@ -1153,12 +1225,29 @@
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle41;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.toothDataGridViewTextBoxColumn1,
             this.descriptionDataGridViewTextBoxColumn,
             this.dateplnDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.patientsplanletsBindingSource;
+            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle42;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 23);
             this.dataGridView1.MultiSelect = false;
@@ -1166,7 +1255,7 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.tableLayoutPanel3.SetRowSpan(this.dataGridView1, 9);
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(373, 330);
+            this.dataGridView1.Size = new System.Drawing.Size(373, 331);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellEndEdit);
             this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DataGridView1_DataBindingComplete);
@@ -1212,7 +1301,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label25.Location = new System.Drawing.Point(382, 184);
+            this.label25.Location = new System.Drawing.Point(382, 188);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(301, 20);
             this.label25.TabIndex = 5;
@@ -1232,7 +1321,7 @@
             this.BtnAddPlnLts.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnAddPlnLts.Location = new System.Drawing.Point(382, 161);
             this.BtnAddPlnLts.Name = "BtnAddPlnLts";
-            this.BtnAddPlnLts.Size = new System.Drawing.Size(301, 20);
+            this.BtnAddPlnLts.Size = new System.Drawing.Size(301, 24);
             this.BtnAddPlnLts.TabIndex = 3;
             this.BtnAddPlnLts.Text = "Додати у план лікування";
             this.BtnAddPlnLts.UseVisualStyleBackColor = true;
@@ -1332,11 +1421,11 @@
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 5;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(686, 356);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(686, 362);
             this.tableLayoutPanel4.TabIndex = 5;
             // 
             // label29
@@ -1355,11 +1444,28 @@
             this.dataGridView5.AllowUserToAddRows = false;
             this.dataGridView5.AutoGenerateColumns = false;
             this.dataGridView5.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView5.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle43.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle43.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle43.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView5.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle43;
             this.dataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView5.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.diseaseDataGridViewTextBoxColumn,
             this.dateanamndisDataGridViewTextBoxColumn});
             this.dataGridView5.DataSource = this.patientsanamnesisDiseasesBindingSource;
+            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle44.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle44.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle44.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView5.DefaultCellStyle = dataGridViewCellStyle44;
             this.dataGridView5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView5.Location = new System.Drawing.Point(3, 23);
             this.dataGridView5.MultiSelect = false;
@@ -1367,7 +1473,7 @@
             this.dataGridView5.RowHeadersVisible = false;
             this.tableLayoutPanel4.SetRowSpan(this.dataGridView5, 4);
             this.dataGridView5.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView5.Size = new System.Drawing.Size(333, 330);
+            this.dataGridView5.Size = new System.Drawing.Size(333, 336);
             this.dataGridView5.TabIndex = 0;
             this.dataGridView5.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DataGridView5_DataBindingComplete);
             this.dataGridView5.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataGridView5_DataError);
@@ -1407,12 +1513,12 @@
             this.treeViewanamndis.CheckBoxes = true;
             this.tableLayoutPanel4.SetColumnSpan(this.treeViewanamndis, 2);
             this.treeViewanamndis.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeViewanamndis.Location = new System.Drawing.Point(342, 95);
+            this.treeViewanamndis.Location = new System.Drawing.Point(342, 99);
             this.treeViewanamndis.Name = "treeViewanamndis";
             this.treeViewanamndis.ShowLines = false;
             this.treeViewanamndis.ShowPlusMinus = false;
             this.treeViewanamndis.ShowRootLines = false;
-            this.treeViewanamndis.Size = new System.Drawing.Size(341, 258);
+            this.treeViewanamndis.Size = new System.Drawing.Size(341, 260);
             this.treeViewanamndis.TabIndex = 2;
             this.treeViewanamndis.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.TreeViewanamndis_AfterCheck);
             this.treeViewanamndis.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TreeViewcompl_MouseDown);
@@ -1422,7 +1528,7 @@
             this.label28.AutoSize = true;
             this.tableLayoutPanel4.SetColumnSpan(this.label28, 2);
             this.label28.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label28.Location = new System.Drawing.Point(342, 72);
+            this.label28.Location = new System.Drawing.Point(342, 76);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(341, 20);
             this.label28.TabIndex = 3;
@@ -1434,7 +1540,7 @@
             this.BtnAddAnmdis.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnAddAnmdis.Location = new System.Drawing.Point(432, 23);
             this.BtnAddAnmdis.Name = "BtnAddAnmdis";
-            this.BtnAddAnmdis.Size = new System.Drawing.Size(251, 20);
+            this.BtnAddAnmdis.Size = new System.Drawing.Size(251, 24);
             this.BtnAddAnmdis.TabIndex = 4;
             this.BtnAddAnmdis.Text = "Додати до списку";
             this.BtnAddAnmdis.UseVisualStyleBackColor = true;
@@ -1446,7 +1552,7 @@
             this.label27.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label27.Location = new System.Drawing.Point(342, 20);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(84, 26);
+            this.label27.Size = new System.Drawing.Size(84, 30);
             this.label27.TabIndex = 3;
             this.label27.Text = "Пошук";
             this.label27.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -1457,7 +1563,7 @@
             this.AnmndisSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.tableLayoutPanel4.SetColumnSpan(this.AnmndisSearch, 2);
             this.AnmndisSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AnmndisSearch.Location = new System.Drawing.Point(342, 49);
+            this.AnmndisSearch.Location = new System.Drawing.Point(342, 53);
             this.AnmndisSearch.Name = "AnmndisSearch";
             this.AnmndisSearch.Size = new System.Drawing.Size(341, 20);
             this.AnmndisSearch.TabIndex = 1;
@@ -1494,11 +1600,11 @@
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 5;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(688, 356);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(688, 362);
             this.tableLayoutPanel7.TabIndex = 5;
             // 
             // label34
@@ -1517,9 +1623,9 @@
             this.treeViewObjective.CheckBoxes = true;
             this.tableLayoutPanel7.SetColumnSpan(this.treeViewObjective, 2);
             this.treeViewObjective.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeViewObjective.Location = new System.Drawing.Point(354, 95);
+            this.treeViewObjective.Location = new System.Drawing.Point(354, 99);
             this.treeViewObjective.Name = "treeViewObjective";
-            this.treeViewObjective.Size = new System.Drawing.Size(331, 258);
+            this.treeViewObjective.Size = new System.Drawing.Size(331, 260);
             this.treeViewObjective.TabIndex = 0;
             this.treeViewObjective.AfterCheck += new System.Windows.Forms.TreeViewEventHandler(this.TreeViewObjective_AfterCheck);
             this.treeViewObjective.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TreeViewObjective_MouseDown);
@@ -1529,7 +1635,7 @@
             this.label32.AutoSize = true;
             this.tableLayoutPanel7.SetColumnSpan(this.label32, 2);
             this.label32.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label32.Location = new System.Drawing.Point(354, 72);
+            this.label32.Location = new System.Drawing.Point(354, 76);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(331, 20);
             this.label32.TabIndex = 1;
@@ -1542,7 +1648,7 @@
             this.ObjSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.tableLayoutPanel7.SetColumnSpan(this.ObjSearch, 2);
             this.ObjSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ObjSearch.Location = new System.Drawing.Point(354, 49);
+            this.ObjSearch.Location = new System.Drawing.Point(354, 53);
             this.ObjSearch.Name = "ObjSearch";
             this.ObjSearch.Size = new System.Drawing.Size(331, 20);
             this.ObjSearch.TabIndex = 2;
@@ -1553,7 +1659,7 @@
             this.BtnAddObjective.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnAddObjective.Location = new System.Drawing.Point(434, 23);
             this.BtnAddObjective.Name = "BtnAddObjective";
-            this.BtnAddObjective.Size = new System.Drawing.Size(251, 20);
+            this.BtnAddObjective.Size = new System.Drawing.Size(251, 24);
             this.BtnAddObjective.TabIndex = 3;
             this.BtnAddObjective.Text = "Додати";
             this.BtnAddObjective.UseVisualStyleBackColor = true;
@@ -1565,18 +1671,35 @@
             this.dataGridView3.AllowUserToResizeRows = false;
             this.dataGridView3.AutoGenerateColumns = false;
             this.dataGridView3.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView3.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle45.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle45.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle45.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView3.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle45;
             this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView3.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.objectiveDataGridViewTextBoxColumn,
             this.objdateDataGridViewTextBoxColumn,
             this.doctorDataGridViewTextBoxColumn});
             this.dataGridView3.DataSource = this.patientsobjectivelydataBindingSource;
+            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle46.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle46.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle46.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView3.DefaultCellStyle = dataGridViewCellStyle46;
             this.dataGridView3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView3.Location = new System.Drawing.Point(3, 23);
             this.dataGridView3.Name = "dataGridView3";
             this.dataGridView3.RowHeadersVisible = false;
             this.tableLayoutPanel7.SetRowSpan(this.dataGridView3, 4);
-            this.dataGridView3.Size = new System.Drawing.Size(345, 330);
+            this.dataGridView3.Size = new System.Drawing.Size(345, 336);
             this.dataGridView3.TabIndex = 4;
             // 
             // objectiveDataGridViewTextBoxColumn
@@ -1629,7 +1752,7 @@
             this.label33.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label33.Location = new System.Drawing.Point(354, 20);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(74, 26);
+            this.label33.Size = new System.Drawing.Size(74, 30);
             this.label33.TabIndex = 1;
             this.label33.Text = "Пошук";
             this.label33.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -1673,10 +1796,10 @@
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(716, 379);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(716, 385);
             this.tableLayoutPanel5.TabIndex = 6;
             // 
             // label10
@@ -1696,6 +1819,15 @@
             this.dataGridView2.AllowUserToResizeRows = false;
             this.dataGridView2.AutoGenerateColumns = false;
             this.dataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle47.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle47.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle47.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle47;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.diagnosisDataGridViewTextBoxColumn,
@@ -1703,6 +1835,14 @@
             this.finddateDataGridViewTextBoxColumn,
             this.id_diag_patient});
             this.dataGridView2.DataSource = this.patientsdiagspatientBindingSource;
+            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle48.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle48.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle48.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle48.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle48;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(3, 23);
             this.dataGridView2.MultiSelect = false;
@@ -1710,7 +1850,7 @@
             this.dataGridView2.RowHeadersVisible = false;
             this.tableLayoutPanel5.SetRowSpan(this.dataGridView2, 7);
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(369, 353);
+            this.dataGridView2.Size = new System.Drawing.Size(369, 359);
             this.dataGridView2.TabIndex = 0;
             this.dataGridView2.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DataGridView2_DataBindingComplete);
             this.dataGridView2.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataGridView2_DataError);
@@ -1764,11 +1904,11 @@
             // treeViewDiag
             // 
             this.treeViewDiag.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeViewDiag.Location = new System.Drawing.Point(378, 161);
+            this.treeViewDiag.Location = new System.Drawing.Point(378, 165);
             this.treeViewDiag.Name = "treeViewDiag";
             this.treeViewDiag.ShowPlusMinus = false;
             this.treeViewDiag.ShowRootLines = false;
-            this.treeViewDiag.Size = new System.Drawing.Size(335, 215);
+            this.treeViewDiag.Size = new System.Drawing.Size(335, 217);
             this.treeViewDiag.TabIndex = 2;
             this.treeViewDiag.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.TreeViewDiag_AfterSelect);
             this.treeViewDiag.MouseDown += new System.Windows.Forms.MouseEventHandler(this.TreeViewcompl_MouseDown);
@@ -1778,7 +1918,7 @@
             this.BtnAddDiag.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnAddDiag.Location = new System.Drawing.Point(378, 115);
             this.BtnAddDiag.Name = "BtnAddDiag";
-            this.BtnAddDiag.Size = new System.Drawing.Size(335, 20);
+            this.BtnAddDiag.Size = new System.Drawing.Size(335, 24);
             this.BtnAddDiag.TabIndex = 3;
             this.BtnAddDiag.Text = "Додати";
             this.BtnAddDiag.UseVisualStyleBackColor = true;
@@ -1788,7 +1928,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label11.Location = new System.Drawing.Point(378, 138);
+            this.label11.Location = new System.Drawing.Point(378, 142);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(335, 20);
             this.label11.TabIndex = 1;
@@ -1857,8 +1997,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel6.ColumnCount = 3;
             this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.tableLayoutPanel6.Controls.Add(this.label5, 0, 0);
             this.tableLayoutPanel6.Controls.Add(this.button3, 2, 1);
             this.tableLayoutPanel6.Controls.Add(this.PaidGB, 0, 5);
@@ -1877,8 +2017,8 @@
             this.tableLayoutPanel6.Location = new System.Drawing.Point(8, 6);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 6;
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
-            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
@@ -1892,18 +2032,17 @@
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Location = new System.Drawing.Point(3, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(222, 26);
+            this.label5.Size = new System.Drawing.Size(222, 30);
             this.label5.TabIndex = 1;
             this.label5.Text = "Прийом";
             this.label5.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
             // button3
             // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.Location = new System.Drawing.Point(459, 29);
+            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button3.Location = new System.Drawing.Point(459, 33);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(223, 20);
+            this.button3.Size = new System.Drawing.Size(223, 24);
             this.button3.TabIndex = 11;
             this.button3.Text = "Змінити прийом";
             this.button3.UseVisualStyleBackColor = true;
@@ -1923,9 +2062,9 @@
             this.PaidGB.Controls.Add(this.button6);
             this.PaidGB.Controls.Add(this.textBox1);
             this.PaidGB.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PaidGB.Location = new System.Drawing.Point(3, 208);
+            this.PaidGB.Location = new System.Drawing.Point(3, 213);
             this.PaidGB.Name = "PaidGB";
-            this.PaidGB.Size = new System.Drawing.Size(679, 156);
+            this.PaidGB.Size = new System.Drawing.Size(679, 151);
             this.PaidGB.TabIndex = 24;
             this.PaidGB.TabStop = false;
             this.PaidGB.Text = "Оплата послуг";
@@ -1947,7 +2086,7 @@
             this.treeView1.Location = new System.Drawing.Point(3, 32);
             this.treeView1.Name = "treeView1";
             this.treeView1.ShowLines = false;
-            this.treeView1.Size = new System.Drawing.Size(428, 122);
+            this.treeView1.Size = new System.Drawing.Size(428, 117);
             this.treeView1.TabIndex = 13;
             // 
             // label31
@@ -2033,7 +2172,7 @@
             this.AppointBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AppointBox.FormatString = "t";
             this.AppointBox.FormattingEnabled = true;
-            this.AppointBox.Location = new System.Drawing.Point(3, 29);
+            this.AppointBox.Location = new System.Drawing.Point(3, 33);
             this.AppointBox.Name = "AppointBox";
             this.AppointBox.Size = new System.Drawing.Size(222, 21);
             this.AppointBox.TabIndex = 0;
@@ -2051,12 +2190,12 @@
             this.HealingTreeDiag.Dock = System.Windows.Forms.DockStyle.Fill;
             this.HealingTreeDiag.HideSelection = false;
             this.HealingTreeDiag.HotTracking = true;
-            this.HealingTreeDiag.Location = new System.Drawing.Point(3, 75);
+            this.HealingTreeDiag.Location = new System.Drawing.Point(3, 83);
             this.HealingTreeDiag.Name = "HealingTreeDiag";
             this.HealingTreeDiag.ShowLines = false;
             this.HealingTreeDiag.ShowPlusMinus = false;
             this.HealingTreeDiag.ShowRootLines = false;
-            this.HealingTreeDiag.Size = new System.Drawing.Size(222, 101);
+            this.HealingTreeDiag.Size = new System.Drawing.Size(222, 98);
             this.HealingTreeDiag.TabIndex = 22;
             this.HealingTreeDiag.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.HealingTreeDiag_AfterSelect);
             // 
@@ -2066,7 +2205,7 @@
             this.includesChkBx.Checked = true;
             this.includesChkBx.CheckState = System.Windows.Forms.CheckState.Checked;
             this.includesChkBx.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.includesChkBx.Location = new System.Drawing.Point(231, 182);
+            this.includesChkBx.Location = new System.Drawing.Point(231, 187);
             this.includesChkBx.Name = "includesChkBx";
             this.includesChkBx.Size = new System.Drawing.Size(222, 20);
             this.includesChkBx.TabIndex = 18;
@@ -2077,7 +2216,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label26.Location = new System.Drawing.Point(3, 52);
+            this.label26.Location = new System.Drawing.Point(3, 60);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(222, 20);
             this.label26.TabIndex = 20;
@@ -2087,7 +2226,7 @@
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Location = new System.Drawing.Point(3, 182);
+            this.button1.Location = new System.Drawing.Point(3, 187);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(222, 20);
             this.button1.TabIndex = 7;
@@ -2100,16 +2239,16 @@
             this.MatTree.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.MatTree.CheckBoxes = true;
             this.MatTree.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MatTree.Location = new System.Drawing.Point(459, 75);
+            this.MatTree.Location = new System.Drawing.Point(459, 83);
             this.MatTree.Name = "MatTree";
-            this.MatTree.Size = new System.Drawing.Size(223, 101);
+            this.MatTree.Size = new System.Drawing.Size(223, 98);
             this.MatTree.TabIndex = 8;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label6.Location = new System.Drawing.Point(459, 52);
+            this.label6.Location = new System.Drawing.Point(459, 60);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(223, 20);
             this.label6.TabIndex = 9;
@@ -2122,7 +2261,7 @@
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Location = new System.Drawing.Point(231, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(222, 26);
+            this.label7.Size = new System.Drawing.Size(222, 30);
             this.label7.TabIndex = 1;
             this.label7.Text = "Пошук послуги";
             this.label7.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
@@ -2132,7 +2271,7 @@
             this.ServSearch.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
             this.ServSearch.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.ServSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ServSearch.Location = new System.Drawing.Point(231, 29);
+            this.ServSearch.Location = new System.Drawing.Point(231, 33);
             this.ServSearch.Name = "ServSearch";
             this.ServSearch.Size = new System.Drawing.Size(222, 20);
             this.ServSearch.TabIndex = 5;
@@ -2144,12 +2283,12 @@
             this.ServTree.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ServTree.HideSelection = false;
             this.ServTree.HotTracking = true;
-            this.ServTree.Location = new System.Drawing.Point(231, 75);
+            this.ServTree.Location = new System.Drawing.Point(231, 83);
             this.ServTree.Name = "ServTree";
             this.ServTree.ShowLines = false;
             this.ServTree.ShowPlusMinus = false;
             this.ServTree.ShowRootLines = false;
-            this.ServTree.Size = new System.Drawing.Size(222, 101);
+            this.ServTree.Size = new System.Drawing.Size(222, 98);
             this.ServTree.TabIndex = 6;
             this.ServTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.ServTree_AfterSelect);
             // 
@@ -2157,7 +2296,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label14.Location = new System.Drawing.Point(231, 52);
+            this.label14.Location = new System.Drawing.Point(231, 60);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(222, 20);
             this.label14.TabIndex = 4;
@@ -2166,9 +2305,10 @@
             // 
             // EndAppointm
             // 
+            this.EndAppointm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.EndAppointm.Location = new System.Drawing.Point(459, 3);
             this.EndAppointm.Name = "EndAppointm";
-            this.EndAppointm.Size = new System.Drawing.Size(223, 20);
+            this.EndAppointm.Size = new System.Drawing.Size(223, 24);
             this.EndAppointm.TabIndex = 25;
             this.EndAppointm.Text = "Завершити прийом";
             this.EndAppointm.UseVisualStyleBackColor = true;
@@ -2320,21 +2460,20 @@
             this.notifyIcon.Text = "notifyIcon1";
             this.notifyIcon.Visible = true;
             // 
-            // errorProvider1
-            // 
-            this.errorProvider1.ContainerControl = this;
-            this.errorProvider1.RightToLeft = true;
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(710, 469);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.MainTab);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.DoubleBuffered = true;
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.helpProvider1.SetHelpKeyword(this, "4");
             this.helpProvider1.SetHelpNavigator(this, System.Windows.Forms.HelpNavigator.TopicId);
             this.helpProvider1.SetHelpString(this, "4");
@@ -2343,7 +2482,9 @@
             this.MinimumSize = new System.Drawing.Size(726, 497);
             this.Name = "MainForm";
             this.helpProvider1.SetShowHelp(this, true);
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Стоматологічний додаток";
+            this.TransparencyKey = System.Drawing.Color.DarkGray;
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.MdiChildActivate += new System.EventHandler(this.MainForm_MdiChildActivate);
             this.menuStrip1.ResumeLayout(false);
@@ -2403,7 +2544,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.appointmentappointmentservicesBindingSource)).EndInit();
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2612,7 +2752,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn finddateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_diag_patient;
         private System.Windows.Forms.NotifyIcon notifyIcon;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.ToolStripMenuItem адмініструванняToolStripMenuItem;
     }
 }
 

@@ -29,5 +29,9 @@
         {
             Settings.Default.ConnectionStr = @"Provider = Microsoft.ACE.OLEDB.12.0; Data Source = " + text + @"; OLE DB Services = -1;";
         }
+        public void ChangePass(string text)
+        {
+            Settings.Default.Pass = text;
+        }
     }
 }

@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DateCalendar = new System.Windows.Forms.MonthCalendar();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.doctorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -128,9 +128,9 @@
             // 
             this.patient.DataPropertyName = "patient";
             this.patient.DataSource = this.patientsBindingSource;
-            dataGridViewCellStyle6.NullValue = "--";
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.patient.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.NullValue = "--";
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.patient.DefaultCellStyle = dataGridViewCellStyle1;
             this.patient.DisplayMember = "full_name";
             this.patient.HeaderText = "Пацієнт";
             this.patient.Name = "patient";
@@ -160,6 +160,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.Day1Grid.AutoGenerateColumns = false;
             this.Day1Grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Day1Grid.BackgroundColor = System.Drawing.SystemColors.Info;
             this.Day1Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Day1Grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.patientDataGridViewTextBoxColumn2,
@@ -167,6 +168,7 @@
             this.dataGridViewTextBoxColumn1,
             this.started});
             this.Day1Grid.DataSource = this.bindingSource1;
+            this.Day1Grid.GridColor = System.Drawing.SystemColors.Desktop;
             this.Day1Grid.Location = new System.Drawing.Point(19, 222);
             this.Day1Grid.MultiSelect = false;
             this.Day1Grid.Name = "Day1Grid";
@@ -186,6 +188,7 @@
             this.patientDataGridViewTextBoxColumn2.DataPropertyName = "patient";
             this.patientDataGridViewTextBoxColumn2.DataSource = this.patientsBindingSource;
             this.patientDataGridViewTextBoxColumn2.DisplayMember = "full_name";
+            this.patientDataGridViewTextBoxColumn2.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.patientDataGridViewTextBoxColumn2.Frozen = true;
             this.patientDataGridViewTextBoxColumn2.HeaderText = "Пацієнт";
             this.patientDataGridViewTextBoxColumn2.Name = "patientDataGridViewTextBoxColumn2";
@@ -199,8 +202,8 @@
             // 
             this.timeDataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
             this.timeDataGridViewTextBoxColumn2.DataPropertyName = "time";
-            dataGridViewCellStyle7.Format = "t";
-            this.timeDataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.Format = "t";
+            this.timeDataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
             this.timeDataGridViewTextBoxColumn2.FillWeight = 39F;
             this.timeDataGridViewTextBoxColumn2.HeaderText = "Час";
             this.timeDataGridViewTextBoxColumn2.Name = "timeDataGridViewTextBoxColumn2";
@@ -235,6 +238,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.Day3Grid.AutoGenerateColumns = false;
             this.Day3Grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Day3Grid.BackgroundColor = System.Drawing.SystemColors.Info;
             this.Day3Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Day3Grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.patientDataGridViewTextBoxColumn,
@@ -242,6 +246,7 @@
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewCheckBoxColumn2});
             this.Day3Grid.DataSource = this.bindingSource3;
+            this.Day3Grid.GridColor = System.Drawing.SystemColors.Desktop;
             this.Day3Grid.Location = new System.Drawing.Point(425, 221);
             this.Day3Grid.MultiSelect = false;
             this.Day3Grid.Name = "Day3Grid";
@@ -260,6 +265,7 @@
             this.patientDataGridViewTextBoxColumn.DataPropertyName = "patient";
             this.patientDataGridViewTextBoxColumn.DataSource = this.patientsBindingSource;
             this.patientDataGridViewTextBoxColumn.DisplayMember = "full_name";
+            this.patientDataGridViewTextBoxColumn.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.patientDataGridViewTextBoxColumn.HeaderText = "Пацієнт";
             this.patientDataGridViewTextBoxColumn.Name = "patientDataGridViewTextBoxColumn";
             this.patientDataGridViewTextBoxColumn.ReadOnly = true;
@@ -270,8 +276,8 @@
             // timeDataGridViewTextBoxColumn
             // 
             this.timeDataGridViewTextBoxColumn.DataPropertyName = "time";
-            dataGridViewCellStyle8.Format = "t";
-            this.timeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle3.Format = "t";
+            this.timeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
             this.timeDataGridViewTextBoxColumn.FillWeight = 39F;
             this.timeDataGridViewTextBoxColumn.HeaderText = "Час";
             this.timeDataGridViewTextBoxColumn.Name = "timeDataGridViewTextBoxColumn";
@@ -305,6 +311,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.Day4Grid.AutoGenerateColumns = false;
             this.Day4Grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Day4Grid.BackgroundColor = System.Drawing.SystemColors.Info;
             this.Day4Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Day4Grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.patientDataGridViewTextBoxColumn3,
@@ -312,6 +319,7 @@
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewCheckBoxColumn3});
             this.Day4Grid.DataSource = this.bindingSource4;
+            this.Day4Grid.GridColor = System.Drawing.SystemColors.Desktop;
             this.Day4Grid.Location = new System.Drawing.Point(628, 221);
             this.Day4Grid.MultiSelect = false;
             this.Day4Grid.Name = "Day4Grid";
@@ -330,6 +338,7 @@
             this.patientDataGridViewTextBoxColumn3.DataPropertyName = "patient";
             this.patientDataGridViewTextBoxColumn3.DataSource = this.patientsBindingSource;
             this.patientDataGridViewTextBoxColumn3.DisplayMember = "full_name";
+            this.patientDataGridViewTextBoxColumn3.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.patientDataGridViewTextBoxColumn3.HeaderText = "Пацієнт";
             this.patientDataGridViewTextBoxColumn3.Name = "patientDataGridViewTextBoxColumn3";
             this.patientDataGridViewTextBoxColumn3.ReadOnly = true;
@@ -340,8 +349,8 @@
             // time
             // 
             this.time.DataPropertyName = "time";
-            dataGridViewCellStyle9.Format = "t";
-            this.time.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.Format = "t";
+            this.time.DefaultCellStyle = dataGridViewCellStyle4;
             this.time.FillWeight = 39F;
             this.time.HeaderText = "Час";
             this.time.Name = "time";
@@ -550,6 +559,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.Day2Grid.AutoGenerateColumns = false;
             this.Day2Grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.Day2Grid.BackgroundColor = System.Drawing.SystemColors.Info;
             this.Day2Grid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Day2Grid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn7,
@@ -557,6 +567,7 @@
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewCheckBoxColumn1});
             this.Day2Grid.DataSource = this.bindingSource2;
+            this.Day2Grid.GridColor = System.Drawing.SystemColors.Desktop;
             this.Day2Grid.Location = new System.Drawing.Point(222, 222);
             this.Day2Grid.MultiSelect = false;
             this.Day2Grid.Name = "Day2Grid";
@@ -575,6 +586,7 @@
             this.dataGridViewTextBoxColumn7.DataPropertyName = "patient";
             this.dataGridViewTextBoxColumn7.DataSource = this.patientsBindingSource;
             this.dataGridViewTextBoxColumn7.DisplayMember = "full_name";
+            this.dataGridViewTextBoxColumn7.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
             this.dataGridViewTextBoxColumn7.HeaderText = "Пацієнт";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
@@ -585,8 +597,8 @@
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "time";
-            dataGridViewCellStyle10.Format = "t";
-            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Format = "t";
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewTextBoxColumn8.FillWeight = 39F;
             this.dataGridViewTextBoxColumn8.HeaderText = "Час";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
@@ -706,6 +718,11 @@
         private System.Windows.Forms.BindingSource bindingSource1;
         private System.Windows.Forms.DataGridView Day2Grid;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.HelpProvider helpProvider1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn patientDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn timeDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn started;
         private System.Windows.Forms.DataGridViewComboBoxColumn patientDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn timeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
@@ -718,10 +735,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn patientDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn timeDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn started;
-        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

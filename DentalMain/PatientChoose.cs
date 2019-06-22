@@ -18,7 +18,6 @@ namespace DentalMain
 
         private void PatientChoose_Load(object sender, EventArgs e)
         {
-            // TODO: данная строка кода позволяет загрузить данные в таблицу "dBDS.patients". При необходимости она может быть перемещена или удалена.
             this.patientsTableAdapter.Fill(this.dBDS.patients);
             helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
         }
@@ -35,12 +34,16 @@ namespace DentalMain
             }
         }
 
+        public int idforadd=0;
         private void button1_Click(object sender, EventArgs e)
         {
             PatientAdd f = new PatientAdd();
-            f.ShowDialog();
-            patientsTableAdapter.Fill(dBDS.patients);
-            if (Application.OpenForms["MainForm"] is MainForm u) u.UpdateWithSavePos();
+            f.Owner = this;
+            if (f.ShowDialog() == DialogResult.OK)
+            {
+                patientsTableAdapter.Fill(dBDS.patients);
+                patientsBindingSource.Position = patientsBindingSource.Find("id_patient", idforadd);
+            }
         }
 
         private void dataGridView1_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)

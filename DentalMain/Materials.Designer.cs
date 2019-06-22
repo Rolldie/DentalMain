@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.MatGrid = new System.Windows.Forms.DataGridView();
+            this.id_material = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.namematerialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.datagridcomb = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.змінитиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.видалитиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,9 +49,6 @@
             this.AddBtn = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
-            this.id_material = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.namematerialDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.MatGrid)).BeginInit();
             this.datagridcomb.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.materialsBindingSource)).BeginInit();
@@ -65,6 +65,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MatGrid.AutoGenerateColumns = false;
             this.MatGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.MatGrid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.MatGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MatGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_material,
@@ -81,6 +82,27 @@
             this.MatGrid.TabIndex = 0;
             this.MatGrid.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.MatGrid_CellMouseDown);
             this.MatGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
+            // 
+            // id_material
+            // 
+            this.id_material.DataPropertyName = "id_material";
+            this.id_material.HeaderText = "id_material";
+            this.id_material.Name = "id_material";
+            this.id_material.ReadOnly = true;
+            this.id_material.Visible = false;
+            // 
+            // namematerialDataGridViewTextBoxColumn
+            // 
+            this.namematerialDataGridViewTextBoxColumn.DataPropertyName = "name_material";
+            this.namematerialDataGridViewTextBoxColumn.HeaderText = "Назва матеріалу";
+            this.namematerialDataGridViewTextBoxColumn.Name = "namematerialDataGridViewTextBoxColumn";
+            // 
+            // costDataGridViewTextBoxColumn
+            // 
+            this.costDataGridViewTextBoxColumn.DataPropertyName = "cost";
+            this.costDataGridViewTextBoxColumn.FillWeight = 30F;
+            this.costDataGridViewTextBoxColumn.HeaderText = "Ціна";
+            this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
             // 
             // datagridcomb
             // 
@@ -204,27 +226,6 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = "*.jpg|*.png";
-            // 
-            // id_material
-            // 
-            this.id_material.DataPropertyName = "id_material";
-            this.id_material.HeaderText = "id_material";
-            this.id_material.Name = "id_material";
-            this.id_material.ReadOnly = true;
-            this.id_material.Visible = false;
-            // 
-            // namematerialDataGridViewTextBoxColumn
-            // 
-            this.namematerialDataGridViewTextBoxColumn.DataPropertyName = "name_material";
-            this.namematerialDataGridViewTextBoxColumn.HeaderText = "Назва матеріалу";
-            this.namematerialDataGridViewTextBoxColumn.Name = "namematerialDataGridViewTextBoxColumn";
-            // 
-            // costDataGridViewTextBoxColumn
-            // 
-            this.costDataGridViewTextBoxColumn.DataPropertyName = "cost";
-            this.costDataGridViewTextBoxColumn.FillWeight = 30F;
-            this.costDataGridViewTextBoxColumn.HeaderText = "Ціна";
-            this.costDataGridViewTextBoxColumn.Name = "costDataGridViewTextBoxColumn";
             // 
             // Materials
             // 

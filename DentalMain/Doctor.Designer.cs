@@ -138,6 +138,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.doctorGrid.AutoGenerateColumns = false;
             this.doctorGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.doctorGrid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.doctorGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.doctorGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iddoctorDataGridViewTextBoxColumn,

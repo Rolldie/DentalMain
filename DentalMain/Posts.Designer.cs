@@ -57,6 +57,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PostGrid.AutoGenerateColumns = false;
             this.PostGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.PostGrid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.PostGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PostGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idpostdocDataGridViewTextBoxColumn,

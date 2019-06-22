@@ -19,7 +19,7 @@ namespace DentalMain
 
         private void Patient_Load(object sender, EventArgs e)
         {
-            ThreadingUpdateFalse();
+            UpdateData();
             FieldBx.SelectedIndex = 0;
             helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
         }
@@ -57,47 +57,24 @@ namespace DentalMain
             PatientAdd f = new PatientAdd();
             f.Owner = this;
             f.ShowDialog();
-            ThreadingUpdateTrue();
         }
-        public void ThreadingUpdateFalse()
-        {
-            UpdateData(false);
-        }
-        public void ThreadingUpdateTrue()
-        {
-            UpdateData(true);
-        }
-        public void ResetBind()
-        {
-            patientsBindingSource.ResetBindings(false);
-        }
-        public delegate void frst();
-        public delegate void scnd(int dx);
-        public int indexforadd = 0;
-        public void UpdateData(bool fk)
+        public void UpdateData()
         { 
-            if (fk)
+            int rowin = -1;
+            if (a != null)
             {
-                this.patientsTableAdapter.Fill(this.dBDS.patients);
-                patientsBindingSource.Sort = "id_patient";
-                patientsBindingSource.MoveLast();
+                rowin = PatientGrid.SelectedRows[0].Index;
             }
-            else
+            this.patientsTableAdapter.Fill(this.dBDS.patients);
+            if (rowin != -1)
             {
-                int rowin = -1;
-                if (a != null)
-                {
-                    rowin = PatientGrid.SelectedRows[0].Index;
-                }
-                this.patientsTableAdapter.Fill(this.dBDS.patients);
-                frst ua = new frst(ResetBind);
-                BeginInvoke(ua);
-                if (rowin != -1)
-                {
-                    scnd arma = new scnd(RowSelector);
-                    BeginInvoke(arma, rowin);
-                }
-            }   
+                RowSelector(rowin);
+            }
+        }
+        public void UpdateData(int id)
+        {
+            this.patientsTableAdapter.Fill(this.dBDS.patients);
+            patientsBindingSource.Position = patientsBindingSource.Find("id_patient", id);
         }
 
         private void FieldBx_SelectedIndexChanged(object sender, EventArgs e)
@@ -149,7 +126,7 @@ namespace DentalMain
             PatientChng f = new PatientChng((int)PatientGrid.Rows[a.RowIndex].Cells[0].Value);
             f.Owner = this;
             f.ShowDialog();
-            ThreadingUpdateFalse();
+            UpdateData();
         }
 
         private void PatientGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)

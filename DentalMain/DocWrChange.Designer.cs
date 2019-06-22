@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.doctorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dBDS = new DentalMain.dBDS();
@@ -286,6 +286,7 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridView1.AutoGenerateColumns = false;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.timeDataGridViewTextBoxColumn,
@@ -302,8 +303,8 @@
             // timeDataGridViewTextBoxColumn
             // 
             this.timeDataGridViewTextBoxColumn.DataPropertyName = "time";
-            dataGridViewCellStyle3.Format = "t";
-            this.timeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Format = "t";
+            this.timeDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
             this.timeDataGridViewTextBoxColumn.HeaderText = "Час";
             this.timeDataGridViewTextBoxColumn.Name = "timeDataGridViewTextBoxColumn";
             // 

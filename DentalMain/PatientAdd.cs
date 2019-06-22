@@ -48,18 +48,17 @@ namespace DentalMain
                 return;
             }
             DialogResult = DialogResult.OK;
-            if (Application.OpenForms["MainForm"] is MainForm a)
+            int maxind = 0;
+            foreach (dBDS.patientsRow am in dBDS.patients)
             {
-                int maxind = 0;
-                {
-                    foreach (dBDS.patientsRow am in dBDS.patients)
-                    {
-                        if (am.id_patient > maxind) maxind = am.id_patient;
-                    }
-                }
+                if (am.id_patient > maxind) maxind = am.id_patient;
+            }
+            if (Owner is MainForm a)
+            {
                 a.UpdatePatient(maxind);
             }
-            if (Application.OpenForms["Patient"] is Patient f) {  f.ThreadingUpdateTrue(); }
+            else if (Owner is Patient f) f.UpdateData(maxind);
+            else if (Owner is PatientChoose m) m.idforadd = maxind;
             Close();
         }
 
