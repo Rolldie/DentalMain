@@ -18,8 +18,9 @@ namespace DentalMain
             a = null;
         }
         public delegate void frst();
-        public void Updater()
+        public new void Update()
         {
+          //  base.Update();
             this.doctorsTableAdapter.Fill(this.dBDS.doctors);
             this.postTableAdapter.Fill(this.dBDS.post);
             this.post_doctorTableAdapter.Fill(this.dBDS.post_doctor);
@@ -54,7 +55,7 @@ namespace DentalMain
 
         private void Doctor_Load(object sender, EventArgs e)
         {
-            Updater();
+            Update();
             CreatingFieldsSearch();
             helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
 
@@ -68,7 +69,7 @@ namespace DentalMain
             }
             else
             {
-                Updater();
+                Update();
                 secretCmbBx.Visible = false;
             }
         }
@@ -76,19 +77,19 @@ namespace DentalMain
         private void CancelBtn_Click(object sender, EventArgs e)
         {
             doctorsBindingSource.Filter = "";
-            Updater();
+            Update();
         }
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
             DoctorAdd a = new DoctorAdd();
-            try { a.ShowDialog(); Updater();} catch { return; }
+            try { a.ShowDialog(); Update();} catch { return; }
             
         }
 
         private void Doctor_Activated(object sender, EventArgs e)
         {
-            Updater();
+            Update();
         }
 
         private void ИзменитьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -110,6 +111,14 @@ namespace DentalMain
                     Chek = false;
                     RowSelector(e.RowIndex);
                     a = e;
+                    if ((bool)doctorGrid[2, e.RowIndex].Value)
+                    {
+                        звільнитиЛікаряToolStripMenuItem.Text = "Відмінити вилучення";
+                    }
+                    else
+                    {
+                        звільнитиЛікаряToolStripMenuItem.Text = "Вилучити лікаря";
+                    }
                 }
                 else
                     Chek = true;
@@ -144,6 +153,20 @@ namespace DentalMain
                     doctorGrid.CurrentCell = doctorGrid[0, e.RowIndex];
                 }
             }
+        }
+
+        private void ЗвільнитиЛікаряToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool bl = (bool)doctorGrid[2, a.RowIndex].Value;
+            if(bl)
+            {
+                this.dBDS.doctors.FindByid_doctor((int)doctorGrid[0, a.RowIndex].Value).fired = false;
+            }
+            else
+            {
+                this.dBDS.doctors.FindByid_doctor((int)doctorGrid[0, a.RowIndex].Value).fired = true;
+            }
+            this.doctorsTableAdapter.Update(dBDS.doctors);
         }
     }
 }

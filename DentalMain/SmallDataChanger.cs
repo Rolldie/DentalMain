@@ -102,27 +102,27 @@ namespace DentalMain
             string jk = textBox1.Text.ToLower();
             if (usepoint == "Compl")
             {
-                possibleComplTableAdapter.Update(jk, indofdata, prevdata);
+                possibleComplTableAdapter.Update(jk,false, indofdata, prevdata,false);
             }
             else if (usepoint == "AnmAll")
             {
-                diseases_anamTableAdapter.Update(jk, typeofanm, indofdata, prevdata, typeofanm);
+                diseases_anamTableAdapter.Update(jk, typeofanm,false, indofdata, prevdata, typeofanm,false);
             }
             else if (usepoint == "Pln")
             {
-                possiblePltsTableAdapter.Update(jk, indofdata, prevdata);
+                possiblePltsTableAdapter.Update(jk,false, indofdata, prevdata,false);
             }
             else if (usepoint == "AnmDis")
             {
-                anamndis_diseasesTableAdapter.Update(jk, indofdata, prevdata);
+                anamndis_diseasesTableAdapter.Update(jk,false, indofdata, prevdata,false);
             }
             else if (usepoint == "Diag")
             {
-                diagnosisTableAdapter.Update(jk, indofdata, prevdata);
+                diagnosisTableAdapter.Update(jk,false, indofdata, prevdata,false);
             }
             else if(usepoint=="Obj")
             {
-                possibleObjectiveTableAdapter.Update(jk, indofdata, prevdata);
+                possibleObjectiveTableAdapter.Update(jk,false, indofdata, prevdata,false);
             }
             DialogResult = DialogResult.OK;
             Close();

@@ -400,21 +400,23 @@
             // налаштуванняToolStripMenuItem1
             // 
             this.налаштуванняToolStripMenuItem1.Name = "налаштуванняToolStripMenuItem1";
-            this.налаштуванняToolStripMenuItem1.Size = new System.Drawing.Size(162, 22);
+            this.налаштуванняToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
             this.налаштуванняToolStripMenuItem1.Text = "Налаштування";
             this.налаштуванняToolStripMenuItem1.Click += new System.EventHandler(this.НалаштуванняToolStripMenuItem1_Click);
             // 
             // проАвтораToolStripMenuItem
             // 
+            this.проАвтораToolStripMenuItem.Enabled = false;
             this.проАвтораToolStripMenuItem.Name = "проАвтораToolStripMenuItem";
-            this.проАвтораToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.проАвтораToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.проАвтораToolStripMenuItem.Text = "Про автора";
             this.проАвтораToolStripMenuItem.Click += new System.EventHandler(this.ПроАвтораToolStripMenuItem_Click);
             // 
             // адмініструванняToolStripMenuItem
             // 
+            this.адмініструванняToolStripMenuItem.Enabled = false;
             this.адмініструванняToolStripMenuItem.Name = "адмініструванняToolStripMenuItem";
-            this.адмініструванняToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.адмініструванняToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.адмініструванняToolStripMenuItem.Text = "Адміністрування";
             this.адмініструванняToolStripMenuItem.Click += new System.EventHandler(this.АдмініструванняToolStripMenuItem_Click);
             // 
@@ -592,7 +594,7 @@
             // textBox2
             // 
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.textBox2.Location = new System.Drawing.Point(166, 218);
+            this.textBox2.Location = new System.Drawing.Point(164, 220);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(105, 20);
             this.textBox2.TabIndex = 13;
@@ -601,7 +603,7 @@
             // AddPaided
             // 
             this.AddPaided.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddPaided.Location = new System.Drawing.Point(10, 218);
+            this.AddPaided.Location = new System.Drawing.Point(8, 218);
             this.AddPaided.Name = "AddPaided";
             this.AddPaided.Size = new System.Drawing.Size(150, 23);
             this.AddPaided.TabIndex = 12;
@@ -1854,7 +1856,6 @@
             this.dataGridView2.TabIndex = 0;
             this.dataGridView2.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DataGridView2_DataBindingComplete);
             this.dataGridView2.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DataGridView2_DataError);
-            this.dataGridView2.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.DataGridView2_UserDeletingRow);
             // 
             // diagnosisDataGridViewTextBoxColumn
             // 

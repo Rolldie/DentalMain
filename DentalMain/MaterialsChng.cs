@@ -56,7 +56,7 @@ namespace DentalMain
                 }
                 else b = null;
                 dBDS.materialsRow a= dBDS.materials.FindByid_material(id);
-                materialsTableAdapter.Update(MatTextBox.Text.ToLower(), f, b, a.id_material, a.name_material.ToLower(), a.cost);
+                materialsTableAdapter.Update(MatTextBox.Text.ToLower(), f, b,false, a.id_material, a.name_material.ToLower(), a.cost,false);
                 if (Application.OpenForms["MainForm"] is MainForm u) u.UpdateWithSavePos();
                 DialogResult = DialogResult.OK;
                 Close();

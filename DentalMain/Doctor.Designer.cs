@@ -39,8 +39,10 @@
             this.doctorGrid = new System.Windows.Forms.DataGridView();
             this.iddoctorDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fired = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.GridContm = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.изменитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.звільнитиЛікаряToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.doctorsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dBDS = new DentalMain.dBDS();
             this.doctorspostdoctorBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -142,7 +144,8 @@
             this.doctorGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.doctorGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.iddoctorDataGridViewTextBoxColumn,
-            this.fullnameDataGridViewTextBoxColumn});
+            this.fullnameDataGridViewTextBoxColumn,
+            this.fired});
             this.doctorGrid.ContextMenuStrip = this.GridContm;
             this.doctorGrid.DataSource = this.doctorsBindingSource;
             this.doctorGrid.Location = new System.Drawing.Point(12, 61);
@@ -150,7 +153,7 @@
             this.doctorGrid.Name = "doctorGrid";
             this.doctorGrid.RowHeadersVisible = false;
             this.doctorGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.doctorGrid.Size = new System.Drawing.Size(380, 86);
+            this.doctorGrid.Size = new System.Drawing.Size(380, 147);
             this.doctorGrid.TabIndex = 7;
             this.doctorGrid.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DoctorGrid_CellMouseDoubleClick);
             this.doctorGrid.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DoctorGrid_CellMouseDown);
@@ -169,20 +172,35 @@
             this.fullnameDataGridViewTextBoxColumn.HeaderText = "ПІБ доктора";
             this.fullnameDataGridViewTextBoxColumn.Name = "fullnameDataGridViewTextBoxColumn";
             // 
+            // fired
+            // 
+            this.fired.DataPropertyName = "fired";
+            this.fired.HeaderText = "fired";
+            this.fired.Name = "fired";
+            this.fired.Visible = false;
+            // 
             // GridContm
             // 
             this.GridContm.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.изменитьToolStripMenuItem});
+            this.изменитьToolStripMenuItem,
+            this.звільнитиЛікаряToolStripMenuItem});
             this.GridContm.Name = "GridContm";
-            this.GridContm.Size = new System.Drawing.Size(120, 26);
+            this.GridContm.Size = new System.Drawing.Size(168, 48);
             this.GridContm.Opening += new System.ComponentModel.CancelEventHandler(this.GridContm_Opening);
             // 
             // изменитьToolStripMenuItem
             // 
             this.изменитьToolStripMenuItem.Name = "изменитьToolStripMenuItem";
-            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
+            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
             this.изменитьToolStripMenuItem.Text = "Змінити";
             this.изменитьToolStripMenuItem.Click += new System.EventHandler(this.ИзменитьToolStripMenuItem_Click);
+            // 
+            // звільнитиЛікаряToolStripMenuItem
+            // 
+            this.звільнитиЛікаряToolStripMenuItem.Name = "звільнитиЛікаряToolStripMenuItem";
+            this.звільнитиЛікаряToolStripMenuItem.Size = new System.Drawing.Size(167, 22);
+            this.звільнитиЛікаряToolStripMenuItem.Text = "Звільнити лікаря";
+            this.звільнитиЛікаряToolStripMenuItem.Click += new System.EventHandler(this.ЗвільнитиЛікаряToolStripMenuItem_Click);
             // 
             // doctorsBindingSource
             // 
@@ -229,7 +247,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(401, 159);
+            this.ClientSize = new System.Drawing.Size(401, 220);
             this.Controls.Add(this.secretCmbBx);
             this.Controls.Add(this.doctorGrid);
             this.Controls.Add(this.CancelBtn);
@@ -279,8 +297,10 @@
         private System.Windows.Forms.BindingSource postBindingSource;
         private System.Windows.Forms.ContextMenuStrip GridContm;
         private System.Windows.Forms.ToolStripMenuItem изменитьToolStripMenuItem;
+        private System.Windows.Forms.HelpProvider helpProvider1;
+        private System.Windows.Forms.ToolStripMenuItem звільнитиЛікаряToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn iddoctorDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fullnameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.HelpProvider helpProvider1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn fired;
     }
 }

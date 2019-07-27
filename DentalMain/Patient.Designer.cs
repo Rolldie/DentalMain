@@ -94,7 +94,7 @@
             this.изменитьToolStripMenuItem,
             this.відмітитиДляВилученняToolStripMenuItem});
             this.GridContm.Name = "GridContm";
-            this.GridContm.Size = new System.Drawing.Size(211, 48);
+            this.GridContm.Size = new System.Drawing.Size(181, 70);
             this.GridContm.Opening += new System.ComponentModel.CancelEventHandler(this.GridContm_Opening);
             // 
             // изменитьToolStripMenuItem
@@ -107,8 +107,8 @@
             // відмітитиДляВилученняToolStripMenuItem
             // 
             this.відмітитиДляВилученняToolStripMenuItem.Name = "відмітитиДляВилученняToolStripMenuItem";
-            this.відмітитиДляВилученняToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
-            this.відмітитиДляВилученняToolStripMenuItem.Text = "Відмітити для вилучення";
+            this.відмітитиДляВилученняToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.відмітитиДляВилученняToolStripMenuItem.Text = "Вилучити";
             this.відмітитиДляВилученняToolStripMenuItem.Click += new System.EventHandler(this.ВідмітитиДляВилученняToolStripMenuItem_Click);
             // 
             // patientsBindingSource
@@ -248,6 +248,7 @@
             this.delete.HeaderText = "Потрібно вилучити";
             this.delete.Name = "delete";
             this.delete.ReadOnly = true;
+            this.delete.Visible = false;
             // 
             // Patient
             // 

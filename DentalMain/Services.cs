@@ -93,7 +93,7 @@ namespace DentalMain
         {
             if (MessageBox.Show("Ви дійсно хочите вилучити цю послугу?", "Додаток Стоматологія", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                servicesTableAdapter.Delete((int)ServGrid.Rows[a.RowIndex].Cells[0].Value, ServGrid.Rows[a.RowIndex].Cells[1].Value.ToString(),(decimal)ServGrid.Rows[a.RowIndex].Cells[2].Value);
+                servicesTableAdapter.Delete((int)ServGrid.Rows[a.RowIndex].Cells[0].Value, ServGrid.Rows[a.RowIndex].Cells[1].Value.ToString(),(decimal)ServGrid.Rows[a.RowIndex].Cells[2].Value,false);
                 Updater();
                 if (Application.OpenForms["ServicesAndPosts"] is ServicesAndPosts f) f.Updating();
                 if (Application.OpenForms["MaterialsAndServices"] is MaterialsAndServices n) n.UpdServ();

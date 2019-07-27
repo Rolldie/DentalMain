@@ -113,8 +113,10 @@ namespace DentalMain
         {
             if (MessageBox.Show("Ви дійсно хочите вилучити цей матеріал?", "Додаток Стоматологія", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                materialsTableAdapter.Delete((int)MatGrid.Rows[a.RowIndex].Cells[0].Value, MatGrid.Rows[a.RowIndex].Cells[1].Value.ToString(),(decimal)MatGrid.Rows[a.RowIndex].Cells[2].Value);
-                materialsTableAdapter.Fill(dBDS.materials);
+                dBDS.materialsRow f = dBDS.materials.FindByid_material((int)MatGrid[0, a.RowIndex].Value);
+                if (f.delete) f.delete = false;
+                else f.delete = true;
+                materialsTableAdapter.Update(f);
                 if (Application.OpenForms["MaterialsAndServices"] is MaterialsAndServices c) c.Updating();
             }
         }

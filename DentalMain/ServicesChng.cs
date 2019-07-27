@@ -24,7 +24,7 @@ namespace DentalMain
             {
                 decimal f;
                 decimal.TryParse(textBox2.Text, out f);
-                servicesTableAdapter.Update(textBox1.Text.ToLower(), f, id, dBDS.services.FindByid_service(id).name_service, dBDS.services.FindByid_service(id).cost);
+                servicesTableAdapter.Update(textBox1.Text.ToLower(), f,false, id, dBDS.services.FindByid_service(id).name_service, dBDS.services.FindByid_service(id).cost,false);
                 DialogResult = DialogResult.OK;
                 Close();
             }

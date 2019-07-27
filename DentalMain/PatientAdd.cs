@@ -57,7 +57,7 @@ namespace DentalMain
             {
                 a.UpdatePatient(maxind);
             }
-            else if (Owner is Patient f) f.UpdateData(maxind);
+            else if (Owner is Patient f) f.Update(maxind);
             else if (Owner is PatientChoose m) m.idforadd = maxind;
             Close();
         }

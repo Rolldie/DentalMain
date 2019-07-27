@@ -1,18 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft;
-using Microsoft.Win32;
-using Microsoft.Office.Interop;
-using System.ComponentModel;
-using System.Security.Cryptography.Xml;
-using System.Security.Cryptography;
-using System.Security;
-using System.Drawing;
 using System.Linq;
 using System.IO;
 using System.Windows.Forms;
 using System.Xml.Serialization;
-using System.Xml;
 using Word = Microsoft.Office.Interop.Word;
 
 
@@ -364,24 +355,50 @@ namespace DentalMain
             if (sender is ToolStripMenuItem mn)
             {
                 string jeimi = (mn.Owner as ContextMenuStrip).SourceControl.Name;
-                if (jeimi == "treeViewAnamn") this.diseases_anamTableAdapter.Delete(Convert.ToInt32(am.Name), am.Text.ToLower(), typeOfAnamn.Text);
-                else if (jeimi == "treeViewcompl") this.possibleComplTableAdapter.Delete(Convert.ToInt32(am.Name), am.Text.ToLower());
-                else if (jeimi == "PlnLtsTree") this.possiblePltsTableAdapter.Delete(Convert.ToInt32(am.Name), am.Text.ToLower());
-                else if (jeimi == "treeViewanamndis") this.anamndis_diseasesTableAdapter.Delete(Convert.ToInt32(am.Name), am.Text.ToLower());
+                if (jeimi == "treeViewAnamn")
+                {
+                    dBDS.diseases_anamRow f = dBDS.diseases_anam.FindByid_disease_anam(Convert.ToInt32(am.Name));
+                    if (f.delete) f.delete = false;
+                    else f.delete = true;
+                    this.diseases_anamTableAdapter.Update(f);
+                }
+                else if (jeimi == "treeViewcompl")
+                {
+                    dBDS.possibleComplRow f = dBDS.possibleCompl.FindByid_compl(Convert.ToInt32(am.Name));
+                    if (f.delete) f.delete = false;
+                    else f.delete = true;
+                    this.possibleComplTableAdapter.Update(f);
+                }
+                else if (jeimi == "PlnLtsTree")
+                {
+                    dBDS.possiblePltsRow f = dBDS.possiblePlts.FindByid_possiblPlts(Convert.ToInt32(am.Name));
+                    if (f.delete) f.delete = false;
+                    else f.delete = true;
+                    this.possiblePltsTableAdapter.Update(f);
+                }
+                else if (jeimi == "treeViewanamndis")
+                {
+                    dBDS.anamndis_diseasesRow f = dBDS.anamndis_diseases.FindByid_disease(Convert.ToInt32(am.Name));
+                    if (f.delete) f.delete = false;
+                    else f.delete = true;
+                    this.anamndis_diseasesTableAdapter.Update(f);
+                }
                 else if (jeimi == "treeViewDiag")
                 {
-                    this.diagnosisTableAdapter.Delete(Convert.ToInt32(am.Name), am.Text.ToLower());
-                    DeleteDiagFromAppointm(Convert.ToInt32(am.Name));
+                    dBDS.diagnosisRow f = dBDS.diagnosis.FindByid_diag(Convert.ToInt32(am.Name));
+                    if (f.delete) f.delete = false;
+                    else f.delete = true;
+                    this.diagnosisTableAdapter.Update(f);
                 }
-                else if (jeimi == "treeViewObjective") { this.possibleObjectiveTableAdapter.Delete(Convert.ToInt32(am.Name), am.Text.ToLower()); }
+                else if (jeimi == "treeViewObjective")
+                {
+                    dBDS.possibleObjectiveRow f = dBDS.possibleObjective.FindByid_objective(Convert.ToInt32(am.Name));
+                    if (f.delete) f.delete = false;
+                    else f.delete = true;
+                    this.possibleObjectiveTableAdapter.Update(f);
+                }
                 FindWhatToUpdate();
             }
-        }
-        public void DeleteDiagFromAppointm(int diagid)
-        {
-            foreach (dBDS.appointment_servicesRow f in dBDS.appointment_services.Select("appointm_diagnosis='" + diagid + "'"))
-                f.Delete();
-            this.appointment_servicesTableAdapter.Update(dBDS.appointment_services);
         }
         private void ЗмінитиToolStripMenuItem_Click(object sender, EventArgs e)   //изменение элемента списка
         {
@@ -1153,7 +1170,7 @@ namespace DentalMain
                     foreach (dBDS.anamnesisDiseasesRow f in dBDS.anamnesisDiseases.Select("patient='" + comboBox1.SelectedValue + "' and date_anamndis=#"
                         + string.Format("{0: MM-dd-yyyy}", DateTime.Today) + "# and disease='" + e.Node.Name + "'"))
                     {
-                        this.anamnesisDiseasesTableAdapter.Delete(f.id_ananmdis, f.patient, f.date_anamndis, f.disease, f.doctor);
+                        this.anamnesisDiseasesTableAdapter.Delete(f.id_ananmdis, f.patient, f.date_anamndis, f.disease, f.doctor,f.delete);
                     }
                 }
                 this.anamnesisDiseasesTableAdapter.Fill(dBDS.anamnesisDiseases);
@@ -1320,10 +1337,6 @@ namespace DentalMain
         private void TreeViewDiag_AfterSelect(object sender, TreeViewEventArgs e)
         {
             diagnosisTextBox.Text = e.Node.Text;
-        }
-        private void DataGridView2_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
-        {
-            DeleteDiagFromAppointm((int)e.Row.Cells[3].Value);
         }
 
         #endregion
@@ -1633,7 +1646,7 @@ namespace DentalMain
     }
     #endregion
 
-    #region Запись/Считывание файлов, создание форм, обьявление различных класов
+    #region Запись/Считывание файлов, создание форм, реализация различных класов
 
     //технічна частина
 

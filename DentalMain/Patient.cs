@@ -19,7 +19,7 @@ namespace DentalMain
 
         private void Patient_Load(object sender, EventArgs e)
         {
-            UpdateData();
+            Update();
             FieldBx.SelectedIndex = 0;
             helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
         }
@@ -58,8 +58,9 @@ namespace DentalMain
             f.Owner = this;
             f.ShowDialog();
         }
-        public void UpdateData()
-        { 
+        public void Update()
+        {
+           // base.Update();
             int rowin = -1;
             if (a != null)
             {
@@ -71,8 +72,9 @@ namespace DentalMain
                 RowSelector(rowin);
             }
         }
-        public void UpdateData(int id)
+        public void Update(int id)
         {
+           // base.Update();
             this.patientsTableAdapter.Fill(this.dBDS.patients);
             patientsBindingSource.Position = patientsBindingSource.Find("id_patient", id);
         }
@@ -96,14 +98,6 @@ namespace DentalMain
                     Chek =false;
                     RowSelector(e.RowIndex);
                     a = e;
-                    if((bool)PatientGrid[4,e.RowIndex].Value)
-                    {
-                        відмітитиДляВилученняToolStripMenuItem.Text = "Відмінити вилучення";
-                    }
-                    else
-                    {
-                        відмітитиДляВилученняToolStripMenuItem.Text = "Відмітити для вилучення";
-                    }
                 }
                 else
                     Chek =true;
@@ -126,7 +120,7 @@ namespace DentalMain
             PatientChng f = new PatientChng((int)PatientGrid.Rows[a.RowIndex].Cells[0].Value);
             f.Owner = this;
             f.ShowDialog();
-            UpdateData();
+            Update();
         }
 
         private void PatientGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -136,17 +130,12 @@ namespace DentalMain
 
         private void ВідмітитиДляВилученняToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            bool jk = (bool)PatientGrid.SelectedCells[4].Value;
             int a= (int)PatientGrid.SelectedCells[0].Value;
-            if (jk)
+            if (MessageBox.Show("Ви дійсно бажаєте вилучити пацієнта?","Вилучення",MessageBoxButtons.YesNo)==DialogResult.Yes)
             {
-                this.dBDS.patients.FindByid_patient(a).delete = false;
-            }
-            else
-            {
-                this.dBDS.patients.FindByid_patient(a).delete = true;
-            }
-            this.patientsTableAdapter.Update(dBDS.patients);
+                this.dBDS.patients.FindByid_patient(a).Delete();
+                this.patientsTableAdapter.Update(dBDS.patients);
+            }         
         }
     }
 }
