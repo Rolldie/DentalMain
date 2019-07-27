@@ -30,10 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.PatientGrid = new System.Windows.Forms.DataGridView();
-            this.idpatientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateofbirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.phonenumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GridContm = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.изменитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.patientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -47,6 +43,10 @@
             this.patientsTableAdapter = new DentalMain.dBDSTableAdapters.patientsTableAdapter();
             this.ClearBtn = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.idpatientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dateofbirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.phonenumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             ((System.ComponentModel.ISupportInitialize)(this.PatientGrid)).BeginInit();
             this.GridContm.SuspendLayout();
@@ -84,46 +84,19 @@
             this.PatientGrid.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.PatientGrid_CellMouseDown);
             this.PatientGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.PatientGrid_DataError);
             // 
-            // idpatientDataGridViewTextBoxColumn
-            // 
-            this.idpatientDataGridViewTextBoxColumn.DataPropertyName = "id_patient";
-            this.idpatientDataGridViewTextBoxColumn.FillWeight = 40F;
-            this.idpatientDataGridViewTextBoxColumn.HeaderText = "Номер";
-            this.idpatientDataGridViewTextBoxColumn.Name = "idpatientDataGridViewTextBoxColumn";
-            // 
-            // fullnameDataGridViewTextBoxColumn
-            // 
-            this.fullnameDataGridViewTextBoxColumn.DataPropertyName = "full_name";
-            this.fullnameDataGridViewTextBoxColumn.HeaderText = "ПІБ";
-            this.fullnameDataGridViewTextBoxColumn.Name = "fullnameDataGridViewTextBoxColumn";
-            // 
-            // dateofbirthDataGridViewTextBoxColumn
-            // 
-            this.dateofbirthDataGridViewTextBoxColumn.DataPropertyName = "date_of_birth";
-            this.dateofbirthDataGridViewTextBoxColumn.FillWeight = 70F;
-            this.dateofbirthDataGridViewTextBoxColumn.HeaderText = "Дата народження";
-            this.dateofbirthDataGridViewTextBoxColumn.Name = "dateofbirthDataGridViewTextBoxColumn";
-            // 
-            // phonenumberDataGridViewTextBoxColumn
-            // 
-            this.phonenumberDataGridViewTextBoxColumn.DataPropertyName = "phone_number";
-            this.phonenumberDataGridViewTextBoxColumn.FillWeight = 70F;
-            this.phonenumberDataGridViewTextBoxColumn.HeaderText = "Номер телефону";
-            this.phonenumberDataGridViewTextBoxColumn.Name = "phonenumberDataGridViewTextBoxColumn";
-            // 
             // GridContm
             // 
             this.GridContm.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.изменитьToolStripMenuItem});
             this.GridContm.Name = "GridContm";
-            this.GridContm.Size = new System.Drawing.Size(120, 26);
+            this.GridContm.Size = new System.Drawing.Size(129, 26);
             this.GridContm.Opening += new System.ComponentModel.CancelEventHandler(this.GridContm_Opening);
             // 
             // изменитьToolStripMenuItem
             // 
             this.изменитьToolStripMenuItem.Name = "изменитьToolStripMenuItem";
-            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(119, 22);
-            this.изменитьToolStripMenuItem.Text = "Змінити";
+            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.изменитьToolStripMenuItem.Text = "Изменить";
             this.изменитьToolStripMenuItem.Click += new System.EventHandler(this.изменитьToolStripMenuItem_Click);
             // 
             // patientsBindingSource
@@ -224,6 +197,33 @@
             this.dateTimePicker1.Size = new System.Drawing.Size(158, 20);
             this.dateTimePicker1.TabIndex = 6;
             this.dateTimePicker1.Visible = false;
+            // 
+            // idpatientDataGridViewTextBoxColumn
+            // 
+            this.idpatientDataGridViewTextBoxColumn.DataPropertyName = "id_patient";
+            this.idpatientDataGridViewTextBoxColumn.FillWeight = 40F;
+            this.idpatientDataGridViewTextBoxColumn.HeaderText = "Номер";
+            this.idpatientDataGridViewTextBoxColumn.Name = "idpatientDataGridViewTextBoxColumn";
+            // 
+            // fullnameDataGridViewTextBoxColumn
+            // 
+            this.fullnameDataGridViewTextBoxColumn.DataPropertyName = "full_name";
+            this.fullnameDataGridViewTextBoxColumn.HeaderText = "ПІБ";
+            this.fullnameDataGridViewTextBoxColumn.Name = "fullnameDataGridViewTextBoxColumn";
+            // 
+            // dateofbirthDataGridViewTextBoxColumn
+            // 
+            this.dateofbirthDataGridViewTextBoxColumn.DataPropertyName = "date_of_birth";
+            this.dateofbirthDataGridViewTextBoxColumn.FillWeight = 70F;
+            this.dateofbirthDataGridViewTextBoxColumn.HeaderText = "Дата народження";
+            this.dateofbirthDataGridViewTextBoxColumn.Name = "dateofbirthDataGridViewTextBoxColumn";
+            // 
+            // phonenumberDataGridViewTextBoxColumn
+            // 
+            this.phonenumberDataGridViewTextBoxColumn.DataPropertyName = "phone_number";
+            this.phonenumberDataGridViewTextBoxColumn.FillWeight = 70F;
+            this.phonenumberDataGridViewTextBoxColumn.HeaderText = "Номер телефону";
+            this.phonenumberDataGridViewTextBoxColumn.Name = "phonenumberDataGridViewTextBoxColumn";
             // 
             // Patient
             // 
