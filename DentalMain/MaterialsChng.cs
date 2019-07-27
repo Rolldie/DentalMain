@@ -47,8 +47,7 @@ namespace DentalMain
                 decimal f;
                 decimal.TryParse(CostTextBox.Text.Replace(".", ","), out f);
                 MemoryStream memstr = new MemoryStream();
-                Image img;
-                try { img = Image.FromFile(ImgDirTextBox.Text); } catch { img = null; }
+                Image img = pictureBox1.Image ;
                 byte[] b;
                 if (img != null)
                 {
@@ -57,7 +56,7 @@ namespace DentalMain
                 }
                 else b = null;
                 dBDS.materialsRow a= dBDS.materials.FindByid_material(id);
-                materialsTableAdapter.Update(MatTextBox.Text.ToLower(), f, b, a.id_material, a.name_material.ToLower(), a.cost);
+                materialsTableAdapter.Update(MatTextBox.Text.ToLower(), f, b,false, a.id_material, a.name_material.ToLower(), a.cost,false);
                 if (Application.OpenForms["MainForm"] is MainForm u) u.UpdateWithSavePos();
                 DialogResult = DialogResult.OK;
                 Close();
@@ -84,6 +83,11 @@ namespace DentalMain
         {
             pictureBox1.Image = null;
             ImgDirTextBox.Text = "";
+        }
+
+        private void CostTextBox_TextChanged(object sender, EventArgs e)
+        {
+            App.ChangeObjectText(sender);
         }
     }
 }

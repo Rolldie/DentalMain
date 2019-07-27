@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.servicesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dBDS = new DentalMain.dBDS();
             this.postdocspostservicesBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -50,6 +48,8 @@
             this.label4 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.servicesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dBDS)).BeginInit();
@@ -65,6 +65,7 @@
             this.dataGridView1.AllowUserToResizeRows = false;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -73,30 +74,13 @@
             this.dataGridView1.DataSource = this.postdocspostservicesBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(3, 49);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersVisible = false;
             this.tableLayoutPanel1.SetRowSpan(this.dataGridView1, 4);
             this.dataGridView1.Size = new System.Drawing.Size(297, 289);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "id_post_serv";
-            this.dataGridViewTextBoxColumn1.FillWeight = 40F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Номер в базі";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "service";
-            this.dataGridViewTextBoxColumn3.DataSource = this.servicesBindingSource;
-            this.dataGridViewTextBoxColumn3.DisplayMember = "name_service";
-            this.dataGridViewTextBoxColumn3.HeaderText = "Послуга";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn3.ValueMember = "id_service";
             // 
             // servicesBindingSource
             // 
@@ -112,7 +96,6 @@
             // 
             this.postdocspostservicesBindingSource.DataMember = "post_docspost_services";
             this.postdocspostservicesBindingSource.DataSource = this.postBindingSource;
-            this.postdocspostservicesBindingSource.ListChanged += new System.ComponentModel.ListChangedEventHandler(this.postdocspostservicesBindingSource_ListChanged);
             // 
             // postBindingSource
             // 
@@ -141,11 +124,13 @@
             this.comboBox1.Size = new System.Drawing.Size(242, 21);
             this.comboBox1.TabIndex = 2;
             this.comboBox1.ValueMember = "id_post_doc";
+            this.comboBox1.SelectedValueChanged += new System.EventHandler(this.ComboBox1_SelectedValueChanged);
             // 
             // treeView1
             // 
             this.treeView1.CheckBoxes = true;
             this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView1.FullRowSelect = true;
             this.treeView1.Location = new System.Drawing.Point(306, 121);
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(265, 217);
@@ -262,6 +247,27 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(574, 341);
             this.tableLayoutPanel1.TabIndex = 9;
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "id_post_serv";
+            this.dataGridViewTextBoxColumn1.FillWeight = 40F;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Номер в базі";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "service";
+            this.dataGridViewTextBoxColumn3.DataSource = this.servicesBindingSource;
+            this.dataGridViewTextBoxColumn3.DisplayMember = "name_service";
+            this.dataGridViewTextBoxColumn3.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Послуга";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn3.ValueMember = "id_service";
+            // 
             // ServicesAndPosts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -306,9 +312,9 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.BindingSource servicesBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.HelpProvider helpProvider1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn3;
     }
 }

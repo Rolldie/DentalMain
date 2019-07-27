@@ -27,11 +27,6 @@ namespace DentalMain
             this.doctorsTableAdapter.Fill(this.dBDS.doctors);
         }
 
-        private void Label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void DocWrChange_FormClosed(object sender, FormClosedEventArgs e)
         {
             if (Application.OpenForms["RecordLog"] is RecordLog f) f.Updating();
@@ -66,7 +61,6 @@ namespace DentalMain
                 {
                     for (int i = 0; i < groupBox1.Controls.Count; i++)
                     {
-                        App.Text += groupBox1.Controls[i].Name;
                         if ((groupBox1.Controls[i] as CheckBox).Checked && dBDS.docRecordLog.Select("doctor='" + comboBox1.SelectedValue + "' and time='" + Convert.ToDateTime(String.Format("{0: 30.12.1899 HH:mm}", TimeFrom)) +
                             "' and day_of_week='" + Switcher(i) + "'").Count() == 0 && dBDS.docRecordLog.Select("doctor='" +
                             comboBox1.SelectedValue + "' and time='" + Convert.ToDateTime(String.Format("{0: 30.12.1899 HH:mm}", TimeTo)) +
@@ -79,7 +73,6 @@ namespace DentalMain
                 }
                 this.docRecordLogTableAdapter.Fill(dBDS.docRecordLog);
             }
-
         }
         public string Switcher(int jk)
         {
@@ -106,6 +99,21 @@ namespace DentalMain
         private void DataGridView1_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
         {
             this.docRecordLogTableAdapter.Update(dBDS.docRecordLog);
+        }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            App.ChangeObjectTextTime(sender);
+        }
+
+        private void TextBox2_TextChanged(object sender, EventArgs e)
+        {
+            App.ChangeObjectTextTime(sender);
+        }
+
+        private void TextBox3_TextChanged(object sender, EventArgs e)
+        {
+            App.ChangeObjectTextTime(sender);
         }
     }
 }

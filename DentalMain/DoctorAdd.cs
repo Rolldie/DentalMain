@@ -14,12 +14,15 @@ namespace DentalMain
         public DoctorAdd()
         {
             InitializeComponent();
+        }
+
+        public void Updater()
+        {
             postTableAdapter.Fill(dBDS.post);
             doctorsTableAdapter.Fill(dBDS.doctors);
             post_doctorTableAdapter.Fill(dBDS.post_doctor);
             InitTree();
         }
-
         private void BtnAdd_Click(object sender, EventArgs e)
         {
             if(textBox1.Text!="")
@@ -33,7 +36,7 @@ namespace DentalMain
                         if (PostTree.Nodes[i].Checked) post_doctorTableAdapter.Insert(Convert.ToInt32(PostTree.Nodes[i].Name), dBDS.doctors.Last().id_doctor);
                     }
                     DialogResult = DialogResult.OK;
-                    if (Application.OpenForms["RecordLog"] is RecordLog f) f.ThreadingUpdate();
+                    if (Application.OpenForms["RecordLog"] is RecordLog f) f.Updating();
                     Close();
                 }
                 else
@@ -49,7 +52,6 @@ namespace DentalMain
             { if (PostTree.Nodes[i].Checked) checker = false;  }
             if (checker) return false;
             else return true;
-           
         }
 
         public void InitTree()
@@ -62,16 +64,10 @@ namespace DentalMain
             if (am)
             {
                 MessageBox.Show("Жодної посади було додано, щоб додати лікаря, додайте посаду");
-                Posts f = Application.OpenForms["Posts"] as Posts;
-                if (f is null)
+                Posts f = new Posts();
+                if(f.ShowDialog()==DialogResult.OK)
                 {
-                    f = new Posts();
-                    f.MdiParent = Application.OpenForms["MainForm"] as MainForm;
-                    f.Show();
-                }
-                else
-                {
-                    f.Activate();
+                    Updater(); return;   
                 }
                 Close();
             }
@@ -80,6 +76,11 @@ namespace DentalMain
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void DoctorAdd_Load(object sender, EventArgs e)
+        {
+            Updater();
         }
     }
 }

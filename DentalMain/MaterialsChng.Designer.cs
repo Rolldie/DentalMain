@@ -59,6 +59,7 @@
             this.CostTextBox.Name = "CostTextBox";
             this.CostTextBox.Size = new System.Drawing.Size(292, 20);
             this.CostTextBox.TabIndex = 0;
+            this.CostTextBox.TextChanged += new System.EventHandler(this.CostTextBox_TextChanged);
             // 
             // ImgDirTextBox
             // 

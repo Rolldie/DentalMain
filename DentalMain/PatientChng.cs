@@ -27,8 +27,7 @@ namespace DentalMain
         public void UpdateData()
         {
             this.patientsTableAdapter.Fill(dBDS.patients);
-            frst a = new frst(GetData);
-            BeginInvoke(a);
+            GetData();
         }
 
         public void GetData()

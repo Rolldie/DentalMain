@@ -15,29 +15,17 @@ namespace DentalMain
         {
             InitializeComponent();
             docid = key;
-           
         }
         int docid;
-
-        public void ThreadingUpdate()
-        {
-            Updater();
-        }
-
-        public delegate void frst();
-
+        dBDS.doctorsRow docrow;
         public void Updater()
         {
             this.doctorsTableAdapter.Fill(dBDS.doctors);
+            docrow = dBDS.doctors.FindByid_doctor(docid);
             this.post_doctorTableAdapter.Fill(dBDS.post_doctor);
             this.postTableAdapter.Fill(dBDS.post);
-            DocChange f = this as DocChange;
-            while (f == null) Thread.Sleep(5);
-            //Ожидание окончания создания формы в потоке
-            frst a = new frst(InitTree);
-            BeginInvoke(a);
-            a = new frst(FillTheControls);
-            BeginInvoke(a);
+            InitTree();
+            FillTheControls();
         }
 
         public void InitTree()
@@ -70,7 +58,7 @@ namespace DentalMain
             {
                 PostTree.Nodes[s.post.ToString()].Checked = true;
             }
-            textBox1.Text =Text= dBDS.doctors.FindByid_doctor(docid).full_name.ToString();
+            textBox1.Text =Text= docrow.full_name.ToString();
         }
         public bool IsChecked()
         {
@@ -86,7 +74,7 @@ namespace DentalMain
         {
             if (textBox1.Text != "" && IsChecked())
             {
-                dBDS.doctors.FindByid_doctor(docid).full_name = textBox1.Text;
+                docrow.full_name = textBox1.Text;
                 doctorsTableAdapter.Update(dBDS.doctors);
                 foreach (TreeNode m in PostTree.Nodes)
                 {
@@ -114,7 +102,7 @@ namespace DentalMain
 
         private void DocChange_Load(object sender, EventArgs e)
         {
-            ThreadingUpdate();
+            Updater();
         }
     }
 }

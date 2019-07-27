@@ -77,6 +77,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(211, 20);
             this.textBox2.TabIndex = 1;
+            this.textBox2.TextChanged += new System.EventHandler(this.TextBox2_TextChanged);
             // 
             // label2
             // 
@@ -108,6 +109,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.ServGrid.AutoGenerateColumns = false;
             this.ServGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ServGrid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ServGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ServGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idserviceDataGridViewTextBoxColumn,
@@ -149,21 +151,21 @@
             this.змінитиToolStripMenuItem,
             this.видалитиToolStripMenuItem});
             this.GridMenu.Name = "GridMenu";
-            this.GridMenu.Size = new System.Drawing.Size(127, 48);
+            this.GridMenu.Size = new System.Drawing.Size(128, 48);
             this.GridMenu.Opening += new System.ComponentModel.CancelEventHandler(this.GridMenu_Opening);
             // 
             // змінитиToolStripMenuItem
             // 
             this.змінитиToolStripMenuItem.Name = "змінитиToolStripMenuItem";
-            this.змінитиToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.змінитиToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.змінитиToolStripMenuItem.Text = "Змінити";
             this.змінитиToolStripMenuItem.Click += new System.EventHandler(this.змінитиToolStripMenuItem_Click);
             // 
             // видалитиToolStripMenuItem
             // 
             this.видалитиToolStripMenuItem.Name = "видалитиToolStripMenuItem";
-            this.видалитиToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
-            this.видалитиToolStripMenuItem.Text = "Видалити";
+            this.видалитиToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.видалитиToolStripMenuItem.Text = "Вилучити";
             this.видалитиToolStripMenuItem.Click += new System.EventHandler(this.видалитиToolStripMenuItem_Click);
             // 
             // servicesBindingSource

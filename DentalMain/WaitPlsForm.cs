@@ -15,9 +15,5 @@ namespace DentalMain
         {
             InitializeComponent();
         }
-
-        private void WaitPlsForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-        }
     }
 }

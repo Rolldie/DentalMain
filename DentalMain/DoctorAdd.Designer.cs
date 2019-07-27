@@ -154,6 +154,7 @@
             this.MinimumSize = new System.Drawing.Size(234, 158);
             this.Name = "DoctorAdd";
             this.Text = "Додавання лікаря";
+            this.Load += new System.EventHandler(this.DoctorAdd_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dBDS)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);

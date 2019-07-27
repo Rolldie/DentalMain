@@ -63,15 +63,8 @@ namespace DentalMain
 
         private void RecordLog_Load(object sender, EventArgs e)
         {
-            ThreadingUpdate();
-            helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
-        }
-        public void ThreadingUpdate()
-        {
-           // Thread thread = new Thread(Updating);
-           // thread.IsBackground = true;
-           //thread.Start();
             Updating();
+            helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
         }
         public void Updating()
         {
@@ -79,17 +72,15 @@ namespace DentalMain
             this.docRecordLogTableAdapter.Fill(dBDS.docRecordLog);
             this.patientsTableAdapter.Fill(dBDS.patients);
             this.appointmentTableAdapter.Fill(dBDS.appointment);
-            frst del = new frst(ResetBnd);
-            del += CheckDoctors;
-            del += Filter;
-            BeginInvoke(del);
+            CheckDoctors();
+            Filter();
         }
 
         public void CheckDoctors()
         {
             if(doctorsBindingSource.Count==0)
             {
-                if (MessageBox.Show("Не було додано жодного лікаря, хочите додати лікаря?", "Додаток Стоматологія", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                if (MessageBox.Show("Не було додано жодного лікаря, бажаєте додати лікаря?", "Додаток Стоматологія", MessageBoxButtons.OKCancel) == DialogResult.OK)
                 {
                     DoctorAdd f = new DoctorAdd();
                     f.ShowDialog();
@@ -98,11 +89,6 @@ namespace DentalMain
                 else
                     Close();
             }
-        }
-        private void ResetBnd()
-        {
-            doctorsBindingSource.ResetBindings(false);
-            patientsBindingSource.ResetBindings(false);
         }
         BindingSource[] sources = new BindingSource[4];
         public void Filler(DateTime a)
@@ -132,6 +118,7 @@ namespace DentalMain
             {
                 for (int i = 0; i < 4; i++)
                 {
+                    if(DoctorBox.SelectedItem==null) DoctorBox.SelectedIndex = 0;
                     sources[i].Filter = "doctor='" + (int)DoctorBox.SelectedValue + "' and date_appointm=#" + String.Format("{0: MM-dd-yyyy}", u.Date) + "#";
                     Filler(u);
                     mas[i] = u;
@@ -308,7 +295,6 @@ namespace DentalMain
                 DataGridView mk = Controls["Day" + ind + "Grid"] as DataGridView;
                 mk.CurrentCell = mk[e.ColumnIndex, e.RowIndex];
                 PatientChoose f = new PatientChoose();
-
                 DialogResult m = f.ShowDialog();
                 if (m == DialogResult.OK)
                 {
@@ -343,6 +329,26 @@ namespace DentalMain
         private void Day4Grid_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             DoubleClickWork(4, e);
+        }
+
+        private void MaskedTextBox1_TextChanged(object sender, EventArgs e)
+        {
+            App.ChangeObjectTextTime(sender);
+        }
+
+        private void MaskedTextBox2_TextChanged(object sender, EventArgs e)
+        {
+            App.ChangeObjectTextTime(sender);
+        }
+
+        private void MaskedTextBox3_TextChanged(object sender, EventArgs e)
+        {
+            App.ChangeObjectTextTime(sender);
+        }
+
+        private void MaskedTextBox4_TextChanged(object sender, EventArgs e)
+        {
+            App.ChangeObjectTextTime(sender);
         }
     }
 }

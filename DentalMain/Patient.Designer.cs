@@ -32,6 +32,7 @@
             this.PatientGrid = new System.Windows.Forms.DataGridView();
             this.GridContm = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.изменитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.відмітитиДляВилученняToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.patientsBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dBDS = new DentalMain.dBDS();
             this.FindTxtBx = new System.Windows.Forms.TextBox();
@@ -43,11 +44,12 @@
             this.patientsTableAdapter = new DentalMain.dBDSTableAdapters.patientsTableAdapter();
             this.ClearBtn = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
             this.idpatientDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fullnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateofbirthDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.phonenumberDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.helpProvider1 = new System.Windows.Forms.HelpProvider();
+            this.delete = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.PatientGrid)).BeginInit();
             this.GridContm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.patientsBindingSource)).BeginInit();
@@ -65,12 +67,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PatientGrid.AutoGenerateColumns = false;
             this.PatientGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.PatientGrid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.PatientGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PatientGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idpatientDataGridViewTextBoxColumn,
             this.fullnameDataGridViewTextBoxColumn,
             this.dateofbirthDataGridViewTextBoxColumn,
-            this.phonenumberDataGridViewTextBoxColumn});
+            this.phonenumberDataGridViewTextBoxColumn,
+            this.delete});
             this.PatientGrid.ContextMenuStrip = this.GridContm;
             this.PatientGrid.DataSource = this.patientsBindingSource;
             this.PatientGrid.Location = new System.Drawing.Point(12, 73);
@@ -78,7 +82,7 @@
             this.PatientGrid.Name = "PatientGrid";
             this.PatientGrid.RowHeadersVisible = false;
             this.PatientGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.PatientGrid.Size = new System.Drawing.Size(394, 244);
+            this.PatientGrid.Size = new System.Drawing.Size(491, 160);
             this.PatientGrid.TabIndex = 0;
             this.PatientGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.PatientGrid_CellDoubleClick);
             this.PatientGrid.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.PatientGrid_CellMouseDown);
@@ -87,17 +91,25 @@
             // GridContm
             // 
             this.GridContm.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.изменитьToolStripMenuItem});
+            this.изменитьToolStripMenuItem,
+            this.відмітитиДляВилученняToolStripMenuItem});
             this.GridContm.Name = "GridContm";
-            this.GridContm.Size = new System.Drawing.Size(129, 26);
+            this.GridContm.Size = new System.Drawing.Size(181, 70);
             this.GridContm.Opening += new System.ComponentModel.CancelEventHandler(this.GridContm_Opening);
             // 
             // изменитьToolStripMenuItem
             // 
             this.изменитьToolStripMenuItem.Name = "изменитьToolStripMenuItem";
-            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
-            this.изменитьToolStripMenuItem.Text = "Изменить";
+            this.изменитьToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
+            this.изменитьToolStripMenuItem.Text = "Змінити";
             this.изменитьToolStripMenuItem.Click += new System.EventHandler(this.изменитьToolStripMenuItem_Click);
+            // 
+            // відмітитиДляВилученняToolStripMenuItem
+            // 
+            this.відмітитиДляВилученняToolStripMenuItem.Name = "відмітитиДляВилученняToolStripMenuItem";
+            this.відмітитиДляВилученняToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.відмітитиДляВилученняToolStripMenuItem.Text = "Вилучити";
+            this.відмітитиДляВилученняToolStripMenuItem.Click += new System.EventHandler(this.ВідмітитиДляВилученняToolStripMenuItem_Click);
             // 
             // patientsBindingSource
             // 
@@ -115,7 +127,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.FindTxtBx.Location = new System.Drawing.Point(69, 39);
             this.FindTxtBx.Name = "FindTxtBx";
-            this.FindTxtBx.Size = new System.Drawing.Size(158, 20);
+            this.FindTxtBx.Size = new System.Drawing.Size(255, 20);
             this.FindTxtBx.TabIndex = 1;
             // 
             // FieldBx
@@ -129,7 +141,7 @@
             "Номер телефону"});
             this.FieldBx.Location = new System.Drawing.Point(69, 14);
             this.FieldBx.Name = "FieldBx";
-            this.FieldBx.Size = new System.Drawing.Size(158, 21);
+            this.FieldBx.Size = new System.Drawing.Size(255, 21);
             this.FieldBx.TabIndex = 2;
             this.FieldBx.SelectedIndexChanged += new System.EventHandler(this.FieldBx_SelectedIndexChanged);
             // 
@@ -154,7 +166,7 @@
             // FltrBtn
             // 
             this.FltrBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.FltrBtn.Location = new System.Drawing.Point(233, 12);
+            this.FltrBtn.Location = new System.Drawing.Point(330, 12);
             this.FltrBtn.Name = "FltrBtn";
             this.FltrBtn.Size = new System.Drawing.Size(78, 23);
             this.FltrBtn.TabIndex = 4;
@@ -165,7 +177,7 @@
             // AddBtn
             // 
             this.AddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.AddBtn.Location = new System.Drawing.Point(318, 12);
+            this.AddBtn.Location = new System.Drawing.Point(415, 12);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(88, 50);
             this.AddBtn.TabIndex = 5;
@@ -180,7 +192,7 @@
             // ClearBtn
             // 
             this.ClearBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.ClearBtn.Location = new System.Drawing.Point(233, 39);
+            this.ClearBtn.Location = new System.Drawing.Point(330, 39);
             this.ClearBtn.Name = "ClearBtn";
             this.ClearBtn.Size = new System.Drawing.Size(78, 23);
             this.ClearBtn.TabIndex = 4;
@@ -194,7 +206,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dateTimePicker1.Location = new System.Drawing.Point(69, 39);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(158, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(255, 20);
             this.dateTimePicker1.TabIndex = 6;
             this.dateTimePicker1.Visible = false;
             // 
@@ -204,12 +216,14 @@
             this.idpatientDataGridViewTextBoxColumn.FillWeight = 40F;
             this.idpatientDataGridViewTextBoxColumn.HeaderText = "Номер";
             this.idpatientDataGridViewTextBoxColumn.Name = "idpatientDataGridViewTextBoxColumn";
+            this.idpatientDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // fullnameDataGridViewTextBoxColumn
             // 
             this.fullnameDataGridViewTextBoxColumn.DataPropertyName = "full_name";
             this.fullnameDataGridViewTextBoxColumn.HeaderText = "ПІБ";
             this.fullnameDataGridViewTextBoxColumn.Name = "fullnameDataGridViewTextBoxColumn";
+            this.fullnameDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dateofbirthDataGridViewTextBoxColumn
             // 
@@ -217,6 +231,7 @@
             this.dateofbirthDataGridViewTextBoxColumn.FillWeight = 70F;
             this.dateofbirthDataGridViewTextBoxColumn.HeaderText = "Дата народження";
             this.dateofbirthDataGridViewTextBoxColumn.Name = "dateofbirthDataGridViewTextBoxColumn";
+            this.dateofbirthDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // phonenumberDataGridViewTextBoxColumn
             // 
@@ -224,12 +239,22 @@
             this.phonenumberDataGridViewTextBoxColumn.FillWeight = 70F;
             this.phonenumberDataGridViewTextBoxColumn.HeaderText = "Номер телефону";
             this.phonenumberDataGridViewTextBoxColumn.Name = "phonenumberDataGridViewTextBoxColumn";
+            this.phonenumberDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // delete
+            // 
+            this.delete.DataPropertyName = "delete";
+            this.delete.FillWeight = 30F;
+            this.delete.HeaderText = "Потрібно вилучити";
+            this.delete.Name = "delete";
+            this.delete.ReadOnly = true;
+            this.delete.Visible = false;
             // 
             // Patient
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(416, 329);
+            this.ClientSize = new System.Drawing.Size(513, 245);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.AddBtn);
             this.Controls.Add(this.ClearBtn);
@@ -271,10 +296,12 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.ContextMenuStrip GridContm;
         private System.Windows.Forms.ToolStripMenuItem изменитьToolStripMenuItem;
+        private System.Windows.Forms.HelpProvider helpProvider1;
+        private System.Windows.Forms.ToolStripMenuItem відмітитиДляВилученняToolStripMenuItem;
         private System.Windows.Forms.DataGridViewTextBoxColumn idpatientDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fullnameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dateofbirthDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn phonenumberDataGridViewTextBoxColumn;
-        private System.Windows.Forms.HelpProvider helpProvider1;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn delete;
     }
 }

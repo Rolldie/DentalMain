@@ -1,6 +1,6 @@
 ﻿namespace DentalMain
 {
-    partial class ServExp
+    partial class DescForRengen
     {
         /// <summary>
         /// Required designer variable.
@@ -29,53 +29,48 @@
         private void InitializeComponent()
         {
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 31);
+            this.textBox1.Location = new System.Drawing.Point(12, 32);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(162, 20);
+            this.textBox1.Size = new System.Drawing.Size(536, 20);
             this.textBox1.TabIndex = 0;
-            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 59);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(536, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Додати знімок";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(27, 15);
+            this.label1.Location = new System.Drawing.Point(13, 13);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(131, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Введіть ціну для послуги";
+            this.label1.Size = new System.Drawing.Size(194, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Введіть опис рентгенівського знімку";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(12, 57);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(162, 23);
-            this.button1.TabIndex = 2;
-            this.button1.Text = "OK";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // ServExp
+            // DescForRengen
             // 
             this.AcceptButton = this.button1;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(186, 91);
-            this.ControlBox = false;
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(560, 87);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "ServExp";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Послуга";
+            this.Name = "DescForRengen";
+            this.Text = "Опис рентгену";
+            this.Load += new System.EventHandler(this.DescForRengen_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -84,7 +79,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
     }
 }

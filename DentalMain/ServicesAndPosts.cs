@@ -13,31 +13,34 @@ namespace DentalMain
     {
         public ServicesAndPosts()
         {
-            InitializeComponent();    
-        }
-        public delegate void frst();
-        public delegate void scnd(List<TreeNode> k, List<string> mk);
-        public void ThreadingUpdate()
-        {
-            Updating();
+            InitializeComponent();
+            
         }
         public void Updating()
         {
             this.postTableAdapter.Fill(this.dBDS.post);
             this.servicesTableAdapter.Fill(this.dBDS.services);
             this.post_servicesTableAdapter.Fill(this.dBDS.post_services);
-            List<TreeNode>k = new List<TreeNode>();
+            FillTree();
+            CheckPosts();
+        }
+
+        public void FillTree()
+        {
+            treeView1.BeginUpdate();
+            textBox1.AutoCompleteCustomSource.Clear();
+            treeView1.Nodes.Clear();
+            List<TreeNode> k = new List<TreeNode>();
             List<string> mk = new List<string>();
             foreach (dBDS.servicesRow a in dBDS.services)
             {
                 k.Add(new TreeNode { Text = (string)a.name_service.ToLower(), Name = (string)a.id_service.ToString() });
                 mk.Add((string)a.name_service.ToLower());
             }
-            scnd ukra = new scnd(FillTree);
-            BeginInvoke(ukra,k,mk);
-            frst m = new frst(ResetBind);
-            m += CheckPosts;
-            BeginInvoke(m);
+            treeView1.Nodes.AddRange(k.ToArray());
+            textBox1.AutoCompleteCustomSource.AddRange(mk.ToArray());
+            Check();
+            treeView1.EndUpdate();
         }
 
         public void CheckPosts()
@@ -48,26 +51,16 @@ namespace DentalMain
                 {
                     Posts f = Application.OpenForms["Posts"] as Posts;
                     if (f != null) { f.Activate(); }
-                    else { f = new Posts(); f.ShowDialog(); }ThreadingUpdate();
+                    else { f = new Posts(); f.ShowDialog(); }Updating();
                 }
                 else { Close(); }
             }
         }
-        public void ResetBind()
-        {
-            postBindingSource.ResetBindings(false);
-            postdocspostservicesBindingSource.ResetBindings(false);
-        }
 
         private void ServicesAndPosts_Load(object sender, EventArgs e)
         {
-            ThreadingUpdate();
+            Updating();
             helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
-        }
-
-        private void postdocspostservicesBindingSource_ListChanged(object sender, ListChangedEventArgs e)
-        {  
-            try { Uncheck(); Check(); } catch { }
         }
 
         private void BtnAddPost_Click(object sender, EventArgs e)
@@ -75,22 +68,12 @@ namespace DentalMain
             if (Application.OpenForms["Posts"] is Posts f) f.Close();
             f = new Posts();
             f.ShowDialog();
-            ThreadingUpdate();
+            Updating();
         }
 
         private void dataGridView1_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             e.Cancel = true;
-        }
-
-        public void FillTree(List<TreeNode> k, List<string> mk)
-        {
-            treeView1.Nodes.Clear();
-            textBox1.AutoCompleteCustomSource.Clear();
-            treeView1.BeginUpdate();
-            treeView1.Nodes.AddRange(k.ToArray());
-            treeView1.EndUpdate();
-            textBox1.AutoCompleteCustomSource.AddRange(mk.ToArray());
         }
 
         public void Uncheck()
@@ -112,30 +95,13 @@ namespace DentalMain
             checker = true;
         }
 
-        public void ThreadPostServUpd()
+        public void PostServUpd()
         {
            post_servicesTableAdapter.Fill(dBDS.post_services);
-           frst m = new frst(ResetBindCurPost);
-           BeginInvoke(m);  
         }
-
-        public void ThreadPostUpdate()
-        {
-            Thread m = new Thread(PostUpdate);
-            m.IsBackground = true;
-            m.Start();
-        }
-
         public void PostUpdate()
         {
             postTableAdapter.Fill(dBDS.post);
-            frst f = new frst(ResetBind);
-            BeginInvoke(f);
-        }
-
-        public void ResetBindCurPost()
-        {
-            postdocspostservicesBindingSource.ResetBindings(false);
         }
 
         bool checker = true;
@@ -154,9 +120,7 @@ namespace DentalMain
                         post_servicesTableAdapter.Delete(a.id_post_serv, a.post, a.service);
                     }
                 }
-                Thread u = new Thread(ThreadPostServUpd);
-                u.IsBackground = true; u.Start();
-                if (Application.OpenForms["MainForm"] is MainForm mm) mm.UpdateWithSavePos();
+                post_servicesTableAdapter.Fill(dBDS.post_services);
             }
         }
         int ua = 0;
@@ -175,21 +139,16 @@ namespace DentalMain
                     f.ShowDialog();
                     servicesTableAdapter.Insert(textBox1.Text.ToLower(), ua);
                     servicesTableAdapter.Fill(dBDS.services);
-                    post_servicesTableAdapter.Insert((int)comboBox1.SelectedValue, dBDS.services.Last().id_service);
-                    post_servicesTableAdapter.Fill(dBDS.post_services);
-                    checker = false;
                     treeView1.Nodes.Add(dBDS.services.Last().id_service.ToString(), textBox1.Text).Checked = true;
                     textBox1.AutoCompleteCustomSource.Add(textBox1.Text);
-                    checker = true;
                 }
-                else if (dBDS.post_services.Select("service='" + dBDS.services.FindByid_service(Convert.ToInt32(treeView1.Nodes[textBox1.AutoCompleteCustomSource.IndexOf(textBox1.Text.ToLower())].Name)).id_service + "' and post='" + (int)comboBox1.SelectedValue + "'").Count()== 0)
+                else if (dBDS.post_services.Select("service='" + treeView1.Nodes[textBox1.AutoCompleteCustomSource.IndexOf(textBox1.Text)].Name  + "' and post='"+comboBox1.SelectedValue+"'").Count()== 0)
                 {
                     foreach(dBDS.servicesRow a in dBDS.services.Select("name_service='"+textBox1.Text.ToLower()+"'"))
                     {
                         treeView1.Nodes[a.id_service.ToString()].Checked = true;
                     } 
                 }
-                if (Application.OpenForms["MainForm"] is MainForm u) u.UpdateWithSavePos();
                 else { App.Text = "Такий запис вже існує"; }
             }
             else
@@ -197,17 +156,20 @@ namespace DentalMain
                 App.Text = "Назва послуги не введена";
             }
         }
-
-        public void ResetBindServ()
-        {
-            servicesBindingSource.ResetBindings(false);
-        }
-
         private void TextBox1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyData == Keys.Enter)
             {
                 BtnAddServ_Click(sender, new EventArgs());
+            }
+        }
+
+        private void ComboBox1_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedValue != null)
+            {
+                Uncheck();
+                Check();
             }
         }
     }

@@ -21,5 +21,10 @@ namespace DentalMain
             try {a=Convert.ToInt32(textBox1.Text); ServicesAndPosts f = Application.OpenForms["ServicesAndPosts"] as ServicesAndPosts; f.GetCostFromServExp(a); Close();  }
             catch { App.Text = "Неправильно введена ціна, введіть 0 якщо не хочите вводити ціну"; }
         }
+
+        private void TextBox1_TextChanged(object sender, EventArgs e)
+        {
+            App.ChangeObjectText(sender);
+        }
     }
 }

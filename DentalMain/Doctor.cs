@@ -18,24 +18,12 @@ namespace DentalMain
             a = null;
         }
         public delegate void frst();
-        public void ThreadCreator()
+        public new void Update()
         {
-            ThreadUp();
-        }
-        public void ThreadUp()
-        {
+          //  base.Update();
             this.doctorsTableAdapter.Fill(this.dBDS.doctors);
             this.postTableAdapter.Fill(this.dBDS.post);
             this.post_doctorTableAdapter.Fill(this.dBDS.post_doctor);
-            Doctor f = this as Doctor;
-            while (f == null) Thread.Sleep(10);
-            frst a = new frst(ResetBnd);
-            BeginInvoke(a);
-        }
-        public void ResetBnd()
-        {
-            doctorsBindingSource.ResetBindings(false);
-            postBindingSource.ResetBindings(false);
         }
         private void FilterBtn_Click(object sender, EventArgs e)
         {
@@ -67,7 +55,7 @@ namespace DentalMain
 
         private void Doctor_Load(object sender, EventArgs e)
         {
-            ThreadCreator();
+            Update();
             CreatingFieldsSearch();
             helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
 
@@ -78,11 +66,10 @@ namespace DentalMain
             if (Field.SelectedIndex == 2)
             {
                 secretCmbBx.Visible = true;
-
             }
             else
             {
-                ThreadCreator();
+                Update();
                 secretCmbBx.Visible = false;
             }
         }
@@ -90,19 +77,19 @@ namespace DentalMain
         private void CancelBtn_Click(object sender, EventArgs e)
         {
             doctorsBindingSource.Filter = "";
-            ThreadCreator();
+            Update();
         }
 
         private void AddBtn_Click(object sender, EventArgs e)
         {
             DoctorAdd a = new DoctorAdd();
-            try { a.ShowDialog(); ThreadCreator();} catch { return; }
+            try { a.ShowDialog(); Update();} catch { return; }
             
         }
 
         private void Doctor_Activated(object sender, EventArgs e)
         {
-            ThreadCreator();
+            Update();
         }
 
         private void ИзменитьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -112,8 +99,6 @@ namespace DentalMain
             f.ShowDialog();
             doctorsTableAdapter.Fill(dBDS.doctors);
             doctorGrid.CurrentCell = doctorGrid[0, a.RowIndex];
-
-
         }
         bool Chek = true;
         DataGridViewCellMouseEventArgs a = null;
@@ -126,6 +111,14 @@ namespace DentalMain
                     Chek = false;
                     RowSelector(e.RowIndex);
                     a = e;
+                    if ((bool)doctorGrid[2, e.RowIndex].Value)
+                    {
+                        звільнитиЛікаряToolStripMenuItem.Text = "Відмінити вилучення";
+                    }
+                    else
+                    {
+                        звільнитиЛікаряToolStripMenuItem.Text = "Вилучити лікаря";
+                    }
                 }
                 else
                     Chek = true;
@@ -160,6 +153,20 @@ namespace DentalMain
                     doctorGrid.CurrentCell = doctorGrid[0, e.RowIndex];
                 }
             }
+        }
+
+        private void ЗвільнитиЛікаряToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            bool bl = (bool)doctorGrid[2, a.RowIndex].Value;
+            if(bl)
+            {
+                this.dBDS.doctors.FindByid_doctor((int)doctorGrid[0, a.RowIndex].Value).fired = false;
+            }
+            else
+            {
+                this.dBDS.doctors.FindByid_doctor((int)doctorGrid[0, a.RowIndex].Value).fired = true;
+            }
+            this.doctorsTableAdapter.Update(dBDS.doctors);
         }
     }
 }

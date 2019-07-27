@@ -59,11 +59,13 @@
             // 
             this.MatGrid.AllowUserToAddRows = false;
             this.MatGrid.AllowUserToDeleteRows = false;
+            this.MatGrid.AllowUserToResizeRows = false;
             this.MatGrid.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.MatGrid.AutoGenerateColumns = false;
             this.MatGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.MatGrid.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.MatGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MatGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id_material,
@@ -76,7 +78,7 @@
             this.MatGrid.Name = "MatGrid";
             this.MatGrid.RowHeadersVisible = false;
             this.MatGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.MatGrid.Size = new System.Drawing.Size(300, 296);
+            this.MatGrid.Size = new System.Drawing.Size(300, 295);
             this.MatGrid.TabIndex = 0;
             this.MatGrid.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.MatGrid_CellMouseDown);
             this.MatGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.dataGridView1_DataError);
@@ -86,6 +88,7 @@
             this.id_material.DataPropertyName = "id_material";
             this.id_material.HeaderText = "id_material";
             this.id_material.Name = "id_material";
+            this.id_material.ReadOnly = true;
             this.id_material.Visible = false;
             // 
             // namematerialDataGridViewTextBoxColumn
@@ -107,21 +110,21 @@
             this.змінитиToolStripMenuItem,
             this.видалитиToolStripMenuItem});
             this.datagridcomb.Name = "datagridcomb";
-            this.datagridcomb.Size = new System.Drawing.Size(127, 48);
+            this.datagridcomb.Size = new System.Drawing.Size(128, 48);
             this.datagridcomb.Opening += new System.ComponentModel.CancelEventHandler(this.datagridcomb_Opening);
             // 
             // змінитиToolStripMenuItem
             // 
             this.змінитиToolStripMenuItem.Name = "змінитиToolStripMenuItem";
-            this.змінитиToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.змінитиToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
             this.змінитиToolStripMenuItem.Text = "Змінити";
             this.змінитиToolStripMenuItem.Click += new System.EventHandler(this.змінитиToolStripMenuItem_Click);
             // 
             // видалитиToolStripMenuItem
             // 
             this.видалитиToolStripMenuItem.Name = "видалитиToolStripMenuItem";
-            this.видалитиToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
-            this.видалитиToolStripMenuItem.Text = "Видалити";
+            this.видалитиToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.видалитиToolStripMenuItem.Text = "Вилучити";
             this.видалитиToolStripMenuItem.Click += new System.EventHandler(this.видалитиToolStripMenuItem_Click);
             // 
             // materialsBindingSource
@@ -146,7 +149,6 @@
             this.Name_matTextBox.Name = "Name_matTextBox";
             this.Name_matTextBox.Size = new System.Drawing.Size(209, 20);
             this.Name_matTextBox.TabIndex = 1;
-            this.Name_matTextBox.TextChanged += new System.EventHandler(this.Name_matTextBox_TextChanged);
             // 
             // CostTextBox
             // 
@@ -167,7 +169,6 @@
             this.DirectoryImageTextBox.Name = "DirectoryImageTextBox";
             this.DirectoryImageTextBox.Size = new System.Drawing.Size(179, 20);
             this.DirectoryImageTextBox.TabIndex = 2;
-            this.DirectoryImageTextBox.TextChanged += new System.EventHandler(this.DirectoryImageTextBox_TextChanged);
             // 
             // directorySetBtn
             // 
@@ -229,7 +230,7 @@
             this.AcceptButton = this.AddBtn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(326, 439);
+            this.ClientSize = new System.Drawing.Size(326, 438);
             this.Controls.Add(this.CostTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -273,9 +274,9 @@
         private System.Windows.Forms.ToolStripMenuItem змінитиToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem видалитиToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.HelpProvider helpProvider1;
         private System.Windows.Forms.DataGridViewTextBoxColumn id_material;
         private System.Windows.Forms.DataGridViewTextBoxColumn namematerialDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn costDataGridViewTextBoxColumn;
-        private System.Windows.Forms.HelpProvider helpProvider1;
     }
 }

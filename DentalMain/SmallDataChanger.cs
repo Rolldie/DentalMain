@@ -33,25 +33,29 @@ namespace DentalMain
         
         public void UsePointFinder()
         {
-            if(usepoint=="Compl")
+            if (usepoint == "Compl")
             {
                 possibleComplTableAdapter.Fill(dBDS.possibleCompl);
             }
-            else if(usepoint=="AnmAll")
+            else if (usepoint == "AnmAll")
             {
                 diseases_anamTableAdapter.Fill(dBDS.diseases_anam);
             }
-            else if(usepoint=="Pln")
+            else if (usepoint == "Pln")
             {
                 possiblePltsTableAdapter.Fill(dBDS.possiblePlts);
             }
-            else if(usepoint=="AnmDis")
+            else if (usepoint == "AnmDis")
             {
                 anamndis_diseasesTableAdapter.Fill(dBDS.anamndis_diseases);
             }
-            else if(usepoint=="Diag")
+            else if (usepoint == "Diag")
             {
                 diagnosisTableAdapter.Fill(dBDS.diagnosis);
+            }
+            else if(usepoint=="Obj")
+            {
+                possibleObjectiveTableAdapter.Fill(dBDS.possibleObjective);
             }
             FillTxtBx();
         }
@@ -77,6 +81,10 @@ namespace DentalMain
             {
                 textBox1.Text = dBDS.diagnosis.FindByid_diag(indofdata).name_diag;
             }
+            else if( usepoint=="Obj")
+            {
+                textBox1.Text = dBDS.possibleObjective.FindByid_objective(indofdata).description_objective;
+            }
         }
         private void SmallDataChanger_Load(object sender, EventArgs e)
         {
@@ -94,23 +102,27 @@ namespace DentalMain
             string jk = textBox1.Text.ToLower();
             if (usepoint == "Compl")
             {
-                possibleComplTableAdapter.Update(jk, indofdata, prevdata);
+                possibleComplTableAdapter.Update(jk,false, indofdata, prevdata,false);
             }
             else if (usepoint == "AnmAll")
             {
-                diseases_anamTableAdapter.Update(jk, typeofanm, indofdata, prevdata, typeofanm);
+                diseases_anamTableAdapter.Update(jk, typeofanm,false, indofdata, prevdata, typeofanm,false);
             }
             else if (usepoint == "Pln")
             {
-                possiblePltsTableAdapter.Update(jk, indofdata, prevdata);
+                possiblePltsTableAdapter.Update(jk,false, indofdata, prevdata,false);
             }
             else if (usepoint == "AnmDis")
             {
-                anamndis_diseasesTableAdapter.Update(jk, indofdata, prevdata);
+                anamndis_diseasesTableAdapter.Update(jk,false, indofdata, prevdata,false);
             }
             else if (usepoint == "Diag")
             {
-                diagnosisTableAdapter.Update(jk, indofdata, prevdata);
+                diagnosisTableAdapter.Update(jk,false, indofdata, prevdata,false);
+            }
+            else if(usepoint=="Obj")
+            {
+                possibleObjectiveTableAdapter.Update(jk,false, indofdata, prevdata,false);
             }
             DialogResult = DialogResult.OK;
             Close();

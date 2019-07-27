@@ -24,15 +24,7 @@ namespace DentalMain
         public void Updater()
         {
             postTableAdapter.Fill(dBDS.post);
-            frst a = new frst(ResetBind);
-            BeginInvoke(a);
         }
-
-        public void ResetBind()
-        {
-            postBindingSource.ResetBindings(false);
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             if (textBox1.Text != "")
@@ -44,8 +36,8 @@ namespace DentalMain
                 {
                     postTableAdapter.Insert(textBox1.Text);
                     postTableAdapter.Fill(dBDS.post);
-                    if(Application.OpenForms["ServicesAndPosts"] is ServicesAndPosts f)f.ThreadPostUpdate();
-                    if (Application.OpenForms["MaterialsAndServices"] is MaterialsAndServices n) n.ThreadingUpdate();
+                    if(Application.OpenForms["ServicesAndPosts"] is ServicesAndPosts f)f.PostUpdate();
+                    if (Application.OpenForms["MaterialsAndServices"] is MaterialsAndServices n) n.Updating();
                 }
                 else App.Text = "Ця посада вже існує";
 
@@ -62,6 +54,13 @@ namespace DentalMain
         private void dataGridView2_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
             e.Cancel=true;
+        }
+        public void CheckDialRes()
+        {
+            if(postBindingSource.Count>0)
+            {
+                DialogResult = DialogResult.OK;
+            }
         }
         bool Check=true;
         DataGridViewCellMouseEventArgs a = null;
@@ -96,7 +95,7 @@ namespace DentalMain
             {
                 postTableAdapter.Delete((int)PostGrid.Rows[a.RowIndex].Cells[0].Value, PostGrid.Rows[a.RowIndex].Cells[1].Value.ToString());
                 postTableAdapter.Fill(dBDS.post);
-                if (Application.OpenForms["ServicesAndPosts"] is ServicesAndPosts f) { f.ThreadingUpdate(); }
+                if (Application.OpenForms["ServicesAndPosts"] is ServicesAndPosts f) { f.Updating(); }
             }
         }
 
@@ -107,9 +106,14 @@ namespace DentalMain
             {
                 int jk = a.RowIndex;
                 Updater();
-                if (Application.OpenForms["ServicesAndPosts"] is ServicesAndPosts u) u.ThreadPostUpdate();
+                if (Application.OpenForms["ServicesAndPosts"] is ServicesAndPosts u) u.PostUpdate();
                 try { RowSelector(jk); } catch { return; }
             }
+        }
+
+        private void Posts_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            CheckDialRes();
         }
     }
 }

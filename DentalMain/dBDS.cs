@@ -1,33 +1,22 @@
 ﻿namespace DentalMain
 {
-}
-
-namespace DentalMain
-{
-}
-namespace DentalMain
-{
 
 
     public partial class dBDS
     {
+        partial class complaintsDataTable
+        {
+        }
+
+        partial class docRecordLogDataTable
+        {
+        }
     }
 }
 
-namespace DentalMain.dBDSTableAdapters
-{
-    partial class docRecordLogTableAdapter
-    {
-    }
-
-    partial class patientsTableAdapter
-    {
-    }
-
-    partial class anamnesisTableAdapter
-    {
-    }
-
-    public partial class appointmentTableAdapter {
+namespace DentalMain.dBDSTableAdapters {
+    
+    
+    public partial class rengenTableAdapter {
     }
 }

@@ -1,13 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Microsoft;
-using Microsoft.Win32;
-using Microsoft.Office.Interop;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
 using System.Linq;
-//using System.Threading; 
 using System.IO;
 using System.Windows.Forms;
 using System.Xml.Serialization;
@@ -21,18 +14,17 @@ namespace DentalMain
 
     public partial class MainForm : Form
     {
-        
 
         #region Создание компонентов, работа с элементами формы, файлами хмл, доп переменные
 
         public MainForm() //Ініціалізація компонентів форми
         {
- 
+
             InitializeComponent();
         }
         bool checker = false;
         TreeNode am = null;
-        readonly CreatorForms mf = new CreatorForms();
+        public readonly CreatorForms mf = new CreatorForms();
         properties prop = new properties();
         readonly ApplicationWork work = new ApplicationWork();
         int Point = 0;
@@ -81,8 +73,43 @@ namespace DentalMain
         }
         public void CloserWindows()
         {
-            if (Application.OpenForms.Count>1) closeWind.Enabled = true;
+            if (Application.OpenForms.Count > 1) closeWind.Enabled = true;
             else closeWind.Enabled = false;
+        }
+
+        public void TreeContextMenu(object sender, MouseEventArgs e)
+        {
+            if (sender is TreeView tree)
+            {
+                if (e.Button != MouseButtons.Right) return;
+                TreeNode node = tree.GetNodeAt(e.X, e.Y);
+                TreeNode Backnode = tree.SelectedNode;
+                tree.SelectedNode = node;
+                if (node == null) { tree.SelectedNode = Backnode; return; }
+                am = node;
+                contextMenuStrip1.Show(tree, e.X, e.Y);
+            }
+        }
+        private void CloseWind_Click(object sender, EventArgs e)
+        {
+            Form[] a = new Form[this.MdiChildren.Count()];
+            int i = 0;
+            foreach (Form f in this.MdiChildren)
+            {
+                a[i] = f;
+                i++;
+            }
+            for (int j = 0; j < i; j++)
+            {
+                if (a[j] is MainForm) continue;
+                a[j].Close();
+            }
+            CloserWindows();
+        }
+        private void MainForm_MdiChildActivate(object sender, EventArgs e)
+        {
+            CloserWindows();
+            //FindWhatToUpdate(); ///не знаю че оно было щздесь и не знаю че убрал но вроде как оно не нужно!!!
         }
         #endregion
         //Done
@@ -113,18 +140,9 @@ namespace DentalMain
         {
             mf.ChangePatientFormDialog((int)comboBox1.SelectedValue);
         }
-        private void налаштуванняToolStripMenuItem_Click(object sender, EventArgs e) //Форма налаштування (виклик)
-        {
-            if(mf.SettingsAppFormDialog(prop) ==DialogResult.OK)
-            {
-                if (Application.OpenForms["SettingsApp"] is SettingsApp f) f.Close();
-                this.CloserWindows();
-            }
-        }
         private void AddBtn_Click(object sender, EventArgs e)  //Додавання пацієнту (виклик, через форму)
         {
-            Point = mf.PatientAddFormDialog();
-            UpdatePatient();
+            mf.PatientAddFormDialog(this);
         }
         private void ПослугиЗаПосадоюToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -158,7 +176,7 @@ namespace DentalMain
         private void прийомиToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ChangeView.Checked = false;
-            mf.AppointmentsForm(-1,true);
+            mf.AppointmentsForm(-1, true);
         }
         private void PatAppointm_Click(object sender, EventArgs e)
         {
@@ -170,8 +188,22 @@ namespace DentalMain
         private void button3_Click(object sender, EventArgs e)
         {
             ChangeView.Checked = false;
-            mf.AppointmentsForm((int)AppointBox.SelectedValue,true);
-            
+            mf.AppointmentsForm((int)AppointBox.SelectedValue, true);
+
+        }
+
+        private void ПроАвтораToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Розробив студент групи П15-2Д Руснак Єгор");
+        }
+
+        private void НалаштуванняToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (mf.SettingsAppFormDialog(prop) == DialogResult.OK)
+            {
+                if (Application.OpenForms["SettingsApp"] is SettingsApp f) f.Close();
+                this.CloserWindows();
+            }
         }
 
         #endregion 
@@ -217,15 +249,38 @@ namespace DentalMain
             else if (MainTab.SelectedIndex == 2) AnamnUpdate();
             else if (MainTab.SelectedIndex == 3) PlnLtsUpdate();
             else if (MainTab.SelectedIndex == 4) AnamnDisUpdate();
-            else if (MainTab.SelectedIndex == 5) DiagUpdate();
-            else if (MainTab.SelectedIndex == 6) AppointmentUpdate();
+            else if (MainTab.SelectedIndex == 5) ObjectiveUpdate();
+            else if (MainTab.SelectedIndex == 6) DiagUpdate();
+            else if (MainTab.SelectedIndex == 7) AppointmentUpdate();
             CloserWindows();
         }   //Найти, что обновить
 
+        public void ObjectiveUpdate()
+        {
+            try
+            {
+                this.possibleObjectiveTableAdapter.Fill(dBDS.possibleObjective);
+                this.objectively_dataTableAdapter.Fill(dBDS.objectively_data);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message); return;
+            }
+            FillObjectiveTree();
+            ObjChecking();
+        }
         public void ComplUpdate()
         {
-            this.complaintsTableAdapter.Fill(this.dBDS.complaints);
-            this.possibleComplTableAdapter.Fill(this.dBDS.possibleCompl);
+            try
+            {
+                this.complaintsTableAdapter.Fill(this.dBDS.complaints);
+                this.possibleComplTableAdapter.Fill(this.dBDS.possibleCompl);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message); return;
+            }
+
             UpdateComplaints();
             CheckComplTree();
             patientscomplaintsBindingSource.Sort = "date_compl DESC";
@@ -233,8 +288,15 @@ namespace DentalMain
 
         public void AnamnUpdate()
         {
-            this.diseases_anamTableAdapter.Fill(dBDS.diseases_anam);
-            this.anamnesisTableAdapter.Fill(this.dBDS.anamnesis);
+            try
+            {
+                this.diseases_anamTableAdapter.Fill(dBDS.diseases_anam);
+                this.anamnesisTableAdapter.Fill(this.dBDS.anamnesis);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message); return;
+            }
             FillTheAnamn();
         }
 
@@ -243,9 +305,9 @@ namespace DentalMain
             FillAppoint();
             AppointFillTree();
             MatTree.Nodes.Clear();
-            patientsappointmentBindingSource.Filter = "date_appointm=#" + String.Format("{0: MM-dd-yyyy}", DateTime.Today) + "# and Cancel=false" + (ChekDataView.Checked? " and doctor='" + prop.DocID + "'":"");
+            patientsappointmentBindingSource.Filter = "date_appointm=#" + String.Format("{0: MM-dd-yyyy}", DateTime.Today) + "# and Cancel=false" + (ChekDataView.Checked ? " and doctor='" + prop.DocID + "'" : "") + " and ended=false";
             HealingTreeFill();
-            foreach (dBDS.appointmentRow f in dBDS.appointment.Select("date_appointm=#" + String.Format("{0: MM-dd-yyyy}", DateTime.Today) + "# and Cancel=false and patient='" + comboBox1.SelectedValue + "'"))
+            foreach (dBDS.appointmentRow f in dBDS.appointment.Select("date_appointm=#" + String.Format("{0: MM-dd-yyyy}", DateTime.Today) + "# and Cancel=false and patient='" + comboBox1.SelectedValue + "' and ended=false"))
             {
                 if (f.time.TimeOfDay <= DateTime.Now.TimeOfDay)
                     AppointBox.SelectedValue = f.id_appointment;
@@ -253,23 +315,38 @@ namespace DentalMain
             if (AppointBox.Text != "" && HealingTreeDiag.SelectedNode != null) CheckAppointmChoose(true);
             else if (patientsappointmentBindingSource.Count != 0)
             {
-                CheckAppointmChoose(false); button3.Enabled = true;
+                CheckAppointmChoose(false); button3.Enabled = true; EndAppointm.Enabled = true;
             }
             else CheckAppointmChoose(false);
+            UpdateCost();
         }
 
         public void AnamnDisUpdate()
         {
-            this.anamndis_diseasesTableAdapter.Fill(dBDS.anamndis_diseases);
-            this.anamnesisDiseasesTableAdapter.Fill(dBDS.anamnesisDiseases);
+            try
+            {
+                this.anamndis_diseasesTableAdapter.Fill(dBDS.anamndis_diseases);
+                this.anamnesisDiseasesTableAdapter.Fill(dBDS.anamnesisDiseases);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message); return;
+            }
             AnamnDisTreeFill();
             AnamnDisTreeCheck();
         }
 
         public void DiagUpdate()
         {
-            this.diagnosisTableAdapter.Fill(dBDS.diagnosis);
-            this.diags_patientTableAdapter.Fill(dBDS.diags_patient);
+            try
+            {
+                this.diagnosisTableAdapter.Fill(dBDS.diagnosis);
+                this.diags_patientTableAdapter.Fill(dBDS.diags_patient);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message); return;
+            }
             DiagFill();
         }
 
@@ -278,23 +355,50 @@ namespace DentalMain
             if (sender is ToolStripMenuItem mn)
             {
                 string jeimi = (mn.Owner as ContextMenuStrip).SourceControl.Name;
-                if (jeimi == "treeViewAnamn") this.diseases_anamTableAdapter.Delete(Convert.ToInt32(am.Name), am.Text.ToLower(), typeOfAnamn.Text);
-                else if (jeimi == "treeViewcompl") this.possibleComplTableAdapter.Delete(Convert.ToInt32(am.Name), am.Text.ToLower());
-                else if (jeimi == "PlnLtsTree") this.possiblePltsTableAdapter.Delete(Convert.ToInt32(am.Name), am.Text.ToLower());
-                else if (jeimi == "treeViewanamndis") this.anamndis_diseasesTableAdapter.Delete(Convert.ToInt32(am.Name), am.Text.ToLower());
+                if (jeimi == "treeViewAnamn")
+                {
+                    dBDS.diseases_anamRow f = dBDS.diseases_anam.FindByid_disease_anam(Convert.ToInt32(am.Name));
+                    if (f.delete) f.delete = false;
+                    else f.delete = true;
+                    this.diseases_anamTableAdapter.Update(f);
+                }
+                else if (jeimi == "treeViewcompl")
+                {
+                    dBDS.possibleComplRow f = dBDS.possibleCompl.FindByid_compl(Convert.ToInt32(am.Name));
+                    if (f.delete) f.delete = false;
+                    else f.delete = true;
+                    this.possibleComplTableAdapter.Update(f);
+                }
+                else if (jeimi == "PlnLtsTree")
+                {
+                    dBDS.possiblePltsRow f = dBDS.possiblePlts.FindByid_possiblPlts(Convert.ToInt32(am.Name));
+                    if (f.delete) f.delete = false;
+                    else f.delete = true;
+                    this.possiblePltsTableAdapter.Update(f);
+                }
+                else if (jeimi == "treeViewanamndis")
+                {
+                    dBDS.anamndis_diseasesRow f = dBDS.anamndis_diseases.FindByid_disease(Convert.ToInt32(am.Name));
+                    if (f.delete) f.delete = false;
+                    else f.delete = true;
+                    this.anamndis_diseasesTableAdapter.Update(f);
+                }
                 else if (jeimi == "treeViewDiag")
                 {
-                    this.diagnosisTableAdapter.Delete(Convert.ToInt32(am.Name), am.Text.ToLower());
-                    DeleteDiagFromAppointm(Convert.ToInt32(am.Name));
+                    dBDS.diagnosisRow f = dBDS.diagnosis.FindByid_diag(Convert.ToInt32(am.Name));
+                    if (f.delete) f.delete = false;
+                    else f.delete = true;
+                    this.diagnosisTableAdapter.Update(f);
+                }
+                else if (jeimi == "treeViewObjective")
+                {
+                    dBDS.possibleObjectiveRow f = dBDS.possibleObjective.FindByid_objective(Convert.ToInt32(am.Name));
+                    if (f.delete) f.delete = false;
+                    else f.delete = true;
+                    this.possibleObjectiveTableAdapter.Update(f);
                 }
                 FindWhatToUpdate();
             }
-        }
-        public void DeleteDiagFromAppointm(int diagid)
-        {
-            foreach (dBDS.appointment_servicesRow f in dBDS.appointment_services.Select("appointm_diagnosis='" + diagid + "'"))
-                f.Delete();
-            this.appointment_servicesTableAdapter.Update(dBDS.appointment_services);
         }
         private void ЗмінитиToolStripMenuItem_Click(object sender, EventArgs e)   //изменение элемента списка
         {
@@ -306,16 +410,24 @@ namespace DentalMain
                 else if (jeimi == "PlnLtsTree") { if (mf.PlanLetsFormDialog(am)) FindWhatToUpdate(); }
                 else if (jeimi == "treeViewanamndis") { if (mf.AnamnezDiseaseFormDialog(am)) FindWhatToUpdate(); }
                 else if (jeimi == "treeViewDiag") { if (mf.DiagnosisFormDialog(am)) FindWhatToUpdate(); }
+                else if (jeimi == "treeViewObjective") { if (mf.ObjectiveFormDialog(am)) FindWhatToUpdate(); }
             }
-        } 
+        }
 
-        #endregion 
+        #endregion
         //Done
 
         #region Касаемо Доктор
         public void DocUpdate()
         {
-            doctorsTableAdapter.Fill(dBDS.doctors);
+            try
+            {
+                doctorsTableAdapter.Fill(dBDS.doctors);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message); return;
+            }
             prop = work.FileInitialization(prop);
             Namingform();
         }
@@ -337,26 +449,72 @@ namespace DentalMain
             prop = work.FileInitialization(prop);
             Namingform();
         }
+        private void ChekDataView_CheckedChanged(object sender, EventArgs e)   //Зміна відображення записів стосовно одного або декількох лікарів
+        {
+            if (ChekDataView.Checked)
+            {
+                patientscomplaintsBindingSource.Filter = "[doctor]='" + prop.DocID + "'";
+                patientsdiagspatientBindingSource.Filter = "[doctor]='" + prop.DocID + "'";
+                patientsplanletsBindingSource.Filter = "[doctor]='" + prop.DocID + "'";
+                patientsanamnesisDiseasesBindingSource.Filter = "[doctor]='" + prop.DocID + "'";
+                patientsappointmentBindingSource.Filter = "[doctor]='" + prop.DocID + "'";
+                patientsobjectivelydataBindingSource.Filter = "[doctor]='" + prop.DocID + "'";
+                FindWhatToUpdate();
+            }
+            else
+            {
+                patientscomplaintsBindingSource.Filter = "";
+                patientsdiagspatientBindingSource.Filter = "";
+                patientsplanletsBindingSource.Filter = "";
+                patientsanamnesisDiseasesBindingSource.Filter = "";
+                patientsappointmentBindingSource.Filter = "";
+                patientsobjectivelydataBindingSource.Filter = "";
+                FindWhatToUpdate();
+            }
+        }
 
         #endregion
         //Done
 
         #region Касаемо Пациент
 
-
+        private void ComboBox1_TextChanged(object sender, EventArgs e)
+        {
+            try { comboBox1.SelectedValue = dBDS.patients.Select("full_name='" + comboBox1.Text + "'").First()[0]; }
+            catch { comboBox1.SelectedItem = comboBox1.Items[0]; }
+        }
         public void UpdatePatient()
         {
             try { Point = (int)comboBox1.SelectedValue; } catch { Point = 0; }
             if (TodayRad.Checked == true)
             {
-                this.patientsTableAdapter.FillbyApp(this.dBDS.patients, DateTime.Now.Date, prop.DocID);
-                AddBtn.Enabled = false; BtnGetPat.Enabled = false;
+                try
+                {
+                    this.patientsTableAdapter.FillbyApp(this.dBDS.patients,
+                        DateTime.Now.Date, prop.DocID);
+                    AddBtn.Enabled = false;
+                    BtnGetPat.Enabled = false; //appointmentTableAdapter.Fill(dBDS.appointment);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message); ChangeBtnEnabled();
+                    ChangeLbls(); return;
+                }
             }
             else
             {
-                this.patientsTableAdapter.Fill(this.dBDS.patients); AddBtn.Enabled = true; BtnGetPat.Enabled = true;
+                try
+                {
+                    this.patientsTableAdapter.Fill(this.dBDS.patients);
+                    AddBtn.Enabled = true;
+                    BtnGetPat.Enabled = true;//appointmentTableAdapter.Fill(dBDS.appointment);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message); ChangeBtnEnabled();
+                    ChangeLbls(); return;
+                }
             }
-            appointmentTableAdapter.Fill(dBDS.appointment);
             if (Point > 0) ChangePat();
             else if (Point == -1) IntForPatAdd();
             ChangeBtnEnabled();
@@ -367,15 +525,35 @@ namespace DentalMain
         {
             if (TodayRad.Checked == true)
             {
-                this.patientsTableAdapter.FillbyApp(this.dBDS.patients, DateTime.Now.Date, prop.DocID);
-                AddBtn.Enabled = false; BtnGetPat.Enabled = false;
+                try
+                {
+                    this.patientsTableAdapter.FillbyApp(this.dBDS.patients,
+                        DateTime.Now.Date, prop.DocID);
+                    AddBtn.Enabled = false;
+                    BtnGetPat.Enabled = false; //appointmentTableAdapter.Fill(dBDS.appointment);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message); ChangeBtnEnabled();
+                    ChangeLbls(); return;
+                }
             }
             else
             {
-                this.patientsTableAdapter.Fill(this.dBDS.patients); AddBtn.Enabled = true; BtnGetPat.Enabled = true;
+                try
+                {
+                    this.patientsTableAdapter.Fill(this.dBDS.patients);
+                    AddBtn.Enabled = true;
+                    BtnGetPat.Enabled = true; //appointmentTableAdapter.Fill(dBDS.appointment);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message); ChangeBtnEnabled();
+                    ChangeLbls(); return;
+                }
             }
             comboBox1.SelectedValue = index;
-            ChangeBtnEnabled();
+            ChangeBtnEnabled(); ChangeLbls();
         }
         public void ChangeBtnEnabled()
         {
@@ -385,6 +563,8 @@ namespace DentalMain
                 RengBtn.Enabled = false;
                 BtnAppointm.Enabled = false;
                 PatAppointm.Enabled = false;
+                AddPaided.Enabled = false;
+                labelDolg.Text = "";
             }
             else
             {
@@ -392,6 +572,7 @@ namespace DentalMain
                 RengBtn.Enabled = true;
                 BtnAppointm.Enabled = true;
                 PatAppointm.Enabled = true;
+                AddPaided.Enabled = true;
             }
         }
         private void radioButton2_CheckedChanged(object sender, EventArgs e)
@@ -417,6 +598,7 @@ namespace DentalMain
         {
             if (comboBox1.Text != "")
             {
+
                 ChangeLbls();
                 ChangeBtnEnabled();
             }
@@ -431,9 +613,9 @@ namespace DentalMain
             catch
             {
                 toolStripPat.Text = "Не обрано";
-                label3.Text = "Дата народження: Немає"; label2.Text=toolNumtel.Text = "Номер телефону: Немає"; return;
+                label3.Text = "Дата народження: Немає"; label2.Text = toolNumtel.Text = "Номер телефону: Немає"; return;
             }
-            if (a.Isphone_numberNull()==false || a.phone_number !="") label2.Text = toolNumtel.Text = "Номер телефону: " + a.phone_number;
+            if (a.Isphone_numberNull() == false || a.phone_number != "") label2.Text = toolNumtel.Text = "Номер телефону: " + a.phone_number;
             else label2.Text = toolNumtel.Text = "Номер телефону: Немає";
             try
             {
@@ -443,27 +625,6 @@ namespace DentalMain
             catch { label3.Text = "Дата народження: Немає"; }
             toolStripPat.Text = a.full_name;
             FindPaidedCost();
-        }
-        private void ChekDataView_CheckedChanged(object sender, EventArgs e)   //Зміна відображення записів стосовно одного або декількох лікарів
-        {
-            if (ChekDataView.Checked)
-            {
-                patientscomplaintsBindingSource.Filter = "[doctor]='" + prop.DocID + "'";
-                patientsdiagspatientBindingSource.Filter = "[doctor]='" + prop.DocID + "'";
-                patientsplanletsBindingSource.Filter = "[doctor]='" + prop.DocID + "'";
-                patientsanamnesisDiseasesBindingSource.Filter = "[doctor]='" + prop.DocID + "'";
-                patientsappointmentBindingSource.Filter = "[doctor]='" + prop.DocID + "'";
-                FindWhatToUpdate();
-            }
-            else
-            {
-                patientscomplaintsBindingSource.Filter = "";
-                patientsdiagspatientBindingSource.Filter = "";
-                patientsplanletsBindingSource.Filter = "";
-                patientsanamnesisDiseasesBindingSource.Filter = "";
-                patientsappointmentBindingSource.Filter = "";
-                FindWhatToUpdate();
-            }
         }
         public void UpdateWithSavePos()
         {
@@ -476,7 +637,7 @@ namespace DentalMain
         }
         private void RengBtn_Click(object sender, EventArgs e)
         {
-            work.InitPatDir((int)comboBox1.SelectedValue,comboBox1.Text);
+            work.InitPatDir((int)comboBox1.SelectedValue, prop.DocID);
         }
         private void BtnAppointm_Click(object sender, EventArgs e)
         {
@@ -487,7 +648,7 @@ namespace DentalMain
             Word.Paragraph objpar = objdoc.Paragraphs.Add();
             objpar.Range.Font.Name = "Times New Roman";
             objpar.Range.Font.Size = 14;
-            objpar.Range.Text = "Пацієнт: " + comboBox1.Text + "\n";objpar.Range.Font.Size = 14;
+            objpar.Range.Text = "Пацієнт: " + comboBox1.Text + "\n"; objpar.Range.Font.Size = 14;
             objpar.Range.Font.Name = "Times New Roman";
             anamnesisTableAdapter.Fill(dBDS.anamnesis);
             diseases_anamTableAdapter.Fill(dBDS.diseases_anam);
@@ -496,17 +657,17 @@ namespace DentalMain
             string promperm = "";
             foreach (dBDS.anamnesisRow f in dBDS.anamnesis.Select("patient='" + comboBox1.SelectedValue + "' and type_anamn='Життя'"))
             {
-                promperm += f.diseases_anamRow.disease_name+", ";
+                promperm += f.diseases_anamRow.disease_name + ", ";
             }
-            if(promperm!="")objpar.Range.Text += "Анамнез життя: "+promperm.Substring(0, promperm.Length - 2) + ".";
+            if (promperm != "") objpar.Range.Text += "Анамнез життя: " + promperm.Substring(0, promperm.Length - 2) + ".";
             promperm = "";
             foreach (dBDS.anamnesisRow f in dBDS.anamnesis.Select("patient='" + comboBox1.SelectedValue + "' and type_anamn='Алергологічний'"))
             {
                 promperm += f.diseases_anamRow.disease_name + ", ";
             }
-            if(promperm!="")objpar.Range.Text += "Анамнез алергологічний: "+promperm.Substring(0, promperm.Length - 2) + ".";
+            if (promperm != "") objpar.Range.Text += "Анамнез алергологічний: " + promperm.Substring(0, promperm.Length - 2) + ".";
             promperm = "";
-            foreach (dBDS.diags_patientRow f in dBDS.diags_patient.Select("patient='" + comboBox1.SelectedValue +"'"))
+            foreach (dBDS.diags_patientRow f in dBDS.diags_patient.Select("patient='" + comboBox1.SelectedValue + "'"))
             {
                 promperm += f.diagnosisRow.name_diag + (f.tooth == "" ? ", " : ", зуб(ы): " + f.tooth + ", ");
             }
@@ -515,14 +676,14 @@ namespace DentalMain
             this.appointmentTableAdapter.Fill(dBDS.appointment);
             objpar.Range.Font.Size = 14;
             objpar.Range.Text += "\rСписок відвідувань:";
-            
+
             objpar.Range.Bold = 3;
-            
+
             this.possibleComplTableAdapter.Fill(dBDS.possibleCompl);
             this.complaintsTableAdapter.Fill(dBDS.complaints);
             this.anamndis_diseasesTableAdapter.Fill(dBDS.anamndis_diseases);
             this.anamnesisDiseasesTableAdapter.Fill(dBDS.anamnesisDiseases);
-            
+
             servicesTableAdapter.Fill(dBDS.services);
             appointment_servicesTableAdapter.Fill(dBDS.appointment_services);
             Word.Paragraph objpar2 = objdoc.Paragraphs.Add();
@@ -544,7 +705,7 @@ namespace DentalMain
                     objpar2.Range.Text += "СКАРГИ: ";
                     objpar2.Range.Bold = 3;
                     objpar2.Range.Font.Size = 11;
-                    objpar2.Range.Text+=frm.Substring(0, frm.Length - 2) + ".";
+                    objpar2.Range.Text += frm.Substring(0, frm.Length - 2) + ".";
                     objpar2.Range.Bold = 0;
                 }
                 frm = "";
@@ -561,6 +722,19 @@ namespace DentalMain
                     objpar2.Range.Bold = 0;
                 }
 
+                frm = "";
+                foreach (dBDS.objectively_dataRow m in dBDS.objectively_data.Select("patient='" + comboBox1.SelectedValue + "' and obj_date=#" + date + "#"))
+                {
+                    frm += m.possibleObjectiveRow.description_objective + ", ";
+                }
+                if (frm != "")
+                {
+                    objpar2.Range.Text += "ОБ`ЄКТИВНО ЗА ЦЕЙ ДЕНЬ: ";
+                    objpar2.Range.Bold = 3;
+                    objpar2.Range.Font.Size = 11;
+                    objpar2.Range.Text += frm.Substring(0, frm.Length - 2) + ".";
+                    objpar2.Range.Bold = 0;
+                }
                 frm = "";
                 foreach (dBDS.diags_patientRow m in dBDS.diags_patient.Select("patient='" + comboBox1.SelectedValue + "' and find_date=#" + date + "#"))
                 {
@@ -586,9 +760,9 @@ namespace DentalMain
                     }
                     if (frm != "")
                     {
-                        objpar2.Range.Text += "ПО ДІАГНОЗУ: "+m.diagnosisRow.name_diag + " ПОСЛУГИ:" ;
+                        objpar2.Range.Text += "ПО ДІАГНОЗУ: " + m.diagnosisRow.name_diag + " ПОСЛУГИ:";
                         objpar2.Range.Bold = 0;
-                        objpar2.Range.Text+= frm.Substring(0, frm.Length - 2)+"."; 
+                        objpar2.Range.Text += frm.Substring(0, frm.Length - 2) + ".";
                         frm = "";
                     }
                 }
@@ -603,52 +777,40 @@ namespace DentalMain
             if (comboBox1.Text != "")
             {
                 dBDS.patientsRow f = dBDS.patients.FindByid_patient((int)comboBox1.SelectedValue);
-                decimal fulcostsum=0, paidedsum=0;
-                foreach(dBDS.appointmentRow m in dBDS.appointment.Select("patient='"+f.id_patient+"' and doctor='"+prop.DocID+"' and started=true"))
-                {
-                    fulcostsum += m.full_cost;
-                    if (f.debt < 0)
-                    {
-                        if (f.debt + (m.full_cost - m.paided) < (decimal)0)
-                        { f.debt += (m.full_cost - m.paided); m.paided = m.full_cost; }
-                        else
-                        {
-                           m.paided -= f.debt;
-                           f.debt -= f.debt;
-                        }
-                    }
-                    paidedsum += m.paided;
-                }
-                if (fulcostsum - paidedsum > 0)
-                { 
-                    labelDolg.Text = String.Format("{0: #.##}",fulcostsum-paidedsum);
-                }
-                else if(f.debt<0)
-                {
-                    labelDolg.Text = String.Format("{0: #.##}", f.debt);
-                }
+                labelDolg.Text = f.debt.ToString("#.##");
             }
-            try
-            {
-                this.patientsTableAdapter.Update(dBDS.patients);
-                this.appointmentTableAdapter.Update(dBDS.appointment);
-            }
-            catch { App.Text = "Помилка!";  FindWhatToUpdate(); }
         }
 
         private void AddPaided_Click(object sender, EventArgs e)
         {
             Decimal.TryParse(textBox2.Text, out decimal ValForAdd);
             dBDS.patientsRow m = dBDS.patients.FindByid_patient((int)comboBox1.SelectedValue);
-            m.debt += ValForAdd*(-1);
+            m.debt -= ValForAdd;
+            appointmentTableAdapter.Fill(dBDS.appointment);
+            foreach (dBDS.appointmentRow j in dBDS.appointment.Select("patient='" + comboBox1.SelectedValue + "' and full_cost>paided and started=true and ended=true"))
+            {
+                if (j.full_cost - j.paided > ValForAdd)
+                {
+                    j.paided += ValForAdd;
+                    ValForAdd = 0;
+                }
+                if (ValForAdd == 0) break;
+                ValForAdd -= (j.full_cost - j.paided);
+                j.paided = j.full_cost;
+            }
+            patientsTableAdapter.Update(m);
+            appointmentTableAdapter.Update(dBDS.appointment);
             FindPaidedCost();
         }
         #endregion
-        //almst
+        //feel done
 
         #region Вкладка Жалобы
 
-
+        private void TreeViewcompl_MouseDown(object sender, MouseEventArgs e)
+        {
+            TreeContextMenu(sender, e);
+        }
         private void BtnAddComplaint_Click(object sender, EventArgs e)   //Додавання скарги
         {
             if (ComplText.Text != "")
@@ -672,10 +834,10 @@ namespace DentalMain
                     }
                     treeViewcompl.EndUpdate();
                 }
-                else App.Text = "Такий запис на сьогодні вже існує";
+                else { App.Text = "Такий запис на сьогодні вже існує"; }
             }
             else
-                App.Text = "Не введена, або не правильно введена скарга";
+            { App.Text = "Не введена, або не правильно введена скарга"; }
         }
 
         public void UpdateComplaints()
@@ -760,7 +922,7 @@ namespace DentalMain
             List<string> Search = new List<string>();
             foreach (dBDS.diseases_anamRow m in dBDS.diseases_anam.Select("type_anamn='" + typeOfAnamn.Text + "'"))
             {
-                Tree.Add(new TreeNode(m.disease_name.ToLower()){ Name = m.id_disease_anam.ToString() });
+                Tree.Add(new TreeNode(m.disease_name.ToLower()) { Name = m.id_disease_anam.ToString() });
                 Search.Add(m.disease_name.ToLower());
             }
             treeViewAnamn.Nodes.AddRange(Tree.ToArray());
@@ -926,13 +1088,19 @@ namespace DentalMain
         {
             if (e.KeyCode == Keys.Enter)
             {
-                BtnAddAnmdis_Click(sender, new EventArgs());
+                BtnAddPlnLts_Click(sender, new EventArgs());
             }
         }
         #endregion
         //Done
 
         #region Вкладка Анамнез Болезни
+
+
+        private void DataGridView5_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+        }
 
         public void AnamnDisTreeFill()
         {
@@ -995,14 +1163,14 @@ namespace DentalMain
             {
                 if (e.Node.Checked)
                 {
-                    this.anamnesisDiseasesTableAdapter.Insert((int)comboBox1.SelectedValue, DateTime.Today, Convert.ToInt32(e.Node.Name),prop.DocID);
+                    this.anamnesisDiseasesTableAdapter.Insert((int)comboBox1.SelectedValue, DateTime.Today, Convert.ToInt32(e.Node.Name), prop.DocID);
                 }
                 else
                 {
                     foreach (dBDS.anamnesisDiseasesRow f in dBDS.anamnesisDiseases.Select("patient='" + comboBox1.SelectedValue + "' and date_anamndis=#"
                         + string.Format("{0: MM-dd-yyyy}", DateTime.Today) + "# and disease='" + e.Node.Name + "'"))
                     {
-                        this.anamnesisDiseasesTableAdapter.Delete(f.id_ananmdis, f.patient, f.date_anamndis, f.disease,f.doctor);
+                        this.anamnesisDiseasesTableAdapter.Delete(f.id_ananmdis, f.patient, f.date_anamndis, f.disease, f.doctor,f.delete);
                     }
                 }
                 this.anamnesisDiseasesTableAdapter.Fill(dBDS.anamnesisDiseases);
@@ -1020,7 +1188,98 @@ namespace DentalMain
         #endregion
         //Done
 
+        #region Об'єктивно
+
+
+        private void ObjSearch_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyData == Keys.Enter)
+            {
+                BtnAddObjective_Click(sender, new EventArgs());
+            }
+        }
+        public void FillObjectiveTree()
+        {
+            treeViewObjective.BeginUpdate();
+            treeViewObjective.Nodes.Clear();
+            ObjSearch.AutoCompleteCustomSource.Clear();
+            List<TreeNode> Tree = new List<TreeNode>();
+            List<string> Search = new List<string>();
+            foreach (dBDS.possibleObjectiveRow f in dBDS.possibleObjective)
+            {
+                Tree.Add(new TreeNode(f.description_objective.ToLower()) { Name = f.id_objective.ToString() });
+                Search.Add(f.description_objective.ToLower());
+            }
+            treeViewObjective.Nodes.AddRange(Tree.ToArray());
+            ObjSearch.AutoCompleteCustomSource.AddRange(Search.ToArray());
+            treeViewObjective.EndUpdate();
+        }
+
+        private void BtnAddObjective_Click(object sender, EventArgs e)
+        {
+            if (ObjSearch.Text != "")
+            {
+                if (dBDS.possibleObjective.Select("description_objective='" + ObjSearch.Text.ToLower() + "'").Count() == 0)
+                {
+                    this.possibleObjectiveTableAdapter.Insert(ObjSearch.Text.ToLower());
+                    this.possibleObjectiveTableAdapter.Fill(dBDS.possibleObjective);
+                    ObjSearch.AutoCompleteCustomSource.Add(ObjSearch.Text.ToLower());
+                    treeViewObjective.Nodes.Add(dBDS.possibleObjective.Last().id_objective.ToString(), ObjSearch.Text.ToLower()).Checked = true;
+                }
+                else
+                {
+                    int obj = ObjSearch.AutoCompleteCustomSource.IndexOf(ObjSearch.Text.ToLower());
+                    if (treeViewObjective.Nodes[obj].Checked == false)
+                        treeViewObjective.Nodes[obj].Checked = true;
+                }
+            }
+            else App.Text = "Не було введено запису!";
+        }
+
+        public void ObjChecking()
+        {
+            checker = false;
+            foreach (dBDS.objectively_dataRow f in dBDS.objectively_data.Select("patient='" + comboBox1.SelectedValue + "' and doctor='" +
+                prop.DocID + "' and obj_date='" + DateTime.Today + "'"))
+            {
+                treeViewObjective.Nodes[f.objective.ToString()].Checked = true;
+            }
+            checker = true;
+        }
+        private void TreeViewObjective_AfterCheck(object sender, TreeViewEventArgs e)
+        {
+            if (e.Node.Checked && checker)
+            {
+                this.objectively_dataTableAdapter.Insert(prop.DocID, (int)comboBox1.SelectedValue,
+                    Convert.ToInt32(e.Node.Name), DateTime.Today);
+                this.objectively_dataTableAdapter.Fill(dBDS.objectively_data);
+            }
+            else if (checker)
+            {
+                foreach (dBDS.objectively_dataRow f in dBDS.objectively_data.Select("patient='" + comboBox1.SelectedValue + "' and doctor='" +
+                    prop.DocID + "' and obj_date='" + DateTime.Today + "' and objective='" + e.Node.Name + "'"))
+                {
+                    this.objectively_dataTableAdapter.Delete(f.id_objectively, f.doctor, f.patient, f.objective, f.obj_date);
+                }
+                this.objectively_dataTableAdapter.Fill(dBDS.objectively_data);
+            }
+        }
+
+        private void TreeViewObjective_MouseDown(object sender, MouseEventArgs e)
+        {
+            TreeContextMenu(sender, e);
+        }
+
+        #endregion
+        // looks done
+
         #region Диагноз
+
+
+        private void DataGridView2_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
+            e.Cancel = true;
+        }
 
         private void DataGridView2_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
@@ -1037,10 +1296,10 @@ namespace DentalMain
 
         private void BtnAddDiag_Click(object sender, EventArgs e)
         {
-            if(diagnosisTextBox.Text!="")
+            if (diagnosisTextBox.Text != "")
             {
                 int kf = diagnosisTextBox.AutoCompleteCustomSource.IndexOf(diagnosisTextBox.Text.ToLower());
-                if(kf==-1)
+                if (kf == -1)
                 {
                     diagnosisTableAdapter.Insert(diagnosisTextBox.Text.ToLower());
                     diagnosisTableAdapter.Fill(dBDS.diagnosis);
@@ -1051,7 +1310,7 @@ namespace DentalMain
                 else
                 {
                     int mkf = Convert.ToInt32(treeViewDiag.Nodes[kf].Name);
-                    if (dBDS.diags_patient.Select("diagnosis='"+mkf+"' and tooth='"+teethTextBox.Text+"' and find_date=#"+String.Format("{0: MM-dd-yyyy}",DateTime.Today)+"# and patient='"+comboBox1.SelectedValue+"' and doctor='"+prop.DocID+"'").Count()==0)
+                    if (dBDS.diags_patient.Select("diagnosis='" + mkf + "' and tooth='" + teethTextBox.Text + "' and find_date=#" + String.Format("{0: MM-dd-yyyy}", DateTime.Today) + "# and patient='" + comboBox1.SelectedValue + "' and doctor='" + prop.DocID + "'").Count() == 0)
                         diags_patientTableAdapter.Insert(Convert.ToInt32(treeViewDiag.Nodes[kf].Name), teethTextBox.Text, DateTime.Today, (int)comboBox1.SelectedValue, prop.DocID);
                 }
                 diags_patientTableAdapter.Fill(dBDS.diags_patient);
@@ -1079,10 +1338,6 @@ namespace DentalMain
         {
             diagnosisTextBox.Text = e.Node.Text;
         }
-        private void DataGridView2_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
-        {
-            DeleteDiagFromAppointm((int)e.Row.Cells[3].Value);
-        }
 
         #endregion
         //Done
@@ -1090,18 +1345,30 @@ namespace DentalMain
         #region Вкладка Лечение(обслуживание) пациентов
 
         public void FillAppoint()
-        {
-            this.servicesTableAdapter.Fill(dBDS.services);
-            this.diagnosisTableAdapter.Fill(dBDS.diagnosis);
-            this.diags_patientTableAdapter.Fill(dBDS.diags_patient);
-            this.postTableAdapter.Fill(dBDS.post);
-            this.post_servicesTableAdapter.Fill(dBDS.post_services);
-            this.post_doctorTableAdapter.Fill(dBDS.post_doctor);
-            this.appointmentTableAdapter.Fill(dBDS.appointment);
-            this.appointment_servicesTableAdapter.Fill(dBDS.appointment_services);
-            this.appointment_materialsTableAdapter.Fill(dBDS.appointment_materials);
-            this.materialsTableAdapter.Fill(dBDS.materials);
-            this.serv_materialTableAdapter.Fill(dBDS.serv_material);
+        { 
+            try
+            {
+                this.servicesTableAdapter.Fill(dBDS.services);
+                this.diagnosisTableAdapter.Fill(dBDS.diagnosis);
+                this.diags_patientTableAdapter.Fill(dBDS.diags_patient);
+                this.postTableAdapter.Fill(dBDS.post);
+                this.post_servicesTableAdapter.Fill(dBDS.post_services);
+                this.post_doctorTableAdapter.Fill(dBDS.post_doctor);
+                this.appointmentTableAdapter.Fill(dBDS.appointment);
+                this.appointment_servicesTableAdapter.Fill(dBDS.appointment_services);
+                this.appointment_materialsTableAdapter.Fill(dBDS.appointment_materials);
+                this.materialsTableAdapter.Fill(dBDS.materials);
+                this.serv_materialTableAdapter.Fill(dBDS.serv_material);
+            }
+            catch (Exception ex)
+            {
+                if (MessageBox.Show(ex.Message + "\n Перезавантаження програми повинно виправити цю помилку! \n Бажаєте перезавантажити програму?",
+                    "Стоматологічний кабінет", MessageBoxButtons.YesNo) == DialogResult.Yes) { Application.Restart(); }
+                else
+                {
+                    return;
+                }
+            }
         }
 
         public void CheckAppointmChoose(bool fa)
@@ -1114,7 +1381,6 @@ namespace DentalMain
             tableLayoutPanel6.Controls["label26"].Enabled = true;
             tableLayoutPanel6.Controls["HealingTreeDiag"].Enabled = true;
             tableLayoutPanel6.Controls["PaidGB"].Enabled = true;
-          
         }
 
         public void AppointFillTree()
@@ -1134,7 +1400,7 @@ namespace DentalMain
                         Search.Add(m.servicesRow.name_service.ToLower());
                     }
                 }
-            }ServTree.Nodes.AddRange(Tree.ToArray());
+            } ServTree.Nodes.AddRange(Tree.ToArray());
             ServSearch.AutoCompleteCustomSource.AddRange(Search.ToArray());
             ServTree.EndUpdate();
         }
@@ -1185,6 +1451,7 @@ namespace DentalMain
 
         public void UpdateCost()
         {
+            if (AppointBox.SelectedValue == null) { treeView1.Nodes.Clear(); CheckPaided(); return; }
             decimal sum = 0;
             treeView1.Nodes.Clear();
             foreach (dBDS.appointment_servicesRow m in dBDS.appointment_services.Select("appoinment='" + AppointBox.SelectedValue + "'"))
@@ -1193,7 +1460,7 @@ namespace DentalMain
                 if (m.includes)
                 {
                     sum += fk.cost;
-                    treeView1.Nodes.Add(m.id_app_serv.ToString(), fk.name_service + ": " + fk.cost+"; Діагноз: "+dBDS.diags_patient.FindByid_diag_patient(m.appointm_diagnosis).diagnosisRow.name_diag+";");
+                    treeView1.Nodes.Add(m.id_app_serv.ToString(), fk.name_service + ": " + fk.cost + "; Діагноз: " + dBDS.diags_patient.FindByid_diag_patient(m.appointm_diagnosis).diagnosisRow.name_diag + ";");
                     decimal dblsum = 0;
                     foreach (dBDS.appointment_materialsRow s in dBDS.appointment_materials.Select("app_doctor_service='" + m.id_app_serv + "'"))
                     {
@@ -1229,8 +1496,8 @@ namespace DentalMain
 
         private void button5_Click(object sender, EventArgs e)
         {
-            if (AppointBox.Text == "") return; 
-            dBDS.appointmentRow m = dBDS.appointment.FindByid_appointment((int)AppointBox.SelectedValue); 
+            if (AppointBox.Text == "") return;
+            dBDS.appointmentRow m = dBDS.appointment.FindByid_appointment((int)AppointBox.SelectedValue);
             m.paided = m.full_cost;
             CheckPaided();
             appointmentTableAdapter.Update(dBDS.appointment);
@@ -1240,18 +1507,27 @@ namespace DentalMain
         {
             if (AppointBox.Text == "") return;
             dBDS.appointmentRow m = dBDS.appointment.FindByid_appointment((int)AppointBox.SelectedValue);
-            decimal.TryParse(textBox1.Text.Replace(".", ","),out decimal mk);
-            if (m.paided + mk > 0)
+            decimal.TryParse(textBox1.Text.Replace(".", ","), out decimal mk);
+            if (m.paided + mk > 0 && m.paided + mk <= m.full_cost)
                 m.paided += mk;
+            else if (m.paided + mk > m.full_cost && MessageBox.Show("Додана сума перевищує ціну. Бажаєте додати до авансу/довгу?",
+                "Фінансування", MessageBoxButtons.OKCancel) == DialogResult.OK)
+            {
+                mk -= (m.full_cost - m.paided);
+                m.paided = m.full_cost;
+                dBDS.patients.FindByid_patient((int)comboBox1.SelectedValue).debt -= mk;
+            }
             else
                 m.paided = 0;
+            patientsTableAdapter.Update(dBDS.patients);
+            appointmentTableAdapter.Update(dBDS.appointment);
             CheckPaided();
         }
         public void CheckPaided()
         {
-            if (AppointBox.Text == "") return;
+            if (AppointBox.Text == "") { label19.Text = "Статус оплати: не розпочато"; label17.Text = "0 грн."; AvanceGet(); return; }
             dBDS.appointmentRow m = dBDS.appointment.FindByid_appointment((int)AppointBox.SelectedValue);
-            if ((m.full_cost.ToString("#.##") == m.paided.ToString("#.##")  || m.full_cost<m.paided) && m.started == true)
+            if ((m.full_cost.ToString("#.##") == m.paided.ToString("#.##") || m.full_cost < m.paided) && m.started == true)
             {
                 label19.Text = "Статус оплати: все оплачено";
             }
@@ -1263,7 +1539,12 @@ namespace DentalMain
                 label19.Text += " довг: " + (m.full_cost - m.paided).ToString("#.##") + " грн.";
             }
             else { label19.Text = "Статус оплати: не розпочато"; }
-            decimal jk=dBDS.patients.FindByid_patient((int)comboBox1.SelectedValue).debt;
+            AvanceGet();
+        }
+
+        public void AvanceGet()
+        {
+            decimal jk = dBDS.patients.FindByid_patient((int)comboBox1.SelectedValue).debt;
             if (jk < 0) label31.Text = "Аванс: " + String.Format("{0:#.##}", jk * (-1));
             else label31.Text = "Аванс: немає";
         }
@@ -1278,7 +1559,7 @@ namespace DentalMain
         {
             HealingTreeDiag.BeginUpdate();
             HealingTreeDiag.Nodes.Clear();
-            foreach(dBDS.diags_patientRow f in dBDS.diags_patient.Select("patient='"+comboBox1.SelectedValue+"'"))
+            foreach (dBDS.diags_patientRow f in dBDS.diags_patient.Select("patient='" + comboBox1.SelectedValue + "'"))
             {
                 HealingTreeDiag.Nodes.Add(f.id_diag_patient.ToString(), f.diagnosisRow.name_diag + " зуб(и): " + f.tooth);
             }
@@ -1291,43 +1572,8 @@ namespace DentalMain
             else CheckAppointmChoose(false);
         }
 
-        private void DataGridView5_DataError(object sender, DataGridViewDataErrorEventArgs e)
-        {
-            e.Cancel = true;
-        }
-
-        private void DataGridView2_DataError(object sender, DataGridViewDataErrorEventArgs e)
-        {
-            e.Cancel = true;
-        }
-
-        private void BtnPayByAvnc_Click(object sender, EventArgs e)
-        {
-            if (AppointBox.Text == "") return;
-            dBDS.patientsRow f = dBDS.patients.FindByid_patient((int)comboBox1.SelectedValue);
-            dBDS.appointmentRow m = dBDS.appointment.FindByid_appointment((int)AppointBox.SelectedValue);
-            if (f.debt > 0) return;
-            if (m.paided < m.full_cost)
-            {
-                if(f.debt+(m.full_cost-m.paided)<0)
-                {
-                    f.debt += (m.full_cost-m.paided);
-                    m.paided = m.full_cost;
-                }
-                else
-                {
-                     f.debt -= f.debt;
-                     m.paided -=f.debt;
-                }
-            }
-            App.Text += f.debt;
-            this.patientsTableAdapter.Update(dBDS.patients);
-            this.appointmentTableAdapter.Update(dBDS.appointment);
-            CheckPaided();
-        }
-
         private void AppointBox_SelectedValueChanged(object sender, EventArgs e)
-        { 
+        {
             if (AppointBox.Text != "" && MainTab.SelectedIndex == 6)
                 UpdateCost();
         }
@@ -1337,63 +1583,61 @@ namespace DentalMain
             if (AppointBox.Text == "") return;
             dBDS.appointment.FindByid_appointment((int)AppointBox.SelectedValue).paided = 0;
             appointmentTableAdapter.Update(dBDS.appointment);
+            UpdateCost();
         }
 
-        private void TreeViewcompl_MouseDown(object sender, MouseEventArgs e)
-        {
-            TreeContextMenu(sender, e);
-        }
 
-        public void TreeContextMenu(object sender, MouseEventArgs e)
+        private void Button4_Click(object sender, EventArgs e)  //end appointment
         {
-            if (sender is TreeView tree)
+            dBDS.appointmentRow f = dBDS.appointment.FindByid_appointment((int)AppointBox.SelectedValue);
+            f.ended = true;
+            dBDS.patientsRow m = dBDS.patients.FindByid_patient((int)comboBox1.SelectedValue);
+            if (m.debt < 0 && f.full_cost > f.paided)
             {
-                if (e.Button != MouseButtons.Right) return;
-                TreeNode node = tree.GetNodeAt(e.X, e.Y);
-                TreeNode Backnode = tree.SelectedNode;
-                tree.SelectedNode = node;
-                if (node == null) { tree.SelectedNode = Backnode; return; }
-                am = node;
-                contextMenuStrip1.Show(tree, e.X, e.Y);
+                if (MessageBox.Show("Бажаєти додати оплату з авансу?", "Гроші", MessageBoxButtons.OKCancel) == DialogResult.OK)
+                {
+                    if (m.debt * (-1) > f.full_cost - f.paided)
+                    {
+                        m.debt += (f.full_cost - f.paided);
+                        f.paided = f.full_cost;
+                    }
+                    else
+                    {
+                        f.paided -= m.debt;
+                        m.debt = 0;
+                    }
+                }
+                else
+                {
+                    m.debt += (f.full_cost - f.paided);
+                }
+
             }
+            dBDS.patients.FindByid_patient((int)comboBox1.SelectedValue).debt += (f.full_cost - f.paided);
+            patientsTableAdapter.Update(dBDS.patients);
+            appointmentTableAdapter.Update(f);
+            FindWhatToUpdate();
         }
 
-        private void CloseWind_Click(object sender, EventArgs e)
+        private void ChangeView_Click(object sender, EventArgs e)
         {
-            Form[] a = new Form[this.MdiChildren.Count()];
-            int i = 0;
-            foreach (Form f in this.MdiChildren)
-            {
-                a[i] = f;
-                i++;
-            }
-            for (int j=0;j<i;j++)
-            {
-                if (a[j] is MainForm) continue;
-                a[j].Close();
-            }
-            CloserWindows();
+            if (ChangeView.Checked)
+            { FindWhatToUpdate(); }
         }
 
-        private void ChangeView_CheckStateChanged(object sender, EventArgs e)
+        private void TextBox2_TextChanged(object sender, EventArgs e)
         {
-          //  CloserWindows();
+            App.ChangeObjectText(sender);
         }
 
-        private void MainForm_MdiChildActivate(object sender, EventArgs e)
+        private void TextBox1_TextChanged(object sender, EventArgs e)
         {
-            CloserWindows();
+            App.ChangeObjectText(sender);
         }
 
-        private void ComboBox1_TextUpdate(object sender, EventArgs e)
+        private void АдмініструванняToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
-        }
-
-        private void ComboBox1_TextChanged(object sender, EventArgs e)
-        {
-            try { comboBox1.SelectedValue = dBDS.patients.Select("full_name='" + comboBox1.Text + "'").First()[0]; }
-            catch { comboBox1.SelectedItem = comboBox1.Items[0]; }
+            mf.AdmPanel();
         }
 
         #endregion
@@ -1402,7 +1646,7 @@ namespace DentalMain
     }
     #endregion
 
-    #region Запись/Считывание файлов, создание форм, обьявление различных класов
+    #region Запись/Считывание файлов, создание форм, реализация различных класов
 
     //технічна частина
 
@@ -1410,19 +1654,20 @@ namespace DentalMain
     {
         public int DocID;
         public int Mode;
+        public string Pass;
     }
     public class ApplicationWork
     {
-        public void InitPatDir(int pat_id,string full_nm)
+        public void InitPatDir(int pat_id, int docid)
         {
-            try
+            if (Application.OpenForms["RengenForm"] is RengenForm f)
             {
-                System.Diagnostics.Process.Start(Path.GetDirectoryName(Application.ExecutablePath) + @"\Пацієнти\" + pat_id+ "_" + full_nm + @"\Рентген");
+                f.Activate();
             }
-            catch
+            else
             {
-                Directory.CreateDirectory(Path.GetDirectoryName(Application.ExecutablePath) + @"\Пацієнти\" + pat_id + "_" + full_nm + @"\Рентген");
-                System.Diagnostics.Process.Start(Path.GetDirectoryName(Application.ExecutablePath) + @"\Пацієнти\" + pat_id + "_" + full_nm + @"\Рентген");
+                f = new RengenForm(pat_id, docid);
+                f.Show();
             }
 
         }
@@ -1447,6 +1692,7 @@ namespace DentalMain
                 {
                     prop = (properties)f.Deserialize(r);
                 }
+                
             }
             catch
             {
@@ -1455,6 +1701,7 @@ namespace DentalMain
                 {
                     prop.DocID = -1;
                     prop.Mode = 3;
+                    prop.Pass = "";
                     f.Serialize(r, prop);
                 }
             }
@@ -1477,6 +1724,29 @@ namespace DentalMain
 
     public class CreatorForms
     {
+        public string Str;
+        public void AdmPanel()
+        {
+            AdmPanelForm f = new AdmPanelForm();
+            f.ShowDialog();
+           /* if (DentalMain.Properties.Settings.Default.Pass == "")
+            {
+                passForm f = new passForm(false);
+                if (f.ShowDialog() == DialogResult.OK)
+                {
+                    DentalMain.Properties.Settings.Default.ChangePass(Str);
+                }
+            }
+            else
+            {
+                passForm jj = new passForm(true);
+                if (jj.ShowDialog() == DialogResult.OK)
+                {
+                    AdmPanelForm m = new AdmPanelForm();
+                    m.ShowDialog();
+                }
+            }*/
+        }
         public bool AnamnezAnthrFormDialog(TreeNode am,string anmtp)
         {
             SmallDataChanger f = new SmallDataChanger("AnmAll", am,anmtp);
@@ -1502,8 +1772,11 @@ namespace DentalMain
             SmallDataChanger f = new SmallDataChanger("Diag",am);
             return f.ShowDialog()==DialogResult.OK;
         }
-
-
+        public bool ObjectiveFormDialog(TreeNode am)
+        {
+            SmallDataChanger f = new SmallDataChanger("Obj", am);
+                return f.ShowDialog() == DialogResult.OK;
+        }
         public void AppointmentsForm(int jade,bool jkk)
         {
             if (jkk)
@@ -1634,11 +1907,11 @@ namespace DentalMain
             SettingsApp f = new SettingsApp(prop.DocID, prop.Mode);
             return f.ShowDialog();
         }
-        public int PatientAddFormDialog()
+        public void PatientAddFormDialog(MainForm end)
         {
             PatientAdd f = new PatientAdd();
-            if (f.ShowDialog() == DialogResult.OK) return -1;
-            else return 0;
+            f.Owner = end;
+            f.ShowDialog();
         }
     }
         #endregion
