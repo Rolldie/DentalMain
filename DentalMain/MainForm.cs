@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using Word = Microsoft.Office.Interop.Word;
@@ -433,12 +433,12 @@ namespace DentalMain
         }
         public void Namingform()  //Формування назви головної форми та блокування функцій в залежності від режиму роботи
         {
-            try
-            {
-                Text = "Додаток Стоматологія: " + dBDS.doctors.FindByid_doctor(prop.DocID).full_name;
+            if(dBDS.doctors.FindByid_doctor(prop.DocID)!=null)
+            { 
+                Text = $"Додаток Стоматологія: {dBDS.doctors.FindByid_doctor(prop.DocID).full_name}";
                 MainTab.Enabled = true;
             }
-            catch
+            else
             {
                 Text = "Додаток Стоматологія: Не обран лікар"; prop.Mode = 1;
                 MainTab.Enabled = false;
@@ -485,7 +485,7 @@ namespace DentalMain
         }
         public void UpdatePatient()
         {
-            try { Point = (int)comboBox1.SelectedValue; } catch { Point = 0; }
+            if(comboBox1.SelectedValue!=null) Point = (int)comboBox1.SelectedValue; else  Point = 0; 
             if (TodayRad.Checked == true)
             {
                 try
@@ -606,12 +606,9 @@ namespace DentalMain
         public void ChangeLbls()   //Знаходження даних пацієнта та відображення їх на вкладці у підписах
         {
             dBDS.patientsRow a = null;
-            try
-            {
+            if(comboBox1.SelectedValue!=null && dBDS.patients.FindByid_patient((int)comboBox1.SelectedValue)!=null)
                 a = dBDS.patients.FindByid_patient((int)comboBox1.SelectedValue);
-            }
-            catch
-            {
+            else { 
                 toolStripPat.Text = "Не обрано";
                 label3.Text = "Дата народження: Немає"; label2.Text = toolNumtel.Text = "Номер телефону: Немає"; return;
             }
@@ -1170,7 +1167,7 @@ namespace DentalMain
                     foreach (dBDS.anamnesisDiseasesRow f in dBDS.anamnesisDiseases.Select("patient='" + comboBox1.SelectedValue + "' and date_anamndis=#"
                         + string.Format("{0: MM-dd-yyyy}", DateTime.Today) + "# and disease='" + e.Node.Name + "'"))
                     {
-                        this.anamnesisDiseasesTableAdapter.Delete(f.id_ananmdis, f.patient, f.date_anamndis, f.disease, f.doctor,f.delete);
+                        this.anamnesisDiseasesTableAdapter.Delete(f.id_ananmdis, f.patient, f.date_anamndis, f.disease, f.doctor, f.delete);
                     }
                 }
                 this.anamnesisDiseasesTableAdapter.Fill(dBDS.anamnesisDiseases);
@@ -1345,7 +1342,7 @@ namespace DentalMain
         #region Вкладка Лечение(обслуживание) пациентов
 
         public void FillAppoint()
-        { 
+        {
             try
             {
                 this.servicesTableAdapter.Fill(dBDS.services);
@@ -1400,7 +1397,8 @@ namespace DentalMain
                         Search.Add(m.servicesRow.name_service.ToLower());
                     }
                 }
-            } ServTree.Nodes.AddRange(Tree.ToArray());
+            }
+            ServTree.Nodes.AddRange(Tree.ToArray());
             ServSearch.AutoCompleteCustomSource.AddRange(Search.ToArray());
             ServTree.EndUpdate();
         }
@@ -1692,7 +1690,7 @@ namespace DentalMain
                 {
                     prop = (properties)f.Deserialize(r);
                 }
-                
+
             }
             catch
             {
@@ -1729,55 +1727,55 @@ namespace DentalMain
         {
             AdmPanelForm f = new AdmPanelForm();
             f.ShowDialog();
-           /* if (DentalMain.Properties.Settings.Default.Pass == "")
-            {
-                passForm f = new passForm(false);
-                if (f.ShowDialog() == DialogResult.OK)
-                {
-                    DentalMain.Properties.Settings.Default.ChangePass(Str);
-                }
-            }
-            else
-            {
-                passForm jj = new passForm(true);
-                if (jj.ShowDialog() == DialogResult.OK)
-                {
-                    AdmPanelForm m = new AdmPanelForm();
-                    m.ShowDialog();
-                }
-            }*/
+            /* if (DentalMain.Properties.Settings.Default.Pass == "")
+             {
+                 passForm f = new passForm(false);
+                 if (f.ShowDialog() == DialogResult.OK)
+                 {
+                     DentalMain.Properties.Settings.Default.ChangePass(Str);
+                 }
+             }
+             else
+             {
+                 passForm jj = new passForm(true);
+                 if (jj.ShowDialog() == DialogResult.OK)
+                 {
+                     AdmPanelForm m = new AdmPanelForm();
+                     m.ShowDialog();
+                 }
+             }*/
         }
-        public bool AnamnezAnthrFormDialog(TreeNode am,string anmtp)
+        public bool AnamnezAnthrFormDialog(TreeNode am, string anmtp)
         {
-            SmallDataChanger f = new SmallDataChanger("AnmAll", am,anmtp);
-            return f.ShowDialog()==DialogResult.OK;
+            SmallDataChanger f = new SmallDataChanger("AnmAll", am, anmtp);
+            return f.ShowDialog() == DialogResult.OK;
         }
         public bool ComplaintsFormDialog(TreeNode am)
         {
             SmallDataChanger f = new SmallDataChanger("Compl", am);
-            return f.ShowDialog()==DialogResult.OK;
+            return f.ShowDialog() == DialogResult.OK;
         }
         public bool PlanLetsFormDialog(TreeNode am)
         {
             SmallDataChanger f = new SmallDataChanger("Pln", am);
-            return f.ShowDialog()==DialogResult.OK;
+            return f.ShowDialog() == DialogResult.OK;
         }
         public bool AnamnezDiseaseFormDialog(TreeNode am)
         {
             SmallDataChanger f = new SmallDataChanger("AnmDis", am);
-             return f.ShowDialog()==DialogResult.OK;
+            return f.ShowDialog() == DialogResult.OK;
         }
         public bool DiagnosisFormDialog(TreeNode am)
         {
-            SmallDataChanger f = new SmallDataChanger("Diag",am);
-            return f.ShowDialog()==DialogResult.OK;
+            SmallDataChanger f = new SmallDataChanger("Diag", am);
+            return f.ShowDialog() == DialogResult.OK;
         }
         public bool ObjectiveFormDialog(TreeNode am)
         {
             SmallDataChanger f = new SmallDataChanger("Obj", am);
-                return f.ShowDialog() == DialogResult.OK;
+            return f.ShowDialog() == DialogResult.OK;
         }
-        public void AppointmentsForm(int jade,bool jkk)
+        public void AppointmentsForm(int jade, bool jkk)
         {
             if (jkk)
             {
@@ -1914,6 +1912,6 @@ namespace DentalMain
             f.ShowDialog();
         }
     }
-        #endregion
+    #endregion
     //done
 }

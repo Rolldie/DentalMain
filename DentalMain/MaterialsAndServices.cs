@@ -11,15 +11,23 @@ namespace DentalMain
 {
     public partial class MaterialsAndServices : Form
     {
+        private bool isClose = false;
         public MaterialsAndServices()
         {
             InitializeComponent();
+            this.Shown += MaterialsAndServices_Shown;
         }
 
-        private void MaterialsAndServices_Load(object sender, EventArgs e)
+        private void MaterialsAndServices_Shown(object sender, EventArgs e)
         {
-            Updating();
+            TryClose();
+        }
+
+        private void TryClose() {if(isClose) Close(); }
+        private void MaterialsAndServices_Load(object sender, EventArgs e)
+        { 
             helpProvider1.HelpNamespace = Application.StartupPath + "//Help//help.chm";
+            Updating();
         }
 
 
@@ -34,7 +42,7 @@ namespace DentalMain
                     f.ShowDialog();
                     Updating();
                 }
-                else { Close(); }
+                else { isClose = true; }
             }
         }
         public void UpdServ()
